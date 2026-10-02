@@ -55,16 +55,13 @@ jobs:
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
         run: python fetch_crypto.py --mode "${{ steps.mode.outputs.mode }}"
 
-      -       - name: Commit results
+      - name: Commit results
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Force git to see the new files if they exist
-          git add crypto_data.json alerts_state.json spike_lab.json || true
-          
+          git add -A crypto_data.json alerts_state.json spike_lab.json 2>/dev/null || true
           if git diff --staged --quiet; then
-            echo "No changes to commit. Check if crypto_data.json was actually generated!"
+            echo "No changes to commit."
           else
             git commit -m "chore(${{ steps.mode.outputs.mode }}): $(date -u +%FT%H:%MZ)"
             git pull --rebase --autostash
