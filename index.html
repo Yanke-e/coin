@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#05080e">
+<title>Crypto Intelligence Terminal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --bg:#05080e; --panel:#0b121d; --panel-2:#0f1826; --line:#1a2740; --line-2:#24344f;
+    --text:#d7e2f0; --mute:#7d8fa9; --dim:#4f6180;
+    --cyan:#22d3ee; --emerald:#34d399; --rose:#fb7185; --amber:#fbbf24; --violet:#a5b4fc;
+  }
+  html{background:var(--bg);-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:'Barlow Semi Condensed',system-ui,sans-serif;font-size:15px;
+    background-image:
+      linear-gradient(rgba(34,211,238,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,211,238,.035) 1px,transparent 1px);
+    background-size:32px 32px;
+  }
+  body.locked{overflow:hidden}
+  .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  .up{color:var(--emerald)} .down{color:var(--rose)} .flat{color:var(--mute)} .cy{color:var(--cyan)}
+  header.top{
+    position:sticky;top:0;z-index:30;background:rgba(5,8,14,.92);backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:6px}
+  .cell{background:var(--panel-2);border:1px solid var(--line);border-radius:4px;padding:6px 8px;min-width:0}
+  .cell .k{font-size:11px;color:var(--mute);line-height:1.1}
+  .cell .v{font-size:12.5px;line-height:1.35;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .seg{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .seg::-webkit-scrollbar{display:none}
+  .seg button{
+    flex:0 0 auto;border:1px solid var(--line-2);background:var(--panel);color:var(--mute);
+    padding:9px 14px;border-radius:4px;font-weight:600;font-size:14px;min-height:40px;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .seg button[aria-pressed="true"]{background:rgba(34,211,238,.12);border-color:var(--cyan);color:var(--cyan)}
+  .chip{
+    flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--mute);
+    padding:6px 11px;border-radius:999px;font-size:13px;font-weight:500;min-height:32px
+  }
+  .seg button.chip{padding:6px 11px;min-height:32px;font-size:13px;font-weight:500;border-radius:999px;background:transparent;border-color:var(--line)}
+  .seg button.chip[aria-pressed="true"]{border-color:var(--emerald);color:var(--emerald);background:rgba(52,211,153,.08)}
+  .badge{display:inline-flex;align-items:center;gap:4px;border-radius:3px;padding:1px 6px;font-size:11px;font-weight:600;border:1px solid}
+  .b-scarce{color:var(--cyan);border-color:rgba(34,211,238,.45);background:rgba(34,211,238,.08)}
+  .b-eco{color:var(--violet);border-color:rgba(165,180,252,.4);background:rgba(165,180,252,.08)}
+  .b-hot{color:var(--emerald);border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.09)}
+  .b-warm{color:var(--amber);border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.07)}
+  .b-crit{color:var(--rose);border-color:rgba(251,113,133,.55);background:rgba(251,113,133,.1)}
+  .b-wire{color:var(--cyan);border-color:rgba(34,211,238,.35);background:transparent}
+  .b-use{color:var(--text);border-color:var(--line-2);background:var(--panel-2)}
+  .bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+  .bar>i{display:block;height:100%;background:var(--cyan)}
+  .bar.hot>i{background:var(--emerald)}
+  input[type=search],select{
+    background:var(--panel);border:1px solid var(--line-2);color:var(--text);border-radius:4px;
+    min-height:44px;font-size:16px;width:100%;
+  }
+  input[type=search]{padding:0 12px 0 38px}
+  input[type=search]::placeholder{color:var(--dim)}
+  select{padding:0 10px}
+  input:focus,select:focus,button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--cyan);outline-offset:1px}
+  .logo{width:36px;height:36px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line-2);object-fit:cover;flex:none}
+  .logo-fb{display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--cyan);font-size:13px}
+  .card{cursor:pointer;text-align:left;width:100%;display:block;transition:border-color .15s}
+  .card:hover{border-color:var(--line-2)}
+  .news{border-left:2px solid var(--line-2);padding:2px 0 2px 10px;margin-top:10px}
+  .news.adopt{border-left-color:var(--cyan)}
+  .verify{
+    display:inline-flex;align-items:center;margin-top:6px;border:1px solid rgba(34,211,238,.5);
+    color:var(--cyan);border-radius:3px;padding:6px 10px;font-size:12px;font-weight:700;letter-spacing:.06em;
+    text-decoration:none;min-height:32px
+  }
+  .verify:hover{background:rgba(34,211,238,.1)}
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--emerald);animation:pulse 2.4s infinite}
+  .pulse.stale{background:var(--amber);animation:none}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  .skeleton{height:230px;border-radius:6px;background:linear-gradient(90deg,var(--panel) 25%,var(--panel-2) 50%,var(--panel) 75%);background-size:200% 100%;animation:sk 1.4s infinite}
+  @keyframes sk{to{background-position:-200% 0}}
+  details>summary{list-style:none;cursor:pointer}
+  details>summary::-webkit-details-marker{display:none}
+  /* detail sheet */
+  #sheet{position:fixed;inset:0;z-index:50;background:rgba(2,4,8,.72);display:none}
+  #sheet.open{display:block}
+  #sheetBody{
+    position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--bg);
+    padding:0 12px calc(24px + env(safe-area-inset-bottom,0px));
+  }
+  @media (min-width:768px){
+    #sheetBody{inset:3vh 0 3vh 50%;transform:translateX(-50%);width:min(760px,94vw);border:1px solid var(--line-2);border-radius:8px}
+  }
+  .sheet-top{position:sticky;top:0;z-index:2;background:rgba(5,8,14,.96);padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px;border-bottom:1px solid var(--line)}
+  .sec{margin-top:14px}
+  .sec>h3{font-weight:700;font-size:15px;margin:0 0 8px;color:var(--text)}
+  .kv{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .kv span:first-child{color:var(--mute)}
+  .kv span:last-child{text-align:right;min-width:0;overflow-wrap:anywhere}
+  .closebtn{min-width:44px;min-height:44px;border:1px solid var(--line-2);background:var(--panel);color:var(--text);border-radius:4px;font-size:20px;line-height:1}
+  .extlink{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(34,211,238,.4)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="max-w-5xl mx-auto px-3 pt-3 pb-3">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 2l12 7v14l-12 7L4 23V9l12-7z" stroke="#22d3ee" stroke-width="1.6"/>
+        <path d="M16 9l6 3.5v7L16 23l-6-3.5v-7L16 9z" fill="rgba(34,211,238,.18)" stroke="#22d3ee" stroke-width="1.2"/>
+        <circle cx="16" cy="16" r="2" fill="#22d3ee"/>
+      </svg>
+      <div class="min-w-0">
+        <h1 class="text-[19px] font-bold leading-none tracking-tight truncate">Crypto Intelligence Terminal</h1>
+        <p class="text-[12px] mt-1 flex items-center gap-1.5" style="color:var(--mute)">
+          <span id="pulse" class="pulse stale"></span><span id="updated" class="mono">loading feed</span>
+        </p>
+      </div>
+    </div>
+    <div id="tierSeg" class="seg mt-3" role="group" aria-label="Supply tier filter">
+      <button type="button" data-tier="all" aria-pressed="true">All Assets</button>
+      <button type="button" data-tier="scarce" aria-pressed="false">Scarce Tier: up to 800M</button>
+      <button type="button" data-tier="ecosystem" aria-pressed="false">Ecosystem Tier: Billions+</button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-3 pt-3 pb-16">
+  <section id="stats" class="grid grid-cols-2 sm:grid-cols-4 gap-2" aria-label="Terminal statistics"></section>
+
+  <section class="mt-3 grid grid-cols-[1fr_auto] gap-2 items-center">
+    <div class="relative">
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4f6180" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+             placeholder="Search ticker, name or news keyword (Quant, Bank, Wormhole)" aria-label="Search tokens">
+    </div>
+    <select id="sort" aria-label="Sort order" class="!w-[140px]">
+      <option value="usecase">Use-case priority</option>
+      <option value="setup">Setup score</option>
+      <option value="turnover">Turnover ratio</option>
+      <option value="mcap_asc">Smallest cap</option>
+      <option value="mcap_desc">Largest cap</option>
+      <option value="drawdown">Deepest drawdown</option>
+      <option value="d24">24h change</option>
+      <option value="d7">7d change</option>
+      <option value="news">Most news</option>
+    </select>
+  </section>
+
+  <section class="seg mt-2" id="ucSeg" role="group" aria-label="Use case filter"></section>
+  <section class="seg mt-2" id="flagSeg" role="group" aria-label="Signal filters">
+    <button type="button" class="chip" data-flag="early" aria-pressed="false">Early setups</button>
+    <button type="button" class="chip" data-flag="momentum" aria-pressed="false">High turnover</button>
+    <button type="button" class="chip" data-flag="adoption" aria-pressed="false">Adoption headlines</button>
+    <button type="button" class="chip" data-flag="safe" aria-pressed="false">No dilution alert</button>
+  </section>
+
+  <details id="wire" class="panel mt-3 hidden">
+    <summary class="flex items-center justify-between px-3 py-3 min-h-[44px]">
+      <span class="font-semibold cy">Institutional adoption wire <span id="wireCount" class="mono text-[12px]" style="color:var(--mute)"></span></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div id="wireList" class="px-3 pb-3"></div>
+  </details>
+
+  <details id="alertlog" class="panel mt-2 hidden">
+    <summary class="flex items-center justify-between px-3 py-3 min-h-[44px]">
+      <span class="font-semibold cy">Alerts sent to your email <span id="alertCount" class="mono text-[12px]" style="color:var(--mute)"></span></span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div id="alertList" class="px-3 pb-3"></div>
+  </details>
+
+  <details id="lab" class="panel mt-2 hidden">
+    <summary class="flex items-center justify-between px-3 py-3 min-h-[44px]">
+      <span class="font-semibold cy">Spike lab: what the market looked like before past runs</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div id="labBody" class="px-3 pb-3"></div>
+  </details>
+
+  <p id="count" class="mono text-[12px] mt-4 mb-2" style="color:var(--mute)" aria-live="polite"></p>
+  <section id="list" class="grid grid-cols-1 md:grid-cols-2 gap-3"><div class="skeleton"></div><div class="skeleton"></div></section>
+  <div class="text-center mt-5">
+    <button id="more" type="button" class="hidden border rounded px-5 py-3 font-semibold min-h-[44px]"
+            style="border-color:var(--line-2);color:var(--cyan);background:var(--panel)">Show more</button>
+  </div>
+
+  <footer class="mt-10 text-[12px] leading-relaxed" style="color:var(--dim)">
+    Data: CoinGecko market feed, public news wires and exchange listings, refreshed by GitHub Actions. Turnover ratio = 24h volume / market cap.
+    Setup score summarizes the conditions seen before past runs; it flags candidates and does not forecast price. Many flagged coins will not move.
+    Headline matching is automated and can mismatch; open the source wire before acting. Informational only, not financial advice.
+  </footer>
+</main>
+
+<div id="sheet" role="dialog" aria-modal="true" aria-label="Coin details">
+  <div id="sheetBody"></div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  const PAGE_SIZE = 30;
+  const state = { tier: 'all', uc: 'all', flags: new Set(), q: '', sort: 'usecase', shown: PAGE_SIZE };
+  let DATA = null, ASSETS = [], LAB = null, lastFocus = null;
+
+  const $ = (s) => document.querySelector(s);
+  const esc = (v) => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const safeUrl = (u) => /^https?:\/\//i.test(u || '') ? u : '#';
+  const isNum = (n) => typeof n === 'number' && isFinite(n);
+
+  /* ---------- formatters ---------- */
+  function usd(n) {
+    if (!isNum(n)) return 'n/a';
+    const a = Math.abs(n);
+    if (a >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
+    if (a >= 1e9)  return '$' + (n / 1e9).toFixed(2) + 'B';
+    if (a >= 1e6)  return '$' + (n / 1e6).toFixed(2) + 'M';
+    if (a >= 1e3)  return '$' + (n / 1e3).toFixed(1) + 'K';
+    return '$' + n.toFixed(2);
+  }
+  function price(n) {
+    if (!isNum(n)) return 'n/a';
+    if (n >= 1000) return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+    if (n >= 1) return '$' + n.toFixed(2);
+    if (n >= 0.01) return '$' + n.toFixed(4);
+    if (n >= 0.0001) return '$' + n.toFixed(6);
+    return '$' + n.toPrecision(3);
+  }
+  function supply(n) {
+    if (!isNum(n)) return 'n/a';
+    if (n >= 1e12) return (n / 1e12).toFixed(2) + 'T';
+    if (n >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+    return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  }
+  function count(n) { return isNum(n) ? n.toLocaleString('en-US') : 'n/a'; }
+  function pct(n, d = 2) {
+    if (!isNum(n)) return '<span class="flat">n/a</span>';
+    const cls = n > 0.005 ? 'up' : n < -0.005 ? 'down' : 'flat';
+    return `<span class="${cls}">${n > 0 ? '+' : ''}${n.toFixed(d)}%</span>`;
+  }
+  function ago(iso) {
+    const t = Date.parse(iso || '');
+    if (!isFinite(t)) return 'date n/a';
+    const s = Math.max(0, (Date.now() - t) / 1000);
+    if (s < 3600) return Math.max(1, Math.round(s / 60)) + 'm ago';
+    if (s < 86400) return Math.round(s / 3600) + 'h ago';
+    if (s < 86400 * 45) return Math.round(s / 86400) + 'd ago';
+    return new Date(t).toLocaleDateString();
+  }
+  function shortDate(iso) {
+    const t = Date.parse(iso || '');
+    return isFinite(t) ? new Date(t).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'n/a';
+  }
+
+  function spark(points, w, h) {
+    if (!points || points.length < 2) return '';
+    const lo = Math.min(...points), hi = Math.max(...points), span = (hi - lo) || 1;
+    const step = w / (points.length - 1);
+    const d = points.map((p, i) => (i ? 'L' : 'M') + (i * step).toFixed(1) + ' ' + (h - 2 - ((p - lo) / span) * (h - 4)).toFixed(1)).join(' ');
+    const up = points[points.length - 1] >= points[0];
+    const col = up ? '#34d399' : '#fb7185';
+    return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="none" aria-hidden="true"><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg>`;
+  }
+
+  /* ---------- data ---------- */
+  async function fetchJson(url) {
+    const res = await fetch(url + '?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+
+  async function load() {
+    try {
+      DATA = await fetchJson('./crypto_data.json');
+    } catch (err) {
+      $('#list').innerHTML = `<div class="panel p-4 md:col-span-2">
+        <p class="font-semibold down">Could not load crypto_data.json</p>
+        <p class="mt-1 text-[14px]" style="color:var(--mute)">${esc(err.message)}. Run the GitHub Action once (Actions tab, Crypto Intelligence, Run workflow, mode full) so the data file exists, then reload.</p></div>`;
+      $('#updated').textContent = 'no data';
+      return;
+    }
+    ASSETS = (DATA.assets || []).map(a => {
+      const newsText = (a.news || []).map(n => `${n.title} ${n.summary || ''} ${(n.tags || []).join(' ')} ${n.source || ''}`).join(' ');
+      const p = a.profile || {};
+      a._hay = `${a.name} ${a.symbol} ${a.id} ${a.use_case_label} ${(p.categories || []).join(' ')} ${newsText}`.toLowerCase();
+      return a;
+    });
+    renderMeta(); renderUseCases(); renderWire(); renderAlertLog(); render();
+    fetchJson('./spike_lab.json').then(l => { LAB = l; renderLab(); }).catch(() => {});
+    openFromHash();
+  }
+
+  function renderMeta() {
+    const gen = Date.parse(DATA.generated_at || '');
+    const stale = !isFinite(gen) || (Date.now() - gen) > 36 * 3600 * 1000;
+    $('#pulse').classList.toggle('stale', stale);
+    $('#updated').textContent = isFinite(gen)
+      ? 'updated ' + new Date(gen).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) + (stale ? ' (stale)' : '')
+      : 'update time unknown';
+    const s = DATA.stats || {};
+    const cells = [
+      ['Assets tracked', s.assets ?? ASSETS.length, 'cy'],
+      ['Early setups', s.early_setups ?? 0, 'up'],
+      ['Adoption-linked', s.with_adoption_news ?? 0, 'cy'],
+      ['Dilution alerts', s.dilution_alerts ?? 0, 'down'],
+    ];
+    $('#stats').innerHTML = cells.map(([k, v, c]) =>
+      `<div class="panel px-3 py-2"><div class="text-[12px]" style="color:var(--mute)">${k}</div><div class="mono text-[20px] font-semibold ${c}">${esc(v)}</div></div>`).join('');
+  }
+
+  function renderUseCases() {
+    const ucs = (DATA.use_cases || []).filter(u => u.count > 0);
+    $('#ucSeg').innerHTML = `<button type="button" class="chip" data-uc="all" aria-pressed="true">All use cases</button>` +
+      ucs.map(u => `<button type="button" class="chip" data-uc="${esc(u.key)}" aria-pressed="false">${esc(u.label)} <span class="mono">${u.count}</span></button>`).join('');
+  }
+
+  function newsBlock(n, withSummary) {
+    return `<div class="news ${n.adoption ? 'adopt' : ''}">
+      <div class="flex flex-wrap items-center gap-1.5 text-[12px]" style="color:var(--mute)">
+        <span class="font-semibold" style="color:var(--text)">${esc(n.source)}</span>
+        <span class="mono">${esc(ago(n.published))}</span>
+        ${(n.tags || []).map(t => `<span class="badge b-wire">${esc(t)}</span>`).join('')}
+        ${isNum(n.strength) && n.strength >= 5 ? `<span class="badge b-hot mono">strength ${n.strength.toFixed(1)}</span>` : ''}
+        ${(n.matched || []).map(t => `<span class="badge b-hot mono">${esc(t)}</span>`).join('')}
+      </div>
+      <p class="mt-1 text-[14.5px] leading-snug">${esc(n.title)}</p>
+      ${withSummary && n.summary ? `<p class="mt-1 text-[13px] leading-snug" style="color:var(--mute)">${esc(n.summary)}</p>` : ''}
+      <a class="verify" href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener noreferrer">VERIFY SOURCE WIRE</a>
+    </div>`;
+  }
+
+  function renderWire() {
+    const wire = DATA.adoption_wire || [];
+    if (!wire.length) return;
+    $('#wire').classList.remove('hidden');
+    $('#wireCount').textContent = '· ' + wire.length + ' headlines';
+    $('#wireList').innerHTML = wire.slice(0, 25).map(n => newsBlock(n, false)).join('');
+  }
+
+  function renderAlertLog() {
+    const log = DATA.alert_log || [];
+    if (!log.length) return;
+    $('#alertlog').classList.remove('hidden');
+    $('#alertCount').textContent = '· last ' + log.length;
+    $('#alertList').innerHTML = log.slice(0, 25).map(a => `
+      <div class="news ${a.kind === 'news' ? 'adopt' : ''}">
+        <div class="flex flex-wrap items-center gap-1.5 text-[12px]" style="color:var(--mute)">
+          <span class="badge ${a.severity === 'MAJOR' ? 'b-crit' : a.severity === 'NOTABLE' ? 'b-warm' : 'b-wire'}">${esc(a.severity)}</span>
+          <button type="button" class="mono cy" data-open="${esc(a.id)}" style="text-decoration:underline">${esc(a.symbol)}</button>
+          <span class="mono">${esc(ago(a.t))}</span>
+        </div>
+        <p class="mt-1 text-[14px] leading-snug">${esc(a.title)}</p>
+        ${a.url ? `<a class="verify" href="${esc(safeUrl(a.url))}" target="_blank" rel="noopener noreferrer">VERIFY SOURCE WIRE</a>` : ''}
+      </div>`).join('');
+  }
+
+  function renderLab() {
+    if (!LAB || !(LAB.cases || []).length) return;
+    $('#lab').classList.remove('hidden');
+    const cases = LAB.cases.map(c => {
+      if (!c.spike) return `<div class="news"><p class="font-semibold text-[14px]">${esc(c.label)}</p><p class="text-[13px]" style="color:var(--mute)">${esc(c.note || 'No spike found.')}</p></div>`;
+      const s = c.spike, f = s.fingerprint || {}, ig = s.ignition;
+      const flags = (LAB.conditions || []).map(k => `<span class="badge ${s.flags && s.flags[k.key] ? 'b-hot' : 'b-use'}">${esc(k.label.split(' (')[0])}: ${s.flags && s.flags[k.key] ? 'yes' : 'no'}</span>`).join(' ');
+      return `<div class="news adopt">
+        <p class="font-semibold text-[14.5px]">${esc(c.label)}</p>
+        <p class="text-[13px] mt-1" style="color:var(--mute)">Base ${esc(s.base_date)} at ${price(s.base_price)} to peak ${esc(s.peak_date)} at ${price(s.peak_price)}:
+          <span class="up mono">+${esc(s.gain_pct)}%</span> in ${esc(s.days_to_peak)} days. <span style="color:var(--dim)">${esc(c.source || '')}</span></p>
+        ${ig ? `<p class="text-[13px] mt-1">First big day: ${esc(ig.date)} (${pct(ig.day_move_pct, 1)}${ig.volume_multiple ? ', volume ' + ig.volume_multiple + 'x normal' : ''}). About <span class="mono cy">${esc(ig.move_left_pct)}%</span> of the total move was still ahead after that day.</p>` : ''}
+        <p class="text-[12.5px] mt-1 mono" style="color:var(--mute)">Before it: 30d range ${isNum(f.range_30d_pct) ? f.range_30d_pct.toFixed(0) + '%' : 'n/a'}, volume ${isNum(f.vol_exp) ? f.vol_exp.toFixed(1) + 'x' : 'n/a'} vs prior 60d, ${isNum(f.drawdown_pct) ? f.drawdown_pct.toFixed(0) + '% from high' : 'n/a'}</p>
+        <div class="flex flex-wrap gap-1.5 mt-2">${flags}</div></div>`;
+    }).join('');
+    const rows = (LAB.conditions || []).map(k => `
+      <div class="kv"><span>${esc(k.label)}</span><span class="mono">${k.spikes_hit}/${k.spikes_total} spikes vs ${isNum(k.base_rate_pct) ? k.base_rate_pct + '%' : 'n/a'} of normal days${isNum(k.lift) ? ' <span class="cy">(lift ' + k.lift + 'x)</span>' : ''}</span></div>`).join('');
+    $('#labBody').innerHTML = `${cases}
+      <div class="sec"><h3>How often each condition showed up</h3>${rows}
+      ${isNum(LAB.median_move_left_after_ignition_pct) ? `<p class="text-[13px] mt-2">Median share of the move still ahead after the first big day: <span class="mono cy">${LAB.median_move_left_after_ignition_pct}%</span>.</p>` : ''}
+      <p class="text-[12px] mt-2" style="color:var(--dim)">${(LAB.notes || []).map(esc).join(' ')}</p></div>`;
+  }
+
+  /* ---------- filtering / sorting ---------- */
+  function filtered() {
+    const terms = state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    const out = ASSETS.filter(a => {
+      if (state.tier !== 'all' && a.tier !== state.tier) return false;
+      if (state.uc !== 'all' && a.use_case !== state.uc) return false;
+      if (state.flags.has('early') && !(a.stage === 'Dormant base' || a.stage === 'Accumulating' || a.stage === 'Ignition')) return false;
+      if (state.flags.has('momentum') && a.momentum !== 'HIGH') return false;
+      if (state.flags.has('adoption') && !(a.adoption_hits > 0)) return false;
+      if (state.flags.has('safe') && (a.dilution_alert === 'WARNING' || a.dilution_alert === 'CRITICAL')) return false;
+      return terms.every(t => a._hay.includes(t));
+    });
+    const num = (v, f) => isNum(v) ? v : f;
+    const sorters = {
+      usecase:   (a, b) => (a.use_case_rank - b.use_case_rank) || (b.setup_score - a.setup_score),
+      setup:     (a, b) => b.setup_score - a.setup_score,
+      turnover:  (a, b) => b.turnover_ratio - a.turnover_ratio,
+      mcap_asc:  (a, b) => a.market_cap - b.market_cap,
+      mcap_desc: (a, b) => b.market_cap - a.market_cap,
+      drawdown:  (a, b) => num(a.ath_change_pct, 0) - num(b.ath_change_pct, 0),
+      d24:       (a, b) => num(b.change_24h, -1e9) - num(a.change_24h, -1e9),
+      d7:        (a, b) => num(b.change_7d, -1e9) - num(a.change_7d, -1e9),
+      news:      (a, b) => (b.adoption_hits * 10 + b.news_hits) - (a.adoption_hits * 10 + a.news_hits),
+    };
+    return out.sort(sorters[state.sort] || sorters.usecase);
+  }
+
+  /* ---------- cards ---------- */
+  function stageBadge(a) {
+    const cls = a.stage === 'Ignition' ? 'b-hot' : a.stage === 'Accumulating' ? 'b-hot' : a.stage === 'Dormant base' ? 'b-scarce' : a.stage === 'Extended' ? 'b-warm' : 'b-use';
+    return `<span class="badge ${cls}">${esc(a.stage)}</span>`;
+  }
+
+  function cell(k, v, cls = '') { return `<div class="cell"><div class="k">${k}</div><div class="v mono ${cls}">${v}</div></div>`; }
+
+  function card(a) {
+    const hot = a.momentum === 'HIGH';
+    const barW = Math.min(100, (a.turnover_ratio / 0.30) * 100).toFixed(0);
+    const initial = esc((a.symbol || '?').slice(0, 3));
+    const badges = [
+      `<span class="badge b-use">${esc(a.use_case_label)}</span>`,
+      stageBadge(a),
+      a.tier === 'scarce' ? '<span class="badge b-scarce">Scarce</span>' : '<span class="badge b-eco">Ecosystem</span>',
+      a.dilution_alert === 'CRITICAL' ? '<span class="badge b-crit">FDV trap risk</span>' : a.dilution_alert === 'WARNING' ? '<span class="badge b-warm">FDV dilution</span>' : '',
+      a.adoption_hits > 0 ? `<span class="badge b-wire">${a.adoption_hits} adoption</span>` : '',
+    ].join('');
+    return `
+    <button type="button" class="panel card p-3" data-open="${esc(a.id)}" aria-label="Open ${esc(a.name)} details">
+      <div class="flex items-start gap-3">
+        ${a.logo ? `<img class="logo" src="${esc(safeUrl(a.logo))}" alt="" loading="lazy" referrerpolicy="no-referrer" data-fallback="${initial}">` : `<div class="logo logo-fb">${initial}</div>`}
+        <div class="min-w-0 flex-1">
+          <div class="flex items-baseline justify-between gap-2">
+            <h2 class="font-bold text-[17px] leading-tight truncate">${esc(a.name)} <span class="mono text-[12px] font-medium" style="color:var(--mute)">${esc(a.symbol)}</span></h2>
+            <span class="mono text-[16px] font-semibold whitespace-nowrap">${price(a.price)}</span>
+          </div>
+          <div class="flex items-center justify-between gap-2 mt-0.5">
+            <span class="mono text-[12px]" style="color:var(--dim)">${a.rank ? 'Rank #' + esc(a.rank) : ''}</span>
+            <span class="mono text-[13px]">${pct(a.change_24h)} <span style="color:var(--dim)">24h</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mt-2.5">${badges}</div>
+      <div class="mt-2.5" style="height:34px">${spark(a.spark, 200, 34)}</div>
+      <div class="mt-2">
+        <div class="flex items-center justify-between text-[12px]" style="color:var(--mute)">
+          <span>Capital turnover (24h vol / mcap)</span><span class="mono ${hot ? 'up' : ''}">${(a.turnover_ratio * 100).toFixed(1)}%</span>
+        </div>
+        <div class="bar mt-1 ${hot ? 'hot' : ''}"><i style="width:${barW}%"></i></div>
+      </div>
+      <div class="grid grid-cols-3 gap-1.5 mt-3">
+        ${cell('Market cap', usd(a.market_cap))}
+        ${cell('Volume 24h', usd(a.volume_24h))}
+        ${cell('Setup score', Math.round(a.setup_score) + '/100', a.setup_score >= 70 ? 'up' : '')}
+        ${cell('1h', pct(a.change_1h))}
+        ${cell('7d', pct(a.change_7d))}
+        ${cell('From ATH', pct(a.ath_change_pct, 1))}
+      </div>
+      <div class="mt-2.5 text-[13px] font-semibold cy">Tap for full details and news (${a.news_hits})</div>
+    </button>`;
+  }
+
+  function render() {
+    const list = filtered();
+    const slice = list.slice(0, state.shown);
+    $('#count').textContent = `${list.length} of ${ASSETS.length} assets${state.q.trim() ? ' match "' + state.q.trim() + '"' : ''}`;
+    $('#list').innerHTML = slice.length ? slice.map(card).join('')
+      : `<div class="panel p-4 md:col-span-2"><p class="font-semibold">No assets match these filters.</p>
+         <p class="mt-1 text-[14px]" style="color:var(--mute)">Clear the search box, or set the tier and use case back to All.</p></div>`;
+    $('#more').classList.toggle('hidden', list.length <= state.shown);
+    $('#more').textContent = `Show more (${Math.max(0, list.length - state.shown)} left)`;
+  }
+
+  /* ---------- detail sheet ---------- */
+  function kv(k, v) { return `<div class="kv"><span>${k}</span><span class="mono">${v}</span></div>`; }
+
+  function linkOrNa(url, label) {
+    return url ? `<a class="extlink" href="${esc(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>` : 'n/a';
+  }
+
+  function detail(a) {
+    const p = a.profile || {};
+    const dev = p.developer || {}, com = p.community || {};
+    const initial = esc((a.symbol || '?').slice(0, 3));
+    const drivers = (a.drivers || []).map(d => {
+      const neg = d.pts < 0;
+      const w = d.max ? Math.min(100, Math.max(0, d.pts / d.max * 100)) : 0;
+      return `<div class="mt-2.5">
+        <div class="flex justify-between text-[13px]"><span>${esc(d.label)}</span><span class="mono ${neg ? 'down' : ''}">${d.pts > 0 ? '+' : ''}${d.pts}${d.max ? ' / ' + d.max : ''}</span></div>
+        ${d.max ? `<div class="bar mt-1"><i style="width:${w}%"></i></div>` : ''}
+        <div class="text-[12px] mt-0.5" style="color:var(--mute)">${esc(d.note)}</div></div>`;
+    }).join('');
+
+    const lo = a.spark && a.spark.length ? Math.min(...a.spark) : null;
+    const hi = a.spark && a.spark.length ? Math.max(...a.spark) : null;
+    const exch = (p.top_exchanges || []).map(e => `${esc(e.name)} ${usd(e.volume_usd)}`).join(', ');
+    const alerts = (DATA.alert_log || []).filter(x => x.id === a.id).slice(0, 5);
+    const news = (a.news || []).map(n => newsBlock(n, true)).join('') ||
+      `<p class="text-[13.5px]" style="color:var(--mute)">No wire headlines matched this project in the last ${esc((DATA.parameters || {}).news_window_days || 30)} days.</p>`;
+
+    return `
+    <div class="sheet-top">
+      <div class="flex items-center gap-3">
+        ${a.logo ? `<img class="logo" src="${esc(safeUrl(a.logo))}" alt="" referrerpolicy="no-referrer" data-fallback="${initial}">` : `<div class="logo logo-fb">${initial}</div>`}
+        <div class="min-w-0 flex-1">
+          <h2 class="font-bold text-[19px] leading-tight truncate">${esc(a.name)} <span class="mono text-[13px] font-medium" style="color:var(--mute)">${esc(a.symbol)}</span></h2>
+          <div class="text-[12px] mono" style="color:var(--dim)">${a.rank ? 'Rank #' + esc(a.rank) : 'Unranked'}${a.watchlist ? ' · watchlist' : ''}</div>
+        </div>
+        <button type="button" class="closebtn" id="closeSheet" aria-label="Close details">&times;</button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="flex items-end justify-between gap-3">
+        <div class="mono text-[30px] font-semibold leading-none">${price(a.price)}</div>
+        <div class="mono text-[14px] text-right">${pct(a.change_24h)} <span style="color:var(--dim)">24h</span></div>
+      </div>
+      <div class="grid grid-cols-3 gap-1.5 mt-3">
+        ${cell('1 hour', pct(a.change_1h))}${cell('24 hours', pct(a.change_24h))}${cell('7 days', pct(a.change_7d))}
+      </div>
+      <div class="mt-3 panel p-2">${spark(a.spark, 300, 80)}
+        <div class="flex justify-between mono text-[11.5px]" style="color:var(--mute)"><span>7d low ${price(lo)}</span><span>7d high ${price(hi)}</span></div></div>
+      <div class="flex flex-wrap gap-1.5 mt-3">
+        <span class="badge b-use">${esc(a.use_case_label)}</span>${stageBadge(a)}
+        ${a.tier === 'scarce' ? '<span class="badge b-scarce">Scarce tier</span>' : '<span class="badge b-eco">Ecosystem tier</span>'}
+        ${a.dilution_alert === 'CRITICAL' ? '<span class="badge b-crit">FDV trap risk</span>' : a.dilution_alert === 'WARNING' ? '<span class="badge b-warm">FDV dilution</span>' : ''}
+      </div>
+    </div>
+
+    <div class="sec panel p-3">
+      <h3>Setup analysis: <span class="mono ${a.setup_score >= 70 ? 'up' : 'cy'}">${Math.round(a.setup_score)}/100</span> · ${esc(a.stage)}</h3>
+      <p class="text-[13px]" style="color:var(--mute)">${esc(a.stage_note)}</p>
+      ${drivers}
+      <p class="text-[12px] mt-3" style="color:var(--dim)">The score counts the conditions that preceded earlier runs (catalyst, volume build-up, tight base, discount to high, scarcity). It flags candidates; it does not predict price.</p>
+    </div>
+
+    <div class="sec panel p-3">
+      <h3>Market data</h3>
+      ${kv('Market cap', usd(a.market_cap))}
+      ${kv('Volume 24h', usd(a.volume_24h))}
+      ${kv('Capital turnover ratio', (a.turnover_ratio * 100).toFixed(2) + '% (' + esc(a.momentum.toLowerCase()) + ')')}
+      ${kv('Volume vs recent baseline', isNum(a.vol_ratio) ? a.vol_ratio.toFixed(2) + 'x' : 'baseline building')}
+      ${kv('Fully diluted valuation', usd(a.fdv) + (isNum(a.fdv_ratio) ? ' (' + a.fdv_ratio.toFixed(2) + 'x market cap)' : ''))}
+      ${kv('Circulating supply', supply(a.circulating_supply))}
+      ${kv('Total supply', supply(a.total_supply))}
+      ${kv('Max supply', isNum(a.max_supply) ? supply(a.max_supply) : 'uncapped / n/a')}
+      ${kv('Circulating / max', isNum(a.circulating_pct_of_max) ? a.circulating_pct_of_max.toFixed(1) + '%' : 'n/a')}
+      ${kv('All-time high', price(a.ath) + ' (' + esc(shortDate(a.ath_date)) + ')')}
+      ${kv('All-time low', price(a.atl) + ' (' + esc(shortDate(a.atl_date)) + ')')}
+      ${kv('Distance from ATH', pct(a.ath_change_pct, 1))}
+      ${kv('7-day range', isNum(a.range_7d_pct) ? a.range_7d_pct.toFixed(1) + '% (price at ' + Math.round((a.pos_in_range ?? 0) * 100) + '% of range)' : 'n/a')}
+    </div>
+
+    <div class="sec panel p-3">
+      <h3>Backing and fundamentals</h3>
+      ${kv('Institutional headlines (30d)', esc(a.adoption_hits) + ' of ' + esc(a.news_hits) + ' mentions')}
+      ${kv('Major exchange listings', p.tier1_listings != null ? esc(p.tier1_listings) + (p.tier1_names && p.tier1_names.length ? ' (' + esc(p.tier1_names.join(', ')) + ')' : '') : 'profile pending')}
+      ${kv('Exchanges trading it', p.exchange_count != null ? esc(p.exchange_count) : 'profile pending')}
+      ${kv('Top venues by volume', exch || 'profile pending')}
+      ${kv('Developer commits (4 weeks)', count(dev.commit_count_4_weeks))}
+      ${kv('GitHub stars / forks', count(dev.stars) + ' / ' + count(dev.forks))}
+      ${kv('X (Twitter) followers', count(com.twitter_followers))}
+      ${kv('Reddit subscribers', count(com.reddit_subscribers))}
+      ${kv('Community sentiment (up votes)', isNum(p.sentiment_up_pct) ? p.sentiment_up_pct.toFixed(0) + '%' : 'n/a')}
+      ${kv('Launched', p.genesis_date ? esc(p.genesis_date) : 'n/a')}
+      ${kv('Categories', p.categories && p.categories.length ? esc(p.categories.join(', ')) : 'profile pending')}
+      ${kv('Website', linkOrNa(p.homepage, p.homepage ? p.homepage.replace(/^https?:\/\//, '').slice(0, 40) : ''))}
+      ${kv('Whitepaper', linkOrNa(p.whitepaper, 'Open'))}
+      ${p.description ? `<p class="text-[13.5px] leading-snug mt-3" style="color:var(--text)">${esc(p.description)}</p>` : ''}
+      <p class="text-[12px] mt-3" style="color:var(--dim)">Venture investors and treasury holdings are not available in the free data feeds. Check the project's own site and announcements for those.</p>
+    </div>
+
+    <div class="sec panel p-3">
+      <h3>Ecosystem real-time intelligence feed (${a.news_hits})</h3>
+      ${news}
+    </div>
+
+    ${alerts.length ? `<div class="sec panel p-3"><h3>Alerts sent for ${esc(a.symbol)}</h3>${alerts.map(x => `<div class="kv"><span>${esc(ago(x.t))} · ${esc(x.severity)}</span><span>${esc(x.title)}</span></div>`).join('')}</div>` : ''}
+    `;
+  }
+
+  function openCoin(id) {
+    const a = ASSETS.find(x => x.id === id);
+    if (!a) return;
+    lastFocus = document.activeElement;
+    $('#sheetBody').innerHTML = detail(a);
+    $('#sheetBody').scrollTop = 0;
+    $('#sheet').classList.add('open');
+    document.body.classList.add('locked');
+    if (location.hash !== '#coin=' + id) history.replaceState(null, '', '#coin=' + encodeURIComponent(id));
+    const c = $('#closeSheet'); if (c) c.focus();
+  }
+  function closeCoin() {
+    $('#sheet').classList.remove('open');
+    document.body.classList.remove('locked');
+    history.replaceState(null, '', location.pathname + location.search);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function openFromHash() {
+    const m = location.hash.match(/^#coin=(.+)$/);
+    if (m) openCoin(decodeURIComponent(m[1]));
+  }
+
+  /* ---------- events ---------- */
+  $('#tierSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-tier]'); if (!b) return;
+    state.tier = b.dataset.tier; state.shown = PAGE_SIZE;
+    document.querySelectorAll('#tierSeg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  });
+  $('#ucSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-uc]'); if (!b) return;
+    state.uc = b.dataset.uc; state.shown = PAGE_SIZE;
+    document.querySelectorAll('#ucSeg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    render();
+  });
+  $('#flagSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-flag]'); if (!b) return;
+    const f = b.dataset.flag;
+    state.flags.has(f) ? state.flags.delete(f) : state.flags.add(f);
+    b.setAttribute('aria-pressed', String(state.flags.has(f)));
+    state.shown = PAGE_SIZE; render();
+  });
+  let timer;
+  $('#q').addEventListener('input', (e) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { state.q = e.target.value; state.shown = PAGE_SIZE; render(); }, 90);
+  });
+  $('#sort').addEventListener('change', (e) => { state.sort = e.target.value; state.shown = PAGE_SIZE; render(); });
+  $('#more').addEventListener('click', () => { state.shown += PAGE_SIZE; render(); });
+
+  document.addEventListener('click', (e) => {
+    const o = e.target.closest('[data-open]');
+    if (o) { openCoin(o.dataset.open); return; }
+    if (e.target.closest('#closeSheet')) { closeCoin(); return; }
+    if (e.target.id === 'sheet') closeCoin();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('#sheet').classList.contains('open')) closeCoin(); });
+  window.addEventListener('hashchange', () => { if (location.hash.startsWith('#coin=')) openFromHash(); });
+
+  document.addEventListener('error', (e) => {
+    const t = e.target;
+    if (t && t.tagName === 'IMG' && t.classList.contains('logo')) {
+      const d = document.createElement('div');
+      d.className = 'logo logo-fb';
+      d.textContent = t.dataset.fallback || '?';
+      t.replaceWith(d);
+    }
+  }, true);
+
+  load();
+})();
+</script>
+</body>
+</html>
