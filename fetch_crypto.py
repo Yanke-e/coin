@@ -8,7 +8,7 @@ Modes (python fetch_crypto.py --mode <mode>):
               crypto_data.json, then evaluates and emails alerts.
   alerts      Lightweight hourly pass: market data + news + scoring, emails alerts.
               Does not rewrite crypto_data.json (keeps git history small).
-  spikelab    Studies past spikes (Quant, Shiba, XPIN, Avalanche ...) and measures
+  spikelab    Studies past spikes (Quant, Shiba, XPIN, Avalanche) and measures
               what the market looked like BEFORE each one. Writes spike_lab.json.
   test-email  Sends a sample alert so you can confirm SMTP works.
 
@@ -155,6 +155,9 @@ ALERT_MARKET_MIN_VOLUME = 300_000
 SETUP_ALERT_SCORE = 70
 
 HTTP_TIMEOUT = 30
+T0 = time.time()
+CATEGORY_BUDGET_S = 5 * 60     # stop category pulls after 5 minutes of run time
+ENRICH_BUDGET_S = 12 * 60      # stop profile enrichment after 12 minutes of run time
 USER_AGENT = "Mozilla/5.0 (compatible; CryptoIntelTerminal/2.0) Python-requests"
 
 AMBIGUOUS_SYMBOLS = {
@@ -215,7 +218,7 @@ SPIKE_CASES = [
      "binance": "QNTUSDT", "from": "2026-05-01", "to": None},
     {"label": "Shiba Inu (SHIB), 2021 mania", "cg": "shiba-inu",
      "binance": "SHIBUSDT", "from": "2021-05-10", "to": "2021-12-31"},
-    {"label": "XPIN Network (check if this is your ZPIN), late 2025", "cg_search": "XPIN Network",
+    {"label": "XPIN Network (XPIN), late 2025", "cg_search": "XPIN Network",
      "binance": None, "from": "2025-09-01", "to": "2025-12-31"},
     {"label": "Avalanche (AVAX), 2026 move", "cg": "avalanche-2",
      "binance": "AVAXUSDT", "from": "2026-01-01", "to": None},
@@ -406,6 +409,9 @@ def fetch_category_rows(headers, rows):
     """Pull use-case categories; merge their rows into the pool; return id -> {category ids}."""
     members = {}
     for cat_id in CATEGORY_USE_CASES:
+        if time.time() - T0 > CATEGORY_BUDGET_S:
+            log("[category] time budget reached; skipping remaining categories")
+            break
         try:
             data = http_get(CG_MARKETS_URL, params={**MARKET_PARAMS, "category": cat_id, "page": 1},
                             headers=headers, retries=2).json()
@@ -603,6 +609,9 @@ def enrich_profiles(assets, headers, now):
     fails = 0
     done = 0
     for a in todo:
+        if time.time() - T0 > ENRICH_BUDGET_S:
+            log("[profile] time budget reached; remaining coins will be enriched next run")
+            break
         try:
             a["profile"] = fetch_profile(a["id"], headers)
             a["profile_fetched_at"] = now.isoformat()
@@ -1132,23 +1141,20 @@ def pipeline(mode):
 
     for a in assets:
         score_asset(a)
-    if mode == "full":
-        enrich_profiles(assets, headers, now)
+
+    def finalize():
+        out = []
         for a in assets:
-            score_asset(a)
+            a["backing_strong"] = ecosystem_backing_ok(a) if a["tier"] == "ecosystem" else True
+            if a["backing_strong"]:
+                out.append(a)
+        out.sort(key=lambda x: (x["use_case_rank"], -x["setup_score"]))
+        return out
 
-    final = []
-    for a in assets:
-        a["backing_strong"] = ecosystem_backing_ok(a) if a["tier"] == "ecosystem" else True
-        if a["backing_strong"]:
-            final.append(a)
-    final.sort(key=lambda x: (x["use_case_rank"], -x["setup_score"]))
-
-    if mode == "full":
+    def write_data(final):
         uc_counts = {k: 0 for k, _ in USE_CASES}
         for a in final:
             uc_counts[a["use_case"]] += 1
-        prune_state(state, now)
         payload = {
             "generated_at": now.isoformat(),
             "parameters": {
@@ -1176,6 +1182,15 @@ def pipeline(mode):
         }
         save_json(DATA_FILE, payload)
         log(f"[done] wrote {DATA_FILE}: {payload['stats']}")
+
+    final = finalize()
+    if mode == "full":
+        write_data(final)          # write immediately so a slow enrichment can never lose the data
+        enrich_profiles(assets, headers, now)
+        for a in assets:
+            score_asset(a)
+        final = finalize()
+        write_data(final)
 
     sent = run_alerts(final, state, now)
     prune_state(state, now)
