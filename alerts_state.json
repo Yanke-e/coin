@@ -1179,7 +1179,8 @@
  },
  "sent_news": {
   "3293b2b43121124a": "2026-10-02T21:15:12.076969+00:00",
-  "d54b2cb499f92f72": "2026-10-02T21:15:12.076969+00:00"
+  "d54b2cb499f92f72": "2026-10-02T21:15:12.076969+00:00",
+  "c2741c1511e23032": "2026-10-03T01:14:03.608040+00:00"
  },
  "last_alert": {
   "edel:ignition": "2026-10-02T21:15:12.076969+00:00",
@@ -1187,7 +1188,12 @@
   "velvet:ignition": "2026-10-02T21:15:12.076969+00:00",
   "teller:ignition": "2026-10-02T21:15:12.076969+00:00",
   "magma-finance:ignition": "2026-10-02T21:15:12.076969+00:00",
-  "dolphin-2:ignition": "2026-10-02T21:15:12.076969+00:00"
+  "dolphin-2:ignition": "2026-10-02T21:15:12.076969+00:00",
+  "kyber-network-crystal:accumulation": "2026-10-03T01:14:03.608040+00:00",
+  "superform:ignition": "2026-10-03T01:14:03.608040+00:00",
+  "enjincoin:ignition": "2026-10-03T01:14:03.608040+00:00",
+  "gala:ignition": "2026-10-03T01:14:03.608040+00:00",
+  "story-2:accumulation": "2026-10-03T01:14:03.608040+00:00"
  },
  "history": [
   {
@@ -1269,8 +1275,68 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-03T01:14:03.608040+00:00",
+   "kind": "news",
+   "id": "chainlink",
+   "symbol": "LINK",
+   "name": "Chainlink",
+   "severity": "MAJOR",
+   "title": "Chainlink Connects Financial Institutions to Swift’s Blockchain Ledger for Tokenized Deposits - CryptoDaily",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPT2VmS25xd2ZPTUFhUEhqdjhNUnVpQllsa0E4bXlvWlVseERFeTVBRmRKYUF4cDc3TWFNUkNfTkRVTElnb3U4UUdXRjNGeHJSUUtNVlI3bHNscjgxNzgxY3M1a05zMnJ5MFZkQ1VDWmFZOWZZbWF1YjVoTTFTcnQwUVd4eDZ2ZkR1UmNha1VjYw?oc=5"
+  },
+  {
+   "t": "2026-10-03T01:14:03.608040+00:00",
+   "kind": "market",
+   "id": "kyber-network-crystal",
+   "symbol": "KNC",
+   "name": "Kyber Network Crystal",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T01:14:03.608040+00:00",
+   "kind": "market",
+   "id": "superform",
+   "symbol": "UP",
+   "name": "Superform",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T01:14:03.608040+00:00",
+   "kind": "market",
+   "id": "enjincoin",
+   "symbol": "ENJ",
+   "name": "Enjin Coin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T01:14:03.608040+00:00",
+   "kind": "market",
+   "id": "gala",
+   "symbol": "GALA",
+   "name": "GALA",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T01:14:03.608040+00:00",
+   "kind": "market",
+   "id": "story-2",
+   "symbol": "DATA",
+   "name": "Data Network",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-02T22:17:38.156304+00:00"
+ "updated": "2026-10-03T01:14:03.608040+00:00"
 }
