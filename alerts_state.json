@@ -738,7 +738,7 @@
   "edel:ignition": "2026-10-03T10:23:51.978360+00:00",
   "the-sandbox:ignition": "2026-10-03T10:23:51.978360+00:00",
   "velvet:ignition": "2026-10-03T10:23:51.978360+00:00",
-  "teller:ignition": "2026-10-02T21:15:12.076969+00:00",
+  "teller:ignition": "2026-10-03T12:36:00.055796+00:00",
   "magma-finance:ignition": "2026-10-02T21:15:12.076969+00:00",
   "dolphin-2:ignition": "2026-10-02T21:15:12.076969+00:00",
   "kyber-network-crystal:accumulation": "2026-10-03T01:14:03.608040+00:00",
@@ -765,7 +765,11 @@
   "astronaut-2:zeroignite": "2026-10-03T10:23:51.978360+00:00",
   "dex-solana-8nnaeWCw8mUypcGAgbmSuzAT85uWx4UN12adDrMhXrGF:ignition": "2026-10-03T10:23:51.978360+00:00",
   "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:ignition": "2026-10-03T10:23:51.978360+00:00",
-  "tevaera:ignition": "2026-10-03T10:23:51.978360+00:00"
+  "tevaera:ignition": "2026-10-03T10:23:51.978360+00:00",
+  "benqi:ignition": "2026-10-03T12:36:00.055796+00:00",
+  "zentry:accumulation": "2026-10-03T12:36:00.055796+00:00",
+  "dex-solana-7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump:ignition": "2026-10-03T12:36:00.055796+00:00",
+  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:zeroignite": "2026-10-03T12:36:00.055796+00:00"
  },
  "history": [
   {
@@ -1147,8 +1151,58 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-03T12:36:00.055796+00:00",
+   "kind": "market",
+   "id": "benqi",
+   "symbol": "QI",
+   "name": "BENQI",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T12:36:00.055796+00:00",
+   "kind": "market",
+   "id": "zentry",
+   "symbol": "ZENT",
+   "name": "Zentry",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T12:36:00.055796+00:00",
+   "kind": "market",
+   "id": "dex-solana-7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump",
+   "symbol": "AGENCY",
+   "name": "Agency",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T12:36:00.055796+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777",
+   "symbol": "BNBCAT",
+   "name": "Binance Cat",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T12:36:00.055796+00:00",
+   "kind": "market",
+   "id": "teller",
+   "symbol": "DEBIT",
+   "name": "Teller",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-03T10:23:51.978360+00:00"
+ "updated": "2026-10-03T12:36:00.055796+00:00"
 }
