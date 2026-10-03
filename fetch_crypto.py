@@ -51,13 +51,37 @@ SPIKE_FILE = os.environ.get("CRYPTO_SPIKE_OUTPUT", "spike_lab.json")
 
 CG_BASE = "https://api.coingecko.com/api/v3"
 CG_MARKETS_URL = CG_BASE + "/coins/markets"
-CG_PAGES = 5                      # 5 x 250 = top 1250 by market cap (no upper cap filter)
+CG_PAGES = int(os.environ.get("CG_PAGES", "8"))   # 8 x 250 = top 2000 by market cap in full mode
+CG_VOLUME_PAGES = 3               # plus the 750 highest-volume coins (catches small caps)
 CG_PER_PAGE = 250
 CG_DELAY = 3.0                    # polite pause between CoinGecko calls
 
 # Noise floors only (there is NO upper market-cap limit).
 MIN_MARKET_CAP = 2_000_000
 MIN_VOLUME_24H = 50_000
+MAX_PRICE_USD = float(os.environ.get("MAX_PRICE_USD", "15"))   # coins already above this are skipped
+
+# Zero-cancel hunt: coins whose price has many leading zeros (0.0000123 has 4)
+HUNT_MIN_ZEROS = 2
+HUNT_MIN_KEEP = 35          # minimum hunt score to appear in the hunt view
+HUNT_ALERT_SCORE = 75
+MAX_HUNT = 500              # cap on hunt candidates stored in crypto_data.json
+MAX_NON_HUNT = 400          # cap on ordinary assets stored
+
+# DEX discovery (GeckoTerminal for discovery, DexScreener for pair data)
+GT_BASE = "https://api.geckoterminal.com/api/v2"
+GT_NETWORKS = [("eth", "ethereum"), ("bsc", "bsc"), ("solana", "solana"),
+               ("base", "base"), ("arbitrum", "arbitrum"), ("polygon_pos", "polygon")]
+DEX_MIN_LIQUIDITY = 25_000
+DEX_MIN_MCAP = 100_000
+DEX_MAX_MCAP = 3_000_000_000
+DEX_BATCH = 30
+DEX_BUDGET_S = 9 * 60
+DEX_MAJOR_SYMBOLS = {"WETH", "ETH", "WBNB", "BNB", "USDC", "USDT", "DAI", "SOL", "WSOL", "WBTC",
+                     "CBBTC", "BTC", "USDE", "FDUSD", "WMATIC", "POL", "USDS", "PYUSD"}
+SECURITY_MAX_PER_RUN = 25
+SECURITY_REFRESH_DAYS = 3
+GOPLUS_CHAIN_IDS = {"ethereum": "1", "bsc": "56", "base": "8453", "arbitrum": "42161", "polygon": "137"}
 
 BAN_TOP10 = os.environ.get("BAN_TOP10", "1") != "0"
 BANNED_IDS = {"bitcoin", "ethereum", "solana", "binancecoin", "ripple",
@@ -368,12 +392,14 @@ MARKET_PARAMS = {
 }
 
 
-def fetch_markets(headers):
+def fetch_markets(headers, pages=None, order="market_cap_desc"):
     rows = {}
-    for page in range(1, CG_PAGES + 1):
-        log(f"[markets] page {page}/{CG_PAGES}")
+    pages = pages or CG_PAGES
+    for page in range(1, pages + 1):
+        log(f"[markets] {order} page {page}/{pages}")
         try:
-            data = http_get(CG_MARKETS_URL, params={**MARKET_PARAMS, "page": page}, headers=headers).json()
+            data = http_get(CG_MARKETS_URL, params={**MARKET_PARAMS, "order": order, "page": page},
+                            headers=headers).json()
         except Exception as exc:
             log(f"  ! page {page} failed: {exc}")
             break
@@ -382,14 +408,14 @@ def fetch_markets(headers):
         for c in data:
             if c.get("id"):
                 rows[c["id"]] = c
-        if page < CG_PAGES:
+        if page < pages:
             time.sleep(CG_DELAY)
     return rows
 
 
 def fetch_by_ids(ids, headers):
     out = {}
-    ids = list(ids)
+    ids = [i for i in ids if not str(i).startswith("dex-")]
     for i in range(0, len(ids), 200):
         chunk = ids[i:i + 200]
         try:
@@ -403,6 +429,137 @@ def fetch_by_ids(ids, headers):
             log(f"  ! id lookup failed: {exc}")
         time.sleep(CG_DELAY)
     return out
+
+
+def fetch_trending_ids(headers):
+    try:
+        d = http_get(f"{CG_BASE}/search/trending", headers=headers, retries=2).json()
+        ids = [((c or {}).get("item") or {}).get("id") for c in (d.get("coins") or [])]
+        ids = [i for i in ids if i]
+        log(f"[trending] {len(ids)} trending coins")
+        return ids
+    except Exception as exc:
+        log(f"[trending] skipped ({exc})")
+        return []
+
+
+# --------------------------------------------------------------------------- #
+# DEX discovery: tokens that never reach CoinGecko's top lists
+# --------------------------------------------------------------------------- #
+
+def gt_discover():
+    """GeckoTerminal trending + highest-volume pools per chain -> {chain: [token addresses]}."""
+    found = {}
+    for net, chain in GT_NETWORKS:
+        for path in ("trending_pools", "pools"):
+            if time.time() - T0 > DEX_BUDGET_S:
+                return found
+            params = {"page": 1}
+            if path == "pools":
+                params["sort"] = "h24_volume_usd_desc"
+            try:
+                d = http_get(f"{GT_BASE}/networks/{net}/{path}", params=params,
+                             headers={"Accept": "application/json;version=20230302"}, retries=2).json()
+            except Exception as exc:
+                log(f"[dex] {net}/{path}: skipped ({exc})")
+                time.sleep(2.5)
+                continue
+            lst = found.setdefault(chain, [])
+            for pool in d.get("data") or []:
+                tok = (((pool.get("relationships") or {}).get("base_token") or {}).get("data") or {})
+                tid = tok.get("id") or ""
+                if "_" in tid:
+                    addr = tid.split("_", 1)[1]
+                    if addr and addr not in lst:
+                        lst.append(addr)
+            time.sleep(2.5)
+    return found
+
+
+def ds_fetch(chain, addrs):
+    out = []
+    for i in range(0, len(addrs), DEX_BATCH):
+        chunk = addrs[i:i + DEX_BATCH]
+        try:
+            data = http_get(f"https://api.dexscreener.com/tokens/v1/{chain}/{','.join(chunk)}", retries=2).json()
+            if isinstance(data, list):
+                out.extend(data)
+        except Exception as exc:
+            log(f"[dex] dexscreener {chain} batch failed ({exc})")
+        time.sleep(0.4)
+    return out
+
+
+def pairs_to_rows(pairs, wanted):
+    """Turn DexScreener pairs into CoinGecko-shaped rows (only pairs where our token is the BASE)."""
+    groups = {}
+    for p in pairs:
+        chain = p.get("chainId")
+        base = p.get("baseToken") or {}
+        addr = base.get("address")
+        if not chain or not addr or addr.lower() not in wanted.get(chain, set()):
+            continue
+        groups.setdefault((chain, addr), []).append(p)
+    rows = {}
+    for (chain, addr), ps in groups.items():
+        def liq_of(x):
+            return to_float((x.get("liquidity") or {}).get("usd"), 0.0)
+        best = max(ps, key=liq_of)
+        price = to_float(best.get("priceUsd"))
+        if not price or price <= 0:
+            continue
+        liq = sum(liq_of(x) for x in ps)
+        vol = sum(to_float((x.get("volume") or {}).get("h24"), 0.0) for x in ps)
+        fdv = to_float(best.get("fdv"))
+        mcap = to_float(best.get("marketCap"))
+        basis = "market cap" if mcap else "fdv"
+        mcap = mcap or fdv
+        if not mcap:
+            continue
+        created_ms = min((x.get("pairCreatedAt") for x in ps if x.get("pairCreatedAt")), default=None)
+        created = datetime.fromtimestamp(created_ms / 1000, timezone.utc).isoformat() if created_ms else None
+        tx = (best.get("txns") or {}).get("h24") or {}
+        pc = best.get("priceChange") or {}
+        base = best.get("baseToken") or {}
+        sym = (base.get("symbol") or "").upper()
+        rid = f"dex-{chain}-{addr}"
+        rows[rid] = {
+            "id": rid, "symbol": sym, "name": base.get("name") or sym,
+            "image": (best.get("info") or {}).get("imageUrl") or "",
+            "current_price": price, "market_cap": mcap, "total_volume": vol,
+            "circulating_supply": mcap / price, "fully_diluted_valuation": fdv,
+            "price_change_percentage_1h_in_currency": to_float(pc.get("h1")),
+            "price_change_percentage_24h_in_currency": to_float(pc.get("h24")),
+            "_dex": {
+                "chain": chain, "address": addr, "pair": best.get("pairAddress"),
+                "url": best.get("url") or "", "dex": best.get("dexId"),
+                "liquidity_usd": liq, "pair_created_at": created,
+                "buys_24h": tx.get("buys"), "sells_24h": tx.get("sells"), "mcap_basis": basis,
+            },
+        }
+    return rows
+
+
+def discover_dex(prev_by_id):
+    wanted_list = {}
+    for chain, addrs in gt_discover().items():
+        wanted_list.setdefault(chain, []).extend(addrs)
+    for a in prev_by_id.values():          # keep refreshing tokens found on earlier runs
+        d = a.get("dex") or {}
+        if d.get("chain") and d.get("address"):
+            lst = wanted_list.setdefault(d["chain"], [])
+            if d["address"] not in lst:
+                lst.append(d["address"])
+    pairs = []
+    for chain, addrs in wanted_list.items():
+        if time.time() - T0 > DEX_BUDGET_S:
+            log("[dex] time budget reached; skipping remaining chains")
+            break
+        pairs.extend(ds_fetch(chain, addrs))
+    wanted = {c: {x.lower() for x in addrs} for c, addrs in wanted_list.items()}
+    rows = pairs_to_rows(pairs, wanted)
+    log(f"[dex] {sum(len(v) for v in wanted_list.values())} tokens queried, {len(rows)} priced")
+    return rows
 
 
 def fetch_category_rows(headers, rows):
@@ -469,13 +626,21 @@ def build_asset(coin, watch=False):
     if price is None or not mcap or mcap <= 0 or not circ or circ <= 0:
         return None
 
+    dex = coin.get("_dex")
     if not watch:
         if BAN_TOP10 and (coin_id in BANNED_IDS or symbol in BANNED_SYMBOLS):
             return None
-        if DERIVATIVE_NAME_RE.search(name) or looks_like_stablecoin(coin):
+        if DERIVATIVE_NAME_RE.search(name):
             return None
-        if mcap < MIN_MARKET_CAP or volume < MIN_VOLUME_24H:
+        if price > MAX_PRICE_USD:                     # already expensive: skip
             return None
+        if dex:
+            if (symbol in DEX_MAJOR_SYMBOLS or (dex.get("liquidity_usd") or 0) < DEX_MIN_LIQUIDITY
+                    or mcap < DEX_MIN_MCAP or mcap > DEX_MAX_MCAP or volume < MIN_VOLUME_24H):
+                return None
+        else:
+            if looks_like_stablecoin(coin) or mcap < MIN_MARKET_CAP or volume < MIN_VOLUME_24H:
+                return None
 
     total_supply = to_float(coin.get("total_supply"))
     max_supply = to_float(coin.get("max_supply"))
@@ -532,6 +697,8 @@ def build_asset(coin, watch=False):
         "change_7d": to_float(coin.get("price_change_percentage_7d_in_currency")),
         "range_7d_pct": range_7d, "pos_in_range": pos_in_range, "spark": spark,
         "vol_ratio": None,
+        "venue": "dex" if dex else "cg", "dex": dex, "security": None, "security_checked_at": None,
+        "zeros": 0, "hunt": None,
         "use_case": "other", "use_case_label": UC_LABEL["other"], "use_case_rank": UC_RANK["other"],
         "category_ids": [], "profile": None, "profile_fetched_at": None,
         "news": [], "news_hits": 0, "adoption_hits": 0, "backing_strong": False,
@@ -597,10 +764,13 @@ def fetch_profile(coin_id, headers):
 
 
 def enrich_profiles(assets, headers, now):
-    ranked = sorted(assets, key=lambda a: (not a["watchlist"], -a["setup_score"]))
+    ranked = sorted(assets, key=lambda a: (not a["watchlist"],
+                                           -max(a["setup_score"], (a.get("hunt") or {}).get("score", 0))))
     stale_before = now - timedelta(days=ENRICH_REFRESH_DAYS)
     todo = []
     for a in ranked:
+        if a["venue"] == "dex":
+            continue
         fetched = parse_date(a.get("profile_fetched_at"))
         if not a.get("profile") or not fetched or fetched < stale_before:
             todo.append(a)
@@ -752,6 +922,8 @@ def fetch_news(extra_queries):
 def build_matchers(asset):
     name_clean = re.sub(r"\s*\(.*?\)", "", asset["name"]).strip()
     terms = {name_clean, *ALIASES.get(asset["id"], [])}
+    if asset.get("venue") == "dex":                 # DEX tokens often have generic names: be strict
+        terms = {name_clean} if len(name_clean) >= 7 else set()
     regs = []
     for term in terms:
         if len(term) < 3:
@@ -759,7 +931,7 @@ def build_matchers(asset):
         flags = re.I if (len(term) >= 7 or " " in term) else 0
         regs.append(re.compile(r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])", flags))
     sym = asset["symbol"]
-    if len(sym) >= 3 and sym not in AMBIGUOUS_SYMBOLS and sym.isalnum():
+    if len(sym) >= (4 if asset.get("venue") == "dex" else 3) and sym not in AMBIGUOUS_SYMBOLS and sym.isalnum():
         regs.append(re.compile(r"(?<![A-Za-z0-9])\$?" + re.escape(sym) + r"(?![A-Za-z0-9])"))
     return regs
 
@@ -880,6 +1052,217 @@ def score_asset(a):
     a["stage"], a["stage_note"] = stage, note
     a["drivers"] = drivers
     a["setup_score"] = round(clamp(score, 0, 100), 1)
+    analyse_hunt(a)
+
+
+# --------------------------------------------------------------------------- #
+# Zero-cancel hunt: cheap-looking coins with room to run, graded for rug-pull risk
+# --------------------------------------------------------------------------- #
+
+def zero_count(price):
+    """Leading zeros after the decimal point: 0.0000123 -> 4, 0.0042 -> 2, 0.5 -> 0."""
+    if not price or price <= 0 or price >= 1:
+        return 0
+    return max(0, -int(math.floor(math.log10(price))) - 1)
+
+
+def scan_security(a):
+    """Best-effort automated token safety scan for DEX tokens. Returns dict or None."""
+    d = a.get("dex") or {}
+    chain, addr = d.get("chain"), d.get("address")
+    if not chain or not addr:
+        return None
+    try:
+        if chain in GOPLUS_CHAIN_IDS:
+            r = http_get(f"https://api.gopluslabs.io/api/v1/token_security/{GOPLUS_CHAIN_IDS[chain]}",
+                         params={"contract_addresses": addr}, retries=2).json()
+            info = (r.get("result") or {}).get(addr.lower())
+            if not info:
+                return None
+
+            def flag(k):
+                v = info.get(k)
+                return None if v in (None, "") else str(v) == "1"
+
+            def pct_of(k):
+                v = to_float(info.get(k))
+                return None if v is None else round(v * 100, 1)
+
+            holders = to_float(info.get("holder_count"))
+            return {"source": "GoPlus", "honeypot": flag("is_honeypot"),
+                    "buy_tax_pct": pct_of("buy_tax"), "sell_tax_pct": pct_of("sell_tax"),
+                    "mintable": flag("is_mintable"), "hidden_owner": flag("hidden_owner"),
+                    "open_source": flag("is_open_source"), "cannot_sell_all": flag("cannot_sell_all"),
+                    "holders": int(holders) if holders else None}
+        if chain == "solana":
+            r = http_get(f"https://api.rugcheck.xyz/v1/tokens/{addr}/report/summary", retries=2).json()
+            risks = r.get("risks")
+            if not isinstance(risks, list):
+                return None
+            lvl = lambda x: str(x.get("level") or "").lower()
+            return {"source": "RugCheck",
+                    "danger": [x.get("name") for x in risks if lvl(x) == "danger"][:6],
+                    "warn": [x.get("name") for x in risks if lvl(x) == "warn"][:6]}
+    except Exception as exc:
+        log(f"[security] {a['symbol']}: scan failed ({exc})")
+    return None
+
+
+def scan_security_batch(assets, now):
+    stale = now - timedelta(days=SECURITY_REFRESH_DAYS)
+    cands = [a for a in assets if a["venue"] == "dex" and a.get("hunt")
+             and (not a.get("security") or (parse_date(a.get("security_checked_at")) or stale) <= stale)]
+    cands.sort(key=lambda a: -a["hunt"]["score"])
+    done = 0
+    for a in cands[:SECURITY_MAX_PER_RUN]:
+        if time.time() - T0 > ENRICH_BUDGET_S:
+            break
+        sec = scan_security(a)
+        if sec:
+            a["security"], a["security_checked_at"] = sec, now.isoformat()
+            done += 1
+        time.sleep(1.0)
+    log(f"[security] scanned {done}/{min(len(cands), SECURITY_MAX_PER_RUN)} dex candidates")
+
+
+def analyse_hunt(a):
+    zeros = zero_count(a["price"])
+    a["zeros"] = zeros
+    if zeros < HUNT_MIN_ZEROS:
+        a["hunt"] = None
+        return
+    now = datetime.now(timezone.utc)
+    price, mcap = a["price"], a["market_cap"]
+    dex = a.get("dex") or {}
+    prof = a.get("profile") or {}
+    sec = a.get("security") or {}
+    liq = dex.get("liquidity_usd")
+    vol, t = a["volume_24h"], a["turnover_ratio"]
+    c24, c1 = a["change_24h"] or 0.0, a["change_1h"] or 0.0
+    drivers = []
+
+    def add(label, pts, mx, note):
+        drivers.append({"label": label, "pts": round(pts, 1), "max": mx, "note": note})
+
+    cap100 = mcap * 100
+    room = (25 if mcap <= 5e6 else 21 if mcap <= 2e7 else 17 if mcap <= 5e7 else 11 if mcap <= 1.5e8
+            else 6 if mcap <= 3e8 else 2 if mcap <= 1e9 else 0)
+    feas = ("100x plausible" if cap100 <= 5e9 else "100x is a stretch" if cap100 <= 3e10
+            else "10x possible, 100x unlikely" if mcap * 10 <= 3e10 else "limited room")
+    add("Room to run", room, 25, f"Market cap {fmt_usd(mcap)}; 100x would mean {fmt_usd(cap100)}")
+
+    interest = clamp(t / 0.3, 0, 1) * 12 + (4 if vol >= 1e6 else 2 if vol >= 2.5e5 else 0)
+    if a.get("vol_ratio"):
+        interest += clamp((a["vol_ratio"] - 1) / 3, 0, 1) * 4
+    add("Buying interest", interest, 20, f"Turnover {t * 100:.1f}%, volume {fmt_usd(vol)}")
+
+    if liq is not None:
+        trad = 15 if liq >= 1e6 else 11 if liq >= 2.5e5 else 7 if liq >= 1e5 else 4 if liq >= 5e4 else 1
+        tnote = f"Liquidity {fmt_usd(liq)} on {dex.get('chain', 'dex')}"
+    else:
+        trad = 15 if vol >= 2e6 else 11 if vol >= 5e5 else 7 if vol >= 1.5e5 else 3
+        tnote = f"Listed venues, volume {fmt_usd(vol)}"
+    if (prof.get("tier1_listings") or 0) >= 1:
+        trad = min(15, trad + 3)
+        tnote += f", {prof['tier1_listings']} major exchanges"
+    add("Tradability", trad, 15, tnote)
+
+    strong = sum(1 for n in a["news"] if n["adoption"] and n["strength"] >= ALERT_NEWS_MIN_STRENGTH)
+    other = max(0, a["adoption_hits"] - strong)
+    cat = min(15, 8 * strong + 4 * other + 2 * min(a["news_hits"], 3))
+    add("Catalyst", cat, 15, f"{strong} strong, {other} other adoption headlines, {a['news_hits']} mentions")
+
+    rng, dd = a["range_7d_pct"], a["ath_change_pct"]
+    base = (5 if rng is not None and rng <= 12 else 2 if rng is not None and rng <= 25 else 0)
+    base += 5 if dd is not None and dd <= -80 else 3 if dd is not None and dd <= -60 else 0
+    add("Base and discount", base, 10, f"7d range {'n/a' if rng is None else f'{rng:.0f}%'}, {'n/a' if dd is None else f'{dd:.0f}%'} from ATH")
+
+    ign = clamp(c24, 0, 40) / 40 * 6 + clamp(c1, 0, 8) / 8 * 4
+    if t < MOMENTUM_ELEVATED:
+        ign *= 0.4
+    add("Breakout momentum", ign, 10, f"1h {c1:+.1f}%, 24h {c24:+.1f}%")
+
+    fr = a.get("fdv_ratio")
+    sup = 2 if fr is None else 5 if fr <= 1.5 else 3 if fr <= 3 else 0
+    add("Supply sanity", sup, 5, "FDV n/a" if fr is None else f"FDV is {fr:.1f}x market cap")
+
+    # ---- risk grading ----
+    pts, why = 0, []
+
+    def risk(p, msg):
+        nonlocal pts
+        pts += p
+        why.append(msg)
+
+    age_days = None
+    if dex:
+        if liq is not None:
+            if liq < 5e4:
+                risk(3, f"Thin liquidity ({fmt_usd(liq)}): hard to exit")
+            elif liq < 1.5e5:
+                risk(2, f"Low liquidity ({fmt_usd(liq)})")
+            elif liq < 5e5:
+                risk(1, f"Modest liquidity ({fmt_usd(liq)})")
+        created = parse_date(dex.get("pair_created_at"))
+        if created:
+            age_days = max(0, (now - created).days)
+            if age_days < 7:
+                risk(3, f"Trading pair is only {age_days} days old")
+            elif age_days < 30:
+                risk(2, f"Trading pair is under a month old ({age_days} days)")
+            elif age_days < 90:
+                risk(1, f"Trading pair is under 3 months old")
+        risk(1, "Trades only on decentralized exchanges")
+        buys, sells = dex.get("buys_24h") or 0, dex.get("sells_24h")
+        if buys >= 20 and sells == 0:
+            risk(3, "Buys but zero sells in 24h (possible honeypot)")
+        if liq and vol / liq > 30:
+            risk(1, "Volume is 30x+ liquidity (possible wash trading)")
+        if not sec:
+            risk(1, "No automated security scan available: check it yourself before buying")
+    if t > 3:
+        risk(1, "Daily volume is over 3x market cap")
+    if c24 >= 300:
+        risk(2, "Already up 300%+ today")
+    if sec:
+        if sec.get("honeypot"):
+            risk(10, "Security scan: HONEYPOT (you may not be able to sell)")
+        if (sec.get("sell_tax_pct") or 0) >= 10:
+            risk(4, f"Sell tax {sec['sell_tax_pct']}%")
+        if (sec.get("buy_tax_pct") or 0) >= 10:
+            risk(2, f"Buy tax {sec['buy_tax_pct']}%")
+        if sec.get("mintable"):
+            risk(2, "Owner can mint more supply")
+        if sec.get("hidden_owner"):
+            risk(2, "Hidden owner detected")
+        if sec.get("open_source") is False:
+            risk(1, "Contract is not verified/open source")
+        if sec.get("cannot_sell_all"):
+            risk(3, "Cannot sell all tokens")
+        if sec.get("holders") is not None and sec["holders"] < 100:
+            risk(2, f"Only {sec['holders']} holders")
+        for name in (sec.get("danger") or [])[:2]:
+            risk(4, f"Scan danger: {name}")
+        for name in (sec.get("warn") or [])[:3]:
+            risk(1, f"Scan warning: {name}")
+    if (prof.get("tier1_listings") or 0) >= 1:
+        pts -= 2
+        why.append("Listed on major exchanges (lowers risk)")
+    if mcap >= 2e7:
+        pts -= 1
+    gd = parse_date(prof.get("genesis_date"))
+    if gd and (now - gd).days > 365:
+        pts -= 1
+    level = "EXTREME" if pts >= 7 else "HIGH" if pts >= 4 else "MEDIUM" if pts >= 2 else "LOW"
+
+    score = trad + room + interest + cat + base + ign + sup
+    score -= {"EXTREME": 25, "HIGH": 12, "MEDIUM": 4, "LOW": 0}[level]
+    a["hunt"] = {
+        "zeros": zeros, "target_10x": price * 10, "target_100x": price * 100,
+        "cap_10x": mcap * 10, "cap_100x": cap100, "feasibility": feas,
+        "score": round(clamp(score, 0, 100), 1), "risk": level, "risk_reasons": why[:8],
+        "drivers": drivers, "liquidity_usd": liq, "age_days": age_days,
+    }
 
 
 def ecosystem_backing_ok(a):
@@ -938,7 +1321,9 @@ def evaluate_alerts(assets, state, now):
                 "priority": 100 + n["strength"] * 10 + a["setup_score"] / 10,
             })
 
-        if a["market_cap"] < ALERT_MARKET_MIN_MCAP or a["volume_24h"] < ALERT_MARKET_MIN_VOLUME:
+        h = a.get("hunt")
+        if (a["market_cap"] < (300_000 if h else ALERT_MARKET_MIN_MCAP)
+                or a["volume_24h"] < (100_000 if h else ALERT_MARKET_MIN_VOLUME)):
             continue
         c24, c1, t, vr = a["change_24h"] or 0.0, a["change_1h"] or 0.0, a["turnover_ratio"], a.get("vol_ratio")
         market = []
@@ -953,6 +1338,14 @@ def evaluate_alerts(assets, state, now):
             market.append(("setup", 48, "High-conviction setup",
                            [f"Setup score {a['setup_score']:.0f}/100, stage: {a['stage']}"]
                            + [f"{d['label']}: {d['note']}" for d in a["drivers"] if d["pts"] >= 0.5 * d["max"] > 0][:3]))
+        if h and h["score"] >= HUNT_ALERT_SCORE and h["risk"] in ("LOW", "MEDIUM"):
+            market.append(("zerohunt", 72, "Zero-cancel candidate",
+                           [f"Hunt score {h['score']:.0f}/100, {h['zeros']} zeros, risk {h['risk']}",
+                            f"100x would be {fmt_price(h['target_100x'])} ({h['feasibility']})"]
+                           + [f"{d['label']}: {d['note']}" for d in h["drivers"] if d["pts"] >= 0.6 * d["max"] > 0][:2]))
+        if h and h["risk"] in ("LOW", "MEDIUM") and c24 >= 30 and t >= 0.3:
+            market.append(("zeroignite", 12, "Micro-cap ignition",
+                           [f"Up {c24:+.1f}% in 24h on {t * 100:.1f}% turnover, risk {h['risk']}"]))
         for typ, cool_h, label, why in market:
             ck = f"{a['id']}:{typ}"
             if cooled(ck, cool_h):
@@ -984,6 +1377,10 @@ def build_email(alerts, armed=False):
         meta = (f"{fmt_price(a['price'])} | 24h {fmt_pct(a['change_24h'])} | mcap {fmt_usd(a['market_cap'])} | "
                 f"turnover {a['turnover_ratio'] * 100:.1f}% | stage {a['stage']} | setup {a['setup_score']:.0f}/100 | "
                 f"{a['use_case_label']}")
+        h = a.get("hunt")
+        if h:
+            meta += (f" | {h['zeros']} zeros, 10x {fmt_price(h['target_10x'])}, 100x {fmt_price(h['target_100x'])}, "
+                     f"hunt {h['score']:.0f}/100, RISK {h['risk']}")
         text_parts += [f"[{x['severity']}] {a['name']} ({a['symbol']}): {title}", f"  {meta}"]
         text_parts += [f"  - {w}" for w in x["why"]]
         if n:
@@ -1074,7 +1471,7 @@ def run_alerts(assets, state, now):
     return len(alerts)
 
 
-def prune_state(state, now):
+def prune_state(state, now, touch=False):
     cut = now - timedelta(days=14)
     state["sent_news"] = {k: v for k, v in state.get("sent_news", {}).items()
                           if (parse_date(v) or now) > cut}
@@ -1082,7 +1479,8 @@ def prune_state(state, now):
     state["last_alert"] = {k: v for k, v in state.get("last_alert", {}).items()
                            if (parse_date(v) or now) > cut2}
     state["history"] = state.get("history", [])[-60:]
-    state["updated"] = now.isoformat()
+    if touch:
+        state["updated"] = now.isoformat()
 
 
 # --------------------------------------------------------------------------- #
@@ -1097,22 +1495,29 @@ def pipeline(mode):
     state = load_json(STATE_FILE, {})
     log(f"== Crypto Intelligence Terminal: mode={mode} ==")
 
-    rows = fetch_markets(headers)
+    # ---- 1. universe: CoinGecko (deep), trending, categories, DEX discovery --------------
+    rows = fetch_markets(headers, pages=CG_PAGES if mode == "full" else min(CG_PAGES, 5))
     if not rows:
         log("FATAL: no market data returned (CoinGecko unreachable or rate limited).")
         return 1
-    cat_members = {}
     if mode == "full":
+        for k, v in fetch_markets(headers, pages=CG_VOLUME_PAGES, order="volume_desc").items():
+            rows.setdefault(k, v)
+        need = [i for i in fetch_trending_ids(headers) if i not in rows]
+        if need:
+            rows.update(fetch_by_ids(need, headers))
         cat_members = fetch_category_rows(headers, rows)
     else:
         cat_members = {i: set(a.get("category_ids") or []) for i, a in prev_by_id.items()}
-        missing = [i for i in prev_by_id if i not in rows]
+        missing = [i for i in prev_by_id if i not in rows and not i.startswith("dex-")]
         if missing:
             rows.update(fetch_by_ids(missing, headers))
     missing_watch = [i for i in WATCHLIST if i not in rows]
     if missing_watch:
         rows.update(fetch_by_ids(missing_watch, headers))
-    log(f"[markets] {len(rows)} coins in pool")
+    cg_count = len(rows)
+    rows.update(discover_dex(prev_by_id))
+    log(f"[markets] {cg_count} CoinGecko coins + {len(rows) - cg_count} DEX tokens in pool")
 
     assets = []
     for cid, coin in rows.items():
@@ -1122,32 +1527,45 @@ def pipeline(mode):
         old = prev_by_id.get(cid) or {}
         a["category_ids"] = sorted(cat_members.get(cid, set()))
         a["profile"], a["profile_fetched_at"] = old.get("profile"), old.get("profile_fetched_at")
+        a["security"], a["security_checked_at"] = old.get("security"), old.get("security_checked_at")
         pcats = (a["profile"] or {}).get("categories")
         a["use_case"] = assign_use_case(cid, a["name"], a["category_ids"], pcats)
         a["use_case_label"], a["use_case_rank"] = UC_LABEL[a["use_case"]], UC_RANK[a["use_case"]]
         assets.append(a)
-    log(f"[filter] {len(assets)} assets tracked (no market-cap ceiling)")
+    log(f"[filter] {len(assets)} assets pass the filters (price under ${MAX_PRICE_USD:g}, no market-cap ceiling)")
 
+    # ---- 2. news ----------------------------------------------------------------------------
     news, feed_status = fetch_news([f"{a['name']} crypto" for a in assets if a["watchlist"]])
     log(f"[news] {len(news)} unique headlines")
     wire = intersect_news(assets, news)
 
+    # ---- 3. volume baseline + scoring --------------------------------------------------------
     ema = state.setdefault("vol_ema", {})
     for a in assets:
         base = ema.get(a["id"])
         a["vol_ratio"] = round(a["volume_24h"] / base, 2) if base and base > 0 else None
         if mode == "full":
             ema[a["id"]] = a["volume_24h"] if not base else 0.8 * base + 0.2 * a["volume_24h"]
-
     for a in assets:
         score_asset(a)
 
     def finalize():
-        out = []
+        keep = []
         for a in assets:
+            h = a.get("hunt")
+            if h and h["risk"] == "EXTREME" and not a["watchlist"]:
+                continue                         # clear rug/honeypot signals: never shown
+            if a["watchlist"] or (h and h["score"] >= HUNT_MIN_KEEP):
+                a["backing_strong"] = True
+                keep.append(a)
+                continue
             a["backing_strong"] = ecosystem_backing_ok(a) if a["tier"] == "ecosystem" else True
             if a["backing_strong"]:
-                out.append(a)
+                keep.append(a)
+        hunts = sorted((a for a in keep if a.get("hunt")), key=lambda a: -a["hunt"]["score"])
+        others = sorted((a for a in keep if not a.get("hunt")), key=lambda a: -a["setup_score"])
+        chosen = {a["id"]: a for a in hunts[:MAX_HUNT] + others[:MAX_NON_HUNT] + [a for a in keep if a["watchlist"]]}
+        out = list(chosen.values())
         out.sort(key=lambda x: (x["use_case_rank"], -x["setup_score"]))
         return out
 
@@ -1155,14 +1573,16 @@ def pipeline(mode):
         uc_counts = {k: 0 for k, _ in USE_CASES}
         for a in final:
             uc_counts[a["use_case"]] += 1
+        hunts = [a for a in final if a.get("hunt") and a["hunt"]["score"] >= HUNT_MIN_KEEP]
         payload = {
             "generated_at": now.isoformat(),
             "parameters": {
                 "min_market_cap": MIN_MARKET_CAP, "min_volume_24h": MIN_VOLUME_24H,
-                "max_market_cap": None, "banned_top10": BAN_TOP10,
+                "max_market_cap": None, "max_price_usd": MAX_PRICE_USD, "banned_top10": BAN_TOP10,
                 "scarce_max": SCARCE_MAX, "fdv_warn_ratio": FDV_WARN_RATIO,
                 "fdv_critical_ratio": FDV_CRITICAL_RATIO, "news_window_days": NEWS_MAX_AGE_DAYS,
-                "alert_news_min_strength": ALERT_NEWS_MIN_STRENGTH,
+                "alert_news_min_strength": ALERT_NEWS_MIN_STRENGTH, "hunt_min_zeros": HUNT_MIN_ZEROS,
+                "hunt_min_keep": HUNT_MIN_KEEP,
             },
             "use_cases": [{"key": k, "label": l, "rank": UC_RANK[k], "count": uc_counts[k]} for k, l in USE_CASES],
             "stats": {
@@ -1173,6 +1593,9 @@ def pipeline(mode):
                 "dilution_alerts": sum(1 for a in final if a["dilution_alert"] in ("WARNING", "CRITICAL")),
                 "with_adoption_news": sum(1 for a in final if a["adoption_hits"] > 0),
                 "early_setups": sum(1 for a in final if a["stage"] in ("Dormant base", "Accumulating")),
+                "hunt_candidates": len(hunts),
+                "hunt_low_medium_risk": sum(1 for a in hunts if a["hunt"]["risk"] in ("LOW", "MEDIUM")),
+                "dex_tokens": sum(1 for a in final if a["venue"] == "dex"),
                 "headlines_scanned": len(news), "adoption_headlines": len(wire),
             },
             "feeds": feed_status,
@@ -1185,15 +1608,18 @@ def pipeline(mode):
 
     final = finalize()
     if mode == "full":
-        write_data(final)          # write immediately so a slow enrichment can never lose the data
+        write_data(final)          # write immediately so slow enrichment can never lose the data
         enrich_profiles(assets, headers, now)
+        scan_security_batch(assets, now)
         for a in assets:
             score_asset(a)
         final = finalize()
         write_data(final)
+        ids = {a["id"] for a in final}
+        state["vol_ema"] = {k: v for k, v in ema.items() if k in ids}   # keep the state file small
 
     sent = run_alerts(final, state, now)
-    prune_state(state, now)
+    prune_state(state, now, touch=(mode == "full" or sent > 0))
     save_json(STATE_FILE, state, indent=1)
     log(f"== finished: {sent} alert(s) emailed ==")
     return 0

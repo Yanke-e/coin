@@ -1,0 +1,83 @@
+name: Crypto Intelligence
+
+on:
+  schedule:
+    - cron: "15 */4 * * *"    # full refresh every 4 hours (dashboard data)
+    - cron: "20 * * * *"      # hourly alert check (news + volume)
+    - cron: "30 6 * * 1"      # weekly spike lab
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "full | alerts | spikelab | test-email"
+        required: true
+        default: "full"
+        type: choice
+        options: [full, alerts, spikelab, test-email]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crypto-intel
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Pick mode
+        id: mode
+        run: |
+          case "${{ github.event.schedule }}" in
+            "15 */4 * * *")  MODE=full ;;
+            "30 6 * * 1")    MODE=spikelab ;;
+            "20 * * * *")    MODE=alerts ;;
+            *)               MODE="${{ github.event.inputs.mode }}" ;;
+          esac
+          echo "mode=${MODE:-full}" >> "$GITHUB_OUTPUT"
+          echo "Running mode: ${MODE:-full}"
+
+      - name: Run engine
+        timeout-minutes: 20
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+        run: python fetch_crypto.py --mode "${{ steps.mode.outputs.mode }}"
+
+      # Runs even if the engine step failed or timed out, so partial results are never lost.
+      - name: Commit results
+        if: always()
+        run: |
+          echo "Files produced:"
+          ls -la *.json 2>/dev/null || echo "(no json files were produced)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # add only files that exist (a missing path would make plain `git add` stage nothing)
+          for f in crypto_data.json alerts_state.json spike_lab.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(${{ steps.mode.outputs.mode }}): $(date -u +%FT%H:%MZ)"
+            git pull --rebase --autostash
+            git push
+            echo "Pushed."
+          fi
+          if [ "${{ steps.mode.outputs.mode }}" = "full" ] && [ ! -f crypto_data.json ]; then
+            echo "::error::crypto_data.json was not produced. Open the 'Run engine' step above for the reason."
+            exit 1
+          fi

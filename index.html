@@ -107,6 +107,12 @@
   .kv span:last-child{text-align:right;min-width:0;overflow-wrap:anywhere}
   .closebtn{min-width:44px;min-height:44px;border:1px solid var(--line-2);background:var(--panel);color:var(--text);border-radius:4px;font-size:20px;line-height:1}
   .extlink{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(34,211,238,.4)}
+  .b-low{color:var(--emerald);border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.08)}
+  .b-med{color:var(--amber);border-color:rgba(251,191,36,.45);background:rgba(251,191,36,.08)}
+  .b-high{color:#fb923c;border-color:rgba(251,146,60,.5);background:rgba(251,146,60,.1)}
+  .huntbox{margin-top:10px;border:1px dashed var(--line-2);border-radius:4px;padding:8px 10px;background:rgba(34,211,238,.04)}
+  .zeros{color:var(--amber)}
+  .livedot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--emerald)}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -127,7 +133,11 @@
         </p>
       </div>
     </div>
-    <div id="tierSeg" class="seg mt-3" role="group" aria-label="Supply tier filter">
+    <div id="viewSeg" class="seg mt-3" role="group" aria-label="View">
+      <button type="button" data-view="usecase" aria-pressed="true">Use-case ranking</button>
+      <button type="button" data-view="hunt" aria-pressed="false">Zero-cancel hunt</button>
+    </div>
+    <div id="tierSeg" class="seg mt-2" role="group" aria-label="Supply tier filter">
       <button type="button" data-tier="all" aria-pressed="true">All Assets</button>
       <button type="button" data-tier="scarce" aria-pressed="false">Scarce Tier: up to 800M</button>
       <button type="button" data-tier="ecosystem" aria-pressed="false">Ecosystem Tier: Billions+</button>
@@ -146,6 +156,8 @@
     </div>
     <select id="sort" aria-label="Sort order" class="!w-[140px]">
       <option value="usecase">Use-case priority</option>
+      <option value="hunt">Zero-cancel score</option>
+      <option value="price_asc">Lowest price</option>
       <option value="setup">Setup score</option>
       <option value="turnover">Turnover ratio</option>
       <option value="mcap_asc">Smallest cap</option>
@@ -158,6 +170,14 @@
   </section>
 
   <section class="seg mt-2" id="ucSeg" role="group" aria-label="Use case filter"></section>
+  <section class="seg mt-2 hidden" id="huntSeg" role="group" aria-label="Zero-cancel filters">
+    <button type="button" class="chip" data-hz="3" aria-pressed="false">3+ zeros</button>
+    <button type="button" class="chip" data-hz="4" aria-pressed="false">4+ zeros</button>
+    <button type="button" class="chip" data-hz="5" aria-pressed="false">5+ zeros</button>
+    <button type="button" class="chip" data-hrisk="1" aria-pressed="false">Low / medium risk only</button>
+    <button type="button" class="chip" data-hven="cg" aria-pressed="false">Listed coins</button>
+    <button type="button" class="chip" data-hven="dex" aria-pressed="false">DEX-only tokens</button>
+  </section>
   <section class="seg mt-2" id="flagSeg" role="group" aria-label="Signal filters">
     <button type="button" class="chip" data-flag="early" aria-pressed="false">Early setups</button>
     <button type="button" class="chip" data-flag="momentum" aria-pressed="false">High turnover</button>
@@ -198,7 +218,7 @@
 
   <footer class="mt-10 text-[12px] leading-relaxed" style="color:var(--dim)">
     Data: CoinGecko market feed, public news wires and exchange listings, refreshed by GitHub Actions. Turnover ratio = 24h volume / market cap.
-    Setup score summarizes the conditions seen before past runs; it flags candidates and does not forecast price. Many flagged coins will not move.
+    Setup score summarizes the conditions seen before past runs; it flags candidates and does not forecast price. Many flagged coins will not move. Micro-priced tokens carry rug-pull and honeypot risk even after the automated checks.
     Headline matching is automated and can mismatch; open the source wire before acting. Informational only, not financial advice.
   </footer>
 </main>
@@ -212,7 +232,7 @@
   'use strict';
 
   const PAGE_SIZE = 30;
-  const state = { tier: 'all', uc: 'all', flags: new Set(), q: '', sort: 'usecase', shown: PAGE_SIZE };
+  const state = { view: 'usecase', tier: 'all', uc: 'all', flags: new Set(), q: '', sort: 'usecase', shown: PAGE_SIZE, hz: 0, hrisk: false, hven: '' };
   let DATA = null, ASSETS = [], LAB = null, lastFocus = null;
 
   const $ = (s) => document.querySelector(s);
@@ -235,8 +255,8 @@
     if (n >= 1000) return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 2 });
     if (n >= 1) return '$' + n.toFixed(2);
     if (n >= 0.01) return '$' + n.toFixed(4);
-    if (n >= 0.0001) return '$' + n.toFixed(6);
-    return '$' + n.toPrecision(3);
+    const z = Math.max(0, -Math.floor(Math.log10(n)) - 1);
+    return '$' + n.toFixed(Math.min(20, z + 4));
   }
   function supply(n) {
     if (!isNum(n)) return 'n/a';
@@ -313,9 +333,9 @@
     const s = DATA.stats || {};
     const cells = [
       ['Assets tracked', s.assets ?? ASSETS.length, 'cy'],
-      ['Early setups', s.early_setups ?? 0, 'up'],
+      ['Zero-cancel picks', s.hunt_candidates ?? 0, 'up'],
       ['Adoption-linked', s.with_adoption_news ?? 0, 'cy'],
-      ['Dilution alerts', s.dilution_alerts ?? 0, 'down'],
+      ['Early setups', s.early_setups ?? 0, 'cy'],
     ];
     $('#stats').innerHTML = cells.map(([k, v, c]) =>
       `<div class="panel px-3 py-2"><div class="text-[12px]" style="color:var(--mute)">${k}</div><div class="mono text-[20px] font-semibold ${c}">${esc(v)}</div></div>`).join('');
@@ -393,7 +413,15 @@
   /* ---------- filtering / sorting ---------- */
   function filtered() {
     const terms = state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    const hunting = state.view === 'hunt';
     const out = ASSETS.filter(a => {
+      if (hunting) {
+        const h = a.hunt;
+        if (!h || h.score < ((DATA.parameters || {}).hunt_min_keep || 35)) return false;
+        if (state.hz && zerosOf(a) < state.hz) return false;
+        if (state.hrisk && !(h.risk === 'LOW' || h.risk === 'MEDIUM')) return false;
+        if (state.hven && a.venue !== state.hven) return false;
+      }
       if (state.tier !== 'all' && a.tier !== state.tier) return false;
       if (state.uc !== 'all' && a.use_case !== state.uc) return false;
       if (state.flags.has('early') && !(a.stage === 'Dormant base' || a.stage === 'Accumulating' || a.stage === 'Ignition')) return false;
@@ -405,6 +433,8 @@
     const num = (v, f) => isNum(v) ? v : f;
     const sorters = {
       usecase:   (a, b) => (a.use_case_rank - b.use_case_rank) || (b.setup_score - a.setup_score),
+      hunt:      (a, b) => ((b.hunt && b.hunt.score) || 0) - ((a.hunt && a.hunt.score) || 0),
+      price_asc: (a, b) => a.price - b.price,
       setup:     (a, b) => b.setup_score - a.setup_score,
       turnover:  (a, b) => b.turnover_ratio - a.turnover_ratio,
       mcap_asc:  (a, b) => a.market_cap - b.market_cap,
@@ -418,6 +448,28 @@
   }
 
   /* ---------- cards ---------- */
+  function zerosOf(a) { return a.price > 0 && a.price < 1 ? Math.max(0, -Math.floor(Math.log10(a.price)) - 1) : 0; }
+  function riskBadge(r) {
+    const cls = r === 'LOW' ? 'b-low' : r === 'MEDIUM' ? 'b-med' : r === 'HIGH' ? 'b-high' : 'b-crit';
+    return `<span class="badge ${cls}">${esc(r)} risk</span>`;
+  }
+  function venueText(a) {
+    return a.venue === 'dex' && a.dex ? `DEX only · ${a.dex.chain}` : 'Listed on exchanges';
+  }
+  function huntBox(a) {
+    const h = a.hunt; if (!h) return '';
+    const z = zerosOf(a);
+    return `<div class="huntbox">
+      <div class="flex items-center justify-between gap-2">
+        <span class="text-[13px] font-semibold">Zero-cancel score <span class="mono ${h.score >= 70 ? 'up' : 'cy'}">${Math.round(h.score)}/100</span></span>
+        ${riskBadge(h.risk)}
+      </div>
+      <div class="text-[12.5px] mt-1.5" style="color:var(--mute)"><span class="zeros mono">${z} zeros</span> · 10x = <span class="mono">${price(a.price * 10)}</span> · 100x = <span class="mono">${price(a.price * 100)}</span></div>
+      <div class="text-[12.5px] mt-0.5" style="color:var(--mute)">100x needs a ${usd(a.market_cap * 100)} cap: <span style="color:var(--text)">${esc(h.feasibility)}</span></div>
+      <div class="text-[12px] mt-0.5" style="color:var(--dim)">${esc(venueText(a))}${isNum(h.liquidity_usd) ? ' · liquidity ' + usd(h.liquidity_usd) : ''}</div>
+    </div>`;
+  }
+
   function stageBadge(a) {
     const cls = a.stage === 'Ignition' ? 'b-hot' : a.stage === 'Accumulating' ? 'b-hot' : a.stage === 'Dormant base' ? 'b-scarce' : a.stage === 'Extended' ? 'b-warm' : 'b-use';
     return `<span class="badge ${cls}">${esc(a.stage)}</span>`;
@@ -452,7 +504,8 @@
         </div>
       </div>
       <div class="flex flex-wrap gap-1.5 mt-2.5">${badges}</div>
-      <div class="mt-2.5" style="height:34px">${spark(a.spark, 200, 34)}</div>
+      ${a.spark && a.spark.length ? `<div class="mt-2.5" style="height:34px">${spark(a.spark, 200, 34)}</div>` : ''}
+      ${huntBox(a)}
       <div class="mt-2">
         <div class="flex items-center justify-between text-[12px]" style="color:var(--mute)">
           <span>Capital turnover (24h vol / mcap)</span><span class="mono ${hot ? 'up' : ''}">${(a.turnover_ratio * 100).toFixed(1)}%</span>
@@ -483,6 +536,18 @@
   }
 
   /* ---------- detail sheet ---------- */
+  function secText(sc) {
+    if (sc.source === 'GoPlus') {
+      const bits = [];
+      bits.push(sc.honeypot === true ? '<span class="down">HONEYPOT</span>' : sc.honeypot === false ? 'not a honeypot' : 'honeypot n/a');
+      if (isNum(sc.buy_tax_pct) || isNum(sc.sell_tax_pct)) bits.push('tax ' + (sc.buy_tax_pct ?? '?') + '% buy / ' + (sc.sell_tax_pct ?? '?') + '% sell');
+      if (sc.mintable === true) bits.push('<span class="down">mintable</span>');
+      if (sc.holders) bits.push(count(sc.holders) + ' holders');
+      return bits.join(', ');
+    }
+    const d = (sc.danger || []).length, w = (sc.warn || []).length;
+    return d || w ? `<span class="${d ? 'down' : ''}">${d} danger, ${w} warning</span>: ${esc([...(sc.danger || []), ...(sc.warn || [])].join(', '))}` : 'no flags reported';
+  }
   function kv(k, v) { return `<div class="kv"><span>${k}</span><span class="mono">${v}</span></div>`; }
 
   function linkOrNa(url, label) {
@@ -537,6 +602,21 @@
         ${a.dilution_alert === 'CRITICAL' ? '<span class="badge b-crit">FDV trap risk</span>' : a.dilution_alert === 'WARNING' ? '<span class="badge b-warm">FDV dilution</span>' : ''}
       </div>
     </div>
+
+    ${a.hunt ? `<div class="sec panel p-3">
+      <h3>Zero-cancel analysis: <span class="mono ${a.hunt.score >= 70 ? 'up' : 'cy'}">${Math.round(a.hunt.score)}/100</span> ${riskBadge(a.hunt.risk)}</h3>
+      ${kv('Zeros in the price', '<span class="zeros">' + zerosOf(a) + '</span>')}
+      ${kv('10x target', price(a.price * 10) + ' (needs ' + usd(a.market_cap * 10) + ' cap)')}
+      ${kv('100x target (2 zeros cancelled)', price(a.price * 100) + ' (needs ' + usd(a.market_cap * 100) + ' cap)')}
+      ${kv('Room to run', esc(a.hunt.feasibility))}
+      ${kv('Where it trades', esc(venueText(a)))}
+      ${a.dex ? kv('Liquidity', usd(a.dex.liquidity_usd)) + kv('Trading pair created', a.dex.pair_created_at ? esc(shortDate(a.dex.pair_created_at)) + (isNum(a.hunt.age_days) ? ' (' + a.hunt.age_days + ' days ago)' : '') : 'n/a') + kv('Buys / sells (24h)', count(a.dex.buys_24h) + ' / ' + count(a.dex.sells_24h)) + kv('Market cap basis', esc(a.dex.mcap_basis || 'n/a')) + kv('Token contract', '<span style="font-size:11px">' + esc(a.dex.address) + '</span>') + kv('Chart and pool', linkOrNa(a.dex.url, 'Open on DexScreener')) : kv('Chart and data', linkOrNa('https://www.coingecko.com/en/coins/' + encodeURIComponent(a.id), 'Open on CoinGecko'))}
+      ${a.security ? kv('Security scan (' + esc(a.security.source) + ')', secText(a.security)) : kv('Security scan', 'not scanned: check the contract yourself on a scanner before buying')}
+      <div class="mt-3"><div class="text-[13px] font-semibold">Why this risk grade</div>
+        ${(a.hunt.risk_reasons || []).length ? (a.hunt.risk_reasons || []).map(r => `<div class="text-[13px] mt-1" style="color:var(--mute)">&bull; ${esc(r)}</div>`).join('') : '<div class="text-[13px] mt-1" style="color:var(--mute)">No risk flags raised by the automated checks.</div>'}</div>
+      ${(a.hunt.drivers || []).map(d => `<div class="mt-2.5"><div class="flex justify-between text-[13px]"><span>${esc(d.label)}</span><span class="mono">+${d.pts} / ${d.max}</span></div><div class="bar mt-1"><i style="width:${d.max ? Math.min(100, d.pts / d.max * 100) : 0}%"></i></div><div class="text-[12px] mt-0.5" style="color:var(--mute)">${esc(d.note)}</div></div>`).join('')}
+      <p class="text-[12px] mt-3" style="color:var(--dim)">Cheap-looking prices say nothing about value: the price is low only because the supply is huge. Judge by market cap and liquidity. Most micro-priced tokens never recover; an automated scan can miss scams.</p>
+    </div>` : ''}
 
     <div class="sec panel p-3">
       <h3>Setup analysis: <span class="mono ${a.setup_score >= 70 ? 'up' : 'cy'}">${Math.round(a.setup_score)}/100</span> · ${esc(a.stage)}</h3>
@@ -613,6 +693,28 @@
   }
 
   /* ---------- events ---------- */
+  $('#viewSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-view]'); if (!b) return;
+    state.view = b.dataset.view; state.shown = PAGE_SIZE;
+    state.sort = state.view === 'hunt' ? 'hunt' : 'usecase';
+    $('#sort').value = state.sort;
+    document.querySelectorAll('#viewSeg button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    $('#huntSeg').classList.toggle('hidden', state.view !== 'hunt');
+    render();
+  });
+  $('#huntSeg').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.hz) {
+      const v = Number(b.dataset.hz); state.hz = state.hz === v ? 0 : v;
+      document.querySelectorAll('#huntSeg [data-hz]').forEach(x => x.setAttribute('aria-pressed', String(Number(x.dataset.hz) === state.hz)));
+    } else if (b.dataset.hrisk) {
+      state.hrisk = !state.hrisk; b.setAttribute('aria-pressed', String(state.hrisk));
+    } else if (b.dataset.hven) {
+      state.hven = state.hven === b.dataset.hven ? '' : b.dataset.hven;
+      document.querySelectorAll('#huntSeg [data-hven]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.hven === state.hven)));
+    }
+    state.shown = PAGE_SIZE; render();
+  });
   $('#tierSeg').addEventListener('click', (e) => {
     const b = e.target.closest('button[data-tier]'); if (!b) return;
     state.tier = b.dataset.tier; state.shown = PAGE_SIZE;
@@ -658,6 +760,75 @@
       t.replaceWith(d);
     }
   }, true);
+
+  /* ---------- live price refresh (browser pulls fresh prices every 60s) ---------- */
+  const live = { backoff: 0, ok: false };
+  function applyLive(a, price_, mcap, vol, c24, c1) {
+    if (isNum(price_) && price_ > 0) a.price = price_;
+    if (isNum(mcap) && mcap > 0) a.market_cap = mcap;
+    if (isNum(vol)) a.volume_24h = vol;
+    if (isNum(c24)) a.change_24h = c24;
+    if (isNum(c1)) a.change_1h = c1;
+    if (a.market_cap > 0) a.turnover_ratio = a.volume_24h / a.market_cap;
+  }
+  async function liveTick() {
+    if (document.hidden || !ASSETS.length) return;
+    if (live.backoff > 0) { live.backoff--; return; }
+    const openId = ($('#sheet').classList.contains('open') && (location.hash.match(/^#coin=(.+)$/) || [])[1]) || null;
+    const targets = new Set(filtered().slice(0, state.shown).map(a => a.id));
+    if (openId) targets.add(decodeURIComponent(openId));
+    const cg = [], dex = {};
+    ASSETS.forEach(a => {
+      if (!targets.has(a.id)) return;
+      if (a.venue === 'dex' && a.dex) (dex[a.dex.chain] = dex[a.dex.chain] || []).push(a);
+      else cg.push(a);
+    });
+    let changed = false;
+    try {
+      for (let i = 0; i < cg.length; i += 100) {
+        const chunk = cg.slice(i, i + 100);
+        const url = 'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&ids=' + chunk.map(a => encodeURIComponent(a.id)).join(',');
+        const res = await fetch(url);
+        if (res.status === 429) { live.backoff = 5; break; }
+        if (!res.ok) continue;
+        const j = await res.json();
+        chunk.forEach(a => { const r = j[a.id]; if (r) { applyLive(a, r.usd, r.usd_market_cap, r.usd_24h_vol, r.usd_24h_change); changed = true; } });
+      }
+      for (const chain of Object.keys(dex)) {
+        const list = dex[chain].slice(0, 30);
+        const res = await fetch('https://api.dexscreener.com/tokens/v1/' + chain + '/' + list.map(a => a.dex.address).join(','));
+        if (res.status === 429) { live.backoff = 5; break; }
+        if (!res.ok) continue;
+        const pairs = await res.json();
+        if (!Array.isArray(pairs)) continue;
+        list.forEach(a => {
+          const mine = pairs.filter(p => p.baseToken && String(p.baseToken.address).toLowerCase() === a.dex.address.toLowerCase());
+          if (!mine.length) return;
+          const best = mine.reduce((x, y) => ((y.liquidity && y.liquidity.usd) || 0) > ((x.liquidity && x.liquidity.usd) || 0) ? y : x);
+          const vol = mine.reduce((t, p) => t + ((p.volume && p.volume.h24) || 0), 0);
+          const liq = mine.reduce((t, p) => t + ((p.liquidity && p.liquidity.usd) || 0), 0);
+          applyLive(a, parseFloat(best.priceUsd), best.marketCap || best.fdv, vol, best.priceChange && best.priceChange.h24, best.priceChange && best.priceChange.h1);
+          a.dex.liquidity_usd = liq || a.dex.liquidity_usd;
+          changed = true;
+        });
+      }
+    } catch (err) { live.ok = false; }
+    if (changed) {
+      live.ok = true;
+      const sb = $('#sheetBody'), top = sb.scrollTop, y = window.scrollY;
+      render();
+      if ($('#sheet').classList.contains('open') && openId) {
+        const a = ASSETS.find(x => x.id === decodeURIComponent(openId));
+        if (a) { sb.innerHTML = detail(a); sb.scrollTop = top; }
+      }
+      window.scrollTo(0, y);
+      $('#pulse').classList.remove('stale');
+      $('#updated').textContent = 'live ' + new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+  }
+  window.__terminal = { liveTick };
+  setInterval(liveTick, 60000);
+  setTimeout(liveTick, 4000);
 
   load();
 })();
