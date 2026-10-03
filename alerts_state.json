@@ -781,29 +781,11 @@
   "stockereum-fun:ignition": "2026-10-03T19:49:35.477637+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
   "priors-agent:ignition": "2026-10-03T19:49:35.477637+00:00",
-  "stockereum-fun:zeroignite": "2026-10-03T19:49:35.477637+00:00"
+  "stockereum-fun:zeroignite": "2026-10-03T19:49:35.477637+00:00",
+  "interfold:ignition": "2026-10-03T23:06:37.257794+00:00",
+  "dex-bsc-0x55DB4b1f497b1D7Aa93354701883eFC758367777:ignition": "2026-10-03T23:06:37.257794+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-02T21:15:12.076969+00:00",
-   "kind": "market",
-   "id": "dolphin-2",
-   "symbol": "POD",
-   "name": "Dolphin",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-03T01:14:03.608040+00:00",
-   "kind": "news",
-   "id": "chainlink",
-   "symbol": "LINK",
-   "name": "Chainlink",
-   "severity": "MAJOR",
-   "title": "Chainlink Connects Financial Institutions to Swift’s Blockchain Ledger for Tokenized Deposits - CryptoDaily",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPT2VmS25xd2ZPTUFhUEhqdjhNUnVpQllsa0E4bXlvWlVseERFeTVBRmRKYUF4cDc3TWFNUkNfTkRVTElnb3U4UUdXRjNGeHJSUUtNVlI3bHNscjgxNzgxY3M1a05zMnJ5MFZkQ1VDWmFZOWZZbWF1YjVoTTFTcnQwUVd4eDZ2ZkR1UmNha1VjYw?oc=5"
-  },
   {
    "t": "2026-10-03T01:14:03.608040+00:00",
    "kind": "market",
@@ -1383,8 +1365,28 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-03T23:06:37.257794+00:00",
+   "kind": "market",
+   "id": "interfold",
+   "symbol": "FOLD",
+   "name": "The Interfold",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-03T23:06:37.257794+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0x55DB4b1f497b1D7Aa93354701883eFC758367777",
+   "symbol": "WIRED",
+   "name": "Wired fees to socials",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-03T19:49:35.477637+00:00"
+ "updated": "2026-10-03T23:06:37.257794+00:00"
 }
