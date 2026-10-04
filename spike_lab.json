@@ -1,0 +1,193 @@
+{
+ "generated_at": "2026-10-04T08:16:10.238054+00:00",
+ "cases": [
+  {
+   "label": "Quant (QNT), 2026 institutional breakout",
+   "spike": {
+    "base_date": "2026-08-30",
+    "base_price": 60.08,
+    "peak_date": "2026-09-27",
+    "peak_price": 373.0,
+    "gain_pct": 521.0,
+    "days_to_peak": 28,
+    "ignition": {
+     "date": "2026-09-18",
+     "day_move_pct": 3.4,
+     "volume_multiple": 2.2,
+     "days_after_base": 19,
+     "close": 63.28,
+     "move_left_pct": 99.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 24.13169319826338,
+     "vol_exp": 0.9938644250723063,
+     "drawdown_pct": -86.02790697674419,
+     "volatility": 0.02556208087013845,
+     "ret_30d_pct": -0.14957620076450073,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": true,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": true,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "Shiba Inu (SHIB), 2021 mania",
+   "spike": {
+    "base_date": "2021-09-28",
+    "base_price": 6.98e-06,
+    "peak_date": "2021-10-28",
+    "peak_price": 8.854e-05,
+    "gain_pct": 1168.0,
+    "days_to_peak": 30,
+    "ignition": {
+     "date": "2021-10-01",
+     "day_move_pct": 6.9,
+     "volume_multiple": 0.5,
+     "days_after_base": 3,
+     "close": 7.7e-06,
+     "move_left_pct": 99.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 86.27450980392157,
+     "vol_exp": 0.5434030629085309,
+     "drawdown_pct": -86.04,
+     "volatility": 0.07240507149437089,
+     "ret_30d_pct": -1.9662921348314488,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": false,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "XPIN Network (XPIN), late 2025",
+   "spike": {
+    "base_date": "2025-12-19",
+    "base_price": 0.001810971591589687,
+    "peak_date": "2025-12-22",
+    "peak_price": 0.0029363748646750996,
+    "gain_pct": 62.0,
+    "days_to_peak": 3,
+    "ignition": {
+     "date": "2025-12-22",
+     "day_move_pct": 48.6,
+     "volume_multiple": 5.9,
+     "days_after_base": 3,
+     "close": 0.0029363748646750996,
+     "move_left_pct": 0.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 63.64671412668355,
+     "vol_exp": 0.14808901165258623,
+     "drawdown_pct": -78.91562680130401,
+     "volatility": 0.07484853829123835,
+     "ret_30d_pct": -36.70096600322884,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": false,
+     "flat_prior_month": false
+    }
+   },
+   "source": "CoinGecko daily (xpin-network), 365-day limit"
+  },
+  {
+   "label": "Avalanche (AVAX), 2026 move",
+   "spike": {
+    "base_date": "2026-08-30",
+    "base_price": 7.113,
+    "peak_date": "2026-09-29",
+    "peak_price": 12.008,
+    "gain_pct": 69.0,
+    "days_to_peak": 30,
+    "ignition": {
+     "date": "2026-09-18",
+     "day_move_pct": 7.8,
+     "volume_multiple": 2.6,
+     "days_after_base": 19,
+     "close": 8.204,
+     "move_left_pct": 78.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 37.69867549668875,
+     "vol_exp": 1.1377123264491469,
+     "drawdown_pct": -95.16122448979591,
+     "volatility": 0.030096829609504227,
+     "ret_30d_pct": 11.384278108362045,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": true,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  }
+ ],
+ "conditions": [
+  {
+   "key": "tight_base",
+   "label": "Tight 30-day base (range under 35%)",
+   "spikes_hit": 1,
+   "spikes_total": 4,
+   "base_rate_pct": 29.0,
+   "lift": 0.86
+  },
+  {
+   "key": "volume_building",
+   "label": "Volume building (7-day average 1.3x+ the prior 60 days)",
+   "spikes_hit": 0,
+   "spikes_total": 4,
+   "base_rate_pct": 21.6,
+   "lift": 0.0
+  },
+  {
+   "key": "beaten_down",
+   "label": "Beaten down (50%+ below its prior high)",
+   "spikes_hit": 4,
+   "spikes_total": 4,
+   "base_rate_pct": 93.1,
+   "lift": 1.07
+  },
+  {
+   "key": "calm_volatility",
+   "label": "Calm volatility (typical daily move under 4%)",
+   "spikes_hit": 2,
+   "spikes_total": 4,
+   "base_rate_pct": 44.0,
+   "lift": 1.14
+  },
+  {
+   "key": "flat_prior_month",
+   "label": "Flat prior month (-15% to +15%)",
+   "spikes_hit": 3,
+   "spikes_total": 4,
+   "base_rate_pct": 51.4,
+   "lift": 1.46
+  }
+ ],
+ "median_move_left_after_ignition_pct": 88.0,
+ "notes": [
+  "Sample is tiny and hand-picked (survivorship bias): treat lift as a hint, not a forecast.",
+  "'Base rate' is how often the same condition appeared on ordinary days for the same coins.",
+  "A condition only matters if spikes show it far more often than ordinary days (lift well above 1)."
+ ]
+}
