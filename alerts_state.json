@@ -783,19 +783,10 @@
   "priors-agent:ignition": "2026-10-03T19:49:35.477637+00:00",
   "stockereum-fun:zeroignite": "2026-10-03T19:49:35.477637+00:00",
   "interfold:ignition": "2026-10-03T23:06:37.257794+00:00",
-  "dex-bsc-0x55DB4b1f497b1D7Aa93354701883eFC758367777:ignition": "2026-10-03T23:06:37.257794+00:00"
+  "dex-bsc-0x55DB4b1f497b1D7Aa93354701883eFC758367777:ignition": "2026-10-03T23:06:37.257794+00:00",
+  "definitive:ignition": "2026-10-04T02:42:44.199556+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-03T01:14:03.608040+00:00",
-   "kind": "market",
-   "id": "kyber-network-crystal",
-   "symbol": "KNC",
-   "name": "Kyber Network Crystal",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
   {
    "t": "2026-10-03T01:14:03.608040+00:00",
    "kind": "market",
@@ -1385,8 +1376,18 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-04T02:42:44.199556+00:00",
+   "kind": "market",
+   "id": "definitive",
+   "symbol": "EDGE",
+   "name": "Definitive",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-03T23:06:37.257794+00:00"
+ "updated": "2026-10-04T02:42:44.199556+00:00"
 }
