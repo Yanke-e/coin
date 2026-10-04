@@ -79,8 +79,16 @@ DEX_BATCH = 30
 DEX_BUDGET_S = 9 * 60
 DEX_MAJOR_SYMBOLS = {"WETH", "ETH", "WBNB", "BNB", "USDC", "USDT", "DAI", "SOL", "WSOL", "WBTC",
                      "CBBTC", "BTC", "USDE", "FDUSD", "WMATIC", "POL", "USDS", "PYUSD"}
-SECURITY_MAX_PER_RUN = 25
+SECURITY_MAX_PER_RUN = 150          # EVM tokens are scanned in batches, so this is cheap
+SOLANA_SCAN_MAX = 40
+BLOCK_SELL_TAX = 20.0               # hide tokens whose sell tax is at least this (percent)
+BLOCK_BUY_TAX = 25.0
+SITE_SUMMARY_MAX = 25
+CG_PLATFORM_TO_CHAIN = {"ethereum": "ethereum", "binance-smart-chain": "bsc", "base": "base",
+                        "arbitrum-one": "arbitrum", "polygon-pos": "polygon", "solana": "solana"}
 SECURITY_REFRESH_DAYS = 3
+CG_PLATFORMS = {"ethereum": "ethereum", "bsc": "binance-smart-chain", "solana": "solana",
+                "base": "base", "arbitrum": "arbitrum-one", "polygon": "polygon-pos"}
 GOPLUS_CHAIN_IDS = {"ethereum": "1", "bsc": "56", "base": "8453", "arbitrum": "42161", "polygon": "137"}
 
 BAN_TOP10 = os.environ.get("BAN_TOP10", "1") != "0"
@@ -157,7 +165,7 @@ UC_KEYWORDS = {
 }
 
 # Profile enrichment (backing / liquidity / developer data) budget per full run.
-ENRICH_MAX_PER_RUN = 30
+ENRICH_MAX_PER_RUN = 45
 ENRICH_REFRESH_DAYS = 14
 ENRICH_DELAY = 4.0
 TIER1_EXCHANGES = ["binance", "coinbase", "kraken", "okx", "bybit", "bitget",
@@ -234,17 +242,35 @@ GOOGLE_NEWS_QUERIES = [
     "real world assets tokenization bank",
     "institutional blockchain adoption bank stablecoin settlement",
     "central bank blockchain interoperability pilot",
+    "Binance will list new token",
+    "Coinbase adds to roadmap listing",
+    "Upbit Bithumb new KRW listing crypto",
+    "Robinhood lists new crypto",
 ]
 
 # Spike Lab cases. Dates bound the window searched for the biggest run.
 SPIKE_CASES = [
-    {"label": "Quant (QNT), 2026 institutional breakout", "cg": "quant-network",
+    {"label": "Quant (QNT), 2026 institutional breakout", "kind": "utility", "cg": "quant-network",
      "binance": "QNTUSDT", "from": "2026-05-01", "to": None},
-    {"label": "Shiba Inu (SHIB), 2021 mania", "cg": "shiba-inu",
+    {"label": "Shiba Inu (SHIB), 2021 mania", "kind": "meme", "cg": "shiba-inu",
      "binance": "SHIBUSDT", "from": "2021-05-10", "to": "2021-12-31"},
-    {"label": "XPIN Network (XPIN), late 2025", "cg_search": "XPIN Network",
+    {"label": "Shiba Inu (SHIB), 2023-24 revival (Shibarium era)", "kind": "meme_utility", "cg": "shiba-inu",
+     "binance": "SHIBUSDT", "from": "2023-10-01", "to": "2024-04-30"},
+    {"label": "Dogecoin (DOGE), 2020-21 run", "kind": "meme", "cg": "dogecoin",
+     "binance": "DOGEUSDT", "from": "2020-11-01", "to": "2021-05-31"},
+    {"label": "PEPE, late-2023 to 2024 run", "kind": "meme", "cg": "pepe",
+     "binance": "PEPEUSDT", "from": "2023-10-01", "to": "2024-04-30"},
+    {"label": "Bonk (BONK), late-2023 run (Solana ecosystem)", "kind": "meme_utility", "cg": "bonk",
+     "binance": "BONKUSDT", "from": "2023-10-01", "to": "2024-04-30"},
+    {"label": "Floki (FLOKI), 2023-24 run", "kind": "meme_utility", "cg": "floki",
+     "binance": "FLOKIUSDT", "from": "2023-09-01", "to": "2024-04-30"},
+    {"label": "JasmyCoin (JASMY), 2023-24 run (IoT data)", "kind": "utility", "cg": "jasmycoin",
+     "binance": "JASMYUSDT", "from": "2023-09-01", "to": "2024-04-30"},
+    {"label": "eCash (XEC), late-2021 run", "kind": "utility", "cg": "ecash",
+     "binance": "XECUSDT", "from": "2021-09-01", "to": "2022-01-31"},
+    {"label": "XPIN Network (XPIN), late 2025 (DePIN)", "kind": "utility", "cg_search": "XPIN Network",
      "binance": None, "from": "2025-09-01", "to": "2025-12-31"},
-    {"label": "Avalanche (AVAX), 2026 move", "cg": "avalanche-2",
+    {"label": "Avalanche (AVAX), 2026 tokenization move", "kind": "utility", "cg": "avalanche-2",
      "binance": "AVAXUSDT", "from": "2026-01-01", "to": None},
 ]
 BINANCE_KLINES = "https://data-api.binance.vision/api/v3/klines"
@@ -307,6 +333,8 @@ def http_get(url, params=None, headers=None, retries=4):
     for attempt in range(1, retries + 1):
         try:
             resp = requests.get(url, params=params, headers=hdrs, timeout=HTTP_TIMEOUT)
+            if resp.status_code == 404:
+                raise RuntimeError(f"404 not found: {url}")
             if resp.status_code == 429:
                 try:
                     wait = int(resp.headers.get("Retry-After", delay))
@@ -535,6 +563,8 @@ def pairs_to_rows(pairs, wanted):
                 "url": best.get("url") or "", "dex": best.get("dexId"),
                 "liquidity_usd": liq, "pair_created_at": created,
                 "buys_24h": tx.get("buys"), "sells_24h": tx.get("sells"), "mcap_basis": basis,
+                "websites": [w.get("url") for w in ((best.get("info") or {}).get("websites") or []) if w.get("url")][:2],
+                "socials": [x.get("type") for x in ((best.get("info") or {}).get("socials") or []) if x.get("type")][:6],
             },
         }
     return rows
@@ -698,7 +728,9 @@ def build_asset(coin, watch=False):
         "range_7d_pct": range_7d, "pos_in_range": pos_in_range, "spark": spark,
         "vol_ratio": None,
         "venue": "dex" if dex else "cg", "dex": dex, "security": None, "security_checked_at": None,
-        "zeros": 0, "hunt": None,
+        "zeros": 0, "hunt": None, "utility": None, "meme": False, "meme_utility": False,
+        "overlooked": None, "history": None, "liquidity": None, "launch": None,
+        "site_summary": None, "pending_scan": False,
         "use_case": "other", "use_case_label": UC_LABEL["other"], "use_case_rank": UC_RANK["other"],
         "category_ids": [], "profile": None, "profile_fetched_at": None,
         "news": [], "news_hits": 0, "adoption_hits": 0, "backing_strong": False,
@@ -710,10 +742,30 @@ def build_asset(coin, watch=False):
 # Coin profiles: backing, liquidity, developer and community signals
 # --------------------------------------------------------------------------- #
 
+PROFILE_PARAMS = {"localization": "false", "tickers": "true", "market_data": "false",
+                  "community_data": "true", "developer_data": "true", "sparkline": "false"}
+
+
 def fetch_profile(coin_id, headers):
-    params = {"localization": "false", "tickers": "true", "market_data": "false",
-              "community_data": "true", "developer_data": "true", "sparkline": "false"}
-    d = http_get(f"{CG_BASE}/coins/{coin_id}", params=params, headers=headers, retries=3).json()
+    d = http_get(f"{CG_BASE}/coins/{coin_id}", params=PROFILE_PARAMS, headers=headers, retries=3).json()
+    return parse_profile(d)
+
+
+def fetch_profile_by_contract(chain, address, headers):
+    """Many DEX tokens are also listed on CoinGecko: look them up by contract address."""
+    platform = CG_PLATFORMS.get(chain)
+    if not platform:
+        return None
+    d = http_get(f"{CG_BASE}/coins/{platform}/contract/{address}", params=PROFILE_PARAMS,
+                 headers=headers, retries=2).json()
+    if not isinstance(d, dict) or not d.get("id"):
+        return None
+    prof = parse_profile(d)
+    prof["cg_id"] = d["id"]
+    return prof
+
+
+def parse_profile(d):
     links = d.get("links") or {}
     dev = d.get("developer_data") or {}
     com = d.get("community_data") or {}
@@ -745,6 +797,7 @@ def fetch_profile(coin_id, headers):
         "platforms": dict(list(platforms.items())[:4]),
         "sentiment_up_pct": to_float(d.get("sentiment_votes_up_percentage")),
         "watchlist_users": d.get("watchlist_portfolio_users"),
+        "median_spread_pct": (statistics.median(sp) if (sp := [x for x in (to_float(t.get("bid_ask_spread_percentage")) for t in tickers) if x is not None]) else None),
         "exchange_count": len(exchanges),
         "top_exchanges": [{"name": e["name"], "volume_usd": round(e["volume_usd"]), "trust": e["trust"]}
                           for e in exchanges[:6]],
@@ -769,7 +822,7 @@ def enrich_profiles(assets, headers, now):
     stale_before = now - timedelta(days=ENRICH_REFRESH_DAYS)
     todo = []
     for a in ranked:
-        if a["venue"] == "dex":
+        if a["venue"] == "dex" and not (a.get("hunt") and (a.get("dex") or {}).get("chain") in CG_PLATFORMS):
             continue
         fetched = parse_date(a.get("profile_fetched_at"))
         if not a.get("profile") or not fetched or fetched < stale_before:
@@ -783,7 +836,16 @@ def enrich_profiles(assets, headers, now):
             log("[profile] time budget reached; remaining coins will be enriched next run")
             break
         try:
-            a["profile"] = fetch_profile(a["id"], headers)
+            if a["venue"] == "dex":
+                try:
+                    prof = fetch_profile_by_contract(a["dex"]["chain"], a["dex"]["address"], headers)
+                except RuntimeError as exc:
+                    if "404" not in str(exc):
+                        raise
+                    prof = None                       # not listed on CoinGecko
+                a["profile"] = prof or {"unlisted": True}
+            else:
+                a["profile"] = fetch_profile(a["id"], headers)
             a["profile_fetched_at"] = now.isoformat()
             done += 1
             fails = 0
@@ -826,13 +888,21 @@ TAG_PATTERNS = [
 ]
 
 
+EXCHANGE_TIER1_RE = re.compile(r"\b(binance|coinbase|upbit|bithumb|robinhood|kraken|okx|bybit)\b", re.I)
+LISTING_ACTION_RE = re.compile(
+    r"\b(will list|to list|lists|listing|listed|adds? support|roadmap|spot trading|perpetual contract|futures contract)\b", re.I)
+
+
 def classify_news(text):
     """Return (adoption, tags, inst_weight, action_weight, bonus)."""
     tags = [n for n, rx in TAG_PATTERNS if rx.search(text)]
     inst = 3.0 if TIER1_INST_RE.search(text) else 2.0 if GENERIC_INST_RE.search(text) else 0.0
     act = 2.0 if ACTION_STRONG_RE.search(text) else 1.5 if ACTION_MED_RE.search(text) else 0.0
+    if EXCHANGE_TIER1_RE.search(text) and LISTING_ACTION_RE.search(text):
+        tags.append("LISTING")                      # major-exchange listing: historically the biggest small-cap catalyst
+        inst, act = max(inst, 3.0), max(act, 2.0)
     adoption = bool(tags) or (inst > 0 and act > 0)
-    bonus = 0.5 if any(t in ("TOKENIZED DEPOSIT", "CBDC", "RWA") for t in tags) else 0.0
+    bonus = 0.5 if any(t in ("TOKENIZED DEPOSIT", "CBDC", "RWA", "LISTING") for t in tags) else 0.0
     if adoption and not tags:
         tags = ["INSTITUTIONAL"]
     return adoption, (tags if adoption else []), inst, act, bonus
@@ -1052,7 +1122,105 @@ def score_asset(a):
     a["stage"], a["stage_note"] = stage, note
     a["drivers"] = drivers
     a["setup_score"] = round(clamp(score, 0, 100), 1)
+    analyse_liquidity(a)
+    detect_meme(a)
+    analyse_utility(a)
     analyse_hunt(a)
+    analyse_overlooked(a)
+    a["meme_utility"] = bool(a["meme"] and (a.get("utility") or {}).get("score", 0) >= 40)
+
+
+# --------------------------------------------------------------------------- #
+# Use case / utility: does the coin actually DO something?
+# --------------------------------------------------------------------------- #
+
+UTIL_DOMAIN_POINTS = {"institutional": 35, "payments": 32, "interop": 32, "l1": 28, "defi": 26,
+                      "ai_depin": 24, "gaming": 18, "privacy": 18, "other": 8, "meme": 0}
+UTIL_DOMAIN_TEXT = {
+    "institutional": "Bank and real-world-asset infrastructure",
+    "payments": "Payments and settlement", "interop": "Cross-chain connectivity and data oracles",
+    "l1": "Base-layer blockchain or scaling network", "defi": "Decentralized finance",
+    "ai_depin": "AI and physical-infrastructure networks", "gaming": "Gaming and metaverse",
+    "privacy": "Privacy technology", "other": "Use not clearly classified",
+    "meme": "Meme / community coin with no stated function",
+}
+
+
+def analyse_utility(a):
+    prof = a.get("profile") or {}
+    dex = a.get("dex") or {}
+    key = a["use_case"]
+    evidence = []
+
+    domain = UTIL_DOMAIN_POINTS.get(key, 8)
+    cats = prof.get("categories") or []
+    if cats:
+        evidence.append("Categories: " + ", ".join(cats[:4]))
+
+    doc = 0
+    if prof.get("homepage") or dex.get("websites"):
+        doc += 6
+        evidence.append("Has a website")
+    if prof.get("whitepaper"):
+        doc += 4
+        evidence.append("Whitepaper published")
+    if prof.get("github"):
+        doc += 6
+        evidence.append("Public code repository")
+    desc = prof.get("description") or ((a.get("site_summary") or {}).get("text") or "")
+    if not prof.get("description") and desc:
+        evidence.append("Description taken from the project's own website")
+    if len(desc) > 150:
+        doc += 4
+    if prof.get("twitter") or dex.get("socials"):
+        doc += 2
+    doc = min(20, doc)
+
+    dev = prof.get("developer") or {}
+    commits = dev.get("commit_count_4_weeks")
+    devpts = 15 if commits and commits >= 20 else 9 if commits and commits >= 5 else 4 if commits else 0
+    if commits:
+        evidence.append(f"{commits} developer commits in the last 4 weeks")
+
+    strong = sum(1 for n in a["news"] if n["adoption"] and n["strength"] >= ALERT_NEWS_MIN_STRENGTH)
+    other = max(0, a["adoption_hits"] - strong)
+    adopt = min(20, 10 * strong + 5 * other)
+    if strong or other:
+        evidence.append(f"{strong + other} institutional adoption headline(s) in the last {NEWS_MAX_AGE_DAYS} days")
+
+    t1 = prof.get("tier1_listings") or 0
+    ex_count = prof.get("exchange_count") or 0
+    market = 10 if t1 >= 3 else 6 if t1 >= 1 else 3 if ex_count >= 5 else 0
+    if t1:
+        evidence.append(f"Listed on {t1} major exchange(s)")
+
+    score = domain + doc + devpts + adopt + market
+    if key == "meme" and not (strong or other):
+        score = min(score, 25)
+    score = int(clamp(score, 0, 100))
+    if key == "meme" and not (strong or other):
+        verdict = "Meme / no stated use"
+    elif score >= 65:
+        verdict = "Strong use case"
+    elif score >= 40:
+        verdict = "Some utility"
+    elif score >= 20:
+        verdict = "Weak or unclear use case"
+    else:
+        verdict = "No clear use case"
+
+    summary = desc[:260].rsplit(" ", 1)[0] + ("..." if len(desc) > 260 else "") if desc else ""
+    if not summary:
+        summary = ("No project description could be found automatically. Open the token's website and "
+                   "read what it actually does before buying." if a["venue"] == "dex" else "")
+    a["utility"] = {
+        "score": score, "label": verdict, "domain": UTIL_DOMAIN_TEXT.get(key, ""),
+        "summary": summary, "evidence": evidence[:8],
+        "homepage": prof.get("homepage") or (dex.get("websites") or [""])[0],
+        "whitepaper": prof.get("whitepaper") or "",
+        "github": (prof.get("github") or [""])[0],
+        "documented": bool(prof.get("homepage") or dex.get("websites")),
+    }
 
 
 # --------------------------------------------------------------------------- #
@@ -1066,63 +1234,303 @@ def zero_count(price):
     return max(0, -int(math.floor(math.log10(price))) - 1)
 
 
-def scan_security(a):
-    """Best-effort automated token safety scan for DEX tokens. Returns dict or None."""
+def contract_of(a):
     d = a.get("dex") or {}
-    chain, addr = d.get("chain"), d.get("address")
-    if not chain or not addr:
-        return None
-    try:
-        if chain in GOPLUS_CHAIN_IDS:
-            r = http_get(f"https://api.gopluslabs.io/api/v1/token_security/{GOPLUS_CHAIN_IDS[chain]}",
-                         params={"contract_addresses": addr}, retries=2).json()
-            info = (r.get("result") or {}).get(addr.lower())
-            if not info:
-                return None
-
-            def flag(k):
-                v = info.get(k)
-                return None if v in (None, "") else str(v) == "1"
-
-            def pct_of(k):
-                v = to_float(info.get(k))
-                return None if v is None else round(v * 100, 1)
-
-            holders = to_float(info.get("holder_count"))
-            return {"source": "GoPlus", "honeypot": flag("is_honeypot"),
-                    "buy_tax_pct": pct_of("buy_tax"), "sell_tax_pct": pct_of("sell_tax"),
-                    "mintable": flag("is_mintable"), "hidden_owner": flag("hidden_owner"),
-                    "open_source": flag("is_open_source"), "cannot_sell_all": flag("cannot_sell_all"),
-                    "holders": int(holders) if holders else None}
-        if chain == "solana":
-            r = http_get(f"https://api.rugcheck.xyz/v1/tokens/{addr}/report/summary", retries=2).json()
-            risks = r.get("risks")
-            if not isinstance(risks, list):
-                return None
-            lvl = lambda x: str(x.get("level") or "").lower()
-            return {"source": "RugCheck",
-                    "danger": [x.get("name") for x in risks if lvl(x) == "danger"][:6],
-                    "warn": [x.get("name") for x in risks if lvl(x) == "warn"][:6]}
-    except Exception as exc:
-        log(f"[security] {a['symbol']}: scan failed ({exc})")
+    if d.get("chain") and d.get("address"):
+        return d["chain"], d["address"]
+    plats = (a.get("profile") or {}).get("platforms") or {}
+    for cgp, chain in CG_PLATFORM_TO_CHAIN.items():
+        if plats.get(cgp):
+            return chain, plats[cgp]
     return None
+
+
+def needs_scan(a):
+    """DEX tokens must pass a scan to be shown. Listed coins are scanned when they look risky."""
+    if a["venue"] == "dex":
+        return True
+    prof = a.get("profile") or {}
+    return bool(a.get("hunt") and (prof.get("tier1_listings") or 0) == 0 and contract_of(a))
+
+
+HARD_SOLANA_RE = re.compile(r"freeze authority|honeypot|rug|copycat|blacklist", re.I)
+
+
+def security_verdict(sec):
+    """Fail-closed rules. Returns (verdict, block_reasons, caution_reasons)."""
+    block, caution = [], []
+    if sec.get("source") == "GoPlus":
+        if sec.get("honeypot"):
+            block.append("Honeypot: sells are blocked")
+        if sec.get("cannot_sell_all"):
+            block.append("Holders cannot sell all their tokens")
+        if (sec.get("sell_tax_pct") or 0) >= BLOCK_SELL_TAX:
+            block.append(f"Sell tax {sec['sell_tax_pct']}%")
+        if (sec.get("buy_tax_pct") or 0) >= BLOCK_BUY_TAX:
+            block.append(f"Buy tax {sec['buy_tax_pct']}%")
+        if sec.get("owner_change_balance"):
+            block.append("Owner can change holder balances")
+        if sec.get("selfdestruct"):
+            block.append("Contract can self-destruct")
+        for key, msg in (("mintable", "Owner can mint more supply"), ("hidden_owner", "Hidden owner"),
+                         ("transfer_pausable", "Owner can pause transfers"),
+                         ("slippage_modifiable", "Owner can change taxes at will"),
+                         ("can_take_back_ownership", "Ownership can be taken back")):
+            if sec.get(key):
+                caution.append(msg)
+        if sec.get("open_source") is False:
+            caution.append("Contract source is not verified")
+        for key, label in (("sell_tax_pct", "Sell tax"), ("buy_tax_pct", "Buy tax")):
+            if 5 <= (sec.get(key) or 0) < 20:
+                caution.append(f"{label} {sec[key]}%")
+    else:
+        for name in sec.get("danger") or []:
+            (block if HARD_SOLANA_RE.search(str(name)) else caution).append(f"Scan danger: {name}")
+        for name in (sec.get("warn") or [])[:3]:
+            caution.append(f"Scan warning: {name}")
+    verdict = "fail" if block else "caution" if caution else "pass"
+    return verdict, block, caution
+
+
+def parse_goplus(info):
+    def flag(k):
+        v = info.get(k)
+        return None if v in (None, "") else str(v) == "1"
+
+    def pct_of(k):
+        v = to_float(info.get(k))
+        return None if v is None else round(v * 100, 1)
+
+    holders = to_float(info.get("holder_count"))
+    hl = info.get("holders") or []
+    top10 = round(sum(to_float(h.get("percent"), 0.0) for h in hl[:10]) * 100, 1) if hl else None
+    lp = info.get("lp_holders") or []
+    lp_locked = (round(sum(to_float(x.get("percent"), 0.0) for x in lp if str(x.get("is_locked")) == "1") * 100, 1)
+                 if lp else None)
+    return {"source": "GoPlus", "honeypot": flag("is_honeypot"),
+            "buy_tax_pct": pct_of("buy_tax"), "sell_tax_pct": pct_of("sell_tax"),
+            "mintable": flag("is_mintable"), "hidden_owner": flag("hidden_owner"),
+            "open_source": flag("is_open_source"), "cannot_sell_all": flag("cannot_sell_all"),
+            "owner_change_balance": flag("owner_change_balance"), "selfdestruct": flag("selfdestruct"),
+            "transfer_pausable": flag("transfer_pausable"), "slippage_modifiable": flag("slippage_modifiable"),
+            "can_take_back_ownership": flag("can_take_back_ownership"),
+            "holders": int(holders) if holders else None, "top10_pct": top10, "lp_locked_pct": lp_locked,
+            "creator_pct": pct_of("creator_percent")}
+
+
+def goplus_scan(chain, addrs):
+    out = {}
+    cid = GOPLUS_CHAIN_IDS.get(chain)
+    if not cid:
+        return out
+    for i in range(0, len(addrs), 30):
+        chunk = addrs[i:i + 30]
+        try:
+            r = http_get(f"https://api.gopluslabs.io/api/v1/token_security/{cid}",
+                         params={"contract_addresses": ",".join(chunk)}, retries=2).json()
+        except Exception as exc:
+            log(f"[security] goplus {chain} batch failed ({exc})")
+            continue
+        res = r.get("result") or {}
+        for addr in chunk:
+            info = res.get(addr.lower())
+            if info:
+                out[addr.lower()] = parse_goplus(info)
+        time.sleep(1.5)
+    return out
+
+
+def rugcheck_scan(addr):
+    try:
+        r = http_get(f"https://api.rugcheck.xyz/v1/tokens/{addr}/report/summary", retries=2).json()
+    except Exception as exc:
+        log(f"[security] rugcheck failed ({exc})")
+        return None
+    risks = r.get("risks")
+    if not isinstance(risks, list):
+        return None
+    lvl = lambda x: str(x.get("level") or "").lower()
+    return {"source": "RugCheck",
+            "danger": [x.get("name") for x in risks if lvl(x) == "danger"][:6],
+            "warn": [x.get("name") for x in risks if lvl(x) == "warn"][:6]}
 
 
 def scan_security_batch(assets, now):
     stale = now - timedelta(days=SECURITY_REFRESH_DAYS)
-    cands = [a for a in assets if a["venue"] == "dex" and a.get("hunt")
-             and (not a.get("security") or (parse_date(a.get("security_checked_at")) or stale) <= stale)]
-    cands.sort(key=lambda a: -a["hunt"]["score"])
-    done = 0
+
+    def due(a):
+        return not a.get("security") or (parse_date(a.get("security_checked_at")) or stale) <= stale
+
+    cands = [a for a in assets if needs_scan(a) and contract_of(a) and due(a)]
+    cands.sort(key=lambda a: (-((a.get("hunt") or {}).get("score", 0)), -a["volume_24h"]))
+    by_chain = {}
     for a in cands[:SECURITY_MAX_PER_RUN]:
-        if time.time() - T0 > ENRICH_BUDGET_S:
+        chain, addr = contract_of(a)
+        by_chain.setdefault(chain, []).append((a, addr))
+    done = 0
+
+    def finish(a, sec):
+        sec["verdict"], sec["block"], sec["caution"] = security_verdict(sec)
+        a["security"], a["security_checked_at"] = sec, now.isoformat()
+
+    for chain, items in by_chain.items():
+        if time.time() - T0 > ENRICH_BUDGET_S + 120:
             break
-        sec = scan_security(a)
-        if sec:
-            a["security"], a["security_checked_at"] = sec, now.isoformat()
-            done += 1
-        time.sleep(1.0)
-    log(f"[security] scanned {done}/{min(len(cands), SECURITY_MAX_PER_RUN)} dex candidates")
+        if chain in GOPLUS_CHAIN_IDS:
+            res = goplus_scan(chain, [addr for _, addr in items])
+            for a, addr in items:
+                if res.get(addr.lower()):
+                    finish(a, res[addr.lower()])
+                    done += 1
+        elif chain == "solana":
+            for a, addr in items[:SOLANA_SCAN_MAX]:
+                sec = rugcheck_scan(addr)
+                if sec:
+                    finish(a, sec)
+                    done += 1
+                time.sleep(1.0)
+    log(f"[security] scanned {done}/{len(cands)} tokens due for a scan")
+
+
+# ---- liquidity, launch date, website summary ----
+
+def analyse_liquidity(a):
+    d = a.get("dex") or {}
+    prof = a.get("profile") or {}
+    mcap, vol = a["market_cap"], a["volume_24h"]
+    if d.get("liquidity_usd") is not None:
+        liq = d["liquidity_usd"]
+        grade = ("Deep" if liq >= 1e6 else "Good" if liq >= 2.5e5 else "Okay" if liq >= 1e5
+                 else "Thin" if liq >= 5e4 else "Very thin")
+        q = max(liq, 1.0) / 2                       # constant-product estimate: half the pool is quote currency
+        a["liquidity"] = {
+            "kind": "DEX pool", "usd": liq, "grade": grade,
+            "pct_of_mcap": round(liq / mcap * 100, 2) if mcap else None,
+            "impact_1k_pct": round(1000 / (q + 1000) * 100, 2), "impact_10k_pct": round(10000 / (q + 10000) * 100, 2),
+            "note": "Slippage is an estimate for standard pools; concentrated-liquidity pools can differ.",
+        }
+        return
+    t1 = prof.get("tier1_listings") or 0
+    spread = prof.get("median_spread_pct")
+    grades = ["Thin", "Okay", "Good", "Deep"]
+    idx = 3 if (t1 >= 2 and vol >= 5e6) else 2 if (t1 >= 1 or vol >= 2e6) else 1 if vol >= 5e5 else 0
+    if spread is not None and spread > 2:
+        idx = max(0, idx - 1)
+    a["liquidity"] = {"kind": "Exchange order books", "usd": None, "grade": grades[idx], "spread_pct": spread,
+                      "exchange_count": prof.get("exchange_count"), "volume_usd": vol,
+                      "note": "Order-book depth is not published for free; this grade uses volume, spreads and listings."}
+
+
+def analyse_launch(a, now):
+    prof = a.get("profile") or {}
+    d = a.get("dex") or {}
+    h = a.get("history") or {}
+    date, src = parse_date(prof.get("genesis_date")), "Project launch date"
+    if not date and d.get("pair_created_at"):
+        date, src = parse_date(d["pair_created_at"]), "First DEX trading pair created"
+    if not date and h.get("days_of_data") and h["days_of_data"] < 360:
+        date, src = now - timedelta(days=h["days_of_data"]), "First price on CoinGecko (approximate)"
+    if date:
+        a["launch"] = {"date": date.isoformat(), "age_days": max(0, (now - date).days), "source": src}
+    else:
+        older = (h.get("days_of_data") or 0) >= 360
+        a["launch"] = {"date": None, "age_days": None,
+                       "source": "Older than about a year (exact date not in the free data)" if older else "Not available"}
+
+
+def fetch_site_summary(url):
+    if not str(url).lower().startswith("https://"):
+        return None
+    try:
+        r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=8, stream=True)
+        if r.status_code != 200:
+            return None
+        raw = b""
+        for chunk in r.iter_content(8192):
+            raw += chunk
+            if len(raw) > 150_000:
+                break
+        r.close()
+        text = raw.decode("utf-8", errors="ignore")
+    except Exception:
+        return None
+
+    def meta(*names):
+        for n in names:
+            pat1 = r'<meta[^>]+(?:name|property)=["\']%s["\'][^>]*content=["\']([^"\']+)["\']' % re.escape(n)
+            pat2 = r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:name|property)=["\']%s["\']' % re.escape(n)
+            m = re.search(pat1, text, re.I) or re.search(pat2, text, re.I)
+            if m:
+                return clean_text(m.group(1))
+        return ""
+
+    desc = meta("description", "og:description", "twitter:description")
+    m = re.search(r"<title[^>]*>(.*?)</title>", text, re.I | re.S)
+    title = clean_text(m.group(1)) if m else ""
+    return (desc or title)[:300] or None
+
+
+def enrich_site_summaries(assets, now):
+    stale = now - timedelta(days=14)
+    done = 0
+    for a in assets:
+        if done >= SITE_SUMMARY_MAX or time.time() - T0 > ENRICH_BUDGET_S + 120:
+            break
+        d = a.get("dex") or {}
+        sites = d.get("websites") or []
+        has_desc = bool((a.get("profile") or {}).get("description"))
+        old = a.get("site_summary") or {}
+        if a["venue"] != "dex" or not sites or has_desc:
+            continue
+        if old and (parse_date(old.get("fetched_at")) or stale) > stale:
+            continue
+        text = fetch_site_summary(sites[0])
+        a["site_summary"] = {"text": text or "", "url": sites[0], "fetched_at": now.isoformat()}
+        done += 1
+    log(f"[site] read {done} project websites")
+
+
+def detect_meme(a):
+    prof = a.get("profile") or {}
+    cats = " ".join(prof.get("categories") or [])
+    a["meme"] = bool("meme-token" in (a.get("category_ids") or []) or re.search(r"meme", cats, re.I)
+                     or a["use_case"] == "meme" or UC_KEYWORDS["meme"].search(a["name"]))
+
+
+def analyse_overlooked(a):
+    """Substance without attention: real use case + active builders + a small crowd + small cap."""
+    prof = a.get("profile") or {}
+    u = a.get("utility") or {}
+    a["overlooked"] = None
+    if not prof or prof.get("unlisted") or a["market_cap"] > 5e8 or a["volume_24h"] < 1.5e5:
+        return
+    tw = (prof.get("community") or {}).get("twitter_followers")
+    wl = prof.get("watchlist_users")
+    rank = a.get("rank")
+    commits = (prof.get("developer") or {}).get("commit_count_4_weeks")
+    reasons, att = [], 0
+    if tw is not None:
+        att += 15 if tw < 20000 else 10 if tw < 75000 else 5 if tw < 200000 else 0
+        if tw < 75000:
+            reasons.append(f"Small social following ({tw:,} followers on X)")
+    if wl is not None:
+        att += 10 if wl < 5000 else 6 if wl < 25000 else 2 if wl < 100000 else 0
+        if wl < 25000:
+            reasons.append(f"Few people are watching it ({wl:,} watchlists)")
+    if rank:
+        att += 5 if rank > 500 else 3 if rank > 250 else 0
+    subs = 0
+    if commits:
+        subs += 10 if commits >= 20 else 5
+        reasons.append(f"Developers are shipping ({commits} commits in 4 weeks)")
+    if a["adoption_hits"] > 0:
+        subs += 10
+        reasons.append(f"{a['adoption_hits']} institutional or listing headline(s) recently")
+    score = u.get("score", 0) * 0.45 + min(30, att) + min(20, subs)
+    if u.get("score", 0) >= 50:
+        reasons.insert(0, f"Real use case: {u.get('domain', '')} (utility {u.get('score')}/100)")
+    if score >= 55 and u.get("score", 0) >= 50 and att >= 8:
+        a["overlooked"] = {"score": int(score), "reasons": reasons[:6]}
 
 
 def analyse_hunt(a):
@@ -1186,6 +1594,10 @@ def analyse_hunt(a):
     sup = 2 if fr is None else 5 if fr <= 1.5 else 3 if fr <= 3 else 0
     add("Supply sanity", sup, 5, "FDV n/a" if fr is None else f"FDV is {fr:.1f}x market cap")
 
+    util = (a.get("utility") or {}).get("score", 0)
+    util_pts = util * 0.15
+    add("Real use case", util_pts, 15, f"{(a.get('utility') or {}).get('label', 'n/a')} (utility {util}/100)")
+
     # ---- risk grading ----
     pts, why = 0, []
 
@@ -1225,26 +1637,16 @@ def analyse_hunt(a):
     if c24 >= 300:
         risk(2, "Already up 300%+ today")
     if sec:
-        if sec.get("honeypot"):
-            risk(10, "Security scan: HONEYPOT (you may not be able to sell)")
-        if (sec.get("sell_tax_pct") or 0) >= 10:
-            risk(4, f"Sell tax {sec['sell_tax_pct']}%")
-        if (sec.get("buy_tax_pct") or 0) >= 10:
-            risk(2, f"Buy tax {sec['buy_tax_pct']}%")
-        if sec.get("mintable"):
-            risk(2, "Owner can mint more supply")
-        if sec.get("hidden_owner"):
-            risk(2, "Hidden owner detected")
-        if sec.get("open_source") is False:
-            risk(1, "Contract is not verified/open source")
-        if sec.get("cannot_sell_all"):
-            risk(3, "Cannot sell all tokens")
+        for msg in sec.get("block") or []:
+            risk(10, "Security scan: " + msg)
+        for msg in (sec.get("caution") or [])[:4]:
+            risk(1, msg)
         if sec.get("holders") is not None and sec["holders"] < 100:
             risk(2, f"Only {sec['holders']} holders")
-        for name in (sec.get("danger") or [])[:2]:
-            risk(4, f"Scan danger: {name}")
-        for name in (sec.get("warn") or [])[:3]:
-            risk(1, f"Scan warning: {name}")
+        if (sec.get("top10_pct") or 0) > 60:
+            risk(1, f"Top 10 wallets hold {sec['top10_pct']}% of supply (includes pools)")
+        if sec.get("lp_locked_pct") is not None and sec["lp_locked_pct"] < 50:
+            risk(1, f"Only {sec['lp_locked_pct']}% of liquidity is locked")
     if (prof.get("tier1_listings") or 0) >= 1:
         pts -= 2
         why.append("Listed on major exchanges (lowers risk)")
@@ -1255,7 +1657,7 @@ def analyse_hunt(a):
         pts -= 1
     level = "EXTREME" if pts >= 7 else "HIGH" if pts >= 4 else "MEDIUM" if pts >= 2 else "LOW"
 
-    score = trad + room + interest + cat + base + ign + sup
+    score = (trad + room + interest + cat + base + ign + sup + util_pts) / 115 * 100
     score -= {"EXTREME": 25, "HIGH": 12, "MEDIUM": 4, "LOW": 0}[level]
     a["hunt"] = {
         "zeros": zeros, "target_10x": price * 10, "target_100x": price * 100,
@@ -1317,7 +1719,10 @@ def evaluate_alerts(assets, state, now):
             alerts.append({
                 "kind": "news", "type": "news", "key": key, "asset": a,
                 "severity": "MAJOR" if n["strength"] >= ALERT_NEWS_MAJOR_STRENGTH else "NOTABLE",
-                "news": n, "why": [f"Institutional adoption headline (strength {n['strength']:.1f})"],
+                "news": n, "why": [("Major-exchange listing headline" if "LISTING" in (n.get("tags") or [])
+                                    else "Institutional adoption headline") + f" (strength {n['strength']:.1f})",
+                                   "Listing pumps are usually front-loaded: check price before chasing"
+                                   if "LISTING" in (n.get("tags") or []) else "Verify the source before acting"],
                 "priority": 100 + n["strength"] * 10 + a["setup_score"] / 10,
             })
 
@@ -1342,7 +1747,9 @@ def evaluate_alerts(assets, state, now):
             market.append(("zerohunt", 72, "Zero-cancel candidate",
                            [f"Hunt score {h['score']:.0f}/100, {h['zeros']} zeros, risk {h['risk']}",
                             f"100x would be {fmt_price(h['target_100x'])} ({h['feasibility']})"]
-                           + [f"{d['label']}: {d['note']}" for d in h["drivers"] if d["pts"] >= 0.6 * d["max"] > 0][:2]))
+                           + [f"{d['label']}: {d['note']}" for d in h["drivers"] if d["pts"] >= 0.6 * d["max"] > 0][:2]
+                           + ([f"History match {a['history']['match']['score']}%: looks like {a['history']['match']['analog']} before its run"]
+                              if (a.get("history") or {}).get("match") and a["history"]["match"]["score"] >= 75 else [])))
         if h and h["risk"] in ("LOW", "MEDIUM") and c24 >= 30 and t >= 0.3:
             market.append(("zeroignite", 12, "Micro-cap ignition",
                            [f"Up {c24:+.1f}% in 24h on {t * 100:.1f}% turnover, risk {h['risk']}"]))
@@ -1377,6 +1784,9 @@ def build_email(alerts, armed=False):
         meta = (f"{fmt_price(a['price'])} | 24h {fmt_pct(a['change_24h'])} | mcap {fmt_usd(a['market_cap'])} | "
                 f"turnover {a['turnover_ratio'] * 100:.1f}% | stage {a['stage']} | setup {a['setup_score']:.0f}/100 | "
                 f"{a['use_case_label']}")
+        u = a.get("utility")
+        if u:
+            meta += f" | use case: {u['label']} ({u['domain']})"
         h = a.get("hunt")
         if h:
             meta += (f" | {h['zeros']} zeros, 10x {fmt_price(h['target_10x'])}, 100x {fmt_price(h['target_100x'])}, "
@@ -1528,6 +1938,8 @@ def pipeline(mode):
         a["category_ids"] = sorted(cat_members.get(cid, set()))
         a["profile"], a["profile_fetched_at"] = old.get("profile"), old.get("profile_fetched_at")
         a["security"], a["security_checked_at"] = old.get("security"), old.get("security_checked_at")
+        a["history"] = old.get("history")
+        a["site_summary"] = old.get("site_summary")
         pcats = (a["profile"] or {}).get("categories")
         a["use_case"] = assign_use_case(cid, a["name"], a["category_ids"], pcats)
         a["use_case_label"], a["use_case_rank"] = UC_LABEL[a["use_case"]], UC_RANK[a["use_case"]]
@@ -1549,9 +1961,23 @@ def pipeline(mode):
     for a in assets:
         score_asset(a)
 
+    hidden = {"unsafe": 0, "pending": 0}
+
     def finalize():
         keep = []
+        hidden["unsafe"] = hidden["pending"] = 0
         for a in assets:
+            analyse_launch(a, now)
+            sec = a.get("security")
+            if sec and "verdict" not in sec:
+                sec["verdict"], sec["block"], sec["caution"] = security_verdict(sec)
+            if sec and sec.get("verdict") == "fail" and not a["watchlist"]:
+                hidden["unsafe"] += 1              # honeypot / unsellable / punishing tax: never shown
+                continue
+            a["pending_scan"] = bool(a["venue"] == "dex" and not sec)
+            if a["pending_scan"] and not a["watchlist"]:
+                hidden["pending"] += 1             # DEX tokens are hidden until a scan has passed
+                continue
             h = a.get("hunt")
             if h and h["risk"] == "EXTREME" and not a["watchlist"]:
                 continue                         # clear rug/honeypot signals: never shown
@@ -1594,8 +2020,11 @@ def pipeline(mode):
                 "with_adoption_news": sum(1 for a in final if a["adoption_hits"] > 0),
                 "early_setups": sum(1 for a in final if a["stage"] in ("Dormant base", "Accumulating")),
                 "hunt_candidates": len(hunts),
+                "overlooked": sum(1 for a in final if a.get("overlooked")),
+                "meme_with_use_case": sum(1 for a in final if a.get("meme_utility")),
                 "hunt_low_medium_risk": sum(1 for a in hunts if a["hunt"]["risk"] in ("LOW", "MEDIUM")),
                 "dex_tokens": sum(1 for a in final if a["venue"] == "dex"),
+                "hidden_unsafe": hidden["unsafe"], "hidden_pending_scan": hidden["pending"],
                 "headlines_scanned": len(news), "adoption_headlines": len(wire),
             },
             "feeds": feed_status,
@@ -1606,13 +2035,20 @@ def pipeline(mode):
         save_json(DATA_FILE, payload)
         log(f"[done] wrote {DATA_FILE}: {payload['stats']}")
 
+    update_history(assets, headers, now, fetch=False)     # re-match cached fingerprints (cheap)
     final = finalize()
     if mode == "full":
         write_data(final)          # write immediately so slow enrichment can never lose the data
         enrich_profiles(assets, headers, now)
+        enrich_site_summaries(assets, now)
         scan_security_batch(assets, now)
+        for a in assets:     # fresh profiles carry real categories: re-classify the use case
+            a["use_case"] = assign_use_case(a["id"], a["name"], a["category_ids"],
+                                            (a["profile"] or {}).get("categories"))
+            a["use_case_label"], a["use_case_rank"] = UC_LABEL[a["use_case"]], UC_RANK[a["use_case"]]
         for a in assets:
             score_asset(a)
+        update_history(assets, headers, now, fetch=True)
         final = finalize()
         write_data(final)
         ids = {a["id"] for a in final}
@@ -1745,7 +2181,7 @@ def analyse_case(case, candles):
     fp = fingerprint(candles, i)
     flags = {k: bool(fn(fp)) for k, _, fn in CONDITIONS} if fp else {}
     return {
-        "label": case["label"],
+        "label": case["label"], "kind": case.get("kind"),
         "spike": {
             "base_date": day(base["t"]), "base_price": base["c"],
             "peak_date": day(pk["t"]), "peak_price": pk["h"],
@@ -1819,6 +2255,98 @@ def spikelab():
 # --------------------------------------------------------------------------- #
 # Entry point
 # --------------------------------------------------------------------------- #
+
+# --------------------------------------------------------------------------- #
+# History match: does this coin look like past coins did BEFORE they ran?
+# --------------------------------------------------------------------------- #
+
+HISTORY_MAX_PER_RUN = 25
+HISTORY_REFRESH_DAYS = 3
+GT_NET_BY_CHAIN = {chain: net for net, chain in GT_NETWORKS}
+
+
+def load_library():
+    lab = load_json(SPIKE_FILE, {})
+    lib = []
+    for c in lab.get("cases") or []:
+        sp = c.get("spike")
+        if sp and sp.get("fingerprint"):
+            lib.append({"label": c["label"], "kind": c.get("kind"), "gain_pct": sp.get("gain_pct"),
+                        "fp": sp["fingerprint"]})
+    return lib, lab.get("conditions") or []
+
+
+def fetch_dex_history(a):
+    d = a.get("dex") or {}
+    net, pair = GT_NET_BY_CHAIN.get(d.get("chain")), d.get("pair")
+    if not net or not pair:
+        return []
+    r = http_get(f"{GT_BASE}/networks/{net}/pools/{pair}/ohlcv/day",
+                 params={"aggregate": 1, "limit": 150, "currency": "usd"},
+                 headers={"Accept": "application/json;version=20230302"}, retries=2).json()
+    lst = (((r.get("data") or {}).get("attributes") or {}).get("ohlcv_list")) or []
+    out = [{"t": int(x[0]) * 1000, "o": float(x[1]), "h": float(x[2]), "l": float(x[3]),
+            "c": float(x[4]), "qv": float(x[5] or 0)} for x in lst if len(x) >= 6]
+    out.sort(key=lambda c: c["t"])
+    return out
+
+
+def match_history(fp, library, conditions):
+    """Similarity (0-100) of a live fingerprint to the pre-spike fingerprints of past runs."""
+    def feat(f):
+        return {
+            "range": math.log10(1 + max(f.get("range_30d_pct") or 0, 0) / 100),
+            "vol": math.log2(max(f.get("vol_exp") or 1e-6, 1e-6)),
+            "dd": (f.get("drawdown_pct") or 0) / 40,
+            "volat": (f.get("volatility") or 0) / 0.03,
+            "ret": (f.get("ret_30d_pct") or 0) / 30,
+        }
+    tol = {"range": 0.35, "vol": 1.0, "dd": 1.0, "volat": 1.0, "ret": 1.0}
+    live = feat(fp)
+    best = None
+    for case in library:
+        past = feat(case["fp"])
+        dist = sum(min(1.0, abs(live[k] - past[k]) / tol[k]) for k in tol) / len(tol)
+        score = round(100 * (1 - dist))
+        if best is None or score > best["score"]:
+            best = {"score": score, "analog": case["label"], "kind": case.get("kind"), "analog_gain_pct": case.get("gain_pct")}
+    lift = {c["key"]: c.get("lift") for c in conditions}
+    met = [{"label": label, "met": bool(fn(fp)), "lift": lift.get(key)} for key, label, fn in CONDITIONS]
+    if best:
+        best["conditions"] = met
+        best["conditions_met"] = sum(1 for m in met if m["met"])
+    return best
+
+
+def update_history(assets, headers, now, fetch=True):
+    library, conditions = load_library()
+    stale = now - timedelta(days=HISTORY_REFRESH_DAYS)
+    if fetch:
+        cands = [a for a in assets if a.get("hunt") or a["watchlist"]]
+        cands.sort(key=lambda a: -((a.get("hunt") or {}).get("score", 0)))
+        todo = [a for a in cands if not a.get("history")
+                or (parse_date(a["history"].get("checked_at")) or stale) <= stale][:HISTORY_MAX_PER_RUN]
+        for a in todo:
+            if time.time() - T0 > ENRICH_BUDGET_S + 120:
+                break
+            try:
+                candles = fetch_dex_history(a) if a["venue"] == "dex" else fetch_cg_history(a["id"], headers)
+            except Exception as exc:
+                log(f"[history] {a['symbol']}: failed ({exc})")
+                candles = []
+            fp = fingerprint(candles, len(candles) - 1) if len(candles) >= 72 else None
+            a["history"] = {"checked_at": now.isoformat(), "fingerprint": fp, "too_new": fp is None,
+                            "days_of_data": len(candles)}
+            time.sleep(2.5 if a["venue"] == "dex" else CG_DELAY)
+        log(f"[history] fetched daily history for {len(todo)} candidates")
+    matched = 0
+    for a in assets:
+        h = a.get("history") or {}
+        if h.get("fingerprint") and library:
+            h["match"] = match_history(h["fingerprint"], library, conditions)
+            matched += 1
+    log(f"[history] matched {matched} assets against {len(library)} past runs")
+
 
 def test_email():
     a = build_asset({"id": "quant-network", "symbol": "qnt", "name": "Quant", "image": "",

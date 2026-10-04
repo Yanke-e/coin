@@ -158,6 +158,11 @@
       <option value="usecase">Use-case priority</option>
       <option value="hunt">Zero-cancel score</option>
       <option value="price_asc">Lowest price</option>
+      <option value="utility">Use-case strength</option>
+      <option value="history">History match</option>
+      <option value="liquidity">Liquidity</option>
+      <option value="newest">Newest launch</option>
+      <option value="overlooked">Overlooked score</option>
       <option value="setup">Setup score</option>
       <option value="turnover">Turnover ratio</option>
       <option value="mcap_asc">Smallest cap</option>
@@ -174,6 +179,10 @@
     <button type="button" class="chip" data-hz="3" aria-pressed="false">3+ zeros</button>
     <button type="button" class="chip" data-hz="4" aria-pressed="false">4+ zeros</button>
     <button type="button" class="chip" data-hz="5" aria-pressed="false">5+ zeros</button>
+    <button type="button" class="chip" data-hutil="1" aria-pressed="false">Has real use case</button>
+    <button type="button" class="chip" data-hhist="1" aria-pressed="false">History match 70%+</button>
+    <button type="button" class="chip" data-hliq="1" aria-pressed="false">Good liquidity only</button>
+    <button type="button" class="chip" data-hscan="1" aria-pressed="false">Scan passed only</button>
     <button type="button" class="chip" data-hrisk="1" aria-pressed="false">Low / medium risk only</button>
     <button type="button" class="chip" data-hven="cg" aria-pressed="false">Listed coins</button>
     <button type="button" class="chip" data-hven="dex" aria-pressed="false">DEX-only tokens</button>
@@ -181,6 +190,11 @@
   <section class="seg mt-2" id="flagSeg" role="group" aria-label="Signal filters">
     <button type="button" class="chip" data-flag="early" aria-pressed="false">Early setups</button>
     <button type="button" class="chip" data-flag="momentum" aria-pressed="false">High turnover</button>
+    <button type="button" class="chip" data-flag="utility" aria-pressed="false">Real use case</button>
+    <button type="button" class="chip" data-flag="liqok" aria-pressed="false">Good liquidity</button>
+    <button type="button" class="chip" data-flag="scanok" aria-pressed="false">Scan passed</button>
+    <button type="button" class="chip" data-flag="overlooked" aria-pressed="false">Overlooked gems</button>
+    <button type="button" class="chip" data-flag="memeuse" aria-pressed="false">Meme + use case</button>
     <button type="button" class="chip" data-flag="adoption" aria-pressed="false">Adoption headlines</button>
     <button type="button" class="chip" data-flag="safe" aria-pressed="false">No dilution alert</button>
   </section>
@@ -232,7 +246,7 @@
   'use strict';
 
   const PAGE_SIZE = 30;
-  const state = { view: 'usecase', tier: 'all', uc: 'all', flags: new Set(), q: '', sort: 'usecase', shown: PAGE_SIZE, hz: 0, hrisk: false, hven: '' };
+  const state = { view: 'usecase', tier: 'all', uc: 'all', flags: new Set(), q: '', sort: 'usecase', shown: PAGE_SIZE, hz: 0, hrisk: false, hven: '', hutil: false, hhist: false, hliq: false, hscan: false };
   let DATA = null, ASSETS = [], LAB = null, lastFocus = null;
 
   const $ = (s) => document.querySelector(s);
@@ -315,7 +329,7 @@
     ASSETS = (DATA.assets || []).map(a => {
       const newsText = (a.news || []).map(n => `${n.title} ${n.summary || ''} ${(n.tags || []).join(' ')} ${n.source || ''}`).join(' ');
       const p = a.profile || {};
-      a._hay = `${a.name} ${a.symbol} ${a.id} ${a.use_case_label} ${(p.categories || []).join(' ')} ${newsText}`.toLowerCase();
+      a._hay = `${a.name} ${a.symbol} ${a.id} ${a.use_case_label} ${(a.utility && a.utility.label) || ''} ${(a.utility && a.utility.summary) || ''} ${(p.categories || []).join(' ')} ${newsText}`.toLowerCase();
       return a;
     });
     renderMeta(); renderUseCases(); renderWire(); renderAlertLog(); render();
@@ -335,7 +349,7 @@
       ['Assets tracked', s.assets ?? ASSETS.length, 'cy'],
       ['Zero-cancel picks', s.hunt_candidates ?? 0, 'up'],
       ['Adoption-linked', s.with_adoption_news ?? 0, 'cy'],
-      ['Early setups', s.early_setups ?? 0, 'cy'],
+      ['Overlooked gems', s.overlooked ?? 0, 'cy'],
     ];
     $('#stats').innerHTML = cells.map(([k, v, c]) =>
       `<div class="panel px-3 py-2"><div class="text-[12px]" style="color:var(--mute)">${k}</div><div class="mono text-[20px] font-semibold ${c}">${esc(v)}</div></div>`).join('');
@@ -395,7 +409,7 @@
       const s = c.spike, f = s.fingerprint || {}, ig = s.ignition;
       const flags = (LAB.conditions || []).map(k => `<span class="badge ${s.flags && s.flags[k.key] ? 'b-hot' : 'b-use'}">${esc(k.label.split(' (')[0])}: ${s.flags && s.flags[k.key] ? 'yes' : 'no'}</span>`).join(' ');
       return `<div class="news adopt">
-        <p class="font-semibold text-[14.5px]">${esc(c.label)}</p>
+        <p class="font-semibold text-[14.5px]">${esc(c.label)} ${c.kind ? `<span class="badge b-use">${esc(String(c.kind).replace('_', ' + '))}</span>` : ''}</p>
         <p class="text-[13px] mt-1" style="color:var(--mute)">Base ${esc(s.base_date)} at ${price(s.base_price)} to peak ${esc(s.peak_date)} at ${price(s.peak_price)}:
           <span class="up mono">+${esc(s.gain_pct)}%</span> in ${esc(s.days_to_peak)} days. <span style="color:var(--dim)">${esc(c.source || '')}</span></p>
         ${ig ? `<p class="text-[13px] mt-1">First big day: ${esc(ig.date)} (${pct(ig.day_move_pct, 1)}${ig.volume_multiple ? ', volume ' + ig.volume_multiple + 'x normal' : ''}). About <span class="mono cy">${esc(ig.move_left_pct)}%</span> of the total move was still ahead after that day.</p>` : ''}
@@ -420,6 +434,10 @@
         if (!h || h.score < ((DATA.parameters || {}).hunt_min_keep || 35)) return false;
         if (state.hz && zerosOf(a) < state.hz) return false;
         if (state.hrisk && !(h.risk === 'LOW' || h.risk === 'MEDIUM')) return false;
+        if (state.hutil && !(a.utility && a.utility.score >= 40)) return false;
+        if (state.hhist && !(histScore(a) >= 70)) return false;
+        if (state.hliq && !liqOk(a)) return false;
+        if (state.hscan && !scanOk(a)) return false;
         if (state.hven && a.venue !== state.hven) return false;
       }
       if (state.tier !== 'all' && a.tier !== state.tier) return false;
@@ -427,6 +445,11 @@
       if (state.flags.has('early') && !(a.stage === 'Dormant base' || a.stage === 'Accumulating' || a.stage === 'Ignition')) return false;
       if (state.flags.has('momentum') && a.momentum !== 'HIGH') return false;
       if (state.flags.has('adoption') && !(a.adoption_hits > 0)) return false;
+      if (state.flags.has('utility') && !(a.utility && a.utility.score >= 40)) return false;
+      if (state.flags.has('overlooked') && !a.overlooked) return false;
+      if (state.flags.has('liqok') && !liqOk(a)) return false;
+      if (state.flags.has('scanok') && !scanOk(a)) return false;
+      if (state.flags.has('memeuse') && !a.meme_utility) return false;
       if (state.flags.has('safe') && (a.dilution_alert === 'WARNING' || a.dilution_alert === 'CRITICAL')) return false;
       return terms.every(t => a._hay.includes(t));
     });
@@ -435,6 +458,11 @@
       usecase:   (a, b) => (a.use_case_rank - b.use_case_rank) || (b.setup_score - a.setup_score),
       hunt:      (a, b) => ((b.hunt && b.hunt.score) || 0) - ((a.hunt && a.hunt.score) || 0),
       price_asc: (a, b) => a.price - b.price,
+      history:   (a, b) => histScore(b) - histScore(a),
+      liquidity: (a, b) => (liqRank(b) - liqRank(a)) || (((b.liquidity && b.liquidity.usd) || 0) - ((a.liquidity && a.liquidity.usd) || 0)),
+      newest:    (a, b) => num(a.launch && a.launch.age_days, 1e9) - num(b.launch && b.launch.age_days, 1e9),
+      overlooked:(a, b) => ((b.overlooked && b.overlooked.score) || 0) - ((a.overlooked && a.overlooked.score) || 0),
+      utility:   (a, b) => ((b.utility && b.utility.score) || 0) - ((a.utility && a.utility.score) || 0),
       setup:     (a, b) => b.setup_score - a.setup_score,
       turnover:  (a, b) => b.turnover_ratio - a.turnover_ratio,
       mcap_asc:  (a, b) => a.market_cap - b.market_cap,
@@ -452,6 +480,63 @@
   function riskBadge(r) {
     const cls = r === 'LOW' ? 'b-low' : r === 'MEDIUM' ? 'b-med' : r === 'HIGH' ? 'b-high' : 'b-crit';
     return `<span class="badge ${cls}">${esc(r)} risk</span>`;
+  }
+  const GRADE = { 'Deep': 4, 'Good': 3, 'Okay': 2, 'Thin': 1, 'Very thin': 0 };
+  function liqRank(a) { return a.liquidity ? (GRADE[a.liquidity.grade] ?? 0) : 0; }
+  function liqOk(a) { return liqRank(a) >= 3; }
+  function scanOk(a) { return !!(a.security && a.security.verdict === 'pass'); }
+  function ageText(days) {
+    if (!isNum(days)) return '';
+    if (days < 1) return 'today';
+    if (days < 60) return days + ' days ago';
+    if (days < 730) return Math.round(days / 30.4) + ' months ago';
+    return (days / 365).toFixed(1) + ' years ago';
+  }
+  function launchText(a) {
+    const l = a.launch; if (!l) return 'n/a';
+    return l.date ? shortDate(l.date) + ' (' + ageText(l.age_days) + ')' : 'older than ~1 year';
+  }
+  function liqText(a) {
+    const l = a.liquidity; if (!l) return 'n/a';
+    return l.usd != null ? usd(l.usd) + ' · ' + l.grade : l.grade + ' (order books)';
+  }
+  function safetyText(a) {
+    const s = a.security;
+    if (!s) return '<span class="flat">not scanned</span>';
+    if (s.verdict === 'pass') return '<span class="up">scan passed</span>';
+    if (s.verdict === 'caution') return '<span style="color:var(--amber)">caution</span>';
+    return '<span class="down">failed</span>';
+  }
+  function keyFactsCells(a) {
+    return `<div class="grid grid-cols-2 gap-1.5 mt-3">
+      ${cell('Use case', esc((a.utility && a.utility.label) || 'n/a'))}
+      ${cell('Liquidity', liqText(a))}
+      ${cell('Launched / trading since', launchText(a))}
+      ${cell('Safety scan', safetyText(a))}
+    </div>`;
+  }
+  function histScore(a) { return (a.history && a.history.match && a.history.match.score) || 0; }
+  function extraBadges(a) {
+    return [
+      a.overlooked ? '<span class="badge b-hot">Overlooked gem</span>' : '',
+      a.meme_utility ? '<span class="badge b-scarce">Meme + use case</span>' : (a.meme ? '<span class="badge b-use">Meme</span>' : ''),
+    ].join('');
+  }
+  function historyLine(a) {
+    const h = a.history; if (!h) return '';
+    if (h.match) return `<div class="mt-2 text-[12.5px]" style="color:var(--mute)">History match <span class="mono ${h.match.score >= 70 ? 'up' : 'cy'}">${h.match.score}%</span> · looks like <span style="color:var(--text)">${esc(h.match.analog)}</span> before its run</div>`;
+    if (h.too_new) return '<div class="mt-2 text-[12.5px]" style="color:var(--dim)">Too little price history to compare with past runs</div>';
+    return '';
+  }
+  function utilBadge(u) {
+    if (!u) return '';
+    const cls = u.score >= 65 ? 'b-hot' : u.score >= 40 ? 'b-scarce' : u.score >= 20 ? 'b-warm' : 'b-high';
+    return `<span class="badge ${cls}">${esc(u.label)}</span>`;
+  }
+  function utilLine(a) {
+    const u = a.utility; if (!u) return '';
+    const text = u.summary ? (u.summary.length > 120 ? u.summary.slice(0, 118).trim() + '...' : u.summary) : u.domain;
+    return `<div class="mt-2 text-[12.5px] leading-snug" style="color:var(--mute)"><span style="color:var(--text)">${esc(u.domain)}.</span> ${esc(text)}</div>`;
   }
   function venueText(a) {
     return a.venue === 'dex' && a.dex ? `DEX only · ${a.dex.chain}` : 'Listed on exchanges';
@@ -483,6 +568,8 @@
     const initial = esc((a.symbol || '?').slice(0, 3));
     const badges = [
       `<span class="badge b-use">${esc(a.use_case_label)}</span>`,
+      utilBadge(a.utility),
+      extraBadges(a),
       stageBadge(a),
       a.tier === 'scarce' ? '<span class="badge b-scarce">Scarce</span>' : '<span class="badge b-eco">Ecosystem</span>',
       a.dilution_alert === 'CRITICAL' ? '<span class="badge b-crit">FDV trap risk</span>' : a.dilution_alert === 'WARNING' ? '<span class="badge b-warm">FDV dilution</span>' : '',
@@ -504,6 +591,9 @@
         </div>
       </div>
       <div class="flex flex-wrap gap-1.5 mt-2.5">${badges}</div>
+      ${utilLine(a)}
+      ${keyFactsCells(a)}
+      ${historyLine(a)}
       ${a.spark && a.spark.length ? `<div class="mt-2.5" style="height:34px">${spark(a.spark, 200, 34)}</div>` : ''}
       ${huntBox(a)}
       <div class="mt-2">
@@ -527,7 +617,9 @@
   function render() {
     const list = filtered();
     const slice = list.slice(0, state.shown);
-    $('#count').textContent = `${list.length} of ${ASSETS.length} assets${state.q.trim() ? ' match "' + state.q.trim() + '"' : ''}`;
+    const st = (DATA && DATA.stats) || {};
+    const hid = (st.hidden_unsafe || st.hidden_pending_scan) ? ` · hidden for safety: ${st.hidden_unsafe || 0} failed the scan (honeypot, unsellable or punishing tax), ${st.hidden_pending_scan || 0} awaiting a scan` : '';
+    $('#count').textContent = `${list.length} of ${ASSETS.length} assets${state.q.trim() ? ' match "' + state.q.trim() + '"' : ''}${hid}`;
     $('#list').innerHTML = slice.length ? slice.map(card).join('')
       : `<div class="panel p-4 md:col-span-2"><p class="font-semibold">No assets match these filters.</p>
          <p class="mt-1 text-[14px]" style="color:var(--mute)">Clear the search box, or set the tier and use case back to All.</p></div>`;
@@ -602,6 +694,46 @@
         ${a.dilution_alert === 'CRITICAL' ? '<span class="badge b-crit">FDV trap risk</span>' : a.dilution_alert === 'WARNING' ? '<span class="badge b-warm">FDV dilution</span>' : ''}
       </div>
     </div>
+
+    <div class="sec panel p-3">
+      <h3>Key facts</h3>
+      ${kv('Use case', esc((a.utility && a.utility.label) || 'n/a') + (a.utility ? ' · ' + esc(a.utility.domain) : ''))}
+      ${a.utility && a.utility.summary ? `<p class="text-[13px] leading-snug py-2" style="color:var(--mute);border-bottom:1px solid var(--line)">${esc(a.utility.summary)}</p>` : ''}
+      ${kv('Liquidity', a.liquidity ? (a.liquidity.usd != null ? usd(a.liquidity.usd) : 'order books') + ' · ' + esc(a.liquidity.grade) : 'n/a')}
+      ${a.liquidity && a.liquidity.usd != null ? kv('Liquidity vs market cap', isNum(a.liquidity.pct_of_mcap) ? a.liquidity.pct_of_mcap.toFixed(1) + '%' : 'n/a') + kv('Est. slippage on a $1,000 buy', a.liquidity.impact_1k_pct + '%') + kv('Est. slippage on a $10,000 buy', a.liquidity.impact_10k_pct + '%') : (a.liquidity ? kv('Typical spread', isNum(a.liquidity.spread_pct) ? a.liquidity.spread_pct.toFixed(2) + '%' : 'n/a') + kv('Exchanges trading it', isNum(a.liquidity.exchange_count) ? a.liquidity.exchange_count : 'n/a') : '')}
+      ${kv('Launched / trading since', launchText(a))}
+      ${a.launch ? kv('Date source', esc(a.launch.source)) : ''}
+      ${a.profile && a.profile.top_exchanges && a.profile.top_exchanges.length ? kv('Listed on', esc(a.profile.top_exchanges.slice(0, 5).map(e => e.name).join(', '))) : ''}
+      ${kv('Market cap / 24h volume', usd(a.market_cap) + ' / ' + usd(a.volume_24h))}
+      ${kv('Safety scan', safetyText(a) + (a.security ? ' (' + esc(a.security.source) + ')' : ''))}
+      ${a.security && a.security.holders ? kv('Holders', count(a.security.holders)) : ''}
+      ${a.security && isNum(a.security.lp_locked_pct) ? kv('Liquidity locked', a.security.lp_locked_pct + '%') : ''}
+      ${a.security && isNum(a.security.top10_pct) ? kv('Top 10 wallets hold', a.security.top10_pct + '% (includes pools)') : ''}
+      ${a.security && (a.security.caution || []).length ? `<div class="mt-2">${a.security.caution.map(c => `<div class="text-[13px] mt-1" style="color:var(--amber)">&#9888; ${esc(c)}</div>`).join('')}</div>` : ''}
+      ${a.dex ? kv('Token contract', '<span style="font-size:11px">' + esc(a.dex.address) + '</span>') + kv('Chart and pool', linkOrNa(a.dex.url, 'Open on DexScreener')) : ''}
+      <p class="text-[12px] mt-3" style="color:var(--dim)">${a.liquidity ? esc(a.liquidity.note) : ''} Exchange listing dates are not in the free data, so this shows the project launch date or when it first started trading.</p>
+    </div>
+
+    ${a.overlooked ? `<div class="sec panel p-3"><h3>Overlooked gem signal: <span class="mono up">${a.overlooked.score}/100</span></h3>
+      ${(a.overlooked.reasons || []).map(r => `<div class="text-[13px] mt-1" style="color:var(--mute)">&bull; ${esc(r)}</div>`).join('')}
+      <p class="text-[12px] mt-3" style="color:var(--dim)">Real substance, small crowd, small market cap. Overlooked can also mean ignored for good reasons, so check the project before buying.</p></div>` : ''}
+
+    ${a.history ? `<div class="sec panel p-3"><h3>History check ${a.history.match ? `<span class="mono ${a.history.match.score >= 70 ? 'up' : 'cy'}">${a.history.match.score}% similar</span>` : ''}</h3>
+      ${a.history.match ? `<p class="text-[13.5px]">Closest past run: <b>${esc(a.history.match.analog)}</b>${isNum(a.history.match.analog_gain_pct) ? ' (it went on to gain about +' + a.history.match.analog_gain_pct + '%)' : ''}. ${a.history.match.conditions_met}/5 pre-run conditions are present now.</p>
+        ${(a.history.match.conditions || []).map(c => `<div class="kv"><span>${esc(c.label)}</span><span class="mono ${c.met ? 'up' : 'flat'}">${c.met ? 'yes' : 'no'}${isNum(c.lift) ? ' · lift ' + c.lift + 'x' : ''}</span></div>`).join('')}`
+        : `<p class="text-[13.5px]" style="color:var(--mute)">${a.history.too_new ? 'Not enough daily price history yet to compare this coin with past runs.' : 'No past-run library yet: run the workflow in spikelab mode once.'}</p>`}
+      <p class="text-[12px] mt-3" style="color:var(--dim)">Similar setups preceded past runs, but many look-alikes never moved and the sample of past runs is small and hand-picked. Treat this as a reason to look closer, not a forecast.</p></div>` : ''}
+
+    ${a.utility ? `<div class="sec panel p-3">
+      <h3>Use case and utility: <span class="mono ${a.utility.score >= 65 ? 'up' : a.utility.score >= 40 ? 'cy' : 'down'}">${a.utility.score}/100</span> ${utilBadge(a.utility)}</h3>
+      <div class="bar"><i style="width:${a.utility.score}%"></i></div>
+      <p class="text-[14px] mt-3"><span class="font-semibold">What it is for:</span> ${esc(a.utility.domain)}</p>
+      ${a.utility.summary ? `<p class="text-[13.5px] leading-snug mt-2" style="color:var(--mute)">${esc(a.utility.summary)}</p>` : ''}
+      <div class="mt-3 text-[13px] font-semibold">Evidence</div>
+      ${(a.utility.evidence || []).length ? a.utility.evidence.map(e => `<div class="text-[13px] mt-1" style="color:var(--mute)">&bull; ${esc(e)}</div>`).join('') : '<div class="text-[13px] mt-1" style="color:var(--mute)">No documented evidence of real-world use was found automatically.</div>'}
+      <div class="mt-3">${kv('Website', linkOrNa(a.utility.homepage, a.utility.homepage ? a.utility.homepage.replace(/^https?:\/\//, '').slice(0, 38) : ''))}${kv('Whitepaper', linkOrNa(a.utility.whitepaper, 'Open'))}${kv('Code repository', linkOrNa(a.utility.github, 'Open GitHub'))}</div>
+      <p class="text-[12px] mt-3" style="color:var(--dim)">The score checks what the project says it does, whether it publishes docs and code, whether developers are active, whether institutions are mentioning it and whether major exchanges list it. It cannot prove the product is used, so read the project's own site before buying.</p>
+    </div>` : ''}
 
     ${a.hunt ? `<div class="sec panel p-3">
       <h3>Zero-cancel analysis: <span class="mono ${a.hunt.score >= 70 ? 'up' : 'cy'}">${Math.round(a.hunt.score)}/100</span> ${riskBadge(a.hunt.risk)}</h3>
@@ -707,6 +839,14 @@
     if (b.dataset.hz) {
       const v = Number(b.dataset.hz); state.hz = state.hz === v ? 0 : v;
       document.querySelectorAll('#huntSeg [data-hz]').forEach(x => x.setAttribute('aria-pressed', String(Number(x.dataset.hz) === state.hz)));
+    } else if (b.dataset.hliq) {
+      state.hliq = !state.hliq; b.setAttribute('aria-pressed', String(state.hliq));
+    } else if (b.dataset.hscan) {
+      state.hscan = !state.hscan; b.setAttribute('aria-pressed', String(state.hscan));
+    } else if (b.dataset.hhist) {
+      state.hhist = !state.hhist; b.setAttribute('aria-pressed', String(state.hhist));
+    } else if (b.dataset.hutil) {
+      state.hutil = !state.hutil; b.setAttribute('aria-pressed', String(state.hutil));
     } else if (b.dataset.hrisk) {
       state.hrisk = !state.hrisk; b.setAttribute('aria-pressed', String(state.hrisk));
     } else if (b.dataset.hven) {
