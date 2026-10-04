@@ -777,29 +777,11 @@
   "sealcoin:ignition": "2026-10-04T11:06:13.185124+00:00",
   "giggle-mascot:ignition": "2026-10-04T15:24:01.624885+00:00",
   "mubarak:ignition": "2026-10-04T15:24:01.624885+00:00",
-  "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00"
+  "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
+  "orca:ignition": "2026-10-04T19:40:41.744074+00:00",
+  "gitcoin:ignition": "2026-10-04T19:40:41.744074+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-03T19:49:35.477637+00:00",
-   "kind": "market",
-   "id": "layerzero",
-   "symbol": "ZRO",
-   "name": "LayerZero",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-03T19:49:35.477637+00:00",
-   "kind": "market",
-   "id": "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump",
-   "symbol": "SWORDCAT",
-   "name": "cat wif sword",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-03T19:49:35.477637+00:00",
    "kind": "market",
@@ -1379,8 +1361,28 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-04T19:40:41.744074+00:00",
+   "kind": "market",
+   "id": "orca",
+   "symbol": "ORCA",
+   "name": "Orca",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T19:40:41.744074+00:00",
+   "kind": "market",
+   "id": "gitcoin",
+   "symbol": "GTC",
+   "name": "Gitcoin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-04T15:24:01.624885+00:00"
+ "updated": "2026-10-04T19:40:41.744074+00:00"
 }
