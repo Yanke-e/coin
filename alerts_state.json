@@ -694,7 +694,8 @@
   "32af26b13e6f5e72": "2026-10-03T19:49:35.477637+00:00",
   "386c0eb8fb9cf29c": "2026-10-04T09:47:38.724739+00:00",
   "be1c9ffd3f0eb30f": "2026-10-04T09:47:38.724739+00:00",
-  "32dc76b812459d4f": "2026-10-04T11:06:13.185124+00:00"
+  "32dc76b812459d4f": "2026-10-04T11:06:13.185124+00:00",
+  "641006101810b086": "2026-10-04T23:13:57.991675+00:00"
  },
  "last_alert": {
   "edel:ignition": "2026-10-03T10:23:51.978360+00:00",
@@ -714,7 +715,7 @@
   "dex-solana-BZFYNPeQAEW3HWQ4DNsTVahC1n4ZjTgn6jB2nnBbB96W:ignition": "2026-10-04T09:47:38.724739+00:00",
   "dex-bsc-0xA41a51Eae67625058A4d0D64082C160240917777:ignition": "2026-10-03T17:18:28.433627+00:00",
   "dex-bsc-0x108876C3df3d893350e9B780563B3697aa3E7777:ignition": "2026-10-03T19:49:35.477637+00:00",
-  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:ignition": "2026-10-04T09:47:38.724739+00:00",
+  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:ignition": "2026-10-04T23:13:57.991675+00:00",
   "resolv:ignition": "2026-10-03T06:36:11.426832+00:00",
   "decentraland:ignition": "2026-10-03T06:36:11.426832+00:00",
   "superform:accumulation": "2026-10-03T06:36:11.426832+00:00",
@@ -744,10 +745,10 @@
   "layerzero:ignition": "2026-10-03T19:49:35.477637+00:00",
   "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-03T19:49:35.477637+00:00",
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
-  "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-04T08:17:09.608269+00:00",
+  "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-04T23:13:57.991675+00:00",
   "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-04T08:17:09.608269+00:00",
   "baton-3:ignition": "2026-10-04T08:17:09.608269+00:00",
-  "stockereum-fun:ignition": "2026-10-04T09:47:38.724739+00:00",
+  "stockereum-fun:ignition": "2026-10-04T23:13:57.991675+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
   "priors-agent:ignition": "2026-10-04T09:47:38.724739+00:00",
   "stockereum-fun:zeroignite": "2026-10-04T09:47:38.724739+00:00",
@@ -755,23 +756,23 @@
   "dex-bsc-0x55DB4b1f497b1D7Aa93354701883eFC758367777:ignition": "2026-10-03T23:06:37.257794+00:00",
   "definitive:ignition": "2026-10-04T15:24:01.624885+00:00",
   "io:ignition": "2026-10-04T08:17:09.608269+00:00",
-  "hivemapper:ignition": "2026-10-04T08:17:09.608269+00:00",
+  "hivemapper:ignition": "2026-10-04T23:13:57.991675+00:00",
   "otc:ignition": "2026-10-04T08:17:09.608269+00:00",
   "otc:zerohunt": "2026-10-04T08:17:09.608269+00:00",
   "otc:zeroignite": "2026-10-04T08:17:09.608269+00:00",
   "rock-dao:ignition": "2026-10-04T08:17:09.608269+00:00",
   "moonwell-artemis:accumulation": "2026-10-04T08:17:09.608269+00:00",
   "apro:accumulation": "2026-10-04T08:17:09.608269+00:00",
-  "dimo:ignition": "2026-10-04T08:17:09.608269+00:00",
+  "dimo:ignition": "2026-10-04T23:13:57.991675+00:00",
   "rock-dao:zeroignite": "2026-10-04T08:17:09.608269+00:00",
-  "beam-2:ignition": "2026-10-04T09:47:38.724739+00:00",
+  "beam-2:ignition": "2026-10-04T23:13:57.991675+00:00",
   "beam-2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "blast:ignition": "2026-10-04T09:47:38.724739+00:00",
   "b3:ignition": "2026-10-04T09:47:38.724739+00:00",
   "towns:ignition": "2026-10-04T09:47:38.724739+00:00",
-  "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-04T09:47:38.724739+00:00",
+  "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-04T23:13:57.991675+00:00",
   "octo-protocol:ignition": "2026-10-04T09:47:38.724739+00:00",
-  "dex-solana-6hTLdzZaaCjmqtn7RtaEMQsCbXT5Pg8q76tRViEGpump:ignition": "2026-10-04T09:47:38.724739+00:00",
+  "dex-solana-6hTLdzZaaCjmqtn7RtaEMQsCbXT5Pg8q76tRViEGpump:ignition": "2026-10-04T23:13:57.991675+00:00",
   "baton-3:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "priors-agent:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "axie-infinity:ignition": "2026-10-04T11:06:13.185124+00:00",
@@ -793,109 +794,10 @@
   "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:ignition": "2026-10-04T20:10:47.404150+00:00",
   "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:ignition": "2026-10-04T20:10:47.404150+00:00",
   "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07:ignition": "2026-10-04T20:10:47.404150+00:00",
-  "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:zeroignite": "2026-10-04T20:10:47.404150+00:00"
+  "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:zeroignite": "2026-10-04T20:10:47.404150+00:00",
+  "dex-solana-CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump:ignition": "2026-10-04T23:13:57.991675+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "hashflow",
-   "symbol": "HFT",
-   "name": "Hashflow",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "io",
-   "symbol": "IO",
-   "name": "io.net",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "starknet",
-   "symbol": "STRK",
-   "name": "Starknet",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "hivemapper",
-   "symbol": "HONEY",
-   "name": "Hivemapper",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "otc",
-   "symbol": "OTC",
-   "name": "OTC",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "otc",
-   "symbol": "OTC",
-   "name": "OTC",
-   "severity": "WATCH",
-   "title": "Zero-cancel candidate",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "otc",
-   "symbol": "OTC",
-   "name": "OTC",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "rock-dao",
-   "symbol": "ROCK",
-   "name": "ROCK DAO",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "collect-on-fanable",
-   "symbol": "COLLECT",
-   "name": "Collect on Fanable",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "astronaut-2",
-   "symbol": "ASTRO",
-   "name": "astronaut",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-04T08:17:09.608269+00:00",
    "kind": "market",
@@ -1395,8 +1297,108 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "news",
+   "id": "quant-network",
+   "symbol": "QNT",
+   "name": "Quant",
+   "severity": "MAJOR",
+   "title": "Clearing House, Which Settles $2T Daily, Explains Why It Chose Quant (QNT) - Bitget",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE10UUpkMkNCa0Nray11bDgxbS14NVhaSFRGZ0ZtdXd5NmRDZEZzWFFScHpsZGxPLTRkRENVZHJSSTJpZDV4SkZiNElDRjROQkRNOE9CcktGN0tTZGtYclkyR2w1aw?oc=5"
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "beam-2",
+   "symbol": "BEAM",
+   "name": "Beam",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "hivemapper",
+   "symbol": "HONEY",
+   "name": "Hivemapper",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj",
+   "symbol": "SI",
+   "name": "Super Intelligence",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "dex-solana-CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump",
+   "symbol": "FONE",
+   "name": "apeonfone",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "dex-solana-6hTLdzZaaCjmqtn7RtaEMQsCbXT5Pg8q76tRViEGpump",
+   "symbol": "ABU",
+   "name": "Abu Shalab",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777",
+   "symbol": "BNBCAT",
+   "name": "Binance Cat",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "dimo",
+   "symbol": "DIMO",
+   "name": "DIMO",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump",
+   "symbol": "JEANPHIL",
+   "name": "Jean Phil",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T23:13:57.991675+00:00",
+   "kind": "market",
+   "id": "stockereum-fun",
+   "symbol": "STOCKER",
+   "name": "Stockereum.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-04T20:10:47.404150+00:00"
+ "updated": "2026-10-04T23:13:57.991675+00:00"
 }
