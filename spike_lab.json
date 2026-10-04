@@ -1,8 +1,9 @@
 {
- "generated_at": "2026-10-04T08:16:10.238054+00:00",
+ "generated_at": "2026-10-04T09:47:04.320962+00:00",
  "cases": [
   {
    "label": "Quant (QNT), 2026 institutional breakout",
+   "kind": "utility",
    "spike": {
     "base_date": "2026-08-30",
     "base_price": 60.08,
@@ -38,6 +39,7 @@
   },
   {
    "label": "Shiba Inu (SHIB), 2021 mania",
+   "kind": "meme",
    "spike": {
     "base_date": "2021-09-28",
     "base_price": 6.98e-06,
@@ -72,7 +74,260 @@
    "source": "Binance daily candles"
   },
   {
-   "label": "XPIN Network (XPIN), late 2025",
+   "label": "Shiba Inu (SHIB), 2023-24 revival (Shibarium era)",
+   "kind": "meme_utility",
+   "spike": {
+    "base_date": "2024-02-06",
+    "base_price": 8.86e-06,
+    "peak_date": "2024-03-05",
+    "peak_price": 4.567e-05,
+    "gain_pct": 415.0,
+    "days_to_peak": 28,
+    "ignition": {
+     "date": "2024-02-26",
+     "day_move_pct": 4.0,
+     "volume_multiple": 2.1,
+     "days_after_base": 20,
+     "close": 1.006e-05,
+     "move_left_pct": 97.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 24.555160142348733,
+     "vol_exp": 0.2217551897222937,
+     "drawdown_pct": -89.99322340185228,
+     "volatility": 0.024641434587392638,
+     "ret_30d_pct": -1.7738359201773801,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": true,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": true,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "Dogecoin (DOGE), 2020-21 run",
+   "kind": "meme",
+   "spike": {
+    "base_date": "2020-12-30",
+    "base_price": 0.0046251,
+    "peak_date": "2021-01-29",
+    "peak_price": 0.0875,
+    "gain_pct": 1792.0,
+    "days_to_peak": 30,
+    "ignition": {
+     "date": "2021-01-01",
+     "day_move_pct": 21.6,
+     "volume_multiple": 1.6,
+     "days_after_base": 2,
+     "close": 0.00568,
+     "move_left_pct": 99.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 83.52297373953085,
+     "vol_exp": 1.3842108279283023,
+     "drawdown_pct": -17.40745370453043,
+     "volatility": 0.0663862378787083,
+     "ret_30d_pct": 29.882055602358882,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": true,
+     "beaten_down": false,
+     "calm_volatility": false,
+     "flat_prior_month": false
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "PEPE, late-2023 to 2024 run",
+   "kind": "meme",
+   "spike": {
+    "base_date": "2024-02-08",
+    "base_price": 9.5e-07,
+    "peak_date": "2024-03-09",
+    "peak_price": 9.91e-06,
+    "gain_pct": 943.0,
+    "days_to_peak": 30,
+    "ignition": {
+     "date": "2024-02-09",
+     "day_move_pct": 6.3,
+     "volume_multiple": 1.1,
+     "days_after_base": 1,
+     "close": 1.01e-06,
+     "move_left_pct": 99.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 74.4186046511628,
+     "vol_exp": 0.2693001049871928,
+     "drawdown_pct": -78.35990888382688,
+     "volatility": 0.04415198093421545,
+     "ret_30d_pct": -20.833333333333325,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": false,
+     "flat_prior_month": false
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "Bonk (BONK), late-2023 run (Solana ecosystem)",
+   "kind": "meme_utility",
+   "spike": {
+    "base_date": "2024-02-23",
+    "base_price": 1.133e-05,
+    "peak_date": "2024-03-04",
+    "peak_price": 4.8e-05,
+    "gain_pct": 324.0,
+    "days_to_peak": 10,
+    "ignition": {
+     "date": "2024-02-26",
+     "day_move_pct": 12.7,
+     "volume_multiple": 1.5,
+     "days_after_base": 3,
+     "close": 1.344e-05,
+     "move_left_pct": 94.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 53.60501567398119,
+     "vol_exp": 0.3428616052320717,
+     "drawdown_pct": -71.675,
+     "volatility": 0.05446379274646553,
+     "ret_30d_pct": 2.5339366515837236,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": false,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "Floki (FLOKI), 2023-24 run",
+   "kind": "meme_utility",
+   "spike": {
+    "base_date": "2024-02-11",
+    "base_price": 3.084e-05,
+    "peak_date": "2024-03-12",
+    "peak_price": 0.00030656,
+    "gain_pct": 894.0,
+    "days_to_peak": 30,
+    "ignition": {
+     "date": "2024-02-26",
+     "day_move_pct": 17.9,
+     "volume_multiple": 6.4,
+     "days_after_base": 15,
+     "close": 4.329e-05,
+     "move_left_pct": 95.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 32.30138008205894,
+     "vol_exp": 0.7311076587917784,
+     "drawdown_pct": -42.88888888888888,
+     "volatility": 0.04387282860096084,
+     "ret_30d_pct": 1.5141540487162652,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": true,
+     "volume_building": false,
+     "beaten_down": false,
+     "calm_volatility": false,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "JasmyCoin (JASMY), 2023-24 run (IoT data)",
+   "kind": "utility",
+   "spike": {
+    "base_date": "2024-02-06",
+    "base_price": 0.00523,
+    "peak_date": "2024-03-04",
+    "peak_price": 0.027493,
+    "gain_pct": 426.0,
+    "days_to_peak": 27,
+    "ignition": {
+     "date": "2024-02-09",
+     "day_move_pct": 6.1,
+     "volume_multiple": 4.8,
+     "days_after_base": 3,
+     "close": 0.005715,
+     "move_left_pct": 98.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 34.95790872840055,
+     "vol_exp": 0.8362503160146902,
+     "drawdown_pct": -98.56673061112635,
+     "volatility": 0.044165753599368925,
+     "ret_30d_pct": 3.6464526357510962,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": true,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": false,
+     "flat_prior_month": true
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "eCash (XEC), late-2021 run",
+   "kind": "utility",
+   "spike": {
+    "base_date": "2022-01-22",
+    "base_price": 6.839e-05,
+    "peak_date": "2022-02-08",
+    "peak_price": 0.00010175,
+    "gain_pct": 49.0,
+    "days_to_peak": 17,
+    "ignition": {
+     "date": "2022-01-23",
+     "day_move_pct": 9.3,
+     "volume_multiple": 0.8,
+     "days_after_base": 1,
+     "close": 7.477e-05,
+     "move_left_pct": 81.0
+    },
+    "fingerprint": {
+     "range_30d_pct": 98.30429371499687,
+     "vol_exp": 0.5720396911334813,
+     "drawdown_pct": -82.54377456735924,
+     "volatility": 0.047185890349723494,
+     "ret_30d_pct": -40.22898094738683,
+     "breakout_20d": false
+    },
+    "flags": {
+     "tight_base": false,
+     "volume_building": false,
+     "beaten_down": true,
+     "calm_volatility": false,
+     "flat_prior_month": false
+    }
+   },
+   "source": "Binance daily candles"
+  },
+  {
+   "label": "XPIN Network (XPIN), late 2025 (DePIN)",
+   "kind": "utility",
    "spike": {
     "base_date": "2025-12-19",
     "base_price": 0.001810971591589687,
@@ -107,7 +362,8 @@
    "source": "CoinGecko daily (xpin-network), 365-day limit"
   },
   {
-   "label": "Avalanche (AVAX), 2026 move",
+   "label": "Avalanche (AVAX), 2026 tokenization move",
+   "kind": "utility",
    "spike": {
     "base_date": "2026-08-30",
     "base_price": 7.113,
@@ -146,45 +402,45 @@
   {
    "key": "tight_base",
    "label": "Tight 30-day base (range under 35%)",
-   "spikes_hit": 1,
-   "spikes_total": 4,
-   "base_rate_pct": 29.0,
-   "lift": 0.86
+   "spikes_hit": 4,
+   "spikes_total": 11,
+   "base_rate_pct": 23.1,
+   "lift": 1.58
   },
   {
    "key": "volume_building",
    "label": "Volume building (7-day average 1.3x+ the prior 60 days)",
-   "spikes_hit": 0,
-   "spikes_total": 4,
-   "base_rate_pct": 21.6,
-   "lift": 0.0
+   "spikes_hit": 1,
+   "spikes_total": 11,
+   "base_rate_pct": 21.1,
+   "lift": 0.43
   },
   {
    "key": "beaten_down",
    "label": "Beaten down (50%+ below its prior high)",
-   "spikes_hit": 4,
-   "spikes_total": 4,
-   "base_rate_pct": 93.1,
-   "lift": 1.07
+   "spikes_hit": 9,
+   "spikes_total": 11,
+   "base_rate_pct": 90.4,
+   "lift": 0.9
   },
   {
    "key": "calm_volatility",
    "label": "Calm volatility (typical daily move under 4%)",
-   "spikes_hit": 2,
-   "spikes_total": 4,
-   "base_rate_pct": 44.0,
-   "lift": 1.14
+   "spikes_hit": 3,
+   "spikes_total": 11,
+   "base_rate_pct": 39.4,
+   "lift": 0.69
   },
   {
    "key": "flat_prior_month",
    "label": "Flat prior month (-15% to +15%)",
-   "spikes_hit": 3,
-   "spikes_total": 4,
-   "base_rate_pct": 51.4,
-   "lift": 1.46
+   "spikes_hit": 7,
+   "spikes_total": 11,
+   "base_rate_pct": 47.1,
+   "lift": 1.35
   }
  ],
- "median_move_left_after_ignition_pct": 88.0,
+ "median_move_left_after_ignition_pct": 97.0,
  "notes": [
   "Sample is tiny and hand-picked (survivorship bias): treat lift as a hint, not a forecast.",
   "'Base rate' is how often the same condition appeared on ordinary days for the same coins.",
