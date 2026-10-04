@@ -751,7 +751,7 @@
   "stockereum-fun:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "interfold:ignition": "2026-10-03T23:06:37.257794+00:00",
   "dex-bsc-0x55DB4b1f497b1D7Aa93354701883eFC758367777:ignition": "2026-10-03T23:06:37.257794+00:00",
-  "definitive:ignition": "2026-10-04T02:42:44.199556+00:00",
+  "definitive:ignition": "2026-10-04T15:24:01.624885+00:00",
   "io:ignition": "2026-10-04T08:17:09.608269+00:00",
   "hivemapper:ignition": "2026-10-04T08:17:09.608269+00:00",
   "otc:ignition": "2026-10-04T08:17:09.608269+00:00",
@@ -774,49 +774,12 @@
   "priors-agent:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "axie-infinity:ignition": "2026-10-04T11:06:13.185124+00:00",
   "nomina:ignition": "2026-10-04T11:06:13.185124+00:00",
-  "sealcoin:ignition": "2026-10-04T11:06:13.185124+00:00"
+  "sealcoin:ignition": "2026-10-04T11:06:13.185124+00:00",
+  "giggle-mascot:ignition": "2026-10-04T15:24:01.624885+00:00",
+  "mubarak:ignition": "2026-10-04T15:24:01.624885+00:00",
+  "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-03T19:49:35.477637+00:00",
-   "kind": "market",
-   "id": "starknet",
-   "symbol": "STRK",
-   "name": "Starknet",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-03T19:49:35.477637+00:00",
-   "kind": "market",
-   "id": "superfarm",
-   "symbol": "SUPER",
-   "name": "SuperVerse",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-03T19:49:35.477637+00:00",
-   "kind": "market",
-   "id": "harmony",
-   "symbol": "ONE",
-   "name": "Harmony",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-03T19:49:35.477637+00:00",
-   "kind": "market",
-   "id": "collect-on-fanable",
-   "symbol": "COLLECT",
-   "name": "Collect on Fanable",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-03T19:49:35.477637+00:00",
    "kind": "market",
@@ -1376,8 +1339,48 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-04T15:24:01.624885+00:00",
+   "kind": "market",
+   "id": "giggle-mascot",
+   "symbol": "MAX",
+   "name": "Giggle Mascot",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T15:24:01.624885+00:00",
+   "kind": "market",
+   "id": "mubarak",
+   "symbol": "MUBARAK",
+   "name": "Mubarak",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T15:24:01.624885+00:00",
+   "kind": "market",
+   "id": "definitive",
+   "symbol": "EDGE",
+   "name": "Definitive",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-04T15:24:01.624885+00:00",
+   "kind": "market",
+   "id": "hivemapper",
+   "symbol": "HONEY",
+   "name": "Hivemapper",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-04T11:06:13.185124+00:00"
+ "updated": "2026-10-04T15:24:01.624885+00:00"
 }
