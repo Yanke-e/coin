@@ -24,7 +24,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
 
@@ -48,7 +48,7 @@ jobs:
           echo "Running mode: ${MODE:-full}"
 
       - name: Run engine
-        timeout-minutes: 20
+        timeout-minutes: 45
         env:
           COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
