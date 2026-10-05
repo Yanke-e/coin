@@ -45,6 +45,7 @@ import requests
 # Configuration
 # --------------------------------------------------------------------------- #
 
+ENGINE_VERSION = "2026.10.04-r5"
 DATA_FILE = os.environ.get("CRYPTO_OUTPUT", "crypto_data.json")
 STATE_FILE = os.environ.get("CRYPTO_STATE", "alerts_state.json")
 SPIKE_FILE = os.environ.get("CRYPTO_SPIKE_OUTPUT", "spike_lab.json")
@@ -2002,6 +2003,7 @@ def pipeline(mode):
         hunts = [a for a in final if a.get("hunt") and a["hunt"]["score"] >= HUNT_MIN_KEEP]
         payload = {
             "generated_at": now.isoformat(),
+            "engine_version": ENGINE_VERSION,
             "parameters": {
                 "min_market_cap": MIN_MARKET_CAP, "min_volume_24h": MIN_VOLUME_24H,
                 "max_market_cap": None, "max_price_usd": MAX_PRICE_USD, "banned_top10": BAN_TOP10,

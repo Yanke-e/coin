@@ -234,6 +234,7 @@
     Data: CoinGecko market feed, public news wires and exchange listings, refreshed by GitHub Actions. Turnover ratio = 24h volume / market cap.
     Setup score summarizes the conditions seen before past runs; it flags candidates and does not forecast price. Many flagged coins will not move. Micro-priced tokens carry rug-pull and honeypot risk even after the automated checks.
     Headline matching is automated and can mismatch; open the source wire before acting. Informational only, not financial advice.
+  <p id="ver" class="mono text-[11px] mt-3" style="color:var(--dim)"></p>
   </footer>
 </main>
 
@@ -245,6 +246,7 @@
 (() => {
   'use strict';
 
+  const PAGE_VERSION = '2026.10.04-r5';
   const PAGE_SIZE = 30;
   const state = { view: 'usecase', tier: 'all', uc: 'all', flags: new Set(), q: '', sort: 'usecase', shown: PAGE_SIZE, hz: 0, hrisk: false, hven: '', hutil: false, hhist: false, hliq: false, hscan: false };
   let DATA = null, ASSETS = [], LAB = null, lastFocus = null;
@@ -316,7 +318,13 @@
     return res.json();
   }
 
+  function showVersion() {
+    const e = DATA && DATA.engine_version;
+    $('#ver').textContent = 'Page version ' + PAGE_VERSION + ' · data version ' + (e || 'old (run the workflow in mode full)');
+  }
+
   async function load() {
+    showVersion();
     try {
       DATA = await fetchJson('./crypto_data.json');
     } catch (err) {
@@ -332,7 +340,7 @@
       a._hay = `${a.name} ${a.symbol} ${a.id} ${a.use_case_label} ${(a.utility && a.utility.label) || ''} ${(a.utility && a.utility.summary) || ''} ${(p.categories || []).join(' ')} ${newsText}`.toLowerCase();
       return a;
     });
-    renderMeta(); renderUseCases(); renderWire(); renderAlertLog(); render();
+    showVersion(); renderMeta(); renderUseCases(); renderWire(); renderAlertLog(); render();
     fetchJson('./spike_lab.json').then(l => { LAB = l; renderLab(); }).catch(() => {});
     openFromHash();
   }
