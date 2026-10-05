@@ -732,7 +732,7 @@
   "benqi:ignition": "2026-10-04T08:17:09.608269+00:00",
   "zentry:accumulation": "2026-10-03T12:36:00.055796+00:00",
   "dex-solana-7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump:ignition": "2026-10-03T12:36:00.055796+00:00",
-  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:zeroignite": "2026-10-03T12:36:00.055796+00:00",
+  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:zeroignite": "2026-10-05T09:09:39.278994+00:00",
   "bubblemaps:accumulation": "2026-10-03T17:18:28.433627+00:00",
   "lobster-2:ignition": "2026-10-03T17:18:28.433627+00:00",
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:ignition": "2026-10-04T08:17:09.608269+00:00",
@@ -782,7 +782,7 @@
   "mubarak:ignition": "2026-10-04T15:24:01.624885+00:00",
   "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
   "orca:ignition": "2026-10-04T19:40:41.744074+00:00",
-  "gitcoin:ignition": "2026-10-04T19:40:41.744074+00:00",
+  "gitcoin:ignition": "2026-10-05T09:09:39.278994+00:00",
   "apeonfone:ignition": "2026-10-04T20:10:47.404150+00:00",
   "knots:ignition": "2026-10-04T20:10:47.404150+00:00",
   "prism-assets:ignition": "2026-10-04T20:10:47.404150+00:00",
@@ -791,10 +791,10 @@
   "dex-solana-3Dgwn5E7H5a8k6iGrz3qirkaJqUaJrKHEZ2xPcLRpump:ignition": "2026-10-04T20:10:47.404150+00:00",
   "apeonfone:zeroignite": "2026-10-04T20:10:47.404150+00:00",
   "knots:zeroignite": "2026-10-04T20:10:47.404150+00:00",
-  "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:ignition": "2026-10-04T20:10:47.404150+00:00",
-  "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:ignition": "2026-10-04T20:10:47.404150+00:00",
-  "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07:ignition": "2026-10-04T20:10:47.404150+00:00",
-  "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:zeroignite": "2026-10-04T20:10:47.404150+00:00",
+  "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:ignition": "2026-10-05T09:09:39.278994+00:00",
+  "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:ignition": "2026-10-05T09:09:39.278994+00:00",
+  "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07:ignition": "2026-10-05T09:09:39.278994+00:00",
+  "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:zeroignite": "2026-10-05T09:09:39.278994+00:00",
   "dex-solana-CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump:ignition": "2026-10-04T23:13:57.991675+00:00",
   "nillion:ignition": "2026-10-05T02:02:45.151207+00:00",
   "carv:ignition": "2026-10-05T02:02:45.151207+00:00",
@@ -802,89 +802,11 @@
   "fetch-ai:ignition": "2026-10-05T02:02:45.151207+00:00",
   "lagrange:accumulation": "2026-10-05T02:02:45.151207+00:00",
   "dex-base-0xb20000000000000000000070F6c1A66D7C1e4d01:ignition": "2026-10-05T02:02:45.151207+00:00",
-  "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:zeroignite": "2026-10-05T02:02:45.151207+00:00"
+  "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:zeroignite": "2026-10-05T02:02:45.151207+00:00",
+  "moonriver:ignition": "2026-10-05T09:09:39.278994+00:00",
+  "helium:accumulation": "2026-10-05T09:09:39.278994+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "rock-dao",
-   "symbol": "ROCK",
-   "name": "ROCK DAO",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "news",
-   "id": "near",
-   "symbol": "NEAR",
-   "name": "NEAR Protocol",
-   "severity": "MAJOR",
-   "title": "Binance New Listing Season Heats Up as NEAR ETF Interest Rises and Remittix Reveals Its Launch Date - openpr.com",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdEEwV19PZ01FWDc0U2JuV3pVVU1aamhqMFBJNW02bWZ0ZkVITVpMT3FNV1pWa3d4U2RQTWFIYVNEV09WTlVWa3l2OWFhWi1ucXFTZTlVWC1WM1FCRnRuSS0yMnAxT0JJSXZVMXFmZDhnOGlzY0xhUkY4dFFPMzZpYzNwOUlVdHEtYnhBM2YwUVItZzhJczJnZmJDNFZuVVk?oc=5"
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "news",
-   "id": "near",
-   "symbol": "NEAR",
-   "name": "NEAR Protocol",
-   "severity": "MAJOR",
-   "title": "Binance New Listing Season Heats Up as NEAR ETF Raises $35 Million and Pepeto Closes In on Launch - openpr.com",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPLU94VXJLOENfc3ZZaTdnZlJCeWVGS2NPbEFyeXlNNjRjUl82T0ZqUmdJQjVXTVRUbllrSUpBcDk1Q2tnUXZnZFQzNk1PdnhMTS16M09ZNVhiRUsxWmNzTkFIWWprRGJXUF9TSG9hYzF2amRycV9RanRnX1JpWTk1WGJUUDR5WFZ4cDhfSlBrNmlfR0E0alZFeU03STV4VlR5a09J?oc=5"
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "market",
-   "id": "beam-2",
-   "symbol": "BEAM",
-   "name": "Beam",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "market",
-   "id": "beam-2",
-   "symbol": "BEAM",
-   "name": "Beam",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "market",
-   "id": "blast",
-   "symbol": "BLAST",
-   "name": "Blast",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "market",
-   "id": "b3",
-   "symbol": "B3",
-   "name": "B3 (Base)",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T09:47:38.724739+00:00",
-   "kind": "market",
-   "id": "towns",
-   "symbol": "TOWNS",
-   "name": "Towns",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-04T09:47:38.724739+00:00",
    "kind": "market",
@@ -1404,8 +1326,88 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "gitcoin",
+   "symbol": "GTC",
+   "name": "Gitcoin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "moonriver",
+   "symbol": "MOVR",
+   "name": "Moonriver",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "helium",
+   "symbol": "HNT",
+   "name": "Helium",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777",
+   "symbol": "MAX",
+   "name": "Giggle Mascot",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump",
+   "symbol": "BATON",
+   "name": "baton",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07",
+   "symbol": "躺赢",
+   "name": "躺赢人生",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777",
+   "symbol": "BNBCAT",
+   "name": "Binance Cat",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T09:09:39.278994+00:00",
+   "kind": "market",
+   "id": "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump",
+   "symbol": "BATON",
+   "name": "baton",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-05T02:02:45.151207+00:00"
+ "updated": "2026-10-05T09:09:39.278994+00:00"
 }
