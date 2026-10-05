@@ -1,358 +1,1210 @@
 {
- "decision_points": 1118813,
- "coins": 146,
- "train_until": "2026-09-01T12:30:00+00:00",
+ "decision_points": 1878864,
+ "coins": 149,
+ "train_until": "2026-08-10T18:30:00+00:00",
+ "market_drift": {
+  "avg_24h_forward_return_train_pct": -0.15,
+  "avg_24h_forward_return_test_pct": 0.98,
+  "note": "If this is clearly positive, almost any long strategy looks good in that period; compare to the random-entry baseline instead."
+ },
+ "by_month": [
+  {
+   "month": "2026-05",
+   "decision_points": 200583,
+   "hit_15_before_7_pct": 2.71,
+   "avg_24h_forward_return_pct": -0.06
+  },
+  {
+   "month": "2026-06",
+   "decision_points": 378369,
+   "hit_15_before_7_pct": 2.56,
+   "avg_24h_forward_return_pct": -0.61
+  },
+  {
+   "month": "2026-07",
+   "decision_points": 414106,
+   "hit_15_before_7_pct": 2.14,
+   "avg_24h_forward_return_pct": -0.05
+  },
+  {
+   "month": "2026-08",
+   "decision_points": 422509,
+   "hit_15_before_7_pct": 4.52,
+   "avg_24h_forward_return_pct": 0.68
+  },
+  {
+   "month": "2026-09",
+   "decision_points": 410237,
+   "hit_15_before_7_pct": 5.59,
+   "avg_24h_forward_return_pct": 1.17
+  },
+  {
+   "month": "2026-10",
+   "decision_points": 53060,
+   "hit_15_before_7_pct": 5.89,
+   "avg_24h_forward_return_pct": 1.15
+  }
+ ],
  "base_rates": {
   "+10% within 24h (any stop)": {
-   "all_pct": 9.96,
-   "test_pct": 12.77
+   "all_pct": 8.42,
+   "test_pct": 12.15
   },
   "+15% within 24h (any stop)": {
-   "all_pct": 4.84,
-   "test_pct": 6.34
+   "all_pct": 3.95,
+   "test_pct": 5.87
   },
   "+20% within 24h (any stop)": {
-   "all_pct": 2.7,
-   "test_pct": 3.6
+   "all_pct": 2.19,
+   "test_pct": 3.27
+  },
+  "+15% before -3% (stop)": {
+   "all_pct": 3.04,
+   "test_pct": 4.56,
+   "breakeven_win_rate_pct": 17.8
   },
   "+15% before -5% (stop)": {
-   "all_pct": 4.28,
-   "test_pct": 5.66,
+   "all_pct": 3.49,
+   "test_pct": 5.2,
    "breakeven_win_rate_pct": 26.0
   },
   "+15% before -7% (stop)": {
-   "all_pct": 4.52,
-   "test_pct": 5.94,
+   "all_pct": 3.68,
+   "test_pct": 5.46,
    "breakeven_win_rate_pct": 32.7
-  },
-  "+15% before -10% (stop)": {
-   "all_pct": 4.67,
-   "test_pct": 6.14,
-   "breakeven_win_rate_pct": 40.8
   }
  },
  "traits": [
   {
-   "feature": "near_high",
-   "meaning": "Distance below the 24-hour high",
-   "auc_10": 0.409,
-   "auc_15": 0.379,
-   "median_when_move_follows": -0.0385,
-   "median_otherwise": -0.0246,
-   "auc_20": 0.353
+   "feature": "ret_24h",
+   "meaning": "Price change, last 24 hours",
+   "auc_10": 0.593,
+   "auc_15": 0.605,
+   "auc_20": 0.6,
+   "auc_imm_5": 0.667,
+   "auc_imm_10": 0.734,
+   "median_2h_before_a_10pct_move": 0.0772,
+   "median_otherwise": -0.0006
   },
   {
    "feature": "squeeze",
    "meaning": "24h range vs its own 7-day average (low = coiled)",
-   "auc_10": 0.606,
-   "auc_15": 0.616,
-   "median_when_move_follows": 1.1078,
-   "median_otherwise": 0.9078,
-   "auc_20": 0.627
-  },
-  {
-   "feature": "ret_24h",
-   "meaning": "Price change, last 24 hours",
-   "auc_10": 0.609,
-   "auc_15": 0.612,
-   "median_when_move_follows": 0.0221,
-   "median_otherwise": 0.0,
-   "auc_20": 0.606
-  },
-  {
-   "feature": "ret_4h",
-   "meaning": "Price change, last 4 hours",
-   "auc_10": 0.563,
-   "auc_15": 0.57,
-   "median_when_move_follows": 0.0043,
-   "median_otherwise": 0.0,
-   "auc_20": 0.57
-  },
-  {
-   "feature": "dd_7d",
-   "meaning": "Distance below the 7-day high",
-   "auc_10": 0.458,
-   "auc_15": 0.432,
-   "median_when_move_follows": -0.0873,
-   "median_otherwise": -0.071,
-   "auc_20": 0.408
+   "auc_10": 0.59,
+   "auc_15": 0.605,
+   "auc_20": 0.614,
+   "auc_imm_5": 0.652,
+   "auc_imm_10": 0.703,
+   "median_2h_before_a_10pct_move": 1.4289,
+   "median_otherwise": 0.9073
   },
   {
    "feature": "vol_surge_1",
    "meaning": "Volume of the latest 15 min vs the 24h average",
-   "auc_10": 0.551,
-   "auc_15": 0.553,
-   "median_when_move_follows": 0.7144,
-   "median_otherwise": 0.6071,
-   "auc_20": 0.554
+   "auc_10": 0.545,
+   "auc_15": 0.549,
+   "auc_20": 0.552,
+   "auc_imm_5": 0.638,
+   "auc_imm_10": 0.674,
+   "median_2h_before_a_10pct_move": 1.1442,
+   "median_otherwise": 0.6094
   },
   {
-   "feature": "btc_24h",
-   "meaning": "Bitcoin's 24h move",
-   "auc_10": 0.553,
-   "auc_15": 0.553,
-   "median_when_move_follows": 0.0029,
-   "median_otherwise": 0.0013,
-   "auc_20": 0.548
-  },
-  {
-   "feature": "rel_btc_4h",
-   "meaning": "4h move minus Bitcoin's 4h move",
-   "auc_10": 0.54,
-   "auc_15": 0.552,
-   "median_when_move_follows": 0.0022,
-   "median_otherwise": -0.0005,
-   "auc_20": 0.557
+   "feature": "near_high",
+   "meaning": "Distance below the 24-hour high",
+   "auc_10": 0.404,
+   "auc_15": 0.377,
+   "auc_20": 0.35,
+   "auc_imm_5": 0.37,
+   "auc_imm_10": 0.333,
+   "median_2h_before_a_10pct_move": -0.0588,
+   "median_otherwise": -0.0267
   },
   {
    "feature": "vol_surge_4",
    "meaning": "Volume of the last hour vs the 24h average",
-   "auc_10": 0.542,
-   "auc_15": 0.542,
-   "median_when_move_follows": 0.817,
-   "median_otherwise": 0.739,
-   "auc_20": 0.544
+   "auc_10": 0.538,
+   "auc_15": 0.538,
+   "auc_20": 0.541,
+   "auc_imm_5": 0.632,
+   "auc_imm_10": 0.663,
+   "median_2h_before_a_10pct_move": 1.2234,
+   "median_otherwise": 0.7401
+  },
+  {
+   "feature": "rel_btc_4h",
+   "meaning": "4h move minus Bitcoin's 4h move",
+   "auc_10": 0.537,
+   "auc_15": 0.552,
+   "auc_20": 0.553,
+   "auc_imm_5": 0.599,
+   "auc_imm_10": 0.655,
+   "median_2h_before_a_10pct_move": 0.0201,
+   "median_otherwise": -0.0005
+  },
+  {
+   "feature": "ret_4h",
+   "meaning": "Price change, last 4 hours",
+   "auc_10": 0.55,
+   "auc_15": 0.562,
+   "auc_20": 0.561,
+   "auc_imm_5": 0.595,
+   "auc_imm_10": 0.65,
+   "median_2h_before_a_10pct_move": 0.0212,
+   "median_otherwise": 0.0
+  },
+  {
+   "feature": "dd_7d",
+   "meaning": "Distance below the 7-day high",
+   "auc_10": 0.447,
+   "auc_15": 0.424,
+   "auc_20": 0.396,
+   "auc_imm_5": 0.413,
+   "auc_imm_10": 0.377,
+   "median_2h_before_a_10pct_move": -0.129,
+   "median_otherwise": -0.0798
   },
   {
    "feature": "ret_1h",
    "meaning": "Price change, last hour",
-   "auc_10": 0.53,
-   "auc_15": 0.538,
-   "median_when_move_follows": 0.0011,
-   "median_otherwise": 0.0,
-   "auc_20": 0.537
+   "auc_10": 0.524,
+   "auc_15": 0.533,
+   "auc_20": 0.533,
+   "auc_imm_5": 0.563,
+   "auc_imm_10": 0.603,
+   "median_2h_before_a_10pct_move": 0.0063,
+   "median_otherwise": 0.0
+  },
+  {
+   "feature": "btc_24h",
+   "meaning": "Bitcoin's 24h move",
+   "auc_10": 0.543,
+   "auc_15": 0.548,
+   "auc_20": 0.55,
+   "auc_imm_5": 0.517,
+   "auc_imm_10": 0.525,
+   "median_2h_before_a_10pct_move": 0.0015,
+   "median_otherwise": 0.0007
   },
   {
    "feature": "taker_buy_4",
    "meaning": "Share of last hour's volume that was aggressive buying",
-   "auc_10": 0.513,
+   "auc_10": 0.514,
    "auc_15": 0.514,
-   "median_when_move_follows": 0.4996,
-   "median_otherwise": 0.494,
-   "auc_20": 0.509
+   "auc_20": 0.512,
+   "auc_imm_5": 0.532,
+   "auc_imm_10": 0.544,
+   "median_2h_before_a_10pct_move": 0.5081,
+   "median_otherwise": 0.494
   },
   {
    "feature": "breakout",
    "meaning": "New 24-hour high (1 = yes)",
-   "auc_10": 0.511,
+   "auc_10": 0.509,
    "auc_15": 0.511,
-   "median_when_move_follows": 0.0,
-   "median_otherwise": 0.0,
-   "auc_20": 0.512
+   "auc_20": 0.512,
+   "auc_imm_5": 0.525,
+   "auc_imm_10": 0.536,
+   "median_2h_before_a_10pct_move": 0.0,
+   "median_otherwise": 0.0
   },
   {
    "feature": "hour",
    "meaning": "UTC hour of day",
    "auc_10": 0.502,
-   "auc_15": 0.499,
-   "median_when_move_follows": 11.0,
-   "median_otherwise": 12.0,
-   "auc_20": 0.497
+   "auc_15": 0.501,
+   "auc_20": 0.503,
+   "auc_imm_5": 0.498,
+   "auc_imm_10": 0.478,
+   "median_2h_before_a_10pct_move": 11.0,
+   "median_otherwise": 11.0
   }
  ],
  "single_conditions": [
   {
    "condition": "outperforming Bitcoin by 2%+ (4h)",
-   "train_n": 46233,
-   "train_win_pct": 11.17,
-   "train_lift": 3.13,
-   "test_n": 49887,
-   "test_win_pct": 13.28,
-   "test_lift": 2.23,
-   "test_avg_net_return_pct": 1.1
-  },
-  {
-   "condition": "volume last hour 5x+ the 24h average",
-   "train_n": 10209,
-   "train_win_pct": 6.66,
-   "train_lift": 1.87,
-   "test_n": 5828,
-   "test_win_pct": 12.37,
-   "test_lift": 2.08,
-   "test_avg_net_return_pct": 0.8
+   "train_n": 79976,
+   "train_win_pct": 8.26,
+   "train_lift": 3.31,
+   "test_n": 73771,
+   "test_win_pct": 13.13,
+   "test_lift": 2.4,
+   "test_avg_net_return_pct": 0.71,
+   "train_trade_avg_net_pct": -0.61,
+   "test_trades": 4070,
+   "test_excess_vs_random": {
+    "excess_pp": 0.04,
+    "ci95_pp": [
+     -0.63,
+     0.66
+    ]
+   }
   },
   {
    "condition": "20%+ below the 7-day high",
-   "train_n": 46671,
-   "train_win_pct": 11.93,
-   "train_lift": 3.35,
-   "test_n": 35995,
-   "test_win_pct": 10.67,
-   "test_lift": 1.8,
-   "test_avg_net_return_pct": 0.58
+   "train_n": 130305,
+   "train_win_pct": 6.45,
+   "train_lift": 2.59,
+   "test_n": 63859,
+   "test_win_pct": 11.1,
+   "test_lift": 2.03,
+   "test_avg_net_return_pct": 0.39,
+   "train_trade_avg_net_pct": -0.28,
+   "test_trades": 929,
+   "test_excess_vs_random": {
+    "excess_pp": -0.16,
+    "ci95_pp": [
+     -0.74,
+     0.42
+    ]
+   }
   },
   {
    "condition": "up 2% to 6% in the last 4 hours",
-   "train_n": 50489,
-   "train_win_pct": 9.39,
-   "train_lift": 2.63,
-   "test_n": 50539,
-   "test_win_pct": 10.03,
-   "test_lift": 1.69,
-   "test_avg_net_return_pct": 1.06
+   "train_n": 91607,
+   "train_win_pct": 5.19,
+   "train_lift": 2.08,
+   "test_n": 78441,
+   "test_win_pct": 10.61,
+   "test_lift": 1.94,
+   "test_avg_net_return_pct": 0.98,
+   "train_trade_avg_net_pct": -0.68,
+   "test_trades": 4546,
+   "test_excess_vs_random": {
+    "excess_pp": 0.07,
+    "ci95_pp": [
+     -0.71,
+     0.85
+    ]
+   }
   },
   {
    "condition": "making a new 24h high",
-   "train_n": 11604,
-   "train_win_pct": 8.67,
-   "train_lift": 2.43,
-   "test_n": 10062,
-   "test_win_pct": 10.05,
-   "test_lift": 1.69,
-   "test_avg_net_return_pct": 1.2
+   "train_n": 16325,
+   "train_win_pct": 5.19,
+   "train_lift": 2.08,
+   "test_n": 16683,
+   "test_win_pct": 10.34,
+   "test_lift": 1.89,
+   "test_avg_net_return_pct": 1.03,
+   "train_trade_avg_net_pct": -0.45,
+   "test_trades": 3369,
+   "test_excess_vs_random": {
+    "excess_pp": 0.16,
+    "ci95_pp": [
+     -0.72,
+     1.05
+    ]
+   }
   },
   {
    "condition": "up 1% to 4% in the last hour",
-   "train_n": 53627,
-   "train_win_pct": 8.67,
-   "train_lift": 2.43,
-   "test_n": 54068,
-   "test_win_pct": 9.96,
-   "test_lift": 1.68,
-   "test_avg_net_return_pct": 0.94
+   "train_n": 102988,
+   "train_win_pct": 5.17,
+   "train_lift": 2.07,
+   "test_n": 82583,
+   "test_win_pct": 10.22,
+   "test_lift": 1.87,
+   "test_avg_net_return_pct": 0.77,
+   "train_trade_avg_net_pct": -0.53,
+   "test_trades": 5838,
+   "test_excess_vs_random": {
+    "excess_pp": 0.07,
+    "ci95_pp": [
+     -0.66,
+     0.77
+    ]
+   }
+  },
+  {
+   "condition": "volume last hour 5x+ the 24h average",
+   "train_n": 14491,
+   "train_win_pct": 6.2,
+   "train_lift": 2.49,
+   "test_n": 11021,
+   "test_win_pct": 9.35,
+   "test_lift": 1.71,
+   "test_avg_net_return_pct": 0.67,
+   "train_trade_avg_net_pct": -0.25,
+   "test_trades": 2105,
+   "test_excess_vs_random": {
+    "excess_pp": 0.03,
+    "ci95_pp": [
+     -0.68,
+     0.84
+    ]
+   }
   },
   {
    "condition": "volume last hour 3x+ the 24h average",
-   "train_n": 31221,
-   "train_win_pct": 5.69,
-   "train_lift": 1.6,
-   "test_n": 19372,
-   "test_win_pct": 9.36,
-   "test_lift": 1.58,
-   "test_avg_net_return_pct": 0.81
+   "train_n": 48214,
+   "train_win_pct": 4.45,
+   "train_lift": 1.78,
+   "test_n": 34427,
+   "test_win_pct": 8.01,
+   "test_lift": 1.47,
+   "test_avg_net_return_pct": 0.71,
+   "train_trade_avg_net_pct": -0.28,
+   "test_trades": 4174,
+   "test_excess_vs_random": {
+    "excess_pp": 0.07,
+    "ci95_pp": [
+     -0.57,
+     0.75
+    ]
+   }
   },
   {
    "condition": "latest 15 min volume 4x+",
-   "train_n": 26112,
-   "train_win_pct": 5.05,
-   "train_lift": 1.42,
-   "test_n": 15233,
-   "test_win_pct": 9.14,
-   "test_lift": 1.54,
-   "test_avg_net_return_pct": 0.81
+   "train_n": 41129,
+   "train_win_pct": 3.96,
+   "train_lift": 1.59,
+   "test_n": 27316,
+   "test_win_pct": 7.58,
+   "test_lift": 1.39,
+   "test_avg_net_return_pct": 0.67,
+   "train_trade_avg_net_pct": -0.31,
+   "test_trades": 5239,
+   "test_excess_vs_random": {
+    "excess_pp": 0.07,
+    "ci95_pp": [
+     -0.56,
+     0.7
+    ]
+   }
   },
   {
    "condition": "volume last hour 2x+ the 24h average",
-   "train_n": 71188,
-   "train_win_pct": 5.02,
+   "train_n": 116125,
+   "train_win_pct": 3.52,
    "train_lift": 1.41,
-   "test_n": 45722,
-   "test_win_pct": 8.1,
-   "test_lift": 1.36,
-   "test_avg_net_return_pct": 0.77
+   "test_n": 78637,
+   "test_win_pct": 7.36,
+   "test_lift": 1.35,
+   "test_avg_net_return_pct": 0.66,
+   "train_trade_avg_net_pct": -0.33,
+   "test_trades": 5610,
+   "test_excess_vs_random": {
+    "excess_pp": 0.08,
+    "ci95_pp": [
+     -0.61,
+     0.72
+    ]
+   }
   },
   {
    "condition": "Bitcoin not falling (24h >= 0)",
-   "train_n": 392484,
-   "train_win_pct": 4.12,
-   "train_lift": 1.15,
-   "test_n": 227851,
-   "test_win_pct": 6.29,
-   "test_lift": 1.06,
-   "test_avg_net_return_pct": 0.55
-  },
-  {
-   "condition": "buyers aggressive (taker buy share 58%+)",
-   "train_n": 162210,
-   "train_win_pct": 2.97,
-   "train_lift": 0.83,
-   "test_n": 97259,
-   "test_win_pct": 4.97,
-   "test_lift": 0.84,
-   "test_avg_net_return_pct": 0.86
+   "train_n": 573266,
+   "train_win_pct": 2.63,
+   "train_lift": 1.05,
+   "test_n": 407435,
+   "test_win_pct": 5.99,
+   "test_lift": 1.1,
+   "test_avg_net_return_pct": 0.48,
+   "train_trade_avg_net_pct": -0.33,
+   "test_trades": 6548,
+   "test_excess_vs_random": {
+    "excess_pp": -0.18,
+    "ci95_pp": [
+     -0.93,
+     0.61
+    ]
+   }
   },
   {
    "condition": "not extended (24h change under 8%)",
-   "train_n": 638199,
-   "train_win_pct": 2.82,
-   "train_lift": 0.79,
-   "test_n": 409249,
-   "test_win_pct": 5.01,
-   "test_lift": 0.84,
-   "test_avg_net_return_pct": 0.79
+   "train_n": 1089256,
+   "train_win_pct": 2.12,
+   "train_lift": 0.85,
+   "test_n": 691104,
+   "test_win_pct": 4.44,
+   "test_lift": 0.81,
+   "test_avg_net_return_pct": 0.58,
+   "train_trade_avg_net_pct": -0.4,
+   "test_trades": 7724,
+   "test_excess_vs_random": {
+    "excess_pp": -0.05,
+    "ci95_pp": [
+     -0.63,
+     0.51
+    ]
+   }
   },
   {
-   "condition": "coiled (24h range under 60% of its 7-day norm)",
-   "train_n": 115629,
-   "train_win_pct": 2.58,
-   "train_lift": 0.72,
-   "test_n": 65512,
-   "test_win_pct": 4.93,
-   "test_lift": 0.83,
-   "test_avg_net_return_pct": 0.13
+   "condition": "buyers aggressive (taker buy share 58%+)",
+   "train_n": 255956,
+   "train_win_pct": 2.2,
+   "train_lift": 0.88,
+   "test_n": 172569,
+   "test_win_pct": 4.38,
+   "test_lift": 0.8,
+   "test_avg_net_return_pct": 0.66,
+   "train_trade_avg_net_pct": -0.44,
+   "test_trades": 7046,
+   "test_excess_vs_random": {
+    "excess_pp": -0.03,
+    "ci95_pp": [
+     -0.65,
+     0.52
+    ]
+   }
   },
   {
    "condition": "within 1.5% of the 24h high",
-   "train_n": 222347,
-   "train_win_pct": 2.59,
-   "train_lift": 0.73,
-   "test_n": 123011,
-   "test_win_pct": 4.57,
-   "test_lift": 0.77,
-   "test_avg_net_return_pct": 0.91
+   "train_n": 321179,
+   "train_win_pct": 1.52,
+   "train_lift": 0.61,
+   "test_n": 223455,
+   "test_win_pct": 4.38,
+   "test_lift": 0.8,
+   "test_avg_net_return_pct": 0.75,
+   "train_trade_avg_net_pct": -0.48,
+   "test_trades": 5415,
+   "test_excess_vs_random": {
+    "excess_pp": 0.03,
+    "ci95_pp": [
+     -0.62,
+     0.67
+    ]
+   }
+  },
+  {
+   "condition": "coiled (24h range under 60% of its 7-day norm)",
+   "train_n": 182068,
+   "train_win_pct": 2.12,
+   "train_lift": 0.85,
+   "test_n": 128796,
+   "test_win_pct": 4.05,
+   "test_lift": 0.74,
+   "test_avg_net_return_pct": -0.14,
+   "train_trade_avg_net_pct": -0.3,
+   "test_trades": 2728,
+   "test_excess_vs_random": {
+    "excess_pp": -0.39,
+    "ci95_pp": [
+     -1.02,
+     0.22
+    ]
+   }
   },
   {
    "condition": "buyers very aggressive (taker buy share 65%+)",
-   "train_n": 82105,
-   "train_win_pct": 2.46,
-   "train_lift": 0.69,
-   "test_n": 43015,
-   "test_win_pct": 3.68,
-   "test_lift": 0.62,
-   "test_avg_net_return_pct": 0.8
+   "train_n": 124084,
+   "train_win_pct": 2.0,
+   "train_lift": 0.8,
+   "test_n": 82348,
+   "test_win_pct": 3.26,
+   "test_lift": 0.6,
+   "test_avg_net_return_pct": 0.6,
+   "train_trade_avg_net_pct": -0.39,
+   "test_trades": 5656,
+   "test_excess_vs_random": {
+    "excess_pp": 0.04,
+    "ci95_pp": [
+     -0.5,
+     0.61
+    ]
+   }
   }
  ],
  "rule": {
   "conditions": [
-   "making a new 24h high",
-   "up 2% to 6% in the last 4 hours",
-   "volume last hour 3x+ the 24h average",
-   "Bitcoin not falling (24h >= 0)"
+   "Bitcoin not falling (24h >= 0)",
+   "20%+ below the 7-day high",
+   "outperforming Bitcoin by 2%+ (4h)",
+   "up 1% to 4% in the last hour"
   ],
   "stop_pct": 7,
   "target_pct": 15,
   "fee_assumed_round_trip_pct": 0.2,
   "train": {
-   "trades": 667,
-   "win_rate_pct": 6.7,
-   "avg_net_return_pct": 1.23,
-   "profit_factor": 1.77,
-   "trades_per_day": 13.68,
-   "pnl_usd_on_50_per_trade": 409.98,
-   "max_drawdown_usd": 95.16
+   "trades": 405,
+   "win_rate_pct": 12.6,
+   "avg_net_return_pct": 0.38,
+   "profit_factor": 1.15,
+   "trades_per_day": 4.76,
+   "pnl_usd_on_50_per_trade": 77.26,
+   "max_drawdown_usd": 76.32
   },
   "test_out_of_sample": {
-   "trades": 485,
-   "win_rate_pct": 8.7,
-   "avg_net_return_pct": 0.61,
-   "profit_factor": 1.29,
-   "trades_per_day": 14.82,
-   "pnl_usd_on_50_per_trade": 148.94,
-   "max_drawdown_usd": 109.12
+   "trades": 264,
+   "win_rate_pct": 16.7,
+   "avg_net_return_pct": 0.23,
+   "profit_factor": 1.07,
+   "trades_per_day": 5.03,
+   "pnl_usd_on_50_per_trade": 30.1,
+   "max_drawdown_usd": 49.92
   },
   "random_entries_test_for_comparison": {
-   "trades": 3145,
-   "win_rate_pct": 6.1,
-   "avg_net_return_pct": 0.81,
-   "profit_factor": 1.51,
-   "trades_per_day": 96.18,
-   "pnl_usd_on_50_per_trade": 1268.52,
-   "max_drawdown_usd": 478.18
+   "trades": 5241,
+   "win_rate_pct": 5.5,
+   "avg_net_return_pct": 0.64,
+   "profit_factor": 1.41,
+   "trades_per_day": 95.24,
+   "pnl_usd_on_50_per_trade": 1674.35,
+   "max_drawdown_usd": 467.2
+  },
+  "test_excess_vs_random": {
+   "excess_pp": -0.39,
+   "ci95_pp": [
+    -1.53,
+    0.71
+   ]
   },
   "median_move_already_made_when_signal_fires_pct": {
-   "last_hour": 3.02,
-   "last_4h": 3.95
+   "last_hour": 2.06,
+   "last_4h": 3.19
   }
  },
+ "payoff_grid": [
+  {
+   "target_pct": 5,
+   "stop_pct": 3,
+   "breakeven_win_rate_pct": 40.0,
+   "random_win_pct": 26.83,
+   "random_avg_net_pct": 0.22,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 27.8,
+     "avg_net_pct": 0.22,
+     "excess_pp": 0.01,
+     "ci95_pp": [
+      -0.39,
+      0.45
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 36.2,
+     "avg_net_pct": 0.29,
+     "excess_pp": 0.08,
+     "ci95_pp": [
+      -0.28,
+      0.43
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 27.5,
+     "avg_net_pct": 0.21,
+     "excess_pp": -0.01,
+     "ci95_pp": [
+      -0.42,
+      0.38
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 36.4,
+     "avg_net_pct": -0.03,
+     "excess_pp": -0.24,
+     "ci95_pp": [
+      -0.85,
+      0.35
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 5,
+   "stop_pct": 5,
+   "breakeven_win_rate_pct": 52.0,
+   "random_win_pct": 29.86,
+   "random_avg_net_pct": 0.32,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 32.2,
+     "avg_net_pct": 0.31,
+     "excess_pp": -0.02,
+     "ci95_pp": [
+      -0.46,
+      0.48
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 42.3,
+     "avg_net_pct": 0.43,
+     "excess_pp": 0.11,
+     "ci95_pp": [
+      -0.29,
+      0.5
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 31.0,
+     "avg_net_pct": 0.33,
+     "excess_pp": 0.01,
+     "ci95_pp": [
+      -0.47,
+      0.46
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 43.2,
+     "avg_net_pct": -0.09,
+     "excess_pp": -0.41,
+     "ci95_pp": [
+      -1.24,
+      0.32
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 5,
+   "stop_pct": 7,
+   "breakeven_win_rate_pct": 60.0,
+   "random_win_pct": 30.84,
+   "random_avg_net_pct": 0.39,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 33.4,
+     "avg_net_pct": 0.35,
+     "excess_pp": -0.04,
+     "ci95_pp": [
+      -0.55,
+      0.52
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 44.9,
+     "avg_net_pct": 0.53,
+     "excess_pp": 0.15,
+     "ci95_pp": [
+      -0.27,
+      0.53
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 32.1,
+     "avg_net_pct": 0.39,
+     "excess_pp": 0.0,
+     "ci95_pp": [
+      -0.45,
+      0.45
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 47.7,
+     "avg_net_pct": -0.03,
+     "excess_pp": -0.41,
+     "ci95_pp": [
+      -1.29,
+      0.32
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 8,
+   "stop_pct": 3,
+   "breakeven_win_rate_pct": 29.1,
+   "random_win_pct": 14.31,
+   "random_avg_net_pct": 0.33,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 15.5,
+     "avg_net_pct": 0.36,
+     "excess_pp": 0.03,
+     "ci95_pp": [
+      -0.52,
+      0.62
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 19.3,
+     "avg_net_pct": 0.23,
+     "excess_pp": -0.11,
+     "ci95_pp": [
+      -0.55,
+      0.33
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 15.6,
+     "avg_net_pct": 0.4,
+     "excess_pp": 0.07,
+     "ci95_pp": [
+      -0.46,
+      0.59
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 22.3,
+     "avg_net_pct": -0.02,
+     "excess_pp": -0.36,
+     "ci95_pp": [
+      -1.1,
+      0.37
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 8,
+   "stop_pct": 5,
+   "breakeven_win_rate_pct": 40.0,
+   "random_win_pct": 16.07,
+   "random_avg_net_pct": 0.45,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 18.7,
+     "avg_net_pct": 0.48,
+     "excess_pp": 0.03,
+     "ci95_pp": [
+      -0.56,
+      0.69
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 23.0,
+     "avg_net_pct": 0.35,
+     "excess_pp": -0.1,
+     "ci95_pp": [
+      -0.59,
+      0.36
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 17.9,
+     "avg_net_pct": 0.54,
+     "excess_pp": 0.09,
+     "ci95_pp": [
+      -0.49,
+      0.66
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 27.7,
+     "avg_net_pct": -0.06,
+     "excess_pp": -0.51,
+     "ci95_pp": [
+      -1.42,
+      0.34
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 8,
+   "stop_pct": 7,
+   "breakeven_win_rate_pct": 48.0,
+   "random_win_pct": 16.66,
+   "random_avg_net_pct": 0.51,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 19.3,
+     "avg_net_pct": 0.53,
+     "excess_pp": 0.02,
+     "ci95_pp": [
+      -0.61,
+      0.75
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 24.7,
+     "avg_net_pct": 0.41,
+     "excess_pp": -0.1,
+     "ci95_pp": [
+      -0.59,
+      0.38
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 18.8,
+     "avg_net_pct": 0.6,
+     "excess_pp": 0.09,
+     "ci95_pp": [
+      -0.51,
+      0.67
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 31.8,
+     "avg_net_pct": 0.09,
+     "excess_pp": -0.42,
+     "ci95_pp": [
+      -1.44,
+      0.53
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 10,
+   "stop_pct": 3,
+   "breakeven_win_rate_pct": 24.6,
+   "random_win_pct": 9.92,
+   "random_avg_net_pct": 0.39,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 11.6,
+     "avg_net_pct": 0.42,
+     "excess_pp": 0.04,
+     "ci95_pp": [
+      -0.53,
+      0.69
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 13.6,
+     "avg_net_pct": 0.19,
+     "excess_pp": -0.2,
+     "ci95_pp": [
+      -0.7,
+      0.26
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 11.0,
+     "avg_net_pct": 0.45,
+     "excess_pp": 0.07,
+     "ci95_pp": [
+      -0.49,
+      0.64
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 17.4,
+     "avg_net_pct": -0.03,
+     "excess_pp": -0.42,
+     "ci95_pp": [
+      -1.21,
+      0.29
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 10,
+   "stop_pct": 5,
+   "breakeven_win_rate_pct": 34.7,
+   "random_win_pct": 11.16,
+   "random_avg_net_pct": 0.5,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 13.9,
+     "avg_net_pct": 0.54,
+     "excess_pp": 0.04,
+     "ci95_pp": [
+      -0.58,
+      0.77
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 16.4,
+     "avg_net_pct": 0.26,
+     "excess_pp": -0.24,
+     "ci95_pp": [
+      -0.75,
+      0.29
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 12.7,
+     "avg_net_pct": 0.6,
+     "excess_pp": 0.1,
+     "ci95_pp": [
+      -0.49,
+      0.73
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 22.0,
+     "avg_net_pct": -0.08,
+     "excess_pp": -0.58,
+     "ci95_pp": [
+      -1.62,
+      0.27
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 10,
+   "stop_pct": 7,
+   "breakeven_win_rate_pct": 42.4,
+   "random_win_pct": 11.62,
+   "random_avg_net_pct": 0.56,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 14.3,
+     "avg_net_pct": 0.58,
+     "excess_pp": 0.01,
+     "ci95_pp": [
+      -0.66,
+      0.8
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 17.9,
+     "avg_net_pct": 0.32,
+     "excess_pp": -0.25,
+     "ci95_pp": [
+      -0.78,
+      0.27
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 13.4,
+     "avg_net_pct": 0.66,
+     "excess_pp": 0.1,
+     "ci95_pp": [
+      -0.54,
+      0.74
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 25.0,
+     "avg_net_pct": 0.01,
+     "excess_pp": -0.55,
+     "ci95_pp": [
+      -1.63,
+      0.4
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 15,
+   "stop_pct": 3,
+   "breakeven_win_rate_pct": 17.8,
+   "random_win_pct": 4.56,
+   "random_avg_net_pct": 0.44,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 5.9,
+     "avg_net_pct": 0.51,
+     "excess_pp": 0.07,
+     "ci95_pp": [
+      -0.59,
+      0.77
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 7.6,
+     "avg_net_pct": 0.3,
+     "excess_pp": -0.14,
+     "ci95_pp": [
+      -0.69,
+      0.37
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 4.9,
+     "avg_net_pct": 0.47,
+     "excess_pp": 0.03,
+     "ci95_pp": [
+      -0.54,
+      0.65
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 11.4,
+     "avg_net_pct": 0.16,
+     "excess_pp": -0.29,
+     "ci95_pp": [
+      -1.08,
+      0.49
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 15,
+   "stop_pct": 5,
+   "breakeven_win_rate_pct": 26.0,
+   "random_win_pct": 5.2,
+   "random_avg_net_pct": 0.56,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 7.0,
+     "avg_net_pct": 0.62,
+     "excess_pp": 0.06,
+     "ci95_pp": [
+      -0.6,
+      0.82
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 9.5,
+     "avg_net_pct": 0.42,
+     "excess_pp": -0.13,
+     "ci95_pp": [
+      -0.7,
+      0.4
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 5.7,
+     "avg_net_pct": 0.63,
+     "excess_pp": 0.07,
+     "ci95_pp": [
+      -0.56,
+      0.75
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 14.0,
+     "avg_net_pct": 0.09,
+     "excess_pp": -0.47,
+     "ci95_pp": [
+      -1.5,
+      0.47
+     ]
+    }
+   ]
+  },
+  {
+   "target_pct": 15,
+   "stop_pct": 7,
+   "breakeven_win_rate_pct": 32.7,
+   "random_win_pct": 5.46,
+   "random_avg_net_pct": 0.62,
+   "strategies": [
+    {
+     "name": "volume last hour 5x+ the 24h average",
+     "trades": 2105,
+     "win_pct": 7.4,
+     "avg_net_pct": 0.66,
+     "excess_pp": 0.03,
+     "ci95_pp": [
+      -0.68,
+      0.84
+     ]
+    },
+    {
+     "name": "20%+ below the 7-day high",
+     "trades": 929,
+     "win_pct": 10.3,
+     "avg_net_pct": 0.46,
+     "excess_pp": -0.16,
+     "ci95_pp": [
+      -0.74,
+      0.42
+     ]
+    },
+    {
+     "name": "volume last hour 3x+ the 24h average",
+     "trades": 4174,
+     "win_pct": 6.1,
+     "avg_net_pct": 0.69,
+     "excess_pp": 0.07,
+     "ci95_pp": [
+      -0.57,
+      0.75
+     ]
+    },
+    {
+     "name": "combined rule: Bitcoin not falling (24h >= 0) + 20%+ below the 7-day high + outperforming Bitcoin by 2%+ (4h) + up 1% to 4% in the last hour",
+     "trades": 264,
+     "win_pct": 16.7,
+     "avg_net_pct": 0.23,
+     "excess_pp": -0.39,
+     "ci95_pp": [
+      -1.53,
+      0.71
+     ]
+    }
+   ]
+  }
+ ],
+ "strategy_payoffs_clearly_above_random": {},
+ "any_statistically_clear_edge": false,
  "notes": [
-  "AUC 0.5 = the feature tells you nothing; 0.6 is weak, 0.7 useful, 0.8+ strong.",
-  "A rule only counts if the OUT-OF-SAMPLE trades are profitable after fees; the training results are always flattering.",
+  "AUC 0.5 = the feature tells you nothing; 0.6 is weak, 0.7 useful, 0.8+ strong. The 2-hour columns matter most for early entries.",
+  "'Excess' = the strategy's average return minus the average of entering at random in the same period. Only a 95% interval entirely above zero counts, and with this many comparisons a few will look good by luck.",
+  "Strategies in the payoff grid were chosen on the first 60% of the data and judged on the last 40%.",
   "Candle data cannot show the order of events inside one 15-minute candle: if a stop and a target both fall in one candle, the stop is assumed first.",
   "Fees are a flat assumption, and real slippage on thin coins is worse. The study covers only liquid Binance USDT pairs."
  ],
- "generated_at": "2026-10-05T06:40:36.147544+00:00",
+ "generated_at": "2026-10-05T19:42:43.340291+00:00",
  "params": {
-  "days": 90,
+  "days": 150,
   "coins_requested": 150,
   "candle_minutes": 15,
   "horizon_hours": 24
