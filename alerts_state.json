@@ -759,7 +759,7 @@
   "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:zeroignite": "2026-10-05T09:09:39.278994+00:00",
   "bubblemaps:accumulation": "2026-10-03T17:18:28.433627+00:00",
   "lobster-2:ignition": "2026-10-03T17:18:28.433627+00:00",
-  "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:ignition": "2026-10-04T08:17:09.608269+00:00",
+  "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:ignition": "2026-10-05T18:31:46.690995+00:00",
   "dex-base-0x39A4199fCBA7d9fecbBa5974C23444065Ba1Bb07:ignition": "2026-10-03T17:18:28.433627+00:00",
   "stargate-finance:ignition": "2026-10-03T19:49:35.477637+00:00",
   "starknet:ignition": "2026-10-04T08:17:09.608269+00:00",
@@ -771,8 +771,8 @@
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-05T17:06:55.319669+00:00",
   "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-05T02:02:45.151207+00:00",
-  "baton-3:ignition": "2026-10-04T08:17:09.608269+00:00",
-  "stockereum-fun:ignition": "2026-10-04T23:13:57.991675+00:00",
+  "baton-3:ignition": "2026-10-05T18:31:46.690995+00:00",
+  "stockereum-fun:ignition": "2026-10-05T18:31:46.690995+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
   "priors-agent:ignition": "2026-10-04T09:47:38.724739+00:00",
   "stockereum-fun:zeroignite": "2026-10-04T09:47:38.724739+00:00",
@@ -839,69 +839,12 @@
   "elizaos:ignition": "2026-10-05T17:06:55.319669+00:00",
   "zkpass:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump:ignition": "2026-10-05T17:06:55.319669+00:00",
-  "elizaos:zeroignite": "2026-10-05T17:06:55.319669+00:00"
+  "elizaos:zeroignite": "2026-10-05T17:06:55.319669+00:00",
+  "edu-coin:ignition": "2026-10-05T18:31:46.690995+00:00",
+  "orca:accumulation": "2026-10-05T18:31:46.690995+00:00",
+  "hooked:ignition": "2026-10-05T18:31:46.690995+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-04T19:40:41.744074+00:00",
-   "kind": "market",
-   "id": "orca",
-   "symbol": "ORCA",
-   "name": "Orca",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T19:40:41.744074+00:00",
-   "kind": "market",
-   "id": "gitcoin",
-   "symbol": "GTC",
-   "name": "Gitcoin",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T20:10:47.404150+00:00",
-   "kind": "market",
-   "id": "apeonfone",
-   "symbol": "FONE",
-   "name": "apeonfone",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T20:10:47.404150+00:00",
-   "kind": "market",
-   "id": "knots",
-   "symbol": "KNOTS",
-   "name": "KNOTS",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T20:10:47.404150+00:00",
-   "kind": "market",
-   "id": "prism-assets",
-   "symbol": "PRISM",
-   "name": "Prism Assets",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T20:10:47.404150+00:00",
-   "kind": "market",
-   "id": "jimothy-the-raccoon",
-   "symbol": "JIMOTHY",
-   "name": "Jimothy The Raccoon",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-04T20:10:47.404150+00:00",
    "kind": "market",
@@ -1441,8 +1384,68 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-05T18:31:46.690995+00:00",
+   "kind": "market",
+   "id": "edu-coin",
+   "symbol": "EDU",
+   "name": "Open Campus",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T18:31:46.690995+00:00",
+   "kind": "market",
+   "id": "orca",
+   "symbol": "ORCA",
+   "name": "Orca",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T18:31:46.690995+00:00",
+   "kind": "market",
+   "id": "hooked",
+   "symbol": "HOOKED",
+   "name": "Hooked",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T18:31:46.690995+00:00",
+   "kind": "market",
+   "id": "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2",
+   "symbol": "STOCKER",
+   "name": "Stockereum.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T18:31:46.690995+00:00",
+   "kind": "market",
+   "id": "baton-3",
+   "symbol": "BATON",
+   "name": "baton",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T18:31:46.690995+00:00",
+   "kind": "market",
+   "id": "stockereum-fun",
+   "symbol": "STOCKER",
+   "name": "Stockereum.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-05T17:06:55.319669+00:00"
+ "updated": "2026-10-05T18:31:46.690995+00:00"
 }
