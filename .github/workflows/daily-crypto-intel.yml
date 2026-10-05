@@ -2,17 +2,17 @@ name: Crypto Intelligence
 
 on:
   schedule:
-    - cron: "15 5,17 * * *"   # full refresh twice a day (dashboard data)
+    - cron: "15 */4 * * *"    # full refresh every 4 hours (dashboard data)
     - cron: "20 * * * *"      # hourly alert check (news + volume)
     - cron: "30 6 * * 1"      # weekly spike lab
   workflow_dispatch:
     inputs:
       mode:
-        description: "full | alerts | spikelab | test-email"
+        description: "full | alerts | spikelab | edgestudy | test-email"
         required: true
         default: "full"
         type: choice
-        options: [full, alerts, spikelab, test-email]
+        options: [full, alerts, spikelab, edgestudy, test-email]
 
 permissions:
   contents: write
@@ -39,7 +39,7 @@ jobs:
         id: mode
         run: |
           case "${{ github.event.schedule }}" in
-            "15 5,17 * * *") MODE=full ;;
+            "15 */4 * * *")  MODE=full ;;
             "30 6 * * 1")    MODE=spikelab ;;
             "20 * * * *")    MODE=alerts ;;
             *)               MODE="${{ github.event.inputs.mode }}" ;;
@@ -55,7 +55,12 @@ jobs:
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
-        run: python fetch_crypto.py --mode "${{ steps.mode.outputs.mode }}"
+        run: |
+          if [ "${{ steps.mode.outputs.mode }}" = "edgestudy" ]; then
+            python edge_study.py
+          else
+            python fetch_crypto.py --mode "${{ steps.mode.outputs.mode }}"
+          fi
 
       # Runs even if the engine step failed or timed out, so partial results are never lost.
       - name: Commit results
@@ -66,7 +71,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # add only files that exist (a missing path would make plain `git add` stage nothing)
-          for f in crypto_data.json alerts_state.json spike_lab.json; do
+          for f in crypto_data.json alerts_state.json spike_lab.json edge_study.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --staged --quiet; then
