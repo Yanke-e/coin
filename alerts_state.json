@@ -746,7 +746,7 @@
   "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-03T19:49:35.477637+00:00",
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-04T23:13:57.991675+00:00",
-  "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-04T08:17:09.608269+00:00",
+  "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-05T02:02:45.151207+00:00",
   "baton-3:ignition": "2026-10-04T08:17:09.608269+00:00",
   "stockereum-fun:ignition": "2026-10-04T23:13:57.991675+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
@@ -795,89 +795,16 @@
   "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:ignition": "2026-10-04T20:10:47.404150+00:00",
   "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07:ignition": "2026-10-04T20:10:47.404150+00:00",
   "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:zeroignite": "2026-10-04T20:10:47.404150+00:00",
-  "dex-solana-CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump:ignition": "2026-10-04T23:13:57.991675+00:00"
+  "dex-solana-CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump:ignition": "2026-10-04T23:13:57.991675+00:00",
+  "nillion:ignition": "2026-10-05T02:02:45.151207+00:00",
+  "carv:ignition": "2026-10-05T02:02:45.151207+00:00",
+  "euler:accumulation": "2026-10-05T02:02:45.151207+00:00",
+  "fetch-ai:ignition": "2026-10-05T02:02:45.151207+00:00",
+  "lagrange:accumulation": "2026-10-05T02:02:45.151207+00:00",
+  "dex-base-0xb20000000000000000000070F6c1A66D7C1e4d01:ignition": "2026-10-05T02:02:45.151207+00:00",
+  "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:zeroignite": "2026-10-05T02:02:45.151207+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2",
-   "symbol": "STOCKER",
-   "name": "Stockereum.fun",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "aethir",
-   "symbol": "ATH",
-   "name": "Aethir",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "moonwell-artemis",
-   "symbol": "WELL",
-   "name": "Moonwell",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump",
-   "symbol": "JEANPHIL",
-   "name": "Jean Phil",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "baton-3",
-   "symbol": "BATON",
-   "name": "baton",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07",
-   "symbol": "BOAR",
-   "name": "boar",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "apro",
-   "symbol": "AT",
-   "name": "Apro",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-04T08:17:09.608269+00:00",
-   "kind": "market",
-   "id": "dimo",
-   "symbol": "DIMO",
-   "name": "DIMO",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-04T08:17:09.608269+00:00",
    "kind": "market",
@@ -1397,8 +1324,88 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "nillion",
+   "symbol": "NIL",
+   "name": "Nillion",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "carv",
+   "symbol": "CARV",
+   "name": "CARV",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "euler",
+   "symbol": "EUL",
+   "name": "Euler",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "fetch-ai",
+   "symbol": "FET",
+   "name": "Artificial Superintelligence Alliance",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "lagrange",
+   "symbol": "LA",
+   "name": "Lagrange",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07",
+   "symbol": "BOAR",
+   "name": "boar",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "dex-base-0xb20000000000000000000070F6c1A66D7C1e4d01",
+   "symbol": "SPIKE",
+   "name": "SPIKE",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-05T02:02:45.151207+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777",
+   "symbol": "MAX",
+   "name": "Giggle Mascot",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-04T23:13:57.991675+00:00"
+ "updated": "2026-10-05T02:02:45.151207+00:00"
 }
