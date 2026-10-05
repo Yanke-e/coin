@@ -1,0 +1,360 @@
+{
+ "decision_points": 1118813,
+ "coins": 146,
+ "train_until": "2026-09-01T12:30:00+00:00",
+ "base_rates": {
+  "+10% within 24h (any stop)": {
+   "all_pct": 9.96,
+   "test_pct": 12.77
+  },
+  "+15% within 24h (any stop)": {
+   "all_pct": 4.84,
+   "test_pct": 6.34
+  },
+  "+20% within 24h (any stop)": {
+   "all_pct": 2.7,
+   "test_pct": 3.6
+  },
+  "+15% before -5% (stop)": {
+   "all_pct": 4.28,
+   "test_pct": 5.66,
+   "breakeven_win_rate_pct": 26.0
+  },
+  "+15% before -7% (stop)": {
+   "all_pct": 4.52,
+   "test_pct": 5.94,
+   "breakeven_win_rate_pct": 32.7
+  },
+  "+15% before -10% (stop)": {
+   "all_pct": 4.67,
+   "test_pct": 6.14,
+   "breakeven_win_rate_pct": 40.8
+  }
+ },
+ "traits": [
+  {
+   "feature": "near_high",
+   "meaning": "Distance below the 24-hour high",
+   "auc_10": 0.409,
+   "auc_15": 0.379,
+   "median_when_move_follows": -0.0385,
+   "median_otherwise": -0.0246,
+   "auc_20": 0.353
+  },
+  {
+   "feature": "squeeze",
+   "meaning": "24h range vs its own 7-day average (low = coiled)",
+   "auc_10": 0.606,
+   "auc_15": 0.616,
+   "median_when_move_follows": 1.1078,
+   "median_otherwise": 0.9078,
+   "auc_20": 0.627
+  },
+  {
+   "feature": "ret_24h",
+   "meaning": "Price change, last 24 hours",
+   "auc_10": 0.609,
+   "auc_15": 0.612,
+   "median_when_move_follows": 0.0221,
+   "median_otherwise": 0.0,
+   "auc_20": 0.606
+  },
+  {
+   "feature": "ret_4h",
+   "meaning": "Price change, last 4 hours",
+   "auc_10": 0.563,
+   "auc_15": 0.57,
+   "median_when_move_follows": 0.0043,
+   "median_otherwise": 0.0,
+   "auc_20": 0.57
+  },
+  {
+   "feature": "dd_7d",
+   "meaning": "Distance below the 7-day high",
+   "auc_10": 0.458,
+   "auc_15": 0.432,
+   "median_when_move_follows": -0.0873,
+   "median_otherwise": -0.071,
+   "auc_20": 0.408
+  },
+  {
+   "feature": "vol_surge_1",
+   "meaning": "Volume of the latest 15 min vs the 24h average",
+   "auc_10": 0.551,
+   "auc_15": 0.553,
+   "median_when_move_follows": 0.7144,
+   "median_otherwise": 0.6071,
+   "auc_20": 0.554
+  },
+  {
+   "feature": "btc_24h",
+   "meaning": "Bitcoin's 24h move",
+   "auc_10": 0.553,
+   "auc_15": 0.553,
+   "median_when_move_follows": 0.0029,
+   "median_otherwise": 0.0013,
+   "auc_20": 0.548
+  },
+  {
+   "feature": "rel_btc_4h",
+   "meaning": "4h move minus Bitcoin's 4h move",
+   "auc_10": 0.54,
+   "auc_15": 0.552,
+   "median_when_move_follows": 0.0022,
+   "median_otherwise": -0.0005,
+   "auc_20": 0.557
+  },
+  {
+   "feature": "vol_surge_4",
+   "meaning": "Volume of the last hour vs the 24h average",
+   "auc_10": 0.542,
+   "auc_15": 0.542,
+   "median_when_move_follows": 0.817,
+   "median_otherwise": 0.739,
+   "auc_20": 0.544
+  },
+  {
+   "feature": "ret_1h",
+   "meaning": "Price change, last hour",
+   "auc_10": 0.53,
+   "auc_15": 0.538,
+   "median_when_move_follows": 0.0011,
+   "median_otherwise": 0.0,
+   "auc_20": 0.537
+  },
+  {
+   "feature": "taker_buy_4",
+   "meaning": "Share of last hour's volume that was aggressive buying",
+   "auc_10": 0.513,
+   "auc_15": 0.514,
+   "median_when_move_follows": 0.4996,
+   "median_otherwise": 0.494,
+   "auc_20": 0.509
+  },
+  {
+   "feature": "breakout",
+   "meaning": "New 24-hour high (1 = yes)",
+   "auc_10": 0.511,
+   "auc_15": 0.511,
+   "median_when_move_follows": 0.0,
+   "median_otherwise": 0.0,
+   "auc_20": 0.512
+  },
+  {
+   "feature": "hour",
+   "meaning": "UTC hour of day",
+   "auc_10": 0.502,
+   "auc_15": 0.499,
+   "median_when_move_follows": 11.0,
+   "median_otherwise": 12.0,
+   "auc_20": 0.497
+  }
+ ],
+ "single_conditions": [
+  {
+   "condition": "outperforming Bitcoin by 2%+ (4h)",
+   "train_n": 46233,
+   "train_win_pct": 11.17,
+   "train_lift": 3.13,
+   "test_n": 49887,
+   "test_win_pct": 13.28,
+   "test_lift": 2.23,
+   "test_avg_net_return_pct": 1.1
+  },
+  {
+   "condition": "volume last hour 5x+ the 24h average",
+   "train_n": 10209,
+   "train_win_pct": 6.66,
+   "train_lift": 1.87,
+   "test_n": 5828,
+   "test_win_pct": 12.37,
+   "test_lift": 2.08,
+   "test_avg_net_return_pct": 0.8
+  },
+  {
+   "condition": "20%+ below the 7-day high",
+   "train_n": 46671,
+   "train_win_pct": 11.93,
+   "train_lift": 3.35,
+   "test_n": 35995,
+   "test_win_pct": 10.67,
+   "test_lift": 1.8,
+   "test_avg_net_return_pct": 0.58
+  },
+  {
+   "condition": "up 2% to 6% in the last 4 hours",
+   "train_n": 50489,
+   "train_win_pct": 9.39,
+   "train_lift": 2.63,
+   "test_n": 50539,
+   "test_win_pct": 10.03,
+   "test_lift": 1.69,
+   "test_avg_net_return_pct": 1.06
+  },
+  {
+   "condition": "making a new 24h high",
+   "train_n": 11604,
+   "train_win_pct": 8.67,
+   "train_lift": 2.43,
+   "test_n": 10062,
+   "test_win_pct": 10.05,
+   "test_lift": 1.69,
+   "test_avg_net_return_pct": 1.2
+  },
+  {
+   "condition": "up 1% to 4% in the last hour",
+   "train_n": 53627,
+   "train_win_pct": 8.67,
+   "train_lift": 2.43,
+   "test_n": 54068,
+   "test_win_pct": 9.96,
+   "test_lift": 1.68,
+   "test_avg_net_return_pct": 0.94
+  },
+  {
+   "condition": "volume last hour 3x+ the 24h average",
+   "train_n": 31221,
+   "train_win_pct": 5.69,
+   "train_lift": 1.6,
+   "test_n": 19372,
+   "test_win_pct": 9.36,
+   "test_lift": 1.58,
+   "test_avg_net_return_pct": 0.81
+  },
+  {
+   "condition": "latest 15 min volume 4x+",
+   "train_n": 26112,
+   "train_win_pct": 5.05,
+   "train_lift": 1.42,
+   "test_n": 15233,
+   "test_win_pct": 9.14,
+   "test_lift": 1.54,
+   "test_avg_net_return_pct": 0.81
+  },
+  {
+   "condition": "volume last hour 2x+ the 24h average",
+   "train_n": 71188,
+   "train_win_pct": 5.02,
+   "train_lift": 1.41,
+   "test_n": 45722,
+   "test_win_pct": 8.1,
+   "test_lift": 1.36,
+   "test_avg_net_return_pct": 0.77
+  },
+  {
+   "condition": "Bitcoin not falling (24h >= 0)",
+   "train_n": 392484,
+   "train_win_pct": 4.12,
+   "train_lift": 1.15,
+   "test_n": 227851,
+   "test_win_pct": 6.29,
+   "test_lift": 1.06,
+   "test_avg_net_return_pct": 0.55
+  },
+  {
+   "condition": "buyers aggressive (taker buy share 58%+)",
+   "train_n": 162210,
+   "train_win_pct": 2.97,
+   "train_lift": 0.83,
+   "test_n": 97259,
+   "test_win_pct": 4.97,
+   "test_lift": 0.84,
+   "test_avg_net_return_pct": 0.86
+  },
+  {
+   "condition": "not extended (24h change under 8%)",
+   "train_n": 638199,
+   "train_win_pct": 2.82,
+   "train_lift": 0.79,
+   "test_n": 409249,
+   "test_win_pct": 5.01,
+   "test_lift": 0.84,
+   "test_avg_net_return_pct": 0.79
+  },
+  {
+   "condition": "coiled (24h range under 60% of its 7-day norm)",
+   "train_n": 115629,
+   "train_win_pct": 2.58,
+   "train_lift": 0.72,
+   "test_n": 65512,
+   "test_win_pct": 4.93,
+   "test_lift": 0.83,
+   "test_avg_net_return_pct": 0.13
+  },
+  {
+   "condition": "within 1.5% of the 24h high",
+   "train_n": 222347,
+   "train_win_pct": 2.59,
+   "train_lift": 0.73,
+   "test_n": 123011,
+   "test_win_pct": 4.57,
+   "test_lift": 0.77,
+   "test_avg_net_return_pct": 0.91
+  },
+  {
+   "condition": "buyers very aggressive (taker buy share 65%+)",
+   "train_n": 82105,
+   "train_win_pct": 2.46,
+   "train_lift": 0.69,
+   "test_n": 43015,
+   "test_win_pct": 3.68,
+   "test_lift": 0.62,
+   "test_avg_net_return_pct": 0.8
+  }
+ ],
+ "rule": {
+  "conditions": [
+   "making a new 24h high",
+   "up 2% to 6% in the last 4 hours",
+   "volume last hour 3x+ the 24h average",
+   "Bitcoin not falling (24h >= 0)"
+  ],
+  "stop_pct": 7,
+  "target_pct": 15,
+  "fee_assumed_round_trip_pct": 0.2,
+  "train": {
+   "trades": 667,
+   "win_rate_pct": 6.7,
+   "avg_net_return_pct": 1.23,
+   "profit_factor": 1.77,
+   "trades_per_day": 13.68,
+   "pnl_usd_on_50_per_trade": 409.98,
+   "max_drawdown_usd": 95.16
+  },
+  "test_out_of_sample": {
+   "trades": 485,
+   "win_rate_pct": 8.7,
+   "avg_net_return_pct": 0.61,
+   "profit_factor": 1.29,
+   "trades_per_day": 14.82,
+   "pnl_usd_on_50_per_trade": 148.94,
+   "max_drawdown_usd": 109.12
+  },
+  "random_entries_test_for_comparison": {
+   "trades": 3145,
+   "win_rate_pct": 6.1,
+   "avg_net_return_pct": 0.81,
+   "profit_factor": 1.51,
+   "trades_per_day": 96.18,
+   "pnl_usd_on_50_per_trade": 1268.52,
+   "max_drawdown_usd": 478.18
+  },
+  "median_move_already_made_when_signal_fires_pct": {
+   "last_hour": 3.02,
+   "last_4h": 3.95
+  }
+ },
+ "notes": [
+  "AUC 0.5 = the feature tells you nothing; 0.6 is weak, 0.7 useful, 0.8+ strong.",
+  "A rule only counts if the OUT-OF-SAMPLE trades are profitable after fees; the training results are always flattering.",
+  "Candle data cannot show the order of events inside one 15-minute candle: if a stop and a target both fall in one candle, the stop is assumed first.",
+  "Fees are a flat assumption, and real slippage on thin coins is worse. The study covers only liquid Binance USDT pairs."
+ ],
+ "generated_at": "2026-10-05T06:40:36.147544+00:00",
+ "params": {
+  "days": 90,
+  "coins_requested": 150,
+  "candle_minutes": 15,
+  "horizon_hours": 24
+ }
+}
