@@ -733,7 +733,9 @@
   "8a90d1d46bec1319": "2026-10-05T17:06:55.319669+00:00",
   "83c1735cc5a2fc65": "2026-10-05T17:06:55.319669+00:00",
   "7a96a200ca74602b": "2026-10-06T00:50:43.342138+00:00",
-  "f663155129accafb": "2026-10-06T00:50:43.342138+00:00"
+  "f663155129accafb": "2026-10-06T00:50:43.342138+00:00",
+  "823978fb85a50b8b": "2026-10-06T07:36:49.953566+00:00",
+  "1230fb21accf247b": "2026-10-06T07:36:49.953566+00:00"
  },
  "last_alert": {
   "edel:ignition": "2026-10-03T10:23:51.978360+00:00",
@@ -753,7 +755,7 @@
   "dex-solana-BZFYNPeQAEW3HWQ4DNsTVahC1n4ZjTgn6jB2nnBbB96W:ignition": "2026-10-04T09:47:38.724739+00:00",
   "dex-bsc-0xA41a51Eae67625058A4d0D64082C160240917777:ignition": "2026-10-03T17:18:28.433627+00:00",
   "dex-bsc-0x108876C3df3d893350e9B780563B3697aa3E7777:ignition": "2026-10-03T19:49:35.477637+00:00",
-  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:ignition": "2026-10-05T17:06:55.319669+00:00",
+  "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:ignition": "2026-10-06T07:36:49.953566+00:00",
   "resolv:ignition": "2026-10-03T06:36:11.426832+00:00",
   "decentraland:ignition": "2026-10-03T06:36:11.426832+00:00",
   "superform:accumulation": "2026-10-03T06:36:11.426832+00:00",
@@ -781,7 +783,7 @@
   "harmony:zeroignite": "2026-10-03T19:49:35.477637+00:00",
   "collect-on-fanable:ignition": "2026-10-04T08:17:09.608269+00:00",
   "layerzero:ignition": "2026-10-03T19:49:35.477637+00:00",
-  "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-05T17:06:55.319669+00:00",
+  "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-06T07:36:49.953566+00:00",
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-05T17:06:55.319669+00:00",
   "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-06T00:50:43.342138+00:00",
@@ -801,7 +803,7 @@
   "rock-dao:ignition": "2026-10-04T08:17:09.608269+00:00",
   "moonwell-artemis:accumulation": "2026-10-04T08:17:09.608269+00:00",
   "apro:accumulation": "2026-10-04T08:17:09.608269+00:00",
-  "dimo:ignition": "2026-10-05T17:06:55.319669+00:00",
+  "dimo:ignition": "2026-10-06T07:36:49.953566+00:00",
   "rock-dao:zeroignite": "2026-10-04T08:17:09.608269+00:00",
   "beam-2:ignition": "2026-10-04T23:13:57.991675+00:00",
   "beam-2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
@@ -843,17 +845,17 @@
   "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:zeroignite": "2026-10-05T02:02:45.151207+00:00",
   "moonriver:ignition": "2026-10-06T00:50:43.342138+00:00",
   "helium:accumulation": "2026-10-05T09:09:39.278994+00:00",
-  "radicle:ignition": "2026-10-05T17:06:55.319669+00:00",
+  "radicle:ignition": "2026-10-06T07:36:49.953566+00:00",
   "uma:accumulation": "2026-10-05T17:06:55.319669+00:00",
-  "zeus-network:ignition": "2026-10-05T17:06:55.319669+00:00",
-  "iexec-rlc:ignition": "2026-10-05T17:06:55.319669+00:00",
+  "zeus-network:ignition": "2026-10-06T07:36:49.953566+00:00",
+  "iexec-rlc:ignition": "2026-10-06T07:36:49.953566+00:00",
   "ravencoin:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "floki:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "safe:accumulation": "2026-10-05T17:06:55.319669+00:00",
-  "elizaos:ignition": "2026-10-05T17:06:55.319669+00:00",
+  "elizaos:ignition": "2026-10-06T07:36:49.953566+00:00",
   "zkpass:accumulation": "2026-10-05T17:06:55.319669+00:00",
-  "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump:ignition": "2026-10-05T17:06:55.319669+00:00",
-  "elizaos:zeroignite": "2026-10-05T17:06:55.319669+00:00",
+  "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump:ignition": "2026-10-06T07:36:49.953566+00:00",
+  "elizaos:zeroignite": "2026-10-06T07:36:49.953566+00:00",
   "edu-coin:ignition": "2026-10-05T18:31:46.690995+00:00",
   "orca:accumulation": "2026-10-05T18:31:46.690995+00:00",
   "hooked:ignition": "2026-10-05T18:31:46.690995+00:00",
@@ -879,159 +881,13 @@
   "meme-agency:ignition": "2026-10-06T01:17:18.806671+00:00",
   "higgspad:ignition": "2026-10-06T01:17:18.806671+00:00",
   "jean-phil:zeroignite": "2026-10-06T01:17:18.806671+00:00",
-  "cat-wif-sword-2:zeroignite": "2026-10-06T01:17:18.806671+00:00"
+  "cat-wif-sword-2:zeroignite": "2026-10-06T01:17:18.806671+00:00",
+  "api3:ignition": "2026-10-06T07:36:49.953566+00:00",
+  "delorean:ignition": "2026-10-06T07:36:49.953566+00:00",
+  "quark-chain:accumulation": "2026-10-06T07:36:49.953566+00:00",
+  "delorean:zeroignite": "2026-10-06T07:36:49.953566+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-05T09:09:39.278994+00:00",
-   "kind": "market",
-   "id": "helium",
-   "symbol": "HNT",
-   "name": "Helium",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T09:09:39.278994+00:00",
-   "kind": "market",
-   "id": "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777",
-   "symbol": "MAX",
-   "name": "Giggle Mascot",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T09:09:39.278994+00:00",
-   "kind": "market",
-   "id": "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump",
-   "symbol": "BATON",
-   "name": "baton",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T09:09:39.278994+00:00",
-   "kind": "market",
-   "id": "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07",
-   "symbol": "躺赢",
-   "name": "躺赢人生",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T09:09:39.278994+00:00",
-   "kind": "market",
-   "id": "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777",
-   "symbol": "BNBCAT",
-   "name": "Binance Cat",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T09:09:39.278994+00:00",
-   "kind": "market",
-   "id": "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump",
-   "symbol": "BATON",
-   "name": "baton",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "news",
-   "id": "uniswap",
-   "symbol": "UNI",
-   "name": "Uniswap",
-   "severity": "MAJOR",
-   "title": "NYSE owner and OKX plan 24/7 tokenized stock trading using Uniswap",
-   "url": "https://cryptoslate.com/nyse-owner-and-okx-plan-24-7-tokenized-stock-trading-using-uniswap/"
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "news",
-   "id": "lcx",
-   "symbol": "LCX",
-   "name": "LCX",
-   "severity": "NOTABLE",
-   "title": "Kraken parent adds 24/7 dollar settlement with Singapore Gulf Bank - LCX Exchange",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQNHpDRTZucGxSRWl1cHZFVVFLa1cwNm9XZUVKRm1qWDJNTk1PN1pZNDRGcTNqdTBJSG9SVERnZ1dwRUtkVVlYYWFDUGp3TUdUTTJDSmNqWnJsTEUxUGFMaUhUTTNvUThrZUFiWXFnRjZHcVRLdkZXcmh4alVqY2VIaVdXVTJBbFphenRVNjNvNjZKdEltN2pTdl94QQ?oc=5"
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "radicle",
-   "symbol": "RAD",
-   "name": "Radworks",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "nillion",
-   "symbol": "NIL",
-   "name": "Nillion",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "uma",
-   "symbol": "UMA",
-   "name": "UMA",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "zeus-network",
-   "symbol": "ZEUS",
-   "name": "Zeus Network",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "iexec-rlc",
-   "symbol": "RLC",
-   "name": "iExec RLC",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "ravencoin",
-   "symbol": "RVN",
-   "name": "Ravencoin",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T17:06:55.319669+00:00",
-   "kind": "market",
-   "id": "floki",
-   "symbol": "FLOKI",
-   "name": "FLOKI",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
   {
    "t": "2026-10-05T17:06:55.319669+00:00",
    "kind": "market",
@@ -1481,8 +1337,158 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "news",
+   "id": "standard",
+   "symbol": "STANDARD",
+   "name": "STANDARD",
+   "severity": "MAJOR",
+   "title": "Solana Releases Open-Source DvP Settlement Standard Shaped by J.P. Morgan - Startup Fortune",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORVFDbnd0aUpJVVhCYnp3eHhLZDJuSlJGQjlqbjczcTdkRjlGRlhfX0V5UkRtWE1JZXU3MllLWGxwQlJ6U0M2NzBaSHlDTW4zNVlUUEJ1VHZoQWFYYTNvMGNULTQ5QkhDSUZKemV5WWpCY3NtMjNtZjJ3M0V1aHl0WGp3dWpNTnhUT29wYWJEM3FxbHZNdnRoOXJ0V2ZoMy1N?oc=5"
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "news",
+   "id": "standard",
+   "symbol": "STANDARD",
+   "name": "STANDARD",
+   "severity": "MAJOR",
+   "title": "Solana Debuts Institutional Settlement Standard With J.P. Morgan Input",
+   "url": "https://decrypt.co/380126/solana-institutional-settlement-standard-jp-morgan"
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "api3",
+   "symbol": "API3",
+   "name": "Api3",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "iexec-rlc",
+   "symbol": "RLC",
+   "name": "iExec RLC",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "radicle",
+   "symbol": "RAD",
+   "name": "Radworks",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "delorean",
+   "symbol": "DMC",
+   "name": "DeLorean",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "zeus-network",
+   "symbol": "ZEUS",
+   "name": "Zeus Network",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "elizaos",
+   "symbol": "ELIZAOS",
+   "name": "ElizaOS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "dimo",
+   "symbol": "DIMO",
+   "name": "DIMO",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "quark-chain",
+   "symbol": "QKC",
+   "name": "QuarkChain",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump",
+   "symbol": "CRAWL",
+   "name": "CRAWLNET",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "delorean",
+   "symbol": "DMC",
+   "name": "DeLorean",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump",
+   "symbol": "SWORDCAT",
+   "name": "cat wif sword",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777",
+   "symbol": "BNBCAT",
+   "name": "Binance Cat",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T07:36:49.953566+00:00",
+   "kind": "market",
+   "id": "elizaos",
+   "symbol": "ELIZAOS",
+   "name": "ElizaOS",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-06T01:17:18.806671+00:00"
+ "updated": "2026-10-06T07:36:49.953566+00:00"
 }
