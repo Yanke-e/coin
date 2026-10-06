@@ -739,7 +739,8 @@
   "f663155129accafb": "2026-10-06T00:50:43.342138+00:00",
   "823978fb85a50b8b": "2026-10-06T07:36:49.953566+00:00",
   "1230fb21accf247b": "2026-10-06T07:36:49.953566+00:00",
-  "9ce57382aecfec59": "2026-10-06T11:14:00.231032+00:00"
+  "9ce57382aecfec59": "2026-10-06T11:14:00.231032+00:00",
+  "89365b4dd73ce4b3": "2026-10-06T15:14:56.797031+00:00"
  },
  "last_alert": {
   "edel:ignition": "2026-10-03T10:23:51.978360+00:00",
@@ -825,7 +826,7 @@
   "giggle-mascot:ignition": "2026-10-04T15:24:01.624885+00:00",
   "mubarak:ignition": "2026-10-04T15:24:01.624885+00:00",
   "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
-  "orca:ignition": "2026-10-06T01:17:18.806671+00:00",
+  "orca:ignition": "2026-10-06T15:14:56.797031+00:00",
   "gitcoin:ignition": "2026-10-05T09:09:39.278994+00:00",
   "apeonfone:ignition": "2026-10-04T20:10:47.404150+00:00",
   "knots:ignition": "2026-10-04T20:10:47.404150+00:00",
@@ -868,20 +869,20 @@
   "skale:accumulation": "2026-10-06T00:50:43.342138+00:00",
   "avantis:accumulation": "2026-10-06T00:50:43.342138+00:00",
   "carv:accumulation": "2026-10-06T00:50:43.342138+00:00",
-  "vethor-token:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "marinade:ignition": "2026-10-06T01:17:18.806671+00:00",
+  "vethor-token:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "marinade:ignition": "2026-10-06T15:14:56.797031+00:00",
   "dia-data:accumulation": "2026-10-06T01:17:18.806671+00:00",
   "xdog:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "nearkat-2:ignition": "2026-10-06T01:17:18.806671+00:00",
+  "nearkat-2:ignition": "2026-10-06T15:14:56.797031+00:00",
   "handl-pay:ignition": "2026-10-06T01:17:18.806671+00:00",
   "aeon-3:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "zeus-network:zeroignite": "2026-10-06T01:17:18.806671+00:00",
+  "zeus-network:zeroignite": "2026-10-06T15:14:56.797031+00:00",
   "jean-phil:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "cat-wif-sword-2:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "nearkat-2:zeroignite": "2026-10-06T01:17:18.806671+00:00",
-  "bundle-cat:ignition": "2026-10-06T01:17:18.806671+00:00",
-  "dex-ethereum-0x80271ce20184e38F4AFe90d4Ca134304d197Aca2:ignition": "2026-10-06T01:17:18.806671+00:00",
+  "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "cat-wif-sword-2:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "nearkat-2:zeroignite": "2026-10-06T15:14:56.797031+00:00",
+  "bundle-cat:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "dex-ethereum-0x80271ce20184e38F4AFe90d4Ca134304d197Aca2:ignition": "2026-10-06T15:14:56.797031+00:00",
   "meme-agency:ignition": "2026-10-06T01:17:18.806671+00:00",
   "higgspad:ignition": "2026-10-06T01:17:18.806671+00:00",
   "jean-phil:zeroignite": "2026-10-06T01:17:18.806671+00:00",
@@ -899,209 +900,18 @@
   "zeus-network:zerohunt": "2026-10-06T11:14:00.231032+00:00",
   "meme-agency:zeroignite": "2026-10-06T11:14:00.231032+00:00",
   "dex-solana-F4K2SbLNgyz9gzNqT8bPeLpRkxy4oMA9twaffUDdZtB6:ignition": "2026-10-06T11:14:00.231032+00:00",
-  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-06T11:14:00.231032+00:00"
+  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-06T11:14:00.231032+00:00",
+  "band-protocol:accumulation": "2026-10-06T15:14:56.797031+00:00",
+  "embercurve:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "zelcash:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "brevis:accumulation": "2026-10-06T15:14:56.797031+00:00",
+  "paid:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "mira-3:accumulation": "2026-10-06T15:14:56.797031+00:00",
+  "crawlnet:ignition": "2026-10-06T15:14:56.797031+00:00",
+  "embercurve:zeroignite": "2026-10-06T15:14:56.797031+00:00",
+  "bedrock-token:ignition": "2026-10-06T15:14:56.797031+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-05T18:31:46.690995+00:00",
-   "kind": "market",
-   "id": "orca",
-   "symbol": "ORCA",
-   "name": "Orca",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T18:31:46.690995+00:00",
-   "kind": "market",
-   "id": "hooked",
-   "symbol": "HOOKED",
-   "name": "Hooked",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T18:31:46.690995+00:00",
-   "kind": "market",
-   "id": "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2",
-   "symbol": "STOCKER",
-   "name": "Stockereum.fun",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T18:31:46.690995+00:00",
-   "kind": "market",
-   "id": "baton-3",
-   "symbol": "BATON",
-   "name": "baton",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-05T18:31:46.690995+00:00",
-   "kind": "market",
-   "id": "stockereum-fun",
-   "symbol": "STOCKER",
-   "name": "Stockereum.fun",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "news",
-   "id": "four",
-   "symbol": "FORM",
-   "name": "Four",
-   "severity": "NOTABLE",
-   "title": "Standard Chartered Sees Four DeFi Tokens Surging by 2030 on Tokenization Wave - finance.biggo.com",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0wQU5va01DMXZVb0htbW9tUDVJMF9zVFA4ZXdPSWV5bnM3M2pIV1VjUF9DYWNNN0Y0T1lxU0VMYmx0V051US1QWkJ3Wl9HN3pMNW1NbnEyZlRURzVmcVRXTS1PZGZ5cXNBcUN5WmxpNzhOcmZHU1E?oc=5"
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "news",
-   "id": "standard",
-   "symbol": "STANDARD",
-   "name": "STANDARD",
-   "severity": "NOTABLE",
-   "title": "Standard Chartered Sees Four DeFi Tokens Surging by 2030 on Tokenization Wave - finance.biggo.com",
-   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0wQU5va01DMXZVb0htbW9tUDVJMF9zVFA4ZXdPSWV5bnM3M2pIV1VjUF9DYWNNN0Y0T1lxU0VMYmx0V051US1QWkJ3Wl9HN3pMNW1NbnEyZlRURzVmcVRXTS1PZGZ5cXNBcUN5WmxpNzhOcmZHU1E?oc=5"
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "instadapp",
-   "symbol": "FLUID",
-   "name": "Fluid",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "api3",
-   "symbol": "API3",
-   "name": "Api3",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "skale",
-   "symbol": "SKL",
-   "name": "SKALE",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "moonriver",
-   "symbol": "MOVR",
-   "name": "Moonriver",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "avantis",
-   "symbol": "AVNT",
-   "name": "Veranta",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "carv",
-   "symbol": "CARV",
-   "name": "CARV",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T00:50:43.342138+00:00",
-   "kind": "market",
-   "id": "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07",
-   "symbol": "BOAR",
-   "name": "boar",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T01:17:18.806671+00:00",
-   "kind": "market",
-   "id": "vethor-token",
-   "symbol": "VTHO",
-   "name": "VeThor",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T01:17:18.806671+00:00",
-   "kind": "market",
-   "id": "orca",
-   "symbol": "ORCA",
-   "name": "Orca",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T01:17:18.806671+00:00",
-   "kind": "market",
-   "id": "marinade",
-   "symbol": "MNDE",
-   "name": "Marinade",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T01:17:18.806671+00:00",
-   "kind": "market",
-   "id": "dia-data",
-   "symbol": "DIA",
-   "name": "DIA",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T01:17:18.806671+00:00",
-   "kind": "market",
-   "id": "xdog",
-   "symbol": "XDOG",
-   "name": "XDOG",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T01:17:18.806671+00:00",
-   "kind": "market",
-   "id": "nearkat-2",
-   "symbol": "NEARKAT",
-   "name": "NearKat",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-06T01:17:18.806671+00:00",
    "kind": "market",
@@ -1501,8 +1311,208 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "news",
+   "id": "pons",
+   "symbol": "PONS",
+   "name": "Pons",
+   "severity": "MAJOR",
+   "title": "Coinbase Adds PONS and WHUF to Listing Roadmap - bloomingbit",
+   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5mdG5HdmtZTHV2eWxJR21NY080N0pOdHlrN2VOa1ZidmRienRXY0xoSE1uLTN6bHp1cDF0NE1xZkFYMTdIR2JzcXRCdzhSVktYXzNzeA?oc=5"
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "vethor-token",
+   "symbol": "VTHO",
+   "name": "VeThor",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "band-protocol",
+   "symbol": "BAND",
+   "name": "Band",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "orca",
+   "symbol": "ORCA",
+   "name": "Orca",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "marinade",
+   "symbol": "MNDE",
+   "name": "Marinade",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "embercurve",
+   "symbol": "EMBER",
+   "name": "embercurve",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "zelcash",
+   "symbol": "FLUX",
+   "name": "Flux",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "brevis",
+   "symbol": "BREV",
+   "name": "Brevis",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "paid",
+   "symbol": "PAID",
+   "name": "Paid",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "mira-3",
+   "symbol": "MIRA",
+   "name": "Mira",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "nearkat-2",
+   "symbol": "NEARKAT",
+   "name": "NearKat",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "dex-ethereum-0x80271ce20184e38F4AFe90d4Ca134304d197Aca2",
+   "symbol": "IMDSTR",
+   "name": "IMDStrategy",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "crawlnet",
+   "symbol": "CRAWL",
+   "name": "CRAWLNET",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump",
+   "symbol": "HIGGS",
+   "name": "Higgspad",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "embercurve",
+   "symbol": "EMBER",
+   "name": "embercurve",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "bedrock-token",
+   "symbol": "BR",
+   "name": "Bedrock",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "zeus-network",
+   "symbol": "ZEUS",
+   "name": "Zeus Network",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "bundle-cat",
+   "symbol": "BUN",
+   "name": "Bundle Cat",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "nearkat-2",
+   "symbol": "NEARKAT",
+   "name": "NearKat",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-06T15:14:56.797031+00:00",
+   "kind": "market",
+   "id": "cat-wif-sword-2",
+   "symbol": "SWORDCAT",
+   "name": "cat wif sword",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-06T11:14:00.231032+00:00"
+ "updated": "2026-10-06T15:14:56.797031+00:00"
 }
