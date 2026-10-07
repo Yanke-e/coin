@@ -780,7 +780,7 @@
   "dex-bsc-0x0dB81ABB6019B37e4cAb7C73c1034e9543DCc501:ignition": "2026-10-03T10:23:51.978360+00:00",
   "astronaut-2:zeroignite": "2026-10-07T05:52:27.702199+00:00",
   "dex-solana-8nnaeWCw8mUypcGAgbmSuzAT85uWx4UN12adDrMhXrGF:ignition": "2026-10-03T10:23:51.978360+00:00",
-  "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:ignition": "2026-10-06T18:19:19.757095+00:00",
+  "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:ignition": "2026-10-07T07:17:20.258676+00:00",
   "tevaera:ignition": "2026-10-03T10:23:51.978360+00:00",
   "benqi:ignition": "2026-10-04T08:17:09.608269+00:00",
   "zentry:accumulation": "2026-10-03T12:36:00.055796+00:00",
@@ -820,7 +820,7 @@
   "rock-dao:zeroignite": "2026-10-04T08:17:09.608269+00:00",
   "beam-2:ignition": "2026-10-04T23:13:57.991675+00:00",
   "beam-2:zeroignite": "2026-10-04T09:47:38.724739+00:00",
-  "blast:ignition": "2026-10-04T09:47:38.724739+00:00",
+  "blast:ignition": "2026-10-07T07:17:20.258676+00:00",
   "b3:ignition": "2026-10-04T09:47:38.724739+00:00",
   "towns:ignition": "2026-10-04T09:47:38.724739+00:00",
   "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-06T20:22:02.231168+00:00",
@@ -835,15 +835,15 @@
   "mubarak:ignition": "2026-10-04T15:24:01.624885+00:00",
   "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
   "orca:ignition": "2026-10-07T05:52:27.702199+00:00",
-  "gitcoin:ignition": "2026-10-05T09:09:39.278994+00:00",
+  "gitcoin:ignition": "2026-10-07T07:17:20.258676+00:00",
   "apeonfone:ignition": "2026-10-04T20:10:47.404150+00:00",
-  "knots:ignition": "2026-10-06T18:19:19.757095+00:00",
+  "knots:ignition": "2026-10-07T07:17:20.258676+00:00",
   "prism-assets:ignition": "2026-10-04T20:10:47.404150+00:00",
   "jimothy-the-raccoon:ignition": "2026-10-04T20:10:47.404150+00:00",
   "apro:ignition": "2026-10-04T20:10:47.404150+00:00",
   "dex-solana-3Dgwn5E7H5a8k6iGrz3qirkaJqUaJrKHEZ2xPcLRpump:ignition": "2026-10-04T20:10:47.404150+00:00",
   "apeonfone:zeroignite": "2026-10-04T20:10:47.404150+00:00",
-  "knots:zeroignite": "2026-10-06T18:19:19.757095+00:00",
+  "knots:zeroignite": "2026-10-07T07:17:20.258676+00:00",
   "dex-bsc-0xe9Bc5C6A86caA44fD7b469bf3cc7c563E4F77777:ignition": "2026-10-05T09:09:39.278994+00:00",
   "dex-solana-Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump:ignition": "2026-10-05T09:09:39.278994+00:00",
   "dex-base-0x16EF05430EAD1Dc2c8Ed82E015ed534ea218EB07:ignition": "2026-10-05T09:09:39.278994+00:00",
@@ -925,7 +925,7 @@
   "ego-2:ignition": "2026-10-06T18:19:19.757095+00:00",
   "gomo-app:ignition": "2026-10-06T18:19:19.757095+00:00",
   "higgspad:zeroignite": "2026-10-06T18:19:19.757095+00:00",
-  "crawlnet:zeroignite": "2026-10-06T18:19:19.757095+00:00",
+  "crawlnet:zeroignite": "2026-10-07T07:17:20.258676+00:00",
   "ego-2:zeroignite": "2026-10-06T18:19:19.757095+00:00",
   "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:zeroignite": "2026-10-06T20:22:02.231168+00:00",
   "forta:ignition": "2026-10-06T23:46:35.441380+00:00",
@@ -935,79 +935,10 @@
   "the-stonks-exchange:ignition": "2026-10-07T00:45:46.012945+00:00",
   "marlin:ignition": "2026-10-07T05:52:27.702199+00:00",
   "hot-bot:ignition": "2026-10-07T05:52:27.702199+00:00",
-  "hot-bot:zeroignite": "2026-10-07T05:52:27.702199+00:00"
+  "hot-bot:zeroignite": "2026-10-07T05:52:27.702199+00:00",
+  "gstock:ignition": "2026-10-07T07:17:20.258676+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "market",
-   "id": "bedrock-token",
-   "symbol": "BR",
-   "name": "Bedrock",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "market",
-   "id": "zeus-network",
-   "symbol": "ZEUS",
-   "name": "Zeus Network",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "market",
-   "id": "bundle-cat",
-   "symbol": "BUN",
-   "name": "Bundle Cat",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "market",
-   "id": "nearkat-2",
-   "symbol": "NEARKAT",
-   "name": "NearKat",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "market",
-   "id": "cat-wif-sword-2",
-   "symbol": "SWORDCAT",
-   "name": "cat wif sword",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "news",
-   "id": "pons",
-   "symbol": "PONS",
-   "name": "Pons",
-   "severity": "MAJOR",
-   "title": "Coinbase Adds PONS Token to Roadmap, Signaling Potential Listing Review - Hokanews",
-   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LTzd5YldTbFZNZENuRGRCZHFiSjJHMENIaFQ0YUlyXzRoMmw3aVZYS0VTS05lWHR5WmZoTU9XUFY2VTdhdktESWlqSW9hbkNySUdNdk5VRXdJTi10V3RLdm1wUlFMR3FSY1R3WnZPNjZvR1ZzaWFsaDRrdU82dw?oc=5"
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "news",
-   "id": "pons",
-   "symbol": "PONS",
-   "name": "Pons",
-   "severity": "MAJOR",
-   "title": "Coinbase adds PONS, WHUF to listing roadmap - CoinNess",
-   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9uWDFySGNSX0hHbkNpd2VFYUhWQTQ1SHNoVUdyLTZIQjdvMDFnRXZPZWYzSXZXSDdDR3Bpb2JJY3JOeHd1MDFyM0pHMHA?oc=5"
-  },
   {
    "t": "2026-10-06T18:19:19.757095+00:00",
    "kind": "market",
@@ -1537,8 +1468,78 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "blast",
+   "symbol": "BLAST",
+   "name": "Blast",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "knots",
+   "symbol": "KNOTS",
+   "name": "KNOTS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "gstock",
+   "symbol": "GSTOCK",
+   "name": "Gstock",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "gitcoin",
+   "symbol": "GTC",
+   "name": "Gitcoin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump",
+   "symbol": "PAID",
+   "name": "Paid",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "knots",
+   "symbol": "KNOTS",
+   "name": "KNOTS",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T07:17:20.258676+00:00",
+   "kind": "market",
+   "id": "crawlnet",
+   "symbol": "CRAWL",
+   "name": "CRAWLNET",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-07T05:52:27.702199+00:00"
+ "updated": "2026-10-07T07:17:20.258676+00:00"
 }
