@@ -792,7 +792,7 @@
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-06T20:22:02.231168+00:00",
   "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-06T20:22:02.231168+00:00",
   "baton-3:ignition": "2026-10-06T23:46:35.441380+00:00",
-  "stockereum-fun:ignition": "2026-10-05T18:31:46.690995+00:00",
+  "stockereum-fun:ignition": "2026-10-07T00:45:46.012945+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
   "priors-agent:ignition": "2026-10-04T09:47:38.724739+00:00",
   "stockereum-fun:zeroignite": "2026-10-04T09:47:38.724739+00:00",
@@ -898,7 +898,7 @@
   "dex-solana-CscZaq5twomhUkvCY8Jdd1tge32L4Yj9FbkFFEZQpump:ignition": "2026-10-06T11:14:00.231032+00:00",
   "zeus-network:zerohunt": "2026-10-06T11:14:00.231032+00:00",
   "meme-agency:zeroignite": "2026-10-06T11:14:00.231032+00:00",
-  "dex-solana-F4K2SbLNgyz9gzNqT8bPeLpRkxy4oMA9twaffUDdZtB6:ignition": "2026-10-06T11:14:00.231032+00:00",
+  "dex-solana-F4K2SbLNgyz9gzNqT8bPeLpRkxy4oMA9twaffUDdZtB6:ignition": "2026-10-07T00:45:46.012945+00:00",
   "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-06T23:46:35.441380+00:00",
   "band-protocol:accumulation": "2026-10-06T15:14:56.797031+00:00",
   "embercurve:ignition": "2026-10-06T15:14:56.797031+00:00",
@@ -921,49 +921,11 @@
   "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:zeroignite": "2026-10-06T20:22:02.231168+00:00",
   "forta:ignition": "2026-10-06T23:46:35.441380+00:00",
   "magic:ignition": "2026-10-06T23:46:35.441380+00:00",
-  "paid:zeroignite": "2026-10-06T23:46:35.441380+00:00"
+  "paid:zeroignite": "2026-10-06T23:46:35.441380+00:00",
+  "moonwell-artemis:ignition": "2026-10-07T00:45:46.012945+00:00",
+  "the-stonks-exchange:ignition": "2026-10-07T00:45:46.012945+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-06T11:14:00.231032+00:00",
-   "kind": "market",
-   "id": "dex-solana-F4K2SbLNgyz9gzNqT8bPeLpRkxy4oMA9twaffUDdZtB6",
-   "symbol": "POD",
-   "name": "orcapod.fun",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T11:14:00.231032+00:00",
-   "kind": "market",
-   "id": "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478",
-   "symbol": "ELIZAOS",
-   "name": "elizaOS",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "news",
-   "id": "pons",
-   "symbol": "PONS",
-   "name": "Pons",
-   "severity": "MAJOR",
-   "title": "Coinbase Adds PONS and WHUF to Listing Roadmap - bloomingbit",
-   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5mdG5HdmtZTHV2eWxJR21NY080N0pOdHlrN2VOa1ZidmRienRXY0xoSE1uLTN6bHp1cDF0NE1xZkFYMTdIR2JzcXRCdzhSVktYXzNzeA?oc=5"
-  },
-  {
-   "t": "2026-10-06T15:14:56.797031+00:00",
-   "kind": "market",
-   "id": "vethor-token",
-   "symbol": "VTHO",
-   "name": "VeThor",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-06T15:14:56.797031+00:00",
    "kind": "market",
@@ -1523,8 +1485,48 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-07T00:45:46.012945+00:00",
+   "kind": "market",
+   "id": "moonwell-artemis",
+   "symbol": "WELL",
+   "name": "Moonwell",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T00:45:46.012945+00:00",
+   "kind": "market",
+   "id": "the-stonks-exchange",
+   "symbol": "STONKEX",
+   "name": "The Stonks Exchange",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T00:45:46.012945+00:00",
+   "kind": "market",
+   "id": "stockereum-fun",
+   "symbol": "STOCKER",
+   "name": "Stockereum.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T00:45:46.012945+00:00",
+   "kind": "market",
+   "id": "dex-solana-F4K2SbLNgyz9gzNqT8bPeLpRkxy4oMA9twaffUDdZtB6",
+   "symbol": "POD",
+   "name": "orcapod.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-06T23:46:35.441380+00:00"
+ "updated": "2026-10-07T00:45:46.012945+00:00"
 }
