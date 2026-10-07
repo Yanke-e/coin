@@ -748,7 +748,9 @@
   "89365b4dd73ce4b3": "2026-10-06T15:14:56.797031+00:00",
   "d1dac11ab8a6b0ac": "2026-10-06T18:19:19.757095+00:00",
   "40745b01a2c88b96": "2026-10-06T18:19:19.757095+00:00",
-  "5579b6496e52aadd": "2026-10-06T23:46:35.441380+00:00"
+  "5579b6496e52aadd": "2026-10-06T23:46:35.441380+00:00",
+  "c3b35c4fa103a58c": "2026-10-07T14:35:07.343628+00:00",
+  "9ae0439d4c15f7c9": "2026-10-07T14:35:07.343628+00:00"
  },
  "last_alert": {
   "edel:ignition": "2026-10-03T10:23:51.978360+00:00",
@@ -788,7 +790,7 @@
   "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:zeroignite": "2026-10-05T09:09:39.278994+00:00",
   "bubblemaps:accumulation": "2026-10-03T17:18:28.433627+00:00",
   "lobster-2:ignition": "2026-10-06T20:22:02.231168+00:00",
-  "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:ignition": "2026-10-06T23:46:35.441380+00:00",
+  "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:ignition": "2026-10-07T14:35:07.343628+00:00",
   "dex-base-0x39A4199fCBA7d9fecbBa5974C23444065Ba1Bb07:ignition": "2026-10-03T17:18:28.433627+00:00",
   "stargate-finance:ignition": "2026-10-03T19:49:35.477637+00:00",
   "starknet:ignition": "2026-10-04T08:17:09.608269+00:00",
@@ -801,7 +803,7 @@
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-06T20:22:02.231168+00:00",
   "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-06T20:22:02.231168+00:00",
   "baton-3:ignition": "2026-10-06T23:46:35.441380+00:00",
-  "stockereum-fun:ignition": "2026-10-07T00:45:46.012945+00:00",
+  "stockereum-fun:ignition": "2026-10-07T14:35:07.343628+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
   "priors-agent:ignition": "2026-10-04T09:47:38.724739+00:00",
   "stockereum-fun:zeroignite": "2026-10-04T09:47:38.724739+00:00",
@@ -865,10 +867,10 @@
   "ravencoin:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "floki:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "safe:accumulation": "2026-10-05T17:06:55.319669+00:00",
-  "elizaos:ignition": "2026-10-06T20:22:02.231168+00:00",
+  "elizaos:ignition": "2026-10-07T14:35:07.343628+00:00",
   "zkpass:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump:ignition": "2026-10-06T20:22:02.231168+00:00",
-  "elizaos:zeroignite": "2026-10-06T20:22:02.231168+00:00",
+  "elizaos:zeroignite": "2026-10-07T14:35:07.343628+00:00",
   "edu-coin:ignition": "2026-10-05T18:31:46.690995+00:00",
   "orca:accumulation": "2026-10-05T18:31:46.690995+00:00",
   "hooked:ignition": "2026-10-05T18:31:46.690995+00:00",
@@ -902,13 +904,13 @@
   "dia-data:ignition": "2026-10-06T11:14:00.231032+00:00",
   "spell-token:accumulation": "2026-10-06T11:14:00.231032+00:00",
   "agency:ignition": "2026-10-06T23:46:35.441380+00:00",
-  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:ignition": "2026-10-06T23:46:35.441380+00:00",
+  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:ignition": "2026-10-07T14:35:07.343628+00:00",
   "dex-base-0xb49e16557Bbb95aD6E3FCa5768E994Ab39367b07:ignition": "2026-10-06T23:46:35.441380+00:00",
   "dex-solana-CscZaq5twomhUkvCY8Jdd1tge32L4Yj9FbkFFEZQpump:ignition": "2026-10-06T11:14:00.231032+00:00",
   "zeus-network:zerohunt": "2026-10-06T11:14:00.231032+00:00",
   "meme-agency:zeroignite": "2026-10-06T11:14:00.231032+00:00",
   "dex-solana-F4K2SbLNgyz9gzNqT8bPeLpRkxy4oMA9twaffUDdZtB6:ignition": "2026-10-07T00:45:46.012945+00:00",
-  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-06T23:46:35.441380+00:00",
+  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-07T14:35:07.343628+00:00",
   "band-protocol:accumulation": "2026-10-06T15:14:56.797031+00:00",
   "embercurve:ignition": "2026-10-07T05:52:27.702199+00:00",
   "zelcash:ignition": "2026-10-06T15:14:56.797031+00:00",
@@ -918,7 +920,7 @@
   "crawlnet:ignition": "2026-10-07T05:52:27.702199+00:00",
   "embercurve:zeroignite": "2026-10-06T15:14:56.797031+00:00",
   "bedrock-token:ignition": "2026-10-07T05:52:27.702199+00:00",
-  "zzz-2:ignition": "2026-10-06T18:19:19.757095+00:00",
+  "zzz-2:ignition": "2026-10-07T14:35:07.343628+00:00",
   "meteora:ignition": "2026-10-06T18:19:19.757095+00:00",
   "the-juggernaut:ignition": "2026-10-06T18:19:19.757095+00:00",
   "cets-on-gold:ignition": "2026-10-06T18:19:19.757095+00:00",
@@ -928,157 +930,20 @@
   "crawlnet:zeroignite": "2026-10-07T07:17:20.258676+00:00",
   "ego-2:zeroignite": "2026-10-06T18:19:19.757095+00:00",
   "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:zeroignite": "2026-10-06T20:22:02.231168+00:00",
-  "forta:ignition": "2026-10-06T23:46:35.441380+00:00",
+  "forta:ignition": "2026-10-07T14:35:07.343628+00:00",
   "magic:ignition": "2026-10-06T23:46:35.441380+00:00",
   "paid:zeroignite": "2026-10-06T23:46:35.441380+00:00",
   "moonwell-artemis:ignition": "2026-10-07T00:45:46.012945+00:00",
-  "the-stonks-exchange:ignition": "2026-10-07T00:45:46.012945+00:00",
+  "the-stonks-exchange:ignition": "2026-10-07T14:35:07.343628+00:00",
   "marlin:ignition": "2026-10-07T05:52:27.702199+00:00",
   "hot-bot:ignition": "2026-10-07T05:52:27.702199+00:00",
   "hot-bot:zeroignite": "2026-10-07T05:52:27.702199+00:00",
-  "gstock:ignition": "2026-10-07T07:17:20.258676+00:00"
+  "gstock:ignition": "2026-10-07T07:17:20.258676+00:00",
+  "swell-network:ignition": "2026-10-07T14:35:07.343628+00:00",
+  "atletico-madrid:accumulation": "2026-10-07T14:35:07.343628+00:00",
+  "hemi:accumulation": "2026-10-07T14:35:07.343628+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "knots",
-   "symbol": "KNOTS",
-   "name": "KNOTS",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "zzz-2",
-   "symbol": "ZZZ",
-   "name": "ZZZ",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "meteora",
-   "symbol": "MET",
-   "name": "Meteora",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "the-juggernaut",
-   "symbol": "JUGGERNAUT",
-   "name": "The Juggernaut",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "cets-on-gold",
-   "symbol": "CETS",
-   "name": "Cets On Gold",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "knots",
-   "symbol": "KNOTS",
-   "name": "KNOTS",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "higgspad",
-   "symbol": "HIGGS",
-   "name": "Higgspad",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump",
-   "symbol": "PAID",
-   "name": "Paid",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "ego-2",
-   "symbol": "EGO",
-   "name": "EGO",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "gomo-app",
-   "symbol": "GOMO",
-   "name": "Gomo App",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "higgspad",
-   "symbol": "HIGGS",
-   "name": "Higgspad",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "crawlnet",
-   "symbol": "CRAWL",
-   "name": "CRAWLNET",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "ego-2",
-   "symbol": "EGO",
-   "name": "EGO",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-06T18:19:19.757095+00:00",
-   "kind": "market",
-   "id": "cat-wif-sword-2",
-   "symbol": "SWORDCAT",
-   "name": "cat wif sword",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-06T20:22:02.231168+00:00",
    "kind": "market",
@@ -1538,8 +1403,148 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "news",
+   "id": "four",
+   "symbol": "FORM",
+   "name": "Four",
+   "severity": "NOTABLE",
+   "title": "Institutional Stablecoin Settlement Just Went From Zero to Four Production Rails in a Single Month - Forkast News",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOaDAyOVlBRDM4clZhaGFtSS12QW9nSjlNZko1QXZ1eW1ReDJRVnVxRmo1X2pLeEE2b0ZLQXZuRmsyVUh3a3A4cG9hVXJHVmlDQnNUc2d4N0I1T1ZqTVFocVlUaXBESWFVN0txY3d1X0R6anAtUS1QbFhkNXdSZzRlbDJnMlNaSk5YSjdwbldyQVItbi1Dak54RHdVT2dvamRkVXkxcGJSS24tNnh3ZmZLMnNSYkZUTHhZamRIRg?oc=5"
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "news",
+   "id": "genius-3",
+   "symbol": "GENIUS",
+   "name": "Genius",
+   "severity": "NOTABLE",
+   "title": "North Dakota’s State-Owned Bank Just Launched a Stablecoin Pilot Inside the GENIUS Act Implementation Window - CryptoRank",
+   "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdmc4NnNrdUxmZnRwX0pLdGdDdU9kWUVYTEtTbzJXSGk4ZWNIN3BvQnZPMUpkeXpIWlhXMjZ4RW5CNG9Hcm9FdzdKTURMZmlGTjZqeVZVcWMtOHhHUlFITXYydXdiZF9fQ2ZvUFY5cDJpdXdKUkM1NFE1cVpiMmphYWcwc1NSdzVFOG8yRUVreUFMRElpUXZDVV9xa21vbVlTS29TSURYeGd1dE9RaWNVci11NjVDSTJCZEtNM09MQUhRTzFzZ3h5V0dSNVNpY1FpRnZNMWhHY2d3SzMxU2c?oc=5"
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "swell-network",
+   "symbol": "SWELL",
+   "name": "Swell",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "forta",
+   "symbol": "FORT",
+   "name": "Forta",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "atletico-madrid",
+   "symbol": "ATM",
+   "name": "Atletico Madrid Fan Token",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "hemi",
+   "symbol": "HEMI",
+   "name": "Hemi",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "zzz-2",
+   "symbol": "ZZZ",
+   "name": "ZZZ",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478",
+   "symbol": "ELIZAOS",
+   "name": "elizaOS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "elizaos",
+   "symbol": "ELIZAOS",
+   "name": "ElizaOS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "the-stonks-exchange",
+   "symbol": "STONKEX",
+   "name": "The Stonks Exchange",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "stockereum-fun",
+   "symbol": "STOCKER",
+   "name": "Stockereum.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2",
+   "symbol": "STOCKER",
+   "name": "Stockereum.fun",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478",
+   "symbol": "ELIZAOS",
+   "name": "elizaOS",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-07T14:35:07.343628+00:00",
+   "kind": "market",
+   "id": "elizaos",
+   "symbol": "ELIZAOS",
+   "name": "ElizaOS",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-07T07:17:20.258676+00:00"
+ "updated": "2026-10-07T14:35:07.343628+00:00"
 }
