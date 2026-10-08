@@ -797,11 +797,11 @@
   "harmony:zeroignite": "2026-10-03T19:49:35.477637+00:00",
   "collect-on-fanable:ignition": "2026-10-04T08:17:09.608269+00:00",
   "layerzero:ignition": "2026-10-03T19:49:35.477637+00:00",
-  "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-06T07:36:49.953566+00:00",
+  "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-08T01:02:25.794712+00:00",
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:zeroignite": "2026-10-07T21:16:13.460117+00:00",
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-06T20:22:02.231168+00:00",
   "dex-base-0x0cbf291Ba052174879d90bf781dF1A5F2BC5Bb07:ignition": "2026-10-06T20:22:02.231168+00:00",
-  "baton-3:ignition": "2026-10-06T23:46:35.441380+00:00",
+  "baton-3:ignition": "2026-10-08T01:02:25.794712+00:00",
   "stockereum-fun:ignition": "2026-10-07T14:35:07.343628+00:00",
   "dex-base-0x5F980Dcfc4c0fa3911554cf5ab288ed0eb13DBa3:accumulation": "2026-10-03T19:49:35.477637+00:00",
   "priors-agent:ignition": "2026-10-04T09:47:38.724739+00:00",
@@ -836,7 +836,7 @@
   "mubarak:ignition": "2026-10-04T15:24:01.624885+00:00",
   "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
   "orca:ignition": "2026-10-07T05:52:27.702199+00:00",
-  "gitcoin:ignition": "2026-10-07T07:17:20.258676+00:00",
+  "gitcoin:ignition": "2026-10-08T01:02:25.794712+00:00",
   "apeonfone:ignition": "2026-10-04T20:10:47.404150+00:00",
   "knots:ignition": "2026-10-07T07:17:20.258676+00:00",
   "prism-assets:ignition": "2026-10-04T20:10:47.404150+00:00",
@@ -926,7 +926,7 @@
   "ego-2:ignition": "2026-10-06T18:19:19.757095+00:00",
   "gomo-app:ignition": "2026-10-07T15:31:53.425347+00:00",
   "higgspad:zeroignite": "2026-10-06T18:19:19.757095+00:00",
-  "crawlnet:zeroignite": "2026-10-07T07:17:20.258676+00:00",
+  "crawlnet:zeroignite": "2026-10-08T01:02:25.794712+00:00",
   "ego-2:zeroignite": "2026-10-06T18:19:19.757095+00:00",
   "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:zeroignite": "2026-10-06T20:22:02.231168+00:00",
   "forta:ignition": "2026-10-07T14:35:07.343628+00:00",
@@ -953,69 +953,11 @@
   "self-aware-meme-2:ignition": "2026-10-07T21:16:13.460117+00:00",
   "dex-solana-39ahtL8ynzE4amH26J29C93PA5172V3ft9UuUcqQS8fz:ignition": "2026-10-07T21:16:13.460117+00:00",
   "dex-solana-HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump:ignition": "2026-10-07T21:16:13.460117+00:00",
-  "self-aware-meme-2:zeroignite": "2026-10-07T21:16:13.460117+00:00"
+  "self-aware-meme-2:zeroignite": "2026-10-07T21:16:13.460117+00:00",
+  "wormhole:ignition": "2026-10-08T01:02:25.794712+00:00",
+  "endurance:ignition": "2026-10-08T01:02:25.794712+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-07T05:52:27.702199+00:00",
-   "kind": "market",
-   "id": "marlin",
-   "symbol": "POND",
-   "name": "Marlin",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-07T05:52:27.702199+00:00",
-   "kind": "market",
-   "id": "paid",
-   "symbol": "PAID",
-   "name": "Paid",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-07T05:52:27.702199+00:00",
-   "kind": "market",
-   "id": "embercurve",
-   "symbol": "EMBER",
-   "name": "embercurve",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-07T05:52:27.702199+00:00",
-   "kind": "market",
-   "id": "orca",
-   "symbol": "ORCA",
-   "name": "Orca",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-07T05:52:27.702199+00:00",
-   "kind": "market",
-   "id": "definitive",
-   "symbol": "EDGE",
-   "name": "Definitive",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-07T05:52:27.702199+00:00",
-   "kind": "market",
-   "id": "bedrock-token",
-   "symbol": "BR",
-   "name": "Bedrock",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-07T05:52:27.702199+00:00",
    "kind": "market",
@@ -1555,8 +1497,68 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-08T01:02:25.794712+00:00",
+   "kind": "market",
+   "id": "wormhole",
+   "symbol": "W",
+   "name": "Wormhole",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-08T01:02:25.794712+00:00",
+   "kind": "market",
+   "id": "endurance",
+   "symbol": "ACE",
+   "name": "Fusionist",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-08T01:02:25.794712+00:00",
+   "kind": "market",
+   "id": "gitcoin",
+   "symbol": "GTC",
+   "name": "Gitcoin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-08T01:02:25.794712+00:00",
+   "kind": "market",
+   "id": "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump",
+   "symbol": "SWORDCAT",
+   "name": "cat wif sword",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-08T01:02:25.794712+00:00",
+   "kind": "market",
+   "id": "crawlnet",
+   "symbol": "CRAWL",
+   "name": "CRAWLNET",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-08T01:02:25.794712+00:00",
+   "kind": "market",
+   "id": "baton-3",
+   "symbol": "BATON",
+   "name": "baton",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-07T21:16:13.460117+00:00"
+ "updated": "2026-10-08T01:02:25.794712+00:00"
 }
