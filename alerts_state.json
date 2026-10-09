@@ -786,7 +786,7 @@
   "dex-solana-7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump:ignition": "2026-10-07T21:16:13.460117+00:00",
   "dex-bsc-0x3EFBfFf95576e1d23cF6Ead0AcD2E73F4d6A7777:zeroignite": "2026-10-05T09:09:39.278994+00:00",
   "bubblemaps:accumulation": "2026-10-03T17:18:28.433627+00:00",
-  "lobster-2:ignition": "2026-10-06T20:22:02.231168+00:00",
+  "lobster-2:ignition": "2026-10-09T02:13:28.432430+00:00",
   "dex-ethereum-0x75E2Fc69Ff2ac12aF65Ba7D321bBf4f878c535d2:ignition": "2026-10-08T05:56:50.427164+00:00",
   "dex-base-0x39A4199fCBA7d9fecbBa5974C23444065Ba1Bb07:ignition": "2026-10-03T17:18:28.433627+00:00",
   "stargate-finance:ignition": "2026-10-03T19:49:35.477637+00:00",
@@ -822,7 +822,7 @@
   "blast:ignition": "2026-10-07T07:17:20.258676+00:00",
   "b3:ignition": "2026-10-04T09:47:38.724739+00:00",
   "towns:ignition": "2026-10-04T09:47:38.724739+00:00",
-  "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-06T20:22:02.231168+00:00",
+  "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-09T02:13:28.432430+00:00",
   "octo-protocol:ignition": "2026-10-04T09:47:38.724739+00:00",
   "dex-solana-6hTLdzZaaCjmqtn7RtaEMQsCbXT5Pg8q76tRViEGpump:ignition": "2026-10-04T23:13:57.991675+00:00",
   "baton-3:zeroignite": "2026-10-04T09:47:38.724739+00:00",
@@ -975,59 +975,12 @@
   "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:ignition": "2026-10-08T21:17:05.044170+00:00",
   "puffer-finance:accumulation": "2026-10-08T21:17:05.044170+00:00",
   "dex-solana-7KEPApdbBMByrmqihz3bht2uMhFQcatjfSFQCKq66kH3:ignition": "2026-10-08T21:17:05.044170+00:00",
-  "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:zeroignite": "2026-10-08T21:17:05.044170+00:00"
+  "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:zeroignite": "2026-10-08T21:17:05.044170+00:00",
+  "mileverse:ignition": "2026-10-09T02:13:28.432430+00:00",
+  "amp-token:ignition": "2026-10-09T02:13:28.432430+00:00",
+  "janction:zeroignite": "2026-10-09T02:13:28.432430+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-08T01:02:25.794712+00:00",
-   "kind": "market",
-   "id": "baton-3",
-   "symbol": "BATON",
-   "name": "baton",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-08T05:56:50.427164+00:00",
-   "kind": "market",
-   "id": "sudeng",
-   "symbol": "HIPPO",
-   "name": "sudeng",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-08T05:56:50.427164+00:00",
-   "kind": "market",
-   "id": "zzz-2",
-   "symbol": "ZZZ",
-   "name": "ZZZ",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-08T05:56:50.427164+00:00",
-   "kind": "market",
-   "id": "inu-wif-sword",
-   "symbol": "SWORDINU",
-   "name": "inu wif sword",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-08T05:56:50.427164+00:00",
-   "kind": "market",
-   "id": "priors-agent",
-   "symbol": "PRIORS",
-   "name": "Priors Agents",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-08T05:56:50.427164+00:00",
    "kind": "market",
@@ -1577,8 +1530,58 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-09T02:13:28.432430+00:00",
+   "kind": "market",
+   "id": "mileverse",
+   "symbol": "MVC",
+   "name": "MileVerse",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-09T02:13:28.432430+00:00",
+   "kind": "market",
+   "id": "amp-token",
+   "symbol": "AMP",
+   "name": "Amp",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-09T02:13:28.432430+00:00",
+   "kind": "market",
+   "id": "lobster-2",
+   "symbol": "龙虾",
+   "name": "龙虾 (Lobster)",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-09T02:13:28.432430+00:00",
+   "kind": "market",
+   "id": "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj",
+   "symbol": "SI",
+   "name": "Super Intelligence",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-09T02:13:28.432430+00:00",
+   "kind": "market",
+   "id": "janction",
+   "symbol": "JCT",
+   "name": "Janction",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-08T21:17:05.044170+00:00"
+ "updated": "2026-10-09T02:13:28.432430+00:00"
 }
