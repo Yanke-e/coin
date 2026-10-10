@@ -941,7 +941,7 @@
   "caldera:accumulation": "2026-10-08T15:33:11.076791+00:00",
   "aergo-2:accumulation": "2026-10-08T15:33:11.076791+00:00",
   "orochi-network:accumulation": "2026-10-08T15:33:11.076791+00:00",
-  "celestia:ignition": "2026-10-08T21:17:05.044170+00:00",
+  "celestia:ignition": "2026-10-10T22:36:37.696029+00:00",
   "janction:ignition": "2026-10-10T18:39:46.647950+00:00",
   "memory-cow-moo:ignition": "2026-10-08T21:17:05.044170+00:00",
   "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:ignition": "2026-10-10T13:46:57.552717+00:00",
@@ -1014,16 +1014,6 @@
   "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM:ignition": "2026-10-10T20:02:31.380695+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "superform",
-   "symbol": "UP",
-   "name": "Superform",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
   {
    "t": "2026-10-10T05:45:36.970221+00:00",
    "kind": "market",
@@ -1613,8 +1603,18 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-10T22:36:37.696029+00:00",
+   "kind": "market",
+   "id": "celestia",
+   "symbol": "TIA",
+   "name": "Celestia",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-10T20:02:31.380695+00:00"
+ "updated": "2026-10-10T22:36:37.696029+00:00"
 }
