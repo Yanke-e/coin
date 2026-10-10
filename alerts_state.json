@@ -763,8 +763,6 @@
   "the-sandbox:ignition": "2026-10-07T20:39:26.485144+00:00",
   "velvet:ignition": "2026-10-03T10:23:51.978360+00:00",
   "teller:ignition": "2026-10-03T12:36:00.055796+00:00",
-  "magma-finance:ignition": "2026-10-02T21:15:12.076969+00:00",
-  "dolphin-2:ignition": "2026-10-02T21:15:12.076969+00:00",
   "kyber-network-crystal:accumulation": "2026-10-03T01:14:03.608040+00:00",
   "superform:ignition": "2026-10-03T01:14:03.608040+00:00",
   "enjincoin:ignition": "2026-10-03T01:14:03.608040+00:00",
@@ -844,7 +842,7 @@
   "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
   "orca:ignition": "2026-10-07T05:52:27.702199+00:00",
   "gitcoin:ignition": "2026-10-08T21:17:05.044170+00:00",
-  "apeonfone:ignition": "2026-10-09T09:09:57.438621+00:00",
+  "apeonfone:ignition": "2026-10-10T00:55:37.988760+00:00",
   "knots:ignition": "2026-10-08T21:17:05.044170+00:00",
   "prism-assets:ignition": "2026-10-04T20:10:47.404150+00:00",
   "jimothy-the-raccoon:ignition": "2026-10-04T20:10:47.404150+00:00",
@@ -923,7 +921,7 @@
   "brevis:accumulation": "2026-10-06T15:14:56.797031+00:00",
   "paid:ignition": "2026-10-09T09:09:57.438621+00:00",
   "mira-3:accumulation": "2026-10-06T15:14:56.797031+00:00",
-  "crawlnet:ignition": "2026-10-08T21:17:05.044170+00:00",
+  "crawlnet:ignition": "2026-10-10T00:55:37.988760+00:00",
   "embercurve:zeroignite": "2026-10-08T15:33:11.076791+00:00",
   "bedrock-token:ignition": "2026-10-07T05:52:27.702199+00:00",
   "zzz-2:ignition": "2026-10-08T05:56:50.427164+00:00",
@@ -933,11 +931,11 @@
   "ego-2:ignition": "2026-10-06T18:19:19.757095+00:00",
   "gomo-app:ignition": "2026-10-07T15:31:53.425347+00:00",
   "higgspad:zeroignite": "2026-10-06T18:19:19.757095+00:00",
-  "crawlnet:zeroignite": "2026-10-08T21:17:05.044170+00:00",
+  "crawlnet:zeroignite": "2026-10-10T00:55:37.988760+00:00",
   "ego-2:zeroignite": "2026-10-06T18:19:19.757095+00:00",
   "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:zeroignite": "2026-10-06T20:22:02.231168+00:00",
   "forta:ignition": "2026-10-09T16:16:46.975834+00:00",
-  "magic:ignition": "2026-10-09T09:09:57.438621+00:00",
+  "magic:ignition": "2026-10-10T00:55:37.988760+00:00",
   "paid:zeroignite": "2026-10-06T23:46:35.441380+00:00",
   "moonwell-artemis:ignition": "2026-10-07T00:45:46.012945+00:00",
   "the-stonks-exchange:ignition": "2026-10-07T14:35:07.343628+00:00",
@@ -996,11 +994,11 @@
   "quack-ai:ignition": "2026-10-09T06:03:10.987702+00:00",
   "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump:ignition": "2026-10-09T20:51:14.138372+00:00",
   "dex-solana-EEpng77ZPn9FbgbT4xsRjwuxNCcMBYq3HTwEscyTpump:ignition": "2026-10-09T20:51:14.138372+00:00",
-  "kaia:ignition": "2026-10-09T09:09:57.438621+00:00",
+  "kaia:ignition": "2026-10-10T00:55:37.988760+00:00",
   "allinu:ignition": "2026-10-09T09:09:57.438621+00:00",
   "justice-for-heehaw:ignition": "2026-10-09T09:09:57.438621+00:00",
   "ben-pasternak:zeroignite": "2026-10-09T09:09:57.438621+00:00",
-  "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump:zeroignite": "2026-10-09T09:09:57.438621+00:00",
+  "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump:zeroignite": "2026-10-10T00:55:37.988760+00:00",
   "justice-for-heehaw:zeroignite": "2026-10-09T09:09:57.438621+00:00",
   "zhong-guo-ren-neng-fei:ignition": "2026-10-09T15:15:31.101795+00:00",
   "dex-solana-HzYCHqAN2uoHGRnL9v2ChCfFQX3bvJuJd5zu2Hd5MZQy:ignition": "2026-10-09T15:15:31.101795+00:00",
@@ -1016,99 +1014,12 @@
   "darkswap:zeroignite": "2026-10-09T16:16:46.975834+00:00",
   "stepn:ignition": "2026-10-09T20:51:14.138372+00:00",
   "ubik:ignition": "2026-10-09T20:51:14.138372+00:00",
-  "pixels:ignition": "2026-10-09T20:51:14.138372+00:00"
+  "pixels:ignition": "2026-10-09T20:51:14.138372+00:00",
+  "xai-blockchain:ignition": "2026-10-10T00:55:37.988760+00:00",
+  "affine:accumulation": "2026-10-10T00:55:37.988760+00:00",
+  "keyboard-cat-base:accumulation": "2026-10-10T00:55:37.988760+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-09T06:03:10.987702+00:00",
-   "kind": "market",
-   "id": "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump",
-   "symbol": "WHITEWHALE",
-   "name": "The White Whale",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T06:03:10.987702+00:00",
-   "kind": "market",
-   "id": "dex-solana-EEpng77ZPn9FbgbT4xsRjwuxNCcMBYq3HTwEscyTpump",
-   "symbol": "HEEHAW",
-   "name": "Justice for HeeHaw",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T06:03:10.987702+00:00",
-   "kind": "market",
-   "id": "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump",
-   "symbol": "SWORDCAT",
-   "name": "cat wif sword",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T06:03:10.987702+00:00",
-   "kind": "market",
-   "id": "dex-solana-7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump",
-   "symbol": "AGENCY",
-   "name": "Agency",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T09:09:57.438621+00:00",
-   "kind": "news",
-   "id": "kucoin-shares",
-   "symbol": "KCS",
-   "name": "KuCoin",
-   "severity": "MAJOR",
-   "title": "Kazakhstan Central Bank Partners with Tether for Tenge Stablecoin Pilot - KuCoin",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNdExOTkZOaDFTZzk3UXJ5SHRRN2pqQTVsc1ZkM0Jic1M2X3hfenpQekVqMmdQa1Z0elN2cnJUdENpdmV0SlVqMkJZVGt4a0pGcGs2NHlJQmx0M190a09EYmZyUmRhcWhIVUg3YzVEak5BZnFTS1JuMUkwa3BGYU5WZDNZSE5QeHNIaWZhZ3gwV1dmQ1B0MndQeDRoWXdJS0tpUWl2cXg2dmo?oc=5"
-  },
-  {
-   "t": "2026-10-09T09:09:57.438621+00:00",
-   "kind": "market",
-   "id": "magic",
-   "symbol": "MAGIC",
-   "name": "Treasure",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T09:09:57.438621+00:00",
-   "kind": "market",
-   "id": "kaia",
-   "symbol": "KAIA",
-   "name": "Kaia",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T09:09:57.438621+00:00",
-   "kind": "market",
-   "id": "apeonfone",
-   "symbol": "FONE",
-   "name": "apeonfone",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-09T09:09:57.438621+00:00",
-   "kind": "market",
-   "id": "allinu",
-   "symbol": "ALLINU",
-   "name": "ALLINU",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-09T09:09:57.438621+00:00",
    "kind": "market",
@@ -1618,8 +1529,98 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "xai-blockchain",
+   "symbol": "XAI",
+   "name": "Xai",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "magic",
+   "symbol": "MAGIC",
+   "name": "Treasure",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "apeonfone",
+   "symbol": "FONE",
+   "name": "apeonfone",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "kaia",
+   "symbol": "KAIA",
+   "name": "Kaia",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "affine",
+   "symbol": "SN120",
+   "name": "affine",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "keyboard-cat-base",
+   "symbol": "KEYCAT",
+   "name": "Keyboard Cat (Base)",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "crawlnet",
+   "symbol": "CRAWL",
+   "name": "CRAWLNET",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "crawlnet",
+   "symbol": "CRAWL",
+   "name": "CRAWLNET",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-10T00:55:37.988760+00:00",
+   "kind": "market",
+   "id": "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump",
+   "symbol": "WHITEWHALE",
+   "name": "The White Whale",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-09T20:51:14.138372+00:00"
+ "updated": "2026-10-10T00:55:37.988760+00:00"
 }
