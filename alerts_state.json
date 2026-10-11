@@ -750,7 +750,8 @@
   "156204befead1ad9": "2026-10-09T09:09:57.438621+00:00",
   "591798256f61f941": "2026-10-09T16:16:46.975834+00:00",
   "6d4c38cbbea485e5": "2026-10-09T20:51:14.138372+00:00",
-  "da380c72305bf3a9": "2026-10-09T20:51:14.138372+00:00"
+  "da380c72305bf3a9": "2026-10-09T20:51:14.138372+00:00",
+  "7bb2a22bf69eee66": "2026-10-11T01:57:17.346878+00:00"
  },
  "last_alert": {
   "the-sandbox:ignition": "2026-10-07T20:39:26.485144+00:00",
@@ -808,8 +809,8 @@
   "hivemapper:zeroignite": "2026-10-04T15:24:01.624885+00:00",
   "orca:ignition": "2026-10-07T05:52:27.702199+00:00",
   "gitcoin:ignition": "2026-10-08T21:17:05.044170+00:00",
-  "apeonfone:ignition": "2026-10-10T00:55:37.988760+00:00",
-  "knots:ignition": "2026-10-08T21:17:05.044170+00:00",
+  "apeonfone:ignition": "2026-10-11T01:57:17.346878+00:00",
+  "knots:ignition": "2026-10-11T01:57:17.346878+00:00",
   "prism-assets:ignition": "2026-10-04T20:10:47.404150+00:00",
   "jimothy-the-raccoon:ignition": "2026-10-04T20:10:47.404150+00:00",
   "apro:ignition": "2026-10-04T20:10:47.404150+00:00",
@@ -832,7 +833,7 @@
   "helium:accumulation": "2026-10-05T09:09:39.278994+00:00",
   "radicle:ignition": "2026-10-09T15:15:31.101795+00:00",
   "uma:accumulation": "2026-10-05T17:06:55.319669+00:00",
-  "zeus-network:ignition": "2026-10-06T20:22:02.231168+00:00",
+  "zeus-network:ignition": "2026-10-11T01:57:17.346878+00:00",
   "iexec-rlc:ignition": "2026-10-10T05:45:36.970221+00:00",
   "ravencoin:accumulation": "2026-10-05T17:06:55.319669+00:00",
   "floki:accumulation": "2026-10-05T17:06:55.319669+00:00",
@@ -945,7 +946,7 @@
   "celestia:ignition": "2026-10-10T22:36:37.696029+00:00",
   "janction:ignition": "2026-10-10T18:39:46.647950+00:00",
   "memory-cow-moo:ignition": "2026-10-08T21:17:05.044170+00:00",
-  "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:ignition": "2026-10-10T13:46:57.552717+00:00",
+  "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:ignition": "2026-10-11T01:57:17.346878+00:00",
   "puffer-finance:accumulation": "2026-10-08T21:17:05.044170+00:00",
   "dex-solana-7KEPApdbBMByrmqihz3bht2uMhFQcatjfSFQCKq66kH3:ignition": "2026-10-09T16:16:46.975834+00:00",
   "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:zeroignite": "2026-10-10T18:39:46.647950+00:00",
@@ -961,7 +962,7 @@
   "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump:ignition": "2026-10-09T20:51:14.138372+00:00",
   "dex-solana-EEpng77ZPn9FbgbT4xsRjwuxNCcMBYq3HTwEscyTpump:ignition": "2026-10-09T20:51:14.138372+00:00",
   "kaia:ignition": "2026-10-10T00:55:37.988760+00:00",
-  "allinu:ignition": "2026-10-09T09:09:57.438621+00:00",
+  "allinu:ignition": "2026-10-11T01:57:17.346878+00:00",
   "justice-for-heehaw:ignition": "2026-10-09T09:09:57.438621+00:00",
   "ben-pasternak:zeroignite": "2026-10-09T09:09:57.438621+00:00",
   "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump:zeroignite": "2026-10-10T00:55:37.988760+00:00",
@@ -991,7 +992,7 @@
   "pixels:zeroignite": "2026-10-10T05:45:36.970221+00:00",
   "dex-bsc-0x13920fe6467E9e3c852B8D365A036c995F0F7777:ignition": "2026-10-10T05:45:36.970221+00:00",
   "qompute:ignition": "2026-10-10T05:45:36.970221+00:00",
-  "lumia:ignition": "2026-10-10T13:46:57.552717+00:00",
+  "lumia:ignition": "2026-10-11T01:57:17.346878+00:00",
   "bella-protocol:accumulation": "2026-10-10T13:46:57.552717+00:00",
   "frax-share:accumulation": "2026-10-10T13:46:57.552717+00:00",
   "caldera:ignition": "2026-10-10T13:46:57.552717+00:00",
@@ -1012,99 +1013,11 @@
   "paperstrategy:zeroignite": "2026-10-10T18:39:46.647950+00:00",
   "district0x:ignition": "2026-10-10T20:02:31.380695+00:00",
   "dex-solana-8k4sBtEeK4pf26noKqApv8NBTnuSJcbdwpKYknk5PbAA:ignition": "2026-10-10T20:02:31.380695+00:00",
-  "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM:ignition": "2026-10-10T20:02:31.380695+00:00"
+  "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM:ignition": "2026-10-10T20:02:31.380695+00:00",
+  "dkargo:ignition": "2026-10-11T01:57:17.346878+00:00",
+  "xpla:ignition": "2026-10-11T01:57:17.346878+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "iexec-rlc",
-   "symbol": "RLC",
-   "name": "iExec RLC",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "zhong-guo-ren-neng-fei",
-   "symbol": "中国人能飞",
-   "name": "中国人能飞火箭",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "pixels",
-   "symbol": "PIXEL",
-   "name": "Pixels",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "dex-bsc-0x13920fe6467E9e3c852B8D365A036c995F0F7777",
-   "symbol": "GM",
-   "name": "GREEN MORNING",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "janction",
-   "symbol": "JCT",
-   "name": "Janction",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "qompute",
-   "symbol": "QOMPUTE",
-   "name": "qOMPUTE",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump",
-   "symbol": "JEANPHIL",
-   "name": "Jean Phil",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump",
-   "symbol": "CRAWL",
-   "name": "CRAWLNET",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-10T05:45:36.970221+00:00",
-   "kind": "market",
-   "id": "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump",
-   "symbol": "HIGGS",
-   "name": "Higgspad",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-10T05:45:36.970221+00:00",
    "kind": "market",
@@ -1614,8 +1527,98 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "news",
+   "id": "standard",
+   "symbol": "STANDARD",
+   "name": "STANDARD",
+   "severity": "NOTABLE",
+   "title": "Top Altcoins For 2030: Standard Chartered Names Tokens Set To Win From Tokenization - Bitget",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE84NlpLM1dLRG5oTUVobmlaaGlhcUl3VlVVNXB3cUtlZTM3b081RjlEcTRxWjBiY3dpY2NrR2hEUFlkcVRhRVRKdnBpUmJsSTRuTGZaMVBjZzVvRmE3anZibE15d9IBY0FVX3lxTE84NlpLM1dLRG5oTUVobmlaaGlhcUl3VlVVNXB3cUtlZTM3b081RjlEcTRxWjBiY3dpY2NrR2hEUFlkcVRhRVRKdnBpUmJsSTRuTGZaMVBjZzVvRmE3anZibE15dw?oc=5"
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "dkargo",
+   "symbol": "DKA",
+   "name": "dKargo",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "xpla",
+   "symbol": "CONX",
+   "name": "CONX",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "lumia",
+   "symbol": "LUMIA",
+   "name": "Lumia",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "knots",
+   "symbol": "KNOTS",
+   "name": "KNOTS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "apeonfone",
+   "symbol": "FONE",
+   "name": "apeonfone",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "allinu",
+   "symbol": "ALLINU",
+   "name": "ALLINU",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg",
+   "symbol": "CYBERLEEK",
+   "name": "CyberLeek",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-11T01:57:17.346878+00:00",
+   "kind": "market",
+   "id": "zeus-network",
+   "symbol": "ZEUS",
+   "name": "Zeus Network",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-10T23:30:58.164529+00:00"
+ "updated": "2026-10-11T01:57:17.346878+00:00"
 }
