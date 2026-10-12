@@ -752,7 +752,8 @@
   "6d4c38cbbea485e5": "2026-10-09T20:51:14.138372+00:00",
   "da380c72305bf3a9": "2026-10-09T20:51:14.138372+00:00",
   "7bb2a22bf69eee66": "2026-10-11T01:57:17.346878+00:00",
-  "0ac85f5c359d45dc": "2026-10-11T23:39:38.435795+00:00"
+  "0ac85f5c359d45dc": "2026-10-11T23:39:38.435795+00:00",
+  "11a6f42f8af90663": "2026-10-12T00:35:58.480728+00:00"
  },
  "last_alert": {
   "the-sandbox:ignition": "2026-10-07T20:39:26.485144+00:00",
@@ -1012,16 +1013,6 @@
   "programmable-2:zeroignite": "2026-10-11T23:39:38.435795+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-11T08:58:15.101807+00:00",
-   "kind": "market",
-   "id": "tau-fa",
-   "symbol": "TAUFA",
-   "name": "TAU FA",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-11T08:58:15.101807+00:00",
    "kind": "market",
@@ -1611,8 +1602,18 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-12T00:35:58.480728+00:00",
+   "kind": "news",
+   "id": "standard",
+   "symbol": "STANDARD",
+   "name": "STANDARD",
+   "severity": "MAJOR",
+   "title": "Standard Chartered Expands Toward Crypto and Tokenized Asset Custody in Singapore: BTCPressWire on Institutional Adoption - StreetInsider",
+   "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQYzhpd3pHTHpBS1BvVVJpbGpudWFkMG1IaUtmZFpic09nNGhkQmZRRm5KOG8tcllaOU9nN0lIYjBDRk1KUWlhM0pmNFgwdjVicnFTbkhNZUxlSFdVcWdobHBGa3poTGlsbTZkWndTS182RkhxbWtCTVZDdEVqT202S1FPZzJ5Y29HbzdJeVZ5Q2M2amVsV0Y1aUNQN2hCM0RKSC1XcmdmUnRoQlF6eWFjc21feWNMMmdVSHpLN0pPLW82SnU3T19sclZteW5nWkhEZnRKYzAwVWlvSXVHTmFTSUlBYV9pT2xSS2lqaFk4ZXhBZS1kN2xiQkV6ZkhxYWVGUTJGcENJZDlFU2VJN2hNcQ?oc=5"
   }
  ],
  "initialized": true,
- "updated": "2026-10-11T23:39:38.435795+00:00"
+ "updated": "2026-10-12T00:35:58.480728+00:00"
 }
