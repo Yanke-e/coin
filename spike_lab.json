@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05T15:08:38.294905+00:00",
+ "generated_at": "2026-10-12T15:54:12.812548+00:00",
  "cases": [
   {
    "label": "Quant (QNT), 2026 institutional breakout",
@@ -327,38 +327,8 @@
   },
   {
    "label": "XPIN Network (XPIN), late 2025 (DePIN)",
-   "kind": "utility",
-   "spike": {
-    "base_date": "2025-12-19",
-    "base_price": 0.001810971591589687,
-    "peak_date": "2025-12-22",
-    "peak_price": 0.0029363748646750996,
-    "gain_pct": 62.0,
-    "days_to_peak": 3,
-    "ignition": {
-     "date": "2025-12-22",
-     "day_move_pct": 48.6,
-     "volume_multiple": 5.9,
-     "days_after_base": 3,
-     "close": 0.0029363748646750996,
-     "move_left_pct": 0.0
-    },
-    "fingerprint": {
-     "range_30d_pct": 63.64671412668355,
-     "vol_exp": 0.14808901165258623,
-     "drawdown_pct": -78.91562680130401,
-     "volatility": 0.07484853829123835,
-     "ret_30d_pct": -36.70096600322884,
-     "breakout_20d": false
-    },
-    "flags": {
-     "tight_base": false,
-     "volume_building": false,
-     "beaten_down": true,
-     "calm_volatility": false,
-     "flat_prior_month": false
-    }
-   },
+   "spike": null,
+   "note": "No run of +40% within 30 days was found in this window.",
    "source": "CoinGecko daily (xpin-network), 365-day limit"
   },
   {
@@ -403,44 +373,44 @@
    "key": "tight_base",
    "label": "Tight 30-day base (range under 35%)",
    "spikes_hit": 4,
-   "spikes_total": 11,
+   "spikes_total": 10,
    "base_rate_pct": 23.1,
-   "lift": 1.58
+   "lift": 1.73
   },
   {
    "key": "volume_building",
    "label": "Volume building (7-day average 1.3x+ the prior 60 days)",
    "spikes_hit": 1,
-   "spikes_total": 11,
+   "spikes_total": 10,
    "base_rate_pct": 21.1,
-   "lift": 0.43
+   "lift": 0.47
   },
   {
    "key": "beaten_down",
    "label": "Beaten down (50%+ below its prior high)",
-   "spikes_hit": 9,
-   "spikes_total": 11,
+   "spikes_hit": 8,
+   "spikes_total": 10,
    "base_rate_pct": 90.4,
-   "lift": 0.9
+   "lift": 0.88
   },
   {
    "key": "calm_volatility",
    "label": "Calm volatility (typical daily move under 4%)",
    "spikes_hit": 3,
-   "spikes_total": 11,
+   "spikes_total": 10,
    "base_rate_pct": 39.4,
-   "lift": 0.69
+   "lift": 0.76
   },
   {
    "key": "flat_prior_month",
    "label": "Flat prior month (-15% to +15%)",
    "spikes_hit": 7,
-   "spikes_total": 11,
-   "base_rate_pct": 47.1,
-   "lift": 1.35
+   "spikes_total": 10,
+   "base_rate_pct": 47.2,
+   "lift": 1.48
   }
  ],
- "median_move_left_after_ignition_pct": 97.0,
+ "median_move_left_after_ignition_pct": 98.0,
  "notes": [
   "Sample is tiny and hand-picked (survivorship bias): treat lift as a hint, not a forecast.",
   "'Base rate' is how often the same condition appeared on ordinary days for the same coins.",
