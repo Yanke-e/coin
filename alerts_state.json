@@ -784,12 +784,15 @@
   "6deaf40f1e98da00": "2026-10-13T16:03:31.599515+00:00",
   "3ac8d848350cbbca": "2026-10-13T16:03:31.599515+00:00",
   "be9e39f0f12826f1": "2026-10-13T19:13:41.433554+00:00",
-  "9300751097f1124e": "2026-10-13T23:42:56.110765+00:00"
+  "9300751097f1124e": "2026-10-13T23:42:56.110765+00:00",
+  "1ee7cbb05aa0dc10": "2026-10-14T11:58:51.985848+00:00",
+  "9a6651bd2ede9549": "2026-10-14T11:58:51.985848+00:00",
+  "770575fb29e6fac9": "2026-10-14T11:58:51.985848+00:00",
+  "401f0ff76a19290e": "2026-10-14T11:58:51.985848+00:00"
  },
  "last_alert": {
   "the-sandbox:ignition": "2026-10-07T20:39:26.485144+00:00",
   "superform:accumulation": "2026-10-10T05:45:36.970221+00:00",
-  "dex-solana-98kfF7rmsg1QDUEoCqNE7g7M1FdrTt92TEp2CLzypump:ignition": "2026-10-07T07:17:20.258676+00:00",
   "zentry:accumulation": "2026-10-13T01:59:39.611031+00:00",
   "dex-solana-7VertkgF9KLhxxJXHX6uaWuoYZTP9LdGj2bWmVXVpump:ignition": "2026-10-10T13:46:57.552717+00:00",
   "lobster-2:ignition": "2026-10-09T02:13:28.432430+00:00",
@@ -803,7 +806,6 @@
   "priors-agent:ignition": "2026-10-14T04:47:45.137448+00:00",
   "stockereum-fun:zeroignite": "2026-10-07T20:39:26.485144+00:00",
   "otc:ignition": "2026-10-11T14:53:49.573854+00:00",
-  "blast:ignition": "2026-10-07T07:17:20.258676+00:00",
   "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-09T15:15:31.101795+00:00",
   "priors-agent:zeroignite": "2026-10-10T05:45:36.970221+00:00",
   "gitcoin:ignition": "2026-10-13T07:46:34.517439+00:00",
@@ -821,7 +823,7 @@
   "hooked:ignition": "2026-10-13T11:43:10.130487+00:00",
   "nearkat-2:ignition": "2026-10-13T07:46:34.517439+00:00",
   "zeus-network:zeroignite": "2026-10-11T23:39:38.435795+00:00",
-  "jean-phil:ignition": "2026-10-13T19:13:41.433554+00:00",
+  "jean-phil:ignition": "2026-10-14T11:58:51.985848+00:00",
   "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump:ignition": "2026-10-12T05:50:28.447069+00:00",
   "cat-wif-sword-2:ignition": "2026-10-13T23:42:56.110765+00:00",
   "nearkat-2:zeroignite": "2026-10-10T18:39:46.647950+00:00",
@@ -837,7 +839,7 @@
   "paid:ignition": "2026-10-13T07:46:34.517439+00:00",
   "crawlnet:ignition": "2026-10-10T13:46:57.552717+00:00",
   "embercurve:zeroignite": "2026-10-08T15:33:11.076791+00:00",
-  "zzz-2:ignition": "2026-10-08T05:56:50.427164+00:00",
+  "zzz-2:ignition": "2026-10-14T11:58:51.985848+00:00",
   "meteora:ignition": "2026-10-08T15:33:11.076791+00:00",
   "cets-on-gold:ignition": "2026-10-13T01:59:39.611031+00:00",
   "gomo-app:ignition": "2026-10-07T15:31:53.425347+00:00",
@@ -916,7 +918,7 @@
   "darkswap:ignition": "2026-10-14T06:11:18.518503+00:00",
   "allinu:zeroignite": "2026-10-13T21:18:48.527888+00:00",
   "derive:ignition": "2026-10-10T05:45:36.970221+00:00",
-  "darkswap:zeroignite": "2026-10-09T16:16:46.975834+00:00",
+  "darkswap:zeroignite": "2026-10-14T11:58:51.985848+00:00",
   "stepn:ignition": "2026-10-09T20:51:14.138372+00:00",
   "ubik:ignition": "2026-10-14T00:22:24.741131+00:00",
   "pixels:ignition": "2026-10-09T20:51:14.138372+00:00",
@@ -935,7 +937,7 @@
   "frax-share:accumulation": "2026-10-10T13:46:57.552717+00:00",
   "caldera:ignition": "2026-10-11T05:40:23.120051+00:00",
   "bordrless:ignition": "2026-10-14T00:22:24.741131+00:00",
-  "bordrless:zeroignite": "2026-10-13T19:13:41.433554+00:00",
+  "bordrless:zeroignite": "2026-10-14T11:58:51.985848+00:00",
   "paperstrategy:ignition": "2026-10-14T04:47:45.137448+00:00",
   "cyberleek:ignition": "2026-10-13T19:13:41.433554+00:00",
   "octo-gaming:ignition": "2026-10-13T07:46:34.517439+00:00",
@@ -970,7 +972,7 @@
   "io:ignition": "2026-10-11T20:13:33.699811+00:00",
   "plume:ignition": "2026-10-11T20:13:33.699811+00:00",
   "gamee:ignition": "2026-10-11T20:13:33.699811+00:00",
-  "claudia-2:ignition": "2026-10-13T21:18:48.527888+00:00",
+  "claudia-2:ignition": "2026-10-14T11:58:51.985848+00:00",
   "dex-solana-EkFRff9a2jKztJHML1LG9FRmEkPJDR6XAYp3uCPdpump:ignition": "2026-10-13T01:59:39.611031+00:00",
   "dex-solana-6KDpQM4BVDdtAkjtyFDiBCkbii8q8BieEyXXm6kNpump:ignition": "2026-10-13T01:59:39.611031+00:00",
   "dex-solana-7Xgc5RacHtGzfhw2HukUBk5V986yBbvshr7rrCoopump:ignition": "2026-10-11T20:13:33.699811+00:00",
@@ -1016,12 +1018,12 @@
   "canopy:ignition": "2026-10-13T19:13:41.433554+00:00",
   "humphrey-reserve:ignition": "2026-10-13T19:13:41.433554+00:00",
   "solidus-aitech:zeroignite": "2026-10-13T19:13:41.433554+00:00",
-  "dex-solana-33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump:ignition": "2026-10-13T19:13:41.433554+00:00",
+  "dex-solana-33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump:ignition": "2026-10-14T11:58:51.985848+00:00",
   "zircuit:accumulation": "2026-10-13T19:13:41.433554+00:00",
   "humphrey-reserve:zeroignite": "2026-10-13T19:13:41.433554+00:00",
   "mushroom-2:ignition": "2026-10-13T21:18:48.527888+00:00",
   "aergo-2:ignition": "2026-10-13T23:42:56.110765+00:00",
-  "the-juggernaut:ignition": "2026-10-13T23:42:56.110765+00:00",
+  "the-juggernaut:ignition": "2026-10-14T11:58:51.985848+00:00",
   "open-loot:ignition": "2026-10-13T23:42:56.110765+00:00",
   "world-of-dypians:ignition": "2026-10-14T00:22:24.741131+00:00",
   "pons:ignition": "2026-10-14T04:47:45.137448+00:00",
@@ -1031,159 +1033,13 @@
   "artificial-inu-3:ignition": "2026-10-14T04:47:45.137448+00:00",
   "memory-cow-moo:zeroignite": "2026-10-14T04:47:45.137448+00:00",
   "walrus-2:ignition": "2026-10-14T06:11:18.518503+00:00",
-  "ubik:zeroignite": "2026-10-14T06:11:18.518503+00:00"
+  "ubik:zeroignite": "2026-10-14T06:11:18.518503+00:00",
+  "epic-chain:ignition": "2026-10-14T11:58:51.985848+00:00",
+  "quickswap:zerohunt": "2026-10-14T11:58:51.985848+00:00",
+  "neon:ignition": "2026-10-14T11:58:51.985848+00:00",
+  "deep:ignition": "2026-10-14T11:58:51.985848+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "moby-ai",
-   "symbol": "MOBY",
-   "name": "Moby AI",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "priors-agent",
-   "symbol": "PRIORS",
-   "name": "Priors Agents",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "talus",
-   "symbol": "US",
-   "name": "Talus",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "bluwhale",
-   "symbol": "BLUAI",
-   "name": "Bluwhale",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "paperstrategy",
-   "symbol": "PSTR",
-   "name": "PaperStrategy",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "moby-ai",
-   "symbol": "MOBY",
-   "name": "Moby AI",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T16:03:31.599515+00:00",
-   "kind": "market",
-   "id": "paperstrategy",
-   "symbol": "PSTR",
-   "name": "PaperStrategy",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "news",
-   "id": "gitcoin",
-   "symbol": "GTC",
-   "name": "Gitcoin",
-   "severity": "MAJOR",
-   "title": "Upbit Gitcoin Listing Today: GTC Price Rallies 93% as Trading Opens - Coin Gabbar",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTk5nMWpPNFN1RDV4MGdMT0FweDY3Ynk0VFZpRjdOWlNWekg3bE5xLWxIdTQ3SHhQS2tUU2NwMkJsVUxPRTFtNTBLRnU3eDQ0S3l3LVk4cl9OUkVCQ2laMjRPZ1pkQTUtYmZFcGwxYS1xay16eExySzN1NFE1X2M4UTBxRWVGNUc4Y0I3VTQyRmZ2UQ?oc=5"
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "canopy",
-   "symbol": "CNPY",
-   "name": "Canopy",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "elizaos",
-   "symbol": "ELIZAOS",
-   "name": "ElizaOS",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "humphrey-reserve",
-   "symbol": "HUMPH",
-   "name": "Humphrey Reserve",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "solidus-aitech",
-   "symbol": "ACN",
-   "name": "AITECH Cloud Network",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "dex-solana-33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump",
-   "symbol": "DOPE",
-   "name": "Doge Pepe",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "zircuit",
-   "symbol": "ZRC",
-   "name": "Zircuit",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-13T19:13:41.433554+00:00",
-   "kind": "market",
-   "id": "cyberleek",
-   "symbol": "CYBERLEEK",
-   "name": "CyberLeek",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-13T19:13:41.433554+00:00",
    "kind": "market",
@@ -1633,8 +1489,158 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "news",
+   "id": "epic-chain",
+   "symbol": "EPIC",
+   "name": "Epic Chain",
+   "severity": "MAJOR",
+   "title": "Binance to Delist EPIC and QUICK, Ending Spot Trading on October 28 - Altcoin Buzz",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTlhLaGFyclFzay01R3EzZHFJeVZJTWJxOWdBZ0R0TkxKOWc0cHJQbGZ4SXlGendTRWJ3RW9LS3VVbmFxLVVwVF9idTZodDBwUmg5NmpXTGRGeDY5ODRYTTZ3eno0aFc5WXdVcmNLX01mS3JWbkpfTnZTMEoxckkwcTNzbl92OWc0OS1hUHVRVG9VUHZtaXBabw?oc=5"
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "news",
+   "id": "quickswap",
+   "symbol": "QUICK",
+   "name": "Quickswap",
+   "severity": "MAJOR",
+   "title": "Binance to Delist EPIC and QUICK, Ending Spot Trading on October 28 - Altcoin Buzz",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTlhLaGFyclFzay01R3EzZHFJeVZJTWJxOWdBZ0R0TkxKOWc0cHJQbGZ4SXlGendTRWJ3RW9LS3VVbmFxLVVwVF9idTZodDBwUmg5NmpXTGRGeDY5ODRYTTZ3eno0aFc5WXdVcmNLX01mS3JWbkpfTnZTMEoxckkwcTNzbl92OWc0OS1hUHVRVG9VUHZtaXBabw?oc=5"
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "news",
+   "id": "epic-cash",
+   "symbol": "EPIC",
+   "name": "Epic Private Internet Cash",
+   "severity": "MAJOR",
+   "title": "Binance to Delist EPIC and QUICK, Ending Spot Trading on October 28 - Altcoin Buzz",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPTlhLaGFyclFzay01R3EzZHFJeVZJTWJxOWdBZ0R0TkxKOWc0cHJQbGZ4SXlGendTRWJ3RW9LS3VVbmFxLVVwVF9idTZodDBwUmg5NmpXTGRGeDY5ODRYTTZ3eno0aFc5WXdVcmNLX01mS3JWbkpfTnZTMEoxckkwcTNzbl92OWc0OS1hUHVRVG9VUHZtaXBabw?oc=5"
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "news",
+   "id": "standard",
+   "symbol": "STANDARD",
+   "name": "STANDARD",
+   "severity": "MAJOR",
+   "title": "Standard Chartered unlocks direct bitcoin and ether trading for affluent UAE clients",
+   "url": "https://www.coindesk.com/business/2026/10/14/standard-chartered-unlocks-direct-bitcoin-and-ether-trading-for-affluent-uae-clients"
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "epic-chain",
+   "symbol": "EPIC",
+   "name": "Epic Chain",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "quickswap",
+   "symbol": "QUICK",
+   "name": "Quickswap",
+   "severity": "WATCH",
+   "title": "Zero-cancel candidate",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "claudia-2",
+   "symbol": "CLAUDIA",
+   "name": "Claudia",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "the-juggernaut",
+   "symbol": "JUGGERNAUT",
+   "name": "The Juggernaut",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "neon",
+   "symbol": "NEON",
+   "name": "Neon",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "dex-solana-33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump",
+   "symbol": "DOPE",
+   "name": "Doge Pepe",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "darkswap",
+   "symbol": "DARK",
+   "name": "DarkSwap",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "zzz-2",
+   "symbol": "ZZZ",
+   "name": "ZZZ",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "deep",
+   "symbol": "DEEP",
+   "name": "DeepBook",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "jean-phil",
+   "symbol": "JEANPHIL",
+   "name": "Jean Phil",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-14T11:58:51.985848+00:00",
+   "kind": "market",
+   "id": "bordrless",
+   "symbol": "BORDR",
+   "name": "Bordrless",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-14T06:11:18.518503+00:00"
+ "updated": "2026-10-14T11:58:51.985848+00:00"
 }
