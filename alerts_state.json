@@ -831,7 +831,8 @@
   "289d4fd01bd563ef": "2026-10-16T12:29:04.608181+00:00",
   "8537d855ab52264f": "2026-10-16T12:29:04.608181+00:00",
   "c8a0cdd63b32c82a": "2026-10-16T13:13:10.795311+00:00",
-  "67a7f28d0b7838fe": "2026-10-16T13:13:10.795311+00:00"
+  "67a7f28d0b7838fe": "2026-10-16T13:13:10.795311+00:00",
+  "a2554f0df49719e0": "2026-10-16T17:28:00.664064+00:00"
  },
  "last_alert": {
   "superform:accumulation": "2026-10-10T05:45:36.970221+00:00",
@@ -842,15 +843,12 @@
   "dex-solana-GTBxUiw6wJdmmkCGZgRHLyYxqu1vG4KtRpeox6yDpump:ignition": "2026-10-10T05:45:36.970221+00:00",
   "priors-agent:ignition": "2026-10-15T19:51:57.494691+00:00",
   "otc:ignition": "2026-10-16T01:25:00.304370+00:00",
-  "dex-solana-9aqmJjCnnMQv42TXLk921ceUkN35nea2QP969n1caqjj:ignition": "2026-10-09T15:15:31.101795+00:00",
   "priors-agent:zeroignite": "2026-10-10T05:45:36.970221+00:00",
   "gitcoin:ignition": "2026-10-13T07:46:34.517439+00:00",
   "apeonfone:ignition": "2026-10-15T15:05:14.685764+00:00",
   "knots:ignition": "2026-10-12T05:50:28.447069+00:00",
-  "apeonfone:zeroignite": "2026-10-09T16:16:46.975834+00:00",
   "knots:zeroignite": "2026-10-11T20:13:33.699811+00:00",
   "lagrange:accumulation": "2026-10-10T14:26:45.775239+00:00",
-  "radicle:ignition": "2026-10-09T15:15:31.101795+00:00",
   "zeus-network:ignition": "2026-10-11T23:39:38.435795+00:00",
   "iexec-rlc:ignition": "2026-10-10T05:45:36.970221+00:00",
   "elizaos:ignition": "2026-10-13T19:13:41.433554+00:00",
@@ -865,7 +863,6 @@
   "nearkat-2:zeroignite": "2026-10-10T18:39:46.647950+00:00",
   "jean-phil:zeroignite": "2026-10-09T20:51:14.138372+00:00",
   "cat-wif-sword-2:zeroignite": "2026-10-13T23:42:56.110765+00:00",
-  "api3:ignition": "2026-10-09T16:16:46.975834+00:00",
   "agency:ignition": "2026-10-10T13:46:57.552717+00:00",
   "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:ignition": "2026-10-13T19:13:41.433554+00:00",
   "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-11T23:39:38.435795+00:00",
@@ -895,7 +892,7 @@
   "puffer-finance:accumulation": "2026-10-13T00:45:44.637382+00:00",
   "dex-solana-7KEPApdbBMByrmqihz3bht2uMhFQcatjfSFQCKq66kH3:ignition": "2026-10-12T05:50:28.447069+00:00",
   "dex-solana-ApZuxdpzMrbEYTGEzeY9afh5pj9d6qPRJCTgQYiipbKg:zeroignite": "2026-10-16T01:25:00.304370+00:00",
-  "amp-token:ignition": "2026-10-14T04:47:45.137448+00:00",
+  "amp-token:ignition": "2026-10-16T17:28:00.664064+00:00",
   "janction:zeroignite": "2026-10-10T18:39:46.647950+00:00",
   "ben-pasternak:ignition": "2026-10-12T05:50:28.447069+00:00",
   "talus:ignition": "2026-10-13T16:03:31.599515+00:00",
@@ -909,7 +906,6 @@
   "dex-solana-HzYCHqAN2uoHGRnL9v2ChCfFQX3bvJuJd5zu2Hd5MZQy:ignition": "2026-10-10T14:26:45.775239+00:00",
   "zhong-guo-ren-neng-fei:zeroignite": "2026-10-10T05:45:36.970221+00:00",
   "lab:ignition": "2026-10-12T05:50:28.447069+00:00",
-  "observer-coin:ignition": "2026-10-09T16:16:46.975834+00:00",
   "zksync:ignition": "2026-10-15T19:12:25.548907+00:00",
   "basic-attention-token:ignition": "2026-10-16T07:14:42.055085+00:00",
   "sonic-3:ignition": "2026-10-12T05:50:28.447069+00:00",
@@ -1074,7 +1070,7 @@
   "marinade:accumulation": "2026-10-15T19:51:57.494691+00:00",
   "zip-coin:zeroignite": "2026-10-16T12:29:04.608181+00:00",
   "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T:ignition": "2026-10-16T12:29:04.608181+00:00",
-  "dex-solana-HgTGdc29D5bDMrDvsCLnorxz899VyDj7ZN7FPa6vpump:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "dex-solana-HgTGdc29D5bDMrDvsCLnorxz899VyDj7ZN7FPa6vpump:ignition": "2026-10-16T17:28:00.664064+00:00",
   "impossible-cloud-network-token:ignition": "2026-10-16T12:29:04.608181+00:00",
   "nearly:ignition": "2026-10-15T23:02:59.577028+00:00",
   "milk-alliance:ignition": "2026-10-16T01:25:00.304370+00:00",
@@ -1095,49 +1091,10 @@
   "dex-solana-MukLDtJ8Cx9DxLbeyLRSWPSposTMWuwHANbuaudpump:zeroignite": "2026-10-16T12:29:04.608181+00:00",
   "neosoul:ignition": "2026-10-16T13:13:10.795311+00:00",
   "dex-solana-2nP9yKQNSGQy851iyawDvBkzkK2R2aqKArQCKc2gpump:ignition": "2026-10-16T13:13:10.795311+00:00",
-  "dex-solana-2nP9yKQNSGQy851iyawDvBkzkK2R2aqKArQCKc2gpump:zeroignite": "2026-10-16T13:13:10.795311+00:00"
+  "dex-solana-2nP9yKQNSGQy851iyawDvBkzkK2R2aqKArQCKc2gpump:zeroignite": "2026-10-16T13:13:10.795311+00:00",
+  "based-one:ignition": "2026-10-16T17:28:00.664064+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-16T01:25:00.304370+00:00",
-   "kind": "market",
-   "id": "milk-alliance",
-   "symbol": "MLK",
-   "name": "MiL.k",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T01:25:00.304370+00:00",
-   "kind": "market",
-   "id": "otc",
-   "symbol": "OTC",
-   "name": "OTC",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T01:25:00.304370+00:00",
-   "kind": "market",
-   "id": "b3",
-   "symbol": "B3",
-   "name": "B3 (Base)",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T01:25:00.304370+00:00",
-   "kind": "market",
-   "id": "marlin",
-   "symbol": "POND",
-   "name": "Marlin",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-16T01:25:00.304370+00:00",
    "kind": "market",
@@ -1697,8 +1654,48 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-16T17:28:00.664064+00:00",
+   "kind": "news",
+   "id": "neosoul",
+   "symbol": "DNA",
+   "name": "NeoSoul",
+   "severity": "MAJOR",
+   "title": "NeoSoul's DNA Token to List on Binance and OKX on October 16 - The Manila Times",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQdFc1cXlBbUZRb0FqdDkyQ1EyQ19TNmppU2N2Q2UzNHFMY1NCbklMMWJyVUZzUEM5ZXFLaHFXVC1xc2JoRl9TMVJXY2o3b3BlVEdzU1NsNVlBX0NhWm1ONnQ1WnJfYlRnX2N0SFpxWXhnMDJmc0xiNnhPdzJiODY0b1d4ZXFfSHhoelVhazZmUVNZc0Y2a05OOGxEN1hZOURDSFU0cTVKZl9sam44ZU9DazFUNFJ2aXF6aUo4R3BLQ2E3Sy1ZS3dDaHpR0gHPAUFVX3lxTE1HRWJ2SU5lMjFIcHY1d3Y1WGxtWkNUbTRwdW1CLUtmOHBvUzFDUHMwblhFcS13dXJrMFRoRzdWYXZ1RVZMc2laTVhEak5ENWhHRHliZDdVQUt5dWs0UFpMVkhuVUk3NzlVRWJ1b0JjdGJiSGVrdEVLV2JRb25HZVl5U2R1ZTRndW4tSWRfT0ctZnYxdVVzblUyZlpQM3RwRzUyNUMydkpzSGhFVFFKNUpTY3REeW9ZeE1VaHF1eWZya05mczVrX2hvdWI2aEZ6NA?oc=5"
+  },
+  {
+   "t": "2026-10-16T17:28:00.664064+00:00",
+   "kind": "market",
+   "id": "amp-token",
+   "symbol": "AMP",
+   "name": "Amp",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T17:28:00.664064+00:00",
+   "kind": "market",
+   "id": "based-one",
+   "symbol": "BASED",
+   "name": "Based",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T17:28:00.664064+00:00",
+   "kind": "market",
+   "id": "dex-solana-HgTGdc29D5bDMrDvsCLnorxz899VyDj7ZN7FPa6vpump",
+   "symbol": "VEIL",
+   "name": "Veil",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-16T13:13:10.795311+00:00"
+ "updated": "2026-10-16T17:28:00.664064+00:00"
 }
