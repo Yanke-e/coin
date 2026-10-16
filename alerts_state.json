@@ -828,7 +828,10 @@
   "e40f2e3cccd09f34": "2026-10-16T01:25:00.304370+00:00",
   "c72bc724e4cb1b91": "2026-10-16T01:25:00.304370+00:00",
   "f25edff48b689e88": "2026-10-16T04:25:22.437632+00:00",
-  "a5acebdc780fe4cc": "2026-10-16T04:25:22.437632+00:00"
+  "a5acebdc780fe4cc": "2026-10-16T04:25:22.437632+00:00",
+  "456f92b612fefd2e": "2026-10-16T12:29:04.608181+00:00",
+  "289d4fd01bd563ef": "2026-10-16T12:29:04.608181+00:00",
+  "8537d855ab52264f": "2026-10-16T12:29:04.608181+00:00"
  },
  "last_alert": {
   "superform:accumulation": "2026-10-10T05:45:36.970221+00:00",
@@ -854,7 +857,7 @@
   "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump:ignition": "2026-10-10T18:39:46.647950+00:00",
   "elizaos:zeroignite": "2026-10-11T23:39:38.435795+00:00",
   "hooked:ignition": "2026-10-13T11:43:10.130487+00:00",
-  "nearkat-2:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "nearkat-2:ignition": "2026-10-16T12:29:04.608181+00:00",
   "zeus-network:zeroignite": "2026-10-11T23:39:38.435795+00:00",
   "jean-phil:ignition": "2026-10-16T04:25:22.437632+00:00",
   "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump:ignition": "2026-10-12T05:50:28.447069+00:00",
@@ -874,7 +877,7 @@
   "forta:ignition": "2026-10-16T04:25:22.437632+00:00",
   "magic:ignition": "2026-10-11T23:39:38.435795+00:00",
   "the-stonks-exchange:ignition": "2026-10-15T15:05:14.685764+00:00",
-  "hot-bot:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "hot-bot:ignition": "2026-10-16T12:29:04.608181+00:00",
   "hot-bot:zeroignite": "2026-10-10T14:26:45.775239+00:00",
   "gstock:ignition": "2026-10-15T23:02:59.577028+00:00",
   "dex-solana-9XKzy4KahcZaGJPJtz1PtqGPB3CiseoBrx7TcQhEpump:ignition": "2026-10-12T05:50:28.447069+00:00",
@@ -900,10 +903,8 @@
   "dex-solana-EEpng77ZPn9FbgbT4xsRjwuxNCcMBYq3HTwEscyTpump:ignition": "2026-10-09T20:51:14.138372+00:00",
   "kaia:ignition": "2026-10-10T00:55:37.988760+00:00",
   "allinu:ignition": "2026-10-16T07:14:42.055085+00:00",
-  "justice-for-heehaw:ignition": "2026-10-09T09:09:57.438621+00:00",
   "ben-pasternak:zeroignite": "2026-10-12T07:25:17.785593+00:00",
   "dex-solana-a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump:zeroignite": "2026-10-10T00:55:37.988760+00:00",
-  "justice-for-heehaw:zeroignite": "2026-10-09T09:09:57.438621+00:00",
   "zhong-guo-ren-neng-fei:ignition": "2026-10-11T15:45:39.293552+00:00",
   "dex-solana-HzYCHqAN2uoHGRnL9v2ChCfFQX3bvJuJd5zu2Hd5MZQy:ignition": "2026-10-10T14:26:45.775239+00:00",
   "zhong-guo-ren-neng-fei:zeroignite": "2026-10-10T05:45:36.970221+00:00",
@@ -925,7 +926,7 @@
   "mina-protocol:ignition": "2026-10-10T05:45:36.970221+00:00",
   "optimism:ignition": "2026-10-13T21:18:48.527888+00:00",
   "musebook:ignition": "2026-10-14T13:40:16.240172+00:00",
-  "programmable-2:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "programmable-2:ignition": "2026-10-16T12:29:04.608181+00:00",
   "pixels:zeroignite": "2026-10-10T05:45:36.970221+00:00",
   "dex-bsc-0x13920fe6467E9e3c852B8D365A036c995F0F7777:ignition": "2026-10-10T05:45:36.970221+00:00",
   "qompute:ignition": "2026-10-10T05:45:36.970221+00:00",
@@ -950,7 +951,7 @@
   "paperstrategy:zeroignite": "2026-10-13T16:03:31.599515+00:00",
   "district0x:ignition": "2026-10-10T20:02:31.380695+00:00",
   "dex-solana-8k4sBtEeK4pf26noKqApv8NBTnuSJcbdwpKYknk5PbAA:ignition": "2026-10-10T20:02:31.380695+00:00",
-  "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM:ignition": "2026-10-16T12:29:04.608181+00:00",
   "dkargo:ignition": "2026-10-11T14:53:49.573854+00:00",
   "xpla:ignition": "2026-10-11T01:57:17.346878+00:00",
   "the-official-67-coin:ignition": "2026-10-11T05:40:23.120051+00:00",
@@ -991,7 +992,7 @@
   "redstone-oracles:accumulation": "2026-10-12T17:50:14.443225+00:00",
   "metis-token:accumulation": "2026-10-12T17:50:14.443225+00:00",
   "leisuremeta:accumulation": "2026-10-12T17:50:14.443225+00:00",
-  "commander-vrax-2:ignition": "2026-10-15T22:23:31.338787+00:00",
+  "commander-vrax-2:ignition": "2026-10-16T12:29:04.608181+00:00",
   "altlayer:accumulation": "2026-10-12T17:50:14.443225+00:00",
   "certik:accumulation": "2026-10-13T00:45:44.637382+00:00",
   "dex-solana-DzMwArmdzPqcqgvyqAmTxy79XdA9NwK9mMteqWLJpump:ignition": "2026-10-13T00:45:44.637382+00:00",
@@ -1001,7 +1002,7 @@
   "dex-ethereum-0x918F03d7727AAD7b68F9048DABdd7C1BFbF4a959:ignition": "2026-10-13T01:59:39.611031+00:00",
   "puffer-finance:ignition": "2026-10-15T22:23:31.338787+00:00",
   "solidus-aitech:ignition": "2026-10-13T21:18:48.527888+00:00",
-  "zip-coin:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "zip-coin:ignition": "2026-10-16T12:29:04.608181+00:00",
   "safepal:accumulation": "2026-10-13T07:46:34.517439+00:00",
   "safe:accumulation": "2026-10-13T07:46:34.517439+00:00",
   "stader:ignition": "2026-10-14T00:22:24.741131+00:00",
@@ -1071,10 +1072,10 @@
   "nexpace:ignition": "2026-10-15T19:12:25.548907+00:00",
   "dex-ethereum-0x4E67DB19044549fF420860834c91b45BaD298722:ignition": "2026-10-16T07:14:42.055085+00:00",
   "marinade:accumulation": "2026-10-15T19:51:57.494691+00:00",
-  "zip-coin:zeroignite": "2026-10-15T19:51:57.494691+00:00",
-  "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T:ignition": "2026-10-15T19:51:57.494691+00:00",
+  "zip-coin:zeroignite": "2026-10-16T12:29:04.608181+00:00",
+  "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T:ignition": "2026-10-16T12:29:04.608181+00:00",
   "dex-solana-HgTGdc29D5bDMrDvsCLnorxz899VyDj7ZN7FPa6vpump:ignition": "2026-10-15T19:51:57.494691+00:00",
-  "impossible-cloud-network-token:ignition": "2026-10-15T22:23:31.338787+00:00",
+  "impossible-cloud-network-token:ignition": "2026-10-16T12:29:04.608181+00:00",
   "nearly:ignition": "2026-10-15T23:02:59.577028+00:00",
   "milk-alliance:ignition": "2026-10-16T01:25:00.304370+00:00",
   "b3:ignition": "2026-10-16T01:25:00.304370+00:00",
@@ -1087,169 +1088,13 @@
   "initia:ignition": "2026-10-16T04:25:22.437632+00:00",
   "commander-vrax-4:ignition": "2026-10-16T04:25:22.437632+00:00",
   "layerzero:ignition": "2026-10-16T04:25:22.437632+00:00",
-  "commander-vrax-4:zeroignite": "2026-10-16T04:25:22.437632+00:00"
+  "commander-vrax-4:zeroignite": "2026-10-16T04:25:22.437632+00:00",
+  "prometeus:accumulation": "2026-10-16T12:29:04.608181+00:00",
+  "brew:ignition": "2026-10-16T12:29:04.608181+00:00",
+  "canopy:accumulation": "2026-10-16T12:29:04.608181+00:00",
+  "dex-solana-MukLDtJ8Cx9DxLbeyLRSWPSposTMWuwHANbuaudpump:zeroignite": "2026-10-16T12:29:04.608181+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-15T19:12:25.548907+00:00",
-   "kind": "market",
-   "id": "zksync",
-   "symbol": "ZK",
-   "name": "ZKsync",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:12:25.548907+00:00",
-   "kind": "market",
-   "id": "allinu",
-   "symbol": "ALLINU",
-   "name": "ALLINU",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:12:25.548907+00:00",
-   "kind": "market",
-   "id": "dex-ethereum-0x4E67DB19044549fF420860834c91b45BaD298722",
-   "symbol": "ZC",
-   "name": "zipcoin",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:12:25.548907+00:00",
-   "kind": "market",
-   "id": "basic-attention-token",
-   "symbol": "BAT",
-   "name": "Basic Attention",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "zip-coin",
-   "symbol": "ZC",
-   "name": "Zip coin",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "marinade",
-   "symbol": "MNDE",
-   "name": "Marinade",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "nearkat-2",
-   "symbol": "NEARKAT",
-   "name": "NearKat",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "programmable-2",
-   "symbol": "V4",
-   "name": "Programmable",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "zip-coin",
-   "symbol": "ZC",
-   "name": "Zip coin",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T",
-   "symbol": "SAINDRA",
-   "name": "Saindra",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
-   "symbol": "CLAUDIA",
-   "name": "Claudia",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "dex-solana-HgTGdc29D5bDMrDvsCLnorxz899VyDj7ZN7FPa6vpump",
-   "symbol": "VEIL",
-   "name": "Veil",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "hot-bot",
-   "symbol": "HOTBOT",
-   "name": "Hot Bot",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T19:51:57.494691+00:00",
-   "kind": "market",
-   "id": "priors-agent",
-   "symbol": "PRIORS",
-   "name": "Priors Agents",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-15T22:23:31.338787+00:00",
-   "kind": "news",
-   "id": "pons",
-   "symbol": "PONS",
-   "name": "Pons",
-   "severity": "MAJOR",
-   "title": "Binance New Listing: NeoSoul Hits Alpha Oct 16 as PONS and XDP Sink, but $11.2M Backs Pepeto's 100x Shot - openPR.com",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPY1o0TXRSM1VyS1pBajdPeVd5UXdTZ2pEY3NFQUUyMmY4RW5rYXJfMFpkOWFZZDZsbmdFMjFZNkNRdkFEc2hhSzAwaU5iU1V4YTZtbEF6ajdEY0NabW5iLU8wclItM2hHdDRsRV8zNDFzdXUtSURUaVByWGo0TklNUU5aOWt3U0JGZkFja3p1ZHJzMzZwNFZKUEdtWTZDdw?oc=5"
-  },
-  {
-   "t": "2026-10-15T22:23:31.338787+00:00",
-   "kind": "news",
-   "id": "river",
-   "symbol": "RIVER",
-   "name": "River",
-   "severity": "NOTABLE",
-   "title": "Ripple Boosts RLUSD With Cross River Banking Integration - TronWeekly",
-   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE41UFppZk9HVUZ6VTdDSnNFVV90V1FqdVB3MW91UUpKNDE2OU1iV0xwMHR3UjRkUTVIYktnMzl5Y2lnRkJpWEsyYV9Nbm9WanA2dm9zb1VxN1RXTEhRUEREaEZQQkNOWFpSM243YzY1OXFNTFJ4cnU4LQ?oc=5"
-  },
   {
    "t": "2026-10-15T22:23:31.338787+00:00",
    "kind": "market",
@@ -1689,8 +1534,168 @@
    "severity": "WATCH",
    "title": "Micro-cap ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "news",
+   "id": "gains-network",
+   "symbol": "GAINS",
+   "name": "Gains",
+   "severity": "MAJOR",
+   "title": "New Crypto: AlphaPepe Eyes Binance Listing, Could Its $0.03335 Presale Entry Deliver Bigger Gains Than Quant? - openPR.com",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOODBHUzNKOHFlUmU0S3FTazY1S3RXRzhsWmtfeVNkLUpVSmZrWHNMSTc3V2NUWDFYWDFld3EyRnoyWGFwTlFVYS1hcWk2N3JNYUNTUFFyeE9XbzZtSnFpbjRkNlZiTmt2QjZFRHBGSEJwUnNCY2xUVmYtcm1PcGN5TVpfWkg4VmowZU1CNmNpZ1pqZlFKTGlmcGNWVQ?oc=5"
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "news",
+   "id": "quant-network",
+   "symbol": "QNT",
+   "name": "Quant",
+   "severity": "MAJOR",
+   "title": "New Crypto: AlphaPepe Eyes Binance Listing, Could Its $0.03335 Presale Entry Deliver Bigger Gains Than Quant? - openPR.com",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOODBHUzNKOHFlUmU0S3FTazY1S3RXRzhsWmtfeVNkLUpVSmZrWHNMSTc3V2NUWDFYWDFld3EyRnoyWGFwTlFVYS1hcWk2N3JNYUNTUFFyeE9XbzZtSnFpbjRkNlZiTmt2QjZFRHBGSEJwUnNCY2xUVmYtcm1PcGN5TVpfWkg4VmowZU1CNmNpZ1pqZlFKTGlmcGNWVQ?oc=5"
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "news",
+   "id": "uniswap",
+   "symbol": "UNI",
+   "name": "Uniswap",
+   "severity": "MAJOR",
+   "title": "CME Is Launching Uniswap and Bitcoin Cash Futures. Do Futures Actually Move Prices? - 24/7 Wall St.",
+   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPV1E1eHgtUFRXWmpaNC1Rc3lCWlhKT1daVm9ZMm5LVXJpSkV1b0hXSENXU19Xd1VrOFZUWi1kLXJtdzd4SGdHQTA3YlNsTlJ2U1RHWFBuNHhQUUJ5a3o5SC1fb1UzWFVxSnB1LWZHUUlXdGllQldmdFRNd01vcUJ6SXMzU1hSTkdUMXNJMlMwemhSWGN0aXhENGc0eHBFOGoxZ1dyRW5ZblFUM1VWMmlzbzdvWTNld01XeFRCMWJhT0h5anNTckRwNGhBdzBJUklJRkY0Rlk4dw?oc=5"
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "zip-coin",
+   "symbol": "ZC",
+   "name": "Zip coin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "programmable-2",
+   "symbol": "V4",
+   "name": "Programmable",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "nearkat-2",
+   "symbol": "NEARKAT",
+   "name": "NearKat",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "prometeus",
+   "symbol": "PROM",
+   "name": "Prom",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "brew",
+   "symbol": "BREW",
+   "name": "BREW",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "impossible-cloud-network-token",
+   "symbol": "ICNT",
+   "name": "Impossible Cloud Network Token",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "zip-coin",
+   "symbol": "ZC",
+   "name": "Zip coin",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
+   "symbol": "CLAUDIA",
+   "name": "Claudia",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "canopy",
+   "symbol": "CNPY",
+   "name": "Canopy",
+   "severity": "WATCH",
+   "title": "Stealth accumulation",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T",
+   "symbol": "SAINDRA",
+   "name": "Saindra",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "dex-solana-MukLDtJ8Cx9DxLbeyLRSWPSposTMWuwHANbuaudpump",
+   "symbol": "OTC",
+   "name": "OTC",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "hot-bot",
+   "symbol": "HOTBOT",
+   "name": "Hot Bot",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-16T12:29:04.608181+00:00",
+   "kind": "market",
+   "id": "commander-vrax-2",
+   "symbol": "VRAX",
+   "name": "Commander Vrax",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-16T07:14:42.055085+00:00"
+ "updated": "2026-10-16T12:29:04.608181+00:00"
 }
