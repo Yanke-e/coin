@@ -854,7 +854,7 @@
   "zzz-2:ignition": "2026-10-15T22:23:31.338787+00:00",
   "cets-on-gold:ignition": "2026-10-15T15:05:14.685764+00:00",
   "crawlnet:zeroignite": "2026-10-10T13:46:57.552717+00:00",
-  "forta:ignition": "2026-10-16T04:25:22.437632+00:00",
+  "forta:ignition": "2026-10-16T23:38:28.020058+00:00",
   "magic:ignition": "2026-10-11T23:39:38.435795+00:00",
   "the-stonks-exchange:ignition": "2026-10-15T15:05:14.685764+00:00",
   "hot-bot:ignition": "2026-10-16T12:29:04.608181+00:00",
@@ -1078,16 +1078,6 @@
   "aligned:accumulation": "2026-10-16T21:14:59.991825+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-16T04:25:22.437632+00:00",
-   "kind": "market",
-   "id": "initia",
-   "symbol": "INIT",
-   "name": "Initia",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-16T04:25:22.437632+00:00",
    "kind": "market",
@@ -1677,8 +1667,18 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-16T23:38:28.020058+00:00",
+   "kind": "market",
+   "id": "forta",
+   "symbol": "FORT",
+   "name": "Forta",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-16T22:48:35.655546+00:00"
+ "updated": "2026-10-16T23:38:28.020058+00:00"
 }
