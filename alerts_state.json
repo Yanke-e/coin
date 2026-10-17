@@ -825,7 +825,8 @@
   "a2554f0df49719e0": "2026-10-16T17:28:00.664064+00:00",
   "6dd0d769c19b0c8d": "2026-10-16T22:48:35.655546+00:00",
   "0fb96d42c6326a6d": "2026-10-17T04:19:33.372005+00:00",
-  "5887b4271a437d30": "2026-10-17T09:26:05.919016+00:00"
+  "5887b4271a437d30": "2026-10-17T09:26:05.919016+00:00",
+  "168f0d8788329e1c": "2026-10-17T13:46:05.093017+00:00"
  },
  "last_alert": {
   "zentry:accumulation": "2026-10-13T01:59:39.611031+00:00",
@@ -841,7 +842,7 @@
   "zeus-network:ignition": "2026-10-17T12:09:15.688868+00:00",
   "elizaos:ignition": "2026-10-17T12:09:15.688868+00:00",
   "dex-solana-BXoHJddsWJLHtAopeiSbKUSELsu8hSFMs8baGMDkpump:ignition": "2026-10-10T18:39:46.647950+00:00",
-  "elizaos:zeroignite": "2026-10-11T23:39:38.435795+00:00",
+  "elizaos:zeroignite": "2026-10-17T13:46:05.093017+00:00",
   "hooked:ignition": "2026-10-13T11:43:10.130487+00:00",
   "nearkat-2:ignition": "2026-10-16T12:29:04.608181+00:00",
   "zeus-network:zeroignite": "2026-10-11T23:39:38.435795+00:00",
@@ -852,7 +853,7 @@
   "cat-wif-sword-2:zeroignite": "2026-10-13T23:42:56.110765+00:00",
   "agency:ignition": "2026-10-10T13:46:57.552717+00:00",
   "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:ignition": "2026-10-17T12:09:15.688868+00:00",
-  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-11T23:39:38.435795+00:00",
+  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-17T13:46:05.093017+00:00",
   "paid:ignition": "2026-10-13T07:46:34.517439+00:00",
   "crawlnet:ignition": "2026-10-10T13:46:57.552717+00:00",
   "zzz-2:ignition": "2026-10-15T22:23:31.338787+00:00",
@@ -1004,7 +1005,7 @@
   "quickswap:zerohunt": "2026-10-17T12:09:15.688868+00:00",
   "neon:ignition": "2026-10-17T12:09:15.688868+00:00",
   "deep:ignition": "2026-10-14T11:58:51.985848+00:00",
-  "doge-pepe:ignition": "2026-10-14T13:40:16.240172+00:00",
+  "doge-pepe:ignition": "2026-10-17T13:46:05.093017+00:00",
   "quickswap:ignition": "2026-10-17T09:26:05.919016+00:00",
   "layer3:ignition": "2026-10-14T17:16:17.920762+00:00",
   "axelar:ignition": "2026-10-14T17:16:17.920762+00:00",
@@ -1015,7 +1016,7 @@
   "mubarak:ignition": "2026-10-14T20:11:01.454873+00:00",
   "frankencoin:accumulation": "2026-10-14T20:11:01.454873+00:00",
   "dex-ethereum-0x73dF7018Cbcb919CCdE48c3f12F4326688aC4446:ignition": "2026-10-14T20:11:01.454873+00:00",
-  "claus-2:ignition": "2026-10-16T22:48:35.655546+00:00",
+  "claus-2:ignition": "2026-10-17T13:46:05.093017+00:00",
   "dex-ethereum-0xba41FF65Fd0a19Aa75dd4E6a04E9D3c15acaB887:ignition": "2026-10-14T23:11:33.897683+00:00",
   "dex-solana-7b6dX3nE25xrfNViEKZHL9wVJFcBxQYuWPpmzHUxx28H:ignition": "2026-10-14T23:11:33.897683+00:00",
   "nillion:ignition": "2026-10-15T15:05:14.685764+00:00",
@@ -1071,69 +1072,10 @@
   "aligned:accumulation": "2026-10-16T21:14:59.991825+00:00",
   "dusk-network:ignition": "2026-10-17T04:19:33.372005+00:00",
   "quickswap:zeroignite": "2026-10-17T09:26:05.919016+00:00",
-  "neon:zeroignite": "2026-10-17T12:09:15.688868+00:00"
+  "neon:zeroignite": "2026-10-17T12:09:15.688868+00:00",
+  "claus-2:zeroignite": "2026-10-17T13:46:05.093017+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-16T12:29:04.608181+00:00",
-   "kind": "market",
-   "id": "brew",
-   "symbol": "BREW",
-   "name": "BREW",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T12:29:04.608181+00:00",
-   "kind": "market",
-   "id": "impossible-cloud-network-token",
-   "symbol": "ICNT",
-   "name": "Impossible Cloud Network Token",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T12:29:04.608181+00:00",
-   "kind": "market",
-   "id": "zip-coin",
-   "symbol": "ZC",
-   "name": "Zip coin",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T12:29:04.608181+00:00",
-   "kind": "market",
-   "id": "dex-solana-2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
-   "symbol": "CLAUDIA",
-   "name": "Claudia",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T12:29:04.608181+00:00",
-   "kind": "market",
-   "id": "canopy",
-   "symbol": "CNPY",
-   "name": "Canopy",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T12:29:04.608181+00:00",
-   "kind": "market",
-   "id": "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T",
-   "symbol": "SAINDRA",
-   "name": "Saindra",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-16T12:29:04.608181+00:00",
    "kind": "market",
@@ -1673,8 +1615,68 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-17T13:46:05.093017+00:00",
+   "kind": "news",
+   "id": "hedera-hashgraph",
+   "symbol": "HBAR",
+   "name": "Hedera",
+   "severity": "MAJOR",
+   "title": "HBAR Price Prediction 2026: Robinhood Stocks Go Live on Hedera, but Pepeto Eyes a 100x Run Before Its Listing - openPR.com",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNOEJxMGtRbnBuTjhnT1BvZVQ5N2NEdC1pQU9HZ185X1Q3VUpFUVRoNzJ0UTlwZFR0bUktUG1pNl9SRUdkWkR1cnRMY0Z6bkYwNGs1N0JTYkE5Y2xTeUNCcmJTTnY4UF85N0VWTUpBUUNhNExTQWlNdUZiMUYyT2p0eG9Kc3MwUjZSVmY4Z0RSVmktZ3JTRU9aQlJUMXd6UQ?oc=5"
+  },
+  {
+   "t": "2026-10-17T13:46:05.093017+00:00",
+   "kind": "market",
+   "id": "claus-2",
+   "symbol": "CLAUS",
+   "name": "claus",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-17T13:46:05.093017+00:00",
+   "kind": "market",
+   "id": "elizaos",
+   "symbol": "ELIZAOS",
+   "name": "ElizaOS",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-17T13:46:05.093017+00:00",
+   "kind": "market",
+   "id": "doge-pepe",
+   "symbol": "DOPE",
+   "name": "Doge Pepe",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-17T13:46:05.093017+00:00",
+   "kind": "market",
+   "id": "claus-2",
+   "symbol": "CLAUS",
+   "name": "claus",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-17T13:46:05.093017+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478",
+   "symbol": "ELIZAOS",
+   "name": "elizaOS",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-17T12:09:15.688868+00:00"
+ "updated": "2026-10-17T13:46:05.093017+00:00"
 }
