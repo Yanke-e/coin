@@ -846,7 +846,7 @@
   "paid:ignition": "2026-10-13T07:46:34.517439+00:00",
   "zzz-2:ignition": "2026-10-15T22:23:31.338787+00:00",
   "cets-on-gold:ignition": "2026-10-15T15:05:14.685764+00:00",
-  "forta:ignition": "2026-10-16T23:38:28.020058+00:00",
+  "forta:ignition": "2026-10-17T17:15:24.537370+00:00",
   "magic:ignition": "2026-10-11T23:39:38.435795+00:00",
   "the-stonks-exchange:ignition": "2026-10-15T15:05:14.685764+00:00",
   "hot-bot:ignition": "2026-10-16T12:29:04.608181+00:00",
@@ -1026,7 +1026,7 @@
   "zip-coin:zeroignite": "2026-10-16T12:29:04.608181+00:00",
   "dex-solana-A2yA6AFtfKkfVkfsnGpvsKoUV5kQPpMYboZsBPvmkA9T:ignition": "2026-10-16T12:29:04.608181+00:00",
   "dex-solana-HgTGdc29D5bDMrDvsCLnorxz899VyDj7ZN7FPa6vpump:ignition": "2026-10-16T17:28:00.664064+00:00",
-  "impossible-cloud-network-token:ignition": "2026-10-17T04:19:33.372005+00:00",
+  "impossible-cloud-network-token:ignition": "2026-10-17T17:15:24.537370+00:00",
   "nearly:ignition": "2026-10-15T23:02:59.577028+00:00",
   "milk-alliance:ignition": "2026-10-16T01:25:00.304370+00:00",
   "b3:ignition": "2026-10-16T21:14:59.991825+00:00",
@@ -1061,26 +1061,6 @@
   "dex-solana-DFMt2FyLpB6ekPNAzVErLXgpSnJ9CRf1VnxBAkTLpump:ignition": "2026-10-17T15:28:56.856362+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-16T13:13:10.795311+00:00",
-   "kind": "market",
-   "id": "dex-solana-2nP9yKQNSGQy851iyawDvBkzkK2R2aqKArQCKc2gpump",
-   "symbol": "PSYOPANIME",
-   "name": "PsyopAnime",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T13:13:10.795311+00:00",
-   "kind": "market",
-   "id": "dex-solana-2nP9yKQNSGQy851iyawDvBkzkK2R2aqKArQCKc2gpump",
-   "symbol": "PSYOPANIME",
-   "name": "PsyopAnime",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-16T17:28:00.664064+00:00",
    "kind": "news",
@@ -1660,8 +1640,28 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-17T17:15:24.537370+00:00",
+   "kind": "market",
+   "id": "forta",
+   "symbol": "FORT",
+   "name": "Forta",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-17T17:15:24.537370+00:00",
+   "kind": "market",
+   "id": "impossible-cloud-network-token",
+   "symbol": "ICNT",
+   "name": "Impossible Cloud Network Token",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-17T15:28:56.856362+00:00"
+ "updated": "2026-10-17T17:15:24.537370+00:00"
 }
