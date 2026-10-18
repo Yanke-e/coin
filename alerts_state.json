@@ -920,7 +920,7 @@
   "redstone-oracles:accumulation": "2026-10-12T17:50:14.443225+00:00",
   "metis-token:accumulation": "2026-10-12T17:50:14.443225+00:00",
   "leisuremeta:accumulation": "2026-10-12T17:50:14.443225+00:00",
-  "commander-vrax-2:ignition": "2026-10-17T12:09:15.688868+00:00",
+  "commander-vrax-2:ignition": "2026-10-18T14:38:04.796570+00:00",
   "altlayer:accumulation": "2026-10-12T17:50:14.443225+00:00",
   "certik:accumulation": "2026-10-13T00:45:44.637382+00:00",
   "dex-solana-DzMwArmdzPqcqgvyqAmTxy79XdA9NwK9mMteqWLJpump:ignition": "2026-10-13T00:45:44.637382+00:00",
@@ -1049,39 +1049,11 @@
   "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:accumulation": "2026-10-18T12:35:54.798551+00:00",
   "aura-final-boss:ignition": "2026-10-18T12:35:54.798551+00:00",
   "dex-solana-5yC9BM8KUsJTPbWPLfA2N8qH1s9V8DQ3Vcw1G6Jdpump:zeroignite": "2026-10-18T12:35:54.798551+00:00",
-  "neosoul:accumulation": "2026-10-18T12:35:54.798551+00:00"
+  "neosoul:accumulation": "2026-10-18T12:35:54.798551+00:00",
+  "quark-chain:ignition": "2026-10-18T14:38:04.796570+00:00",
+  "torch:ignition": "2026-10-18T14:38:04.796570+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-17T13:46:05.093017+00:00",
-   "kind": "market",
-   "id": "doge-pepe",
-   "symbol": "DOPE",
-   "name": "Doge Pepe",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-17T13:46:05.093017+00:00",
-   "kind": "market",
-   "id": "claus-2",
-   "symbol": "CLAUS",
-   "name": "claus",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-17T13:46:05.093017+00:00",
-   "kind": "market",
-   "id": "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478",
-   "symbol": "ELIZAOS",
-   "name": "elizaOS",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-17T15:28:56.856362+00:00",
    "kind": "news",
@@ -1651,8 +1623,38 @@
    "severity": "WATCH",
    "title": "Stealth accumulation",
    "url": ""
+  },
+  {
+   "t": "2026-10-18T14:38:04.796570+00:00",
+   "kind": "market",
+   "id": "quark-chain",
+   "symbol": "QKC",
+   "name": "QuarkChain",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T14:38:04.796570+00:00",
+   "kind": "market",
+   "id": "torch",
+   "symbol": "TORCH",
+   "name": "torch",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T14:38:04.796570+00:00",
+   "kind": "market",
+   "id": "commander-vrax-2",
+   "symbol": "VRAX",
+   "name": "Commander Vrax",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-18T12:35:54.798551+00:00"
+ "updated": "2026-10-18T14:38:04.796570+00:00"
 }
