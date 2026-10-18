@@ -824,7 +824,10 @@
   "8e6536219b5e75d3": "2026-10-17T15:28:56.856362+00:00",
   "5b34095561bdded7": "2026-10-17T18:27:09.575161+00:00",
   "bcfd46773275c8c5": "2026-10-17T22:15:19.938186+00:00",
-  "24c09b1c10fc630e": "2026-10-17T22:15:19.938186+00:00"
+  "24c09b1c10fc630e": "2026-10-17T22:15:19.938186+00:00",
+  "4d4f8c60adceaf83": "2026-10-18T01:07:01.996496+00:00",
+  "238830e9eaf0cbb2": "2026-10-18T01:07:01.996496+00:00",
+  "98c8ebdeb4795698": "2026-10-18T01:07:01.996496+00:00"
  },
  "last_alert": {
   "zentry:accumulation": "2026-10-13T01:59:39.611031+00:00",
@@ -836,7 +839,7 @@
   "knots:ignition": "2026-10-12T05:50:28.447069+00:00",
   "knots:zeroignite": "2026-10-11T20:13:33.699811+00:00",
   "zeus-network:ignition": "2026-10-17T12:09:15.688868+00:00",
-  "elizaos:ignition": "2026-10-17T12:09:15.688868+00:00",
+  "elizaos:ignition": "2026-10-18T01:07:01.996496+00:00",
   "elizaos:zeroignite": "2026-10-17T13:46:05.093017+00:00",
   "hooked:ignition": "2026-10-13T11:43:10.130487+00:00",
   "nearkat-2:ignition": "2026-10-16T12:29:04.608181+00:00",
@@ -845,7 +848,7 @@
   "dex-solana-DoVAVzViX8Bjy3r15nwikSaSbzE6dV4ovd28aWpJpump:ignition": "2026-10-12T05:50:28.447069+00:00",
   "cat-wif-sword-2:ignition": "2026-10-13T23:42:56.110765+00:00",
   "cat-wif-sword-2:zeroignite": "2026-10-13T23:42:56.110765+00:00",
-  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:ignition": "2026-10-17T12:09:15.688868+00:00",
+  "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:ignition": "2026-10-18T01:07:01.996496+00:00",
   "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478:zeroignite": "2026-10-17T13:46:05.093017+00:00",
   "paid:ignition": "2026-10-13T07:46:34.517439+00:00",
   "zzz-2:ignition": "2026-10-15T22:23:31.338787+00:00",
@@ -887,9 +890,9 @@
   "musebook:ignition": "2026-10-14T13:40:16.240172+00:00",
   "programmable-2:ignition": "2026-10-16T12:29:04.608181+00:00",
   "lumia:ignition": "2026-10-11T14:53:49.573854+00:00",
-  "caldera:ignition": "2026-10-17T09:26:05.919016+00:00",
+  "caldera:ignition": "2026-10-18T01:07:01.996496+00:00",
   "bordrless:ignition": "2026-10-17T15:28:56.856362+00:00",
-  "bordrless:zeroignite": "2026-10-14T11:58:51.985848+00:00",
+  "bordrless:zeroignite": "2026-10-18T01:07:01.996496+00:00",
   "paperstrategy:ignition": "2026-10-16T07:14:42.055085+00:00",
   "cyberleek:ignition": "2026-10-15T13:22:42.182867+00:00",
   "octo-gaming:ignition": "2026-10-13T07:46:34.517439+00:00",
@@ -948,7 +951,7 @@
   "4stock:ignition": "2026-10-13T01:59:39.611031+00:00",
   "moby-ai:zeroignite": "2026-10-13T16:03:31.599515+00:00",
   "dex-ethereum-0x918F03d7727AAD7b68F9048DABdd7C1BFbF4a959:ignition": "2026-10-13T01:59:39.611031+00:00",
-  "puffer-finance:ignition": "2026-10-15T22:23:31.338787+00:00",
+  "puffer-finance:ignition": "2026-10-18T01:07:01.996496+00:00",
   "solidus-aitech:ignition": "2026-10-13T21:18:48.527888+00:00",
   "zip-coin:ignition": "2026-10-16T12:29:04.608181+00:00",
   "safepal:accumulation": "2026-10-13T07:46:34.517439+00:00",
@@ -982,7 +985,7 @@
   "ubik:zeroignite": "2026-10-14T06:11:18.518503+00:00",
   "epic-chain:ignition": "2026-10-17T12:09:15.688868+00:00",
   "quickswap:zerohunt": "2026-10-17T12:09:15.688868+00:00",
-  "neon:ignition": "2026-10-17T12:09:15.688868+00:00",
+  "neon:ignition": "2026-10-18T01:07:01.996496+00:00",
   "deep:ignition": "2026-10-14T11:58:51.985848+00:00",
   "doge-pepe:ignition": "2026-10-17T13:46:05.093017+00:00",
   "quickswap:ignition": "2026-10-17T09:26:05.919016+00:00",
@@ -1057,109 +1060,10 @@
   "the-sandbox:ignition": "2026-10-17T15:28:56.856362+00:00",
   "dex-solana-DFMt2FyLpB6ekPNAzVErLXgpSnJ9CRf1VnxBAkTLpump:ignition": "2026-10-17T15:28:56.856362+00:00",
   "dex-solana-5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump:ignition": "2026-10-17T18:27:09.575161+00:00",
-  "dex-solana-5x6QQvpRpd1PsFTTTJe6sJFFSqrA21H1j3GZLmo2pump:ignition": "2026-10-17T22:15:19.938186+00:00"
+  "dex-solana-5x6QQvpRpd1PsFTTTJe6sJFFSqrA21H1j3GZLmo2pump:ignition": "2026-10-17T22:15:19.938186+00:00",
+  "researchcoin:ignition": "2026-10-18T01:07:01.996496+00:00"
  },
  "history": [
-  {
-   "t": "2026-10-16T19:32:21.932671+00:00",
-   "kind": "market",
-   "id": "siren-2",
-   "symbol": "SIREN",
-   "name": "Siren",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T19:32:21.932671+00:00",
-   "kind": "market",
-   "id": "astronaut-2",
-   "symbol": "ASTRO",
-   "name": "astronaut",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T19:32:21.932671+00:00",
-   "kind": "market",
-   "id": "dex-solana-HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump",
-   "symbol": "SI276",
-   "name": "Super Intelligence SI276",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T19:32:21.932671+00:00",
-   "kind": "market",
-   "id": "astronaut-2",
-   "symbol": "ASTRO",
-   "name": "astronaut",
-   "severity": "WATCH",
-   "title": "Micro-cap ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T21:14:59.991825+00:00",
-   "kind": "market",
-   "id": "b3",
-   "symbol": "B3",
-   "name": "B3 (Base)",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T21:14:59.991825+00:00",
-   "kind": "market",
-   "id": "aligned",
-   "symbol": "ALIGN",
-   "name": "Aligned",
-   "severity": "WATCH",
-   "title": "Stealth accumulation",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T22:48:35.655546+00:00",
-   "kind": "news",
-   "id": "pons",
-   "symbol": "PONS",
-   "name": "Pons",
-   "severity": "MAJOR",
-   "title": "Up 11% after Coinbase, Deribit listing, can PONS breach $0.34 next? - AMBCrypto",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNWTJUR0QxSFRmTHNHOXpNbWF3Z1U4Rm16X1hqWWJWeFdhYk1ET2I0TW9ZMHhYZFVWOUxnS3oxQnFGZVJVNWJVNjRMUHZtSy1uMkNnUlVPSUZmUXYwYUdBVVpLVkxGc0pxclo3OVYxc3ZZYkJXc1kwR3VDOUEyUmNkRWpUT3pfM3NhT2w3ZEN3?oc=5"
-  },
-  {
-   "t": "2026-10-16T22:48:35.655546+00:00",
-   "kind": "market",
-   "id": "apeonfone",
-   "symbol": "FONE",
-   "name": "apeonfone",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T22:48:35.655546+00:00",
-   "kind": "market",
-   "id": "claus-2",
-   "symbol": "CLAUS",
-   "name": "claus",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
-  {
-   "t": "2026-10-16T22:48:35.655546+00:00",
-   "kind": "market",
-   "id": "dex-solana-33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump",
-   "symbol": "DOPE",
-   "name": "Doge Pepe",
-   "severity": "WATCH",
-   "title": "Breakout ignition",
-   "url": ""
-  },
   {
    "t": "2026-10-16T23:38:28.020058+00:00",
    "kind": "market",
@@ -1659,8 +1563,108 @@
    "severity": "WATCH",
    "title": "Breakout ignition",
    "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "news",
+   "id": "four",
+   "symbol": "FORM",
+   "name": "Four",
+   "severity": "MAJOR",
+   "title": "Binance Lists Four Tokenized Stock Pairs Against USDT On October 14 - OneBullEx",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSkZ3X0J5Q21iTGd5Q2JySjZhaWx6RlloYURUbkFSZlhDc2dRRElYaHFzWnR5NDN0Z253RGhEVUZsNUNzVWFiQU9DcDNwU0FjcHRhYXJLS04tbTlmZkZNcGotNTJ4cDAxR1c2SG1aTTQ5LWlUTlJHdnFYZVdzTnFrb3ktNzNyWDhmWVhjNmM2aGlyZ2FzZ180WnBsRkF2VlBGSDhXU0lBaW1XcmM?oc=5"
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "news",
+   "id": "neosoul",
+   "symbol": "DNA",
+   "name": "NeoSoul",
+   "severity": "MAJOR",
+   "title": "Binance New Listing: NeoSoul Jumps 230% on Day One, but Analysts Eye 500x for Pepeto Before Its Own - openPR.com",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVHBhdUR2NEt2eGlfTlprRzJfUC1KSE1sdnZrbm0tT0lDQWNQcmJUWFlrQ2VqcVRCaXZWMHg0LU9HSWlIVi1UbXlhUDhheXNWSUdSVXNvMmdYU1hJOFZaUjhLMUxsOVNQVjlpN2xFOU1xWTdkRHlFcnd4MC1PWi1DRXl0T2REZkdPdFA5NXVMbHFHeTNFX21TRTNMZ2xvUQ?oc=5"
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "news",
+   "id": "river",
+   "symbol": "RIVER",
+   "name": "River",
+   "severity": "NOTABLE",
+   "title": "US-based Cross River Bank Integrates Ripple's RLUSD into Core Banking System - BigGo Finance",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5qNDg4em1IZU5kWFBDa01FTFc0M1JCSmExV1lfeDdiQ0pSRm9WTmpFTko1WllvVk4xX1lRNmxJZkZ5Zk9Td0taY2dOUDFmWTRHX1JzTDVuU00xcFkwLVNtQWdmMVNYQWlHdWZLYkVNMWpYVHJpNFE?oc=5"
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "researchcoin",
+   "symbol": "RSC",
+   "name": "ResearchCoin",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "elizaos",
+   "symbol": "ELIZAOS",
+   "name": "ElizaOS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "neon",
+   "symbol": "NEON",
+   "name": "Neon",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "puffer-finance",
+   "symbol": "PUFFER",
+   "name": "Puffer",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "caldera",
+   "symbol": "ERA",
+   "name": "Caldera",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "dex-bsc-0xea17Df5Cf6D172224892B5477A16ACb111182478",
+   "symbol": "ELIZAOS",
+   "name": "elizaOS",
+   "severity": "WATCH",
+   "title": "Breakout ignition",
+   "url": ""
+  },
+  {
+   "t": "2026-10-18T01:07:01.996496+00:00",
+   "kind": "market",
+   "id": "bordrless",
+   "symbol": "BORDR",
+   "name": "Bordrless",
+   "severity": "WATCH",
+   "title": "Micro-cap ignition",
+   "url": ""
   }
  ],
  "initialized": true,
- "updated": "2026-10-17T22:15:19.938186+00:00"
+ "updated": "2026-10-18T01:07:01.996496+00:00"
 }
