@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T15:54:12.812548+00:00",
+ "generated_at": "2026-10-19T13:48:44.964783+00:00",
  "cases": [
   {
    "label": "Quant (QNT), 2026 institutional breakout",
@@ -382,15 +382,15 @@
    "label": "Volume building (7-day average 1.3x+ the prior 60 days)",
    "spikes_hit": 1,
    "spikes_total": 10,
-   "base_rate_pct": 21.1,
-   "lift": 0.47
+   "base_rate_pct": 21.0,
+   "lift": 0.48
   },
   {
    "key": "beaten_down",
    "label": "Beaten down (50%+ below its prior high)",
    "spikes_hit": 8,
    "spikes_total": 10,
-   "base_rate_pct": 90.4,
+   "base_rate_pct": 90.5,
    "lift": 0.88
   },
   {
